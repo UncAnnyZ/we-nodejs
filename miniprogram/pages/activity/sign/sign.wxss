@@ -1,0 +1,99 @@
+/* pages/page_vip/active/active.wxss */
+ page {
+  background-color: #fff;
+} 
+.activeTotal{
+  padding: 2rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.title{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: -16px;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.activeform{
+  text-align:left;
+  ruby-align:right;
+}
+
+.activer{
+  display: flex;
+  align-items: center;
+  margin-bottom: none;
+  border: none;
+}
+
+.activer text{
+  text-align: right;
+  padding: auto;
+  font-size: 16px;
+  flex-grow: 0.5rem;
+  border-radius: 5rem;
+  border: 1rem;
+  border-color: rgb(90, 90, 90);
+  padding-left: 25px;
+}
+
+.activer input{
+  top: -8px;
+  font-size: 0.7rem;
+  color: black;
+  border-radius: 8rem;
+  box-shadow: 0 0 0.15rem #aaa;
+  padding: 0.25rem;
+  width:50%;
+  position: relative;
+  left: 5%;
+  margin-top: 20px;
+  margin-right: 20px;
+  vertical-align: text-top;
+  padding-left: 25px;
+}
+
+.activers checkbox{
+  text-align: right;
+  padding: auto;
+  font-size: 16px;
+  flex-grow: 0.5rem;
+  border-radius: 5rem;
+  border: 1rem;
+  border-color: black;
+  right: 10px;
+  margin-right: 1rem;
+  padding-left: 8px;
+}
+
+.plaseholder{/*
+  left: -8px;
+  text-align: center;*/
+  font-size: 12px;
+}
+
+.textatea{
+  height: 50px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.15rem #aaa;
+  max-height: 50px;
+  margin-top: 20px;
+}
+
+.submit{
+  height:auto;
+  width:80%;
+  outline: none;
+  padding:0;
+  background-color:rgb(0,178,106);
+  color: white;
+  border: none;
+  text-align: center;
+  line-height:auto;
+  margin-top:1.5rem;
+  margin-bottom: 50px;
+}

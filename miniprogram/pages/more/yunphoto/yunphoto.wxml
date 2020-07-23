@@ -1,0 +1,21 @@
+<!--pages/release/release.wxml-->
+<view class="all">
+
+	<view class="title">
+		<label>输入名字：</label>
+		<input bindinput="set" id="name" value="{{name}}"></input>
+	</view>
+	<view class="image">
+		<block wx:for="{{image}}" wx:key="key">
+			<image src="{{item}}" mode="aspectFit" style="align-self:center;" bindlongpress="delete" id="{{index}}" bindtap="enlarged"></image>
+		</block>
+
+		<!-- 添加图片按钮 -->
+		<image wx:if="{{isShow}}" bindtap="uploadImage" src="cloud://un1-d62c68.756e-un1-d62c68-1258307938/uploadingImage.png" style="width:{{width}}px; height:{{width}}px;"></image>
+	</view>
+	<label wx:if="{{image.length > 0}}" class="del" >(长按图片删除)</label>
+
+
+  <view catchtap="save" class="btn">生成</view>
+
+</view>

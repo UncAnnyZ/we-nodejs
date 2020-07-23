@@ -1,0 +1,75 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  opacity: 0.9;
+}
+.container {
+  border: 1px dolid #aaa;
+  background-color: #f5f5f5;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.user-motto {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px;
+  display: block;
+  color: #aaa;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.userinfo-nickname {
+  color: #aaa;
+}
+.usermotto {
+  margin-top: 20px;
+}
+.usermotto input {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-left: 10px;
+  font-size: 12px;
+  color: #b8b8b8;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 2px solid whitesmoke;
+  border-radius: 5px;
+}
+.usermotto .cp-input {
+  padding: 25px 25px;
+  /*border: 3px solid orange;*/
+}
+.usermotto button {
+  top: 30px;
+  font-weight: bold;
+  color: white;
+  background-color: lightblue;
+  font-size: 14px;
+  width: 70%;
+}
+.usermotto .imagewei {
+  text-align: center;
+}
+.loginbox {
+  background-color: #fff;
+  padding: 31px 10px;
+  /*border: 1px solid #aaa;*/
+}
+.loginicon {
+  width: 30px;
+  height: 20px;
+  padding-right: 10px;
+}
+.loginicon1 {
+  width: 70px;
+  height: 70px;
+}
+

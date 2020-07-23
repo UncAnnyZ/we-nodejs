@@ -1,0 +1,236 @@
+/* pages/calendar/calendar.wxss */
+@import "weui.wxss";
+
+Page {
+  background-color: #fafafa;
+}
+
+.page__hd {
+  padding: 40px;
+}
+
+.page__bd_spacing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.page__ft {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.page__title {
+  color: rgb(0, 0, 0);
+  margin-left: 30rpx;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.page__desc {
+  margin-top: 5px;
+  color: rgb(97, 97, 97);
+  text-align: left;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+
+.panelBK {
+  margin: 25rpx;
+  background-color: #fff;
+  padding: 25rpx 0;
+  border-radius: 25rpx;
+}
+
+.setCenter {
+  text-align: center;
+}
+
+.shareIcon {
+  width: 26px;
+  height: 26px;
+  vertical-align: text-bottom;
+}
+
+.page__bd {
+  margin-top: 30rpx;
+  padding-bottom: 1rpx;
+}
+
+.page__hd {
+  padding: 20rpx 35rpx 0 35rpx;
+}
+
+.weui-items {
+  margin: 30rpx 20rpx;
+}
+
+.weui-item {
+  margin: 30rpx 5rpx;
+  padding: 1rpx;
+  color: #fff;
+  height: 150rpx;
+}
+
+.weui-flex {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.background-1 {
+  background: #8beeff;
+}
+
+.background-2 {
+  background: #ffc2d6;
+}
+
+.background-3 {
+  background: #b6ffea;
+}
+.background-4 {
+  background: #ffb3a2;
+}
+
+.thisWeek {
+  color: #ffffff;
+  background: #b6ffea;
+  height: 450rpx;
+}
+
+.nextWeek {
+  color: #fafafa;
+  background: #4ac3d6;
+  height: 450rpx;
+}
+
+.kaixue {
+  background: #c6e4ff;
+}
+
+.hanshujia {
+  background: #ff6c9d;
+}
+
+.kaoshi {
+  background: #ffb3a2;
+}
+
+.work {
+  color: #ffffff;
+  font-size: 32rpx;
+}
+
+.wraper {
+  /* background: linear-gradient(to right, #77a1d3, #79cbca, #e684ae); */
+  color: #d6eceb;
+  height: 150rpx;
+  border-radius: 15px;
+  text-align: left;
+  margin-top: -50rpx;
+}
+
+.tt {
+  color: #ffffff;
+  margin-bottom: 15rpx;
+  font-size: 42rpx;
+  text-align: center;
+}
+
+.warmtips {
+  text-align: center;
+  color: #e5f6f5;
+  font-size: 42rpx;
+}
+
+.weui-item__title {
+    color: #444444;
+  font-size: 42rpx;
+}
+
+.weui-item__desc {
+  color: #686868;
+  font-size: 28rpx;
+}
+
+.border-shadow {
+  border-radius: 15rpx;
+}
+
+.clear {
+  position: inherit;
+  display: inherit;
+  margin-left: inherit;
+  margin-right: inherit;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: inherit;
+  font-size: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  line-height: inherit;
+  border-radius: inherit;
+  -webkit-tap-highlight-color: inherit;
+  overflow: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+button::after {
+  content: inherit;
+  width: inherit;
+  height: inherit;
+  position: inherit;
+  top: inherit;
+  left: inherit;
+  border: inherit;
+  -webkit-transform: inherit;
+  transform: inherit;
+  -webkit-transform-origin: inherit;
+  transform-origin: inherit;
+  box-sizing: inherit;
+  border-radius: inherit;
+}
+
+.button-sp-area {
+  margin: 0 auto;
+  padding-top: 15px;
+  width: 60%;
+}
+
+.mini-btn {
+  margin-right: 5px;
+}
+
+.login-btn {
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  background: #18febd;
+ color: #010c10;
+  text-align: center;
+  border-radius: 15rpx;
+}
+
+/* 悬浮按钮的 */
+
+.round-click {
+  height: 120rpx;
+  width: 120rpx;
+  background-color: #bc3e49;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 50rpx;
+  right: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+.round-click text {
+  font-size: 32rpx;
+  max-width: 80rpx;
+  color: #fff;
+  text-align: center;
+}

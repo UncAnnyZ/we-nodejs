@@ -1,0 +1,36 @@
+<view class="head wx-head {{show}}">
+  <view class="head-time">
+      <view class="weui-input">你的素拓分哟！
+      </view>
+  </view>
+  <view class="head-title" style='color:coral'>
+    <view>素拓分:
+      <text>{{TotalCredit}}</text>
+    </view>
+  </view>
+</view>
+<view class="main">
+<view class='wx-isclass' style="display: {{isCourse}}">木有素拓哟</view>
+  <view class="list">
+    <block wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+      <view class="data">
+        <view class="data-adj">
+          <view class="upWard" style="background-color:{{id==0?'#fff':'#fff'}}"></view>
+          <view class="dot" style='background-color:{{color[id]}}'></view>
+          <view class="offWard"></view>
+        </view>
+        <view class="grade">
+          <view class="grade-title">
+            <view class="grade-column">{{list[id].ktmc}}</view>
+            <view class="grade-rum">
+              <text>{{list[id].xmjbmc}}</text>
+              <text>状态:{{list[id].shztmc}}</text>
+            </view>
+          </view>
+          <view class="data-score" style='color:{{color[id]}}'>{{list[id].hdxf}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <text>\n</text>
+</view>

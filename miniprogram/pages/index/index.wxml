@@ -1,0 +1,47 @@
+<view class='{{show}}'>
+    <view class="wx-list grid no-border}">
+        <view class="wx-item" wx:for="{{iconList}}"wx:key="1" id="{{item.url}}">
+            <navigator url='../{{item.url}}'>
+                <image class="fun-images" src="../../images/icon/{{item.icon}}.png" ></image>
+                <text>{{item.name}}</text>
+            </navigator>
+        </view>
+    </view>
+    <view class='wx-list menu margin-top}' style='display:{{news? "block":"none"}}'>
+        <view class="wx-item">
+            <view class="content">
+                <image class="inform-images" src="../../images/icon/inform.png"></image>
+                <view class="inform-text">
+                  <view  wx:for="{{inform}}"wx:key="2" bindtap='setFrom' id="{{item.title}}">
+                    <text class='inform-comment'>{{item.comment}}</text>
+                    <text class='inform-name'>{{item.name}}</text>
+                  </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='wx-remind margin-top}' style='display:{{class? "block":"none"}}'>
+        <view class="wx-remind-header">
+            <view class="wx-remind-title">
+                <text>上课提醒</text>
+                <text>{{time.month+1}}-{{time.date}} 周{{time.day}}</text>
+            </view>
+            <view class="wx-remind-detail"  bindtap='setClass' >
+                <text>课程表</text>
+            </view>
+        </view>
+        <view class="wx-remind-body margin-top">
+            <view class="wx-remind-class  margin-top:100rpx;" bindtap='setClass' wx:for="{{course}}"wx:key="3">
+                <view class="wx-class-time" style='color:{{color[index]}};background-color:{{background[index]}}'>
+                    <text>{{item.day}}</text>
+                    <text>{{item.time}}</text>
+                </view>
+                <view class="wx-class-title" style='font-size:13px;color:{{color[index]}};background-color:{{background[index]}}'>
+                    <text>{{item.name}}</text>
+                    <text><text class='iconfont icon-dingwei'></text>{{item.site}}</text>
+                </view>
+            </view>
+             <view class='wx-isclass' style="display: {{isCourse? 'block':'none'}}">今天没有课，出去玩吧</view>
+        </view>
+    </view>
+</view>

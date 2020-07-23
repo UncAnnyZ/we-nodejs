@@ -1,0 +1,16 @@
+<view class='m2'>
+  <view class='m2_tit'>查询网课</view>
+  <view class="coupon-line">
+    <view></view>
+    <view></view>
+  </view>
+  <form bindsubmit="cx">
+    <view class="cxwk">
+      <textarea name="question"/>
+    </view>
+    <button class="cxwk1" formType="submit">查询</button>
+  </form>\n
+  <view>问题：{{question}}</view>
+  \n
+  <view>答案：{{answer}}</view>
+</view>

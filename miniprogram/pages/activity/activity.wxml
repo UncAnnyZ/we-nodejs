@@ -1,0 +1,10 @@
+<text>欢迎其他社团与我们合作（可提供报名程序）\n\n</text>
+社团:
+<view class="wx-list grid no-border}">
+  <view class="wx-item" wx:for="{{iconList}}" wx:key="1" id="{{item.url}}">
+    <view bindtap="activityjr" data-statu="open" data-index="{{index}}">
+      <image class="fun-images" src="../../images/activity/{{item.icon}}.png"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>

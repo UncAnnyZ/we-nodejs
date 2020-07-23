@@ -1,0 +1,65 @@
+{
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx909f7431e2ccba81",
+    "wxf40af775e49de00f"
+  ],
+  "pages": [
+    "pages/index/index",
+    "pages/recommend/tj/tj",
+    "pages/login/login",
+    "pages/achievement/achievement",
+    "pages/curriculum/curriculum",
+    "pages/more/more",
+    "pages/calendar/calendar",
+    "pages/quality/quality",
+    "pages/about/about",
+    "pages/activity/activity",
+    "pages/more/websubject/websubject",
+    "pages/more/skrw/skrw",
+    "pages/examination/examination",
+    "pages/schoolNav/schoolNav",
+    "pages/curriculum/addcurriculum/addcurriculum",
+    "pages/curriculum/add/add",
+    "pages/activity/sign/sign",
+    "pages/recommend/recommend",
+    "pages/more/tc/tj",
+    "pages/more/yunphoto/yunphoto"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#404040",
+    "selectedColor": "#118ffe",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/tabbar/basics.png",
+        "selectedIconPath": "/images/tabbar/basics_cur.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "iconPath": "/images/tabbar/about.png",
+        "selectedIconPath": "/images/tabbar/about_cur.png",
+        "text": "更多"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 6000
+  },
+  "navigationBarTitleText": "We广油",
+  "sitemapLocation": "sitemap.json" 
+  
+
+}
