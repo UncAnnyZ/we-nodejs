@@ -1,11 +1,14 @@
 <view class="head wx-head {{show}}">
   <view class="head-time">
-      <view class="weui-input">你的2019-2020-2上课任务！
+      <view class="weui-input">你的2020-2021-1上课任务！
       </view>
   </view>
   <view class="head-title" style='color:coral'>
     <view>学分:
       <text>{{TotalCredit}}</text>
+    </view>
+      <view>课程节数:
+      <text>{{Totalnumber}}</text>
     </view>
   </view>
 </view>

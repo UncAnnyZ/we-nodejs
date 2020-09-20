@@ -5,7 +5,7 @@ Page({
   getweekString: function() {
     var Date1 = new Date();
     var y = Date1.getFullYear();
-    var Date2 = new Date(y + "/3/9");
+    var Date2 = new Date(getApp().globalData.timeyear);
     var dayOfWeek = Date2.getDay();
     var day1fWeek = Date1.getDay();
     //如果把周日算在一周的最后一天，请加上下面这句
@@ -57,7 +57,7 @@ Page({
       tt1: "none",
       tt: "examination",
       icon: "examination",
-      name: "校园平台"
+      name: "邻家小市"
     }, {
       id: "8",
       url: "about/about",
@@ -131,6 +131,7 @@ Page({
     })
 
     wx.showNavigationBarLoading() //在标题栏中显示加载
+
     wx.cloud.callFunction({
       name: 'we_index',
       success: res => {
@@ -262,20 +263,31 @@ Page({
   onLoad: function(options) {
     this.getMessage();
     var bb = wx.getStorageSync('bb');
-    if (bb != "1.1.4") {
-      wx.showModal({
-        title: '版本更新',
-        confirmText: '确定',
-        showCancel: false,
-        content: '1、修复了成绩的bug\r\n2、增加了云毕业照，可能可以用，因为资金不够，菜鸡服务器\r\n',
-        success: function(res) {
-          wx.setStorage({
-            key: 'bb', //自己去的key名，必须有，因为调用时会用到
-            data: '1.1.4' //及接收储图片或文件地址的变量
-          })
+    wx.cloud.callFunction({
+      name: 'gg',
+      success: res => {
+        var keydata = res.result.key
+        getApp().globalData.timeyear = res.result.timeyear;
+        if (bb != keydata) {
+        wx.showModal({
+          title: res.result.title,
+          confirmText: '确定',
+          showCancel: false,
+          content: res.result.data,
+          success: function (res) {
+            wx.setStorage({
+              key: 'bb', //自己去的key名，必须有，因为调用时会用到
+              data: keydata//及接收储图片或文件地址的变量
+            })
+          }
+        })
         }
-      })
-    }
+        wx.setStorage({
+          key: 'ggtime',
+          data: res.result.hctime
+        })
+      }
+    })
     wx.showLoading({
       title: '更新数据中',
       mask: true
@@ -290,7 +302,21 @@ Page({
       
 
     // } else {
+    var nowtime = new Date().getTime()
 
+    console.log(wx.getStorageSync('ggtime'))
+    if (wx.getStorageSync('data').length != 0 && nowtime - wx.getStorageSync('hctime') < Number(wx.getStorageSync('ggtime')) * 1000 ) {
+      console.log(1111)
+      this.we_index(wx.getStorageSync('data'))
+      wx.showToast({
+        title: '加载完成',
+        icon: 'none',
+      })
+    } else {
+      wx.setStorage({
+        key: 'hctime',
+        data: nowtime
+      })
       wx.cloud.callFunction({
         name: 'we_index',
         success: res => {
@@ -328,6 +354,8 @@ Page({
           }
         }
       })
+    }
+      
     // }
   },
   onShareAppMessage: function(res) {
@@ -335,4 +363,18 @@ Page({
       title: 'We广油',
     }
   },
+  imgYu: function (res){
+    wx.navigateToMiniProgram({
+      appId: 'wx0dffe79bb2223828',
+      path: 'pages/goods/index?goods_id=10085',
+      extraData: {
+        xuehao: getApp().globalData.xuehao
+      },
+      envVersion: 'release',
+      success(res) {
+        console.log('跳转成功');
+      }
+
+    })
+  }
 })

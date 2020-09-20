@@ -75,6 +75,7 @@ Page({
       list: skrw,
       color: color,
       isCourse: isCourse,
+      Totalnumber :skrw.length
     })
   },
 })

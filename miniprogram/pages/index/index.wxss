@@ -1,9 +1,16 @@
  page {
   background-color: #fff;
 } 
+
 .wx-list.grid.no-border {
 
   padding: 20rpx 10rpx 0rpx 80rpx;
+}
+
+.bg{
+  display: block;
+  width: 100%;
+  height:260rpx;
 }
 .wx-list.grid.no-border>.wx-item {
   padding-top: 10rpx;

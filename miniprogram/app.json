@@ -6,7 +6,8 @@
   },
   "navigateToMiniProgramAppIdList": [
     "wx909f7431e2ccba81",
-    "wxf40af775e49de00f"
+    "wxf40af775e49de00f",
+    "wx0dffe79bb2223828"
   ],
   "pages": [
     "pages/index/index",
