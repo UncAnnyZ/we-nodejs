@@ -103,6 +103,10 @@ Page({
           getApp().globalData.curriculum.splice(index, 1);
           this.add();
         }
+        wx.setStorage({
+          key: 'hctime',
+          data: "1"
+        })
       },
       fail: err => {
         wx.showToast({
@@ -151,6 +155,10 @@ Page({
           }
         }
         this.de()
+        wx.setStorage({
+          key: 'hctime',
+          data: "1"
+        })
       },
       fail: err => {
         wx.showToast({

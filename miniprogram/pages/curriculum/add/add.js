@@ -183,6 +183,10 @@ Page({
           for (var i = 0; i < a.length; i++) {
             b.push(a[i])
           }
+          wx.setStorage({
+            key: 'hctime',
+            data: "1"
+          })
         },
         fail: err => {
           wx.showToast({
@@ -421,6 +425,10 @@ Page({
                 }
               }
               that.onLoad()
+              wx.setStorage({
+                key: 'hctime',
+                data: "1"
+              })
             },
             fail: err => {
               wx.showToast({

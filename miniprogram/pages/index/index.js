@@ -13,8 +13,8 @@ Page({
     //如果把周日算在一周的第一天，请删除上面这句
     var num = (Date1 - Date2) / 1000 / 3600 / 24;
     var whichWeek = Math.ceil((num + dayOfWeek) / 7);
-    if (day1fWeek == 0){
-      whichWeek = whichWeek-1;
+    if (day1fWeek == 0) {
+      whichWeek = whichWeek - 1;
     }
     return whichWeek;
   },
@@ -174,12 +174,16 @@ Page({
   },
   curriculumcl: function() {
     var a = getApp().globalData._add;
+
     var b = getApp().globalData.curriculum;
     var c = getApp().globalData._de;
     var d = getApp().globalData.curriculum1;
+    for (var i = 0; i < a.length; i++) {
+      b.push(a[i])
+    }
     for (var i = 0; i < c.length; i++) {
-      if (c[i].zc == "全部"){
-        for (var g = 0; g < b.length; g++){
+      if (c[i].zc == "全部") {
+        for (var g = 0; g < b.length; g++) {
           if (b[g].kcmc == c[i].kcmc) {
             b.splice(g, 1);
             g--;
@@ -192,25 +196,22 @@ Page({
             g--;
           }
         }
-      }
-      else{
+      } else {
         for (var g = 0; g < b.length; g++) {
-          if (b[g].kcmc == c[i].kcmc && b[g].jcdm == c[i].jcdm && b[g].zc == c[i].zc && b[g].xq == c[i].xq ) {
+          if (b[g].kcmc == c[i].kcmc && b[g].jcdm == c[i].jcdm && b[g].zc == c[i].zc && b[g].xq == c[i].xq) {
             b.splice(g, 1);
             g--;
           }
+        }
+        for (g = 0; g < d.length; g++) {
+          if (d[g].kcmc == c[i].kcmc && d[g].jcdm == c[i].jcdm && d[g].zc == c[i].zc && d[g].xq == c[i].xq) {
+            d.splice(g, 1);
+            g--;
           }
-          for (g = 0; g < d.length; g++) {
-            if (d[g].kcmc == c[i].kcmc && d[g].jcdm == c[i].jcdm && d[g].zc == c[i].zc && d[g].xq == c[i].xq) {
-              d.splice(g, 1);
-              g--;
-            }
         }
       }
     }
-        for (var i = 0; i < a.length; i++) {
-      b.push(a[i])
-    }
+
     return b
   },
   we_index: function(data) {
@@ -227,7 +228,7 @@ Page({
   },
   setcurriculum: function(curriculum) {
     var course = [];
-    
+
     var that = this;
     var isCourse = false;
     let xq = new Date().getDay();
@@ -236,7 +237,7 @@ Page({
     }
     getApp().globalData.whichWeek = this.getweekString();
     for (let y = 0; y < curriculum.length; y++) {
-      if (curriculum[y].xq == "7"){
+      if (curriculum[y].xq == "7") {
         curriculum[y].zc = String(Number(curriculum[y].zc) - 1)
       }
       if (curriculum[y].zc == this.getweekString() && curriculum[y].xq == xq) {
@@ -269,18 +270,18 @@ Page({
         var keydata = res.result.key
         getApp().globalData.timeyear = res.result.timeyear;
         if (bb != keydata) {
-        wx.showModal({
-          title: res.result.title,
-          confirmText: '确定',
-          showCancel: false,
-          content: res.result.data,
-          success: function (res) {
-            wx.setStorage({
-              key: 'bb', //自己去的key名，必须有，因为调用时会用到
-              data: keydata//及接收储图片或文件地址的变量
-            })
-          }
-        })
+          wx.showModal({
+            title: res.result.title,
+            confirmText: '确定',
+            showCancel: false,
+            content: res.result.data,
+            success: function(res) {
+              wx.setStorage({
+                key: 'bb', //自己去的key名，必须有，因为调用时会用到
+                data: keydata //及接收储图片或文件地址的变量
+              })
+            }
+          })
         }
         wx.setStorage({
           key: 'ggtime',
@@ -299,13 +300,13 @@ Page({
     //       title: '加载完成',
     //       icon: 'none',
     //     })
-      
+
 
     // } else {
     var nowtime = new Date().getTime()
 
     console.log(wx.getStorageSync('ggtime'))
-    if (wx.getStorageSync('data').length != 0 && nowtime - wx.getStorageSync('hctime') < Number(wx.getStorageSync('ggtime')) * 1000 ) {
+    if (wx.getStorageSync('data').length != 0 && nowtime - wx.getStorageSync('hctime') < Number(wx.getStorageSync('ggtime')) * 1000) {
       console.log(1111)
       this.we_index(wx.getStorageSync('data'))
       wx.showToast({
@@ -325,6 +326,10 @@ Page({
               url: '/pages/login/login'
             })
           } else {
+            wx.setStorage({
+              key: 'data',
+              data: res.result
+            })
             this.we_index(res.result)
             wx.setStorage({
               key: 'time',
@@ -334,10 +339,7 @@ Page({
               title: '加载完成',
               icon: 'none',
             })
-            wx.setStorage({
-              key: 'data',
-              data: res.result
-            })
+ 
           }
         },
         fail: err => {
@@ -355,15 +357,16 @@ Page({
         }
       })
     }
-      
+
     // }
   },
+
   onShareAppMessage: function(res) {
     return {
       title: 'We广油',
     }
   },
-  imgYu: function (res){
+  imgYu: function(res) {
     wx.navigateToMiniProgram({
       appId: 'wx0dffe79bb2223828',
       path: 'pages/goods/index?goods_id=10085',

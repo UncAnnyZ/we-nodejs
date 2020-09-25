@@ -12,6 +12,6 @@ exports.main = async (event, context) => {
     timeyear : "2020/8/31",
     key : "1.4",
     title : "最新通知",
-    data : "1、其他学校解封了。。。 \n 2、可能将在国庆举办一次王者荣耀比赛"
+    data : "1、解封啦。 \n 2、可能将在国庆举办一次王者荣耀比赛"
   }
 }
