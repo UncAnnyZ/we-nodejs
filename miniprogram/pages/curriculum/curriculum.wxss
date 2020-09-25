@@ -97,12 +97,15 @@ page{
   background-color: #eee;
 
   border-radius: 10rpx;
+
+  height: 60rpx;
 }
 
 .top-text {
   width: 100rpx;
   height: 35rpx;
   font-size: 9pt;
+    margin-top: 15rpx;
   justify-content: center;
   display: flex;
   align-items: center;

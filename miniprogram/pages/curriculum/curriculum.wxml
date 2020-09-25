@@ -40,7 +40,7 @@
   </view>
   <view style="display:{{xz}}">
     <view class="top">
-      <view wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="1" class="top-text">周{{item}}</view>
+      <view wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="1" class="top-text">周{{item}}\nwerewr</view>
     </view>
     <scroll-view scroll-y="true" class="scroll">
       <view style="height:1200rpx;width:730rpx;display:flex;">
