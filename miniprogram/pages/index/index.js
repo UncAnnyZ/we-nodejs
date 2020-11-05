@@ -174,13 +174,10 @@ Page({
   },
   curriculumcl: function() {
     var a = getApp().globalData._add;
-
     var b = getApp().globalData.curriculum;
     var c = getApp().globalData._de;
     var d = getApp().globalData.curriculum1;
-    for (var i = 0; i < a.length; i++) {
-      b.push(a[i])
-    }
+
     for (var i = 0; i < c.length; i++) {
       if (c[i].zc == "全部") {
         for (var g = 0; g < b.length; g++) {
@@ -210,9 +207,24 @@ Page({
           }
         }
       }
-    }
 
+    }
+    for (var i = 0; i < a.length; i++) {
+      var n = false;
+      for (var g = b.length; g < 1; g--) {
+        if (b[g].kcmc == a[i].kcmc && b[g].jcdm == a[i].jcdm && b[g].xq == a[i].zq &&  b[g].zs == a[i].zs) {
+          n = true;
+          break;
+        }
+      }
+      if (!n) {
+        b.push(a[i])
+      }
+
+
+    }
     return b
+    
   },
   we_index: function(data) {
     getApp().globalData.achievement = data.a_data;
@@ -220,6 +232,7 @@ Page({
     getApp().globalData.curriculum = data.c_data;
     getApp().globalData.curriculum1 = JSON.parse(JSON.stringify(data.c_data));
     getApp().globalData.curriculum2 = JSON.parse(JSON.stringify(data.c_data));
+
     getApp().globalData.username = data.username;
     getApp().globalData._add = JSON.parse(data._add);
     getApp().globalData._de = JSON.parse(data._de);
@@ -236,11 +249,13 @@ Page({
       xq = 7;
     }
     getApp().globalData.whichWeek = this.getweekString();
+    var zc = 0;
     for (let y = 0; y < curriculum.length; y++) {
+      zc = curriculum[y].zc
       if (curriculum[y].xq == "7") {
-        curriculum[y].zc = String(Number(curriculum[y].zc) - 1)
+        zc = String(Number(curriculum[y].zc) - 1)
       }
-      if (curriculum[y].zc == this.getweekString() && curriculum[y].xq == xq) {
+      if (zc == this.getweekString() && curriculum[y].xq == xq) {
         course.push({
           day: '今天',
           time: '第' + curriculum[y].jcdm[1] + '节',

@@ -96,7 +96,26 @@ Page({
 
   },
 
+  showdate(n) { // 日期切换处理函数  返回时间格式 YYYY-MM-DD
+    var date = new Date("2020/8/31");
+    date.setDate(date.getDate() + n);
+    var month = date.getMonth() + 1
+    month = month > 10 ? month :  month // 格式化月份
+    var day = date.getDate()
+    day = day > 9 ? day : day // 格式化日期
+    date = ""+ month + "/" + day ;
+    return date;
+  },
+
   kb: function(zs) {
+    var zs_now = (Number(zs)-1) * 7;
+    var test = "0";
+    var arr = ['一', '二', '三', '四', '五', '六', '日'];
+    for(var i = 0; i < 7;i++){
+      test = this.showdate(zs_now+i);
+      arr[i] = arr[i] + '\n' + test;
+    }
+ 
     var curriculum = getApp().globalData.curriculum
     if (zs > '26') {
       wx.showModal({
@@ -117,8 +136,13 @@ Page({
       colorArrays: ["#85B8CF", "#90C652", "rgb(236, 186, 100)", "#FC9F9D", "#0A9A84", "#61BC69", "#12AEF3", "#E29AAD", "#51BEE9"],
       wlist: []
     }
+    var zc = 0;
     for (let i in curriculum) {
-      if (curriculum[i].zc == zs) {
+      zc = curriculum[i].zc;
+      if (curriculum[i].xq == "7") {
+        zc = String(Number(curriculum[i].zc) - 1);
+      }
+      if (zc == zs) {
         data.wlist.push({
           xqj: curriculum[i].xq,
           skjc: Number(curriculum[i].jcdm.substr(0, 2)),
@@ -132,12 +156,15 @@ Page({
       isCourse = '';
       xz = 'none';
     }
+
     that.setData({
+      arr : arr,
       curWeek: '第 ' + zs + ' 周',
       whichWeek: zs,
       wlist: data.wlist,
       colorArrays: data.colorArrays,
       xz: xz,
+
       isCourse: isCourse,
       multiIndex: [(Number(zs) - 1), 0, 0, 0],
     })

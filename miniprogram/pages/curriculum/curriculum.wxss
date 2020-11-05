@@ -105,10 +105,12 @@ page{
   width: 100rpx;
   height: 35rpx;
   font-size: 9pt;
-    margin-top: 15rpx;
+
   justify-content: center;
   display: flex;
   align-items: center;
+      margin-top: 15rpx;
+        margin-left: 17rpx;
 }
 
 .scroll {
