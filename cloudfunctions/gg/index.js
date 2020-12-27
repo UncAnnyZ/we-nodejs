@@ -8,10 +8,10 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
   return {
-    hctime:"10000",
+    hctime:"8000",
     timeyear : "2020/8/31",
-    key : "1.4",
+    key : "2.0",
     title : "最新通知",
-    data : "1、解封啦。 \n 2、可能将在国庆举办一次王者荣耀比赛"
+    data : "1、更多的上课任务更新到下一个学期啦"
   }
 }

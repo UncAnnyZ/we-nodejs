@@ -1,6 +1,6 @@
 <view class="head wx-head {{show}}">
   <view class="head-time">
-      <view class="weui-input">你的2020-2021-1上课任务！
+      <view class="weui-input">你的2020-2021-2上课任务！
       </view>
   </view>
   <view class="head-title" style='color:coral'>

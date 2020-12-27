@@ -27,6 +27,10 @@ Page({
         password: e.detail.value.password,
       },
       success: res => {
+        wx.setStorage({
+          key: 'data',
+          data: ""
+        })
         if (res.result.msg == "/login!welcome.action") {
             wx.reLaunch({
               url: '/pages/index/index'
