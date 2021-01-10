@@ -9,7 +9,7 @@ App({
     _de:[],
     curriculum2:[],
     username:0,
-    timeyear:"2020/8/31"
+    timeyear:"2021/3/1"
   },
   onLaunch: function () {
     

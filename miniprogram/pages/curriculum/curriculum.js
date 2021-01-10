@@ -97,12 +97,13 @@ Page({
   },
 
   showdate(n) { // 日期切换处理函数  返回时间格式 YYYY-MM-DD
-    var date = new Date("2020/8/31");
+    var date = new Date(getApp().globalData.timeyear);
     date.setDate(date.getDate() + n);
     var month = date.getMonth() + 1
     month = month > 10 ? month :  month // 格式化月份
     var day = date.getDate()
-    day = day > 9 ? day : day // 格式化日期
+    day = day > 9 ? day : "0" + day // 格式化日期
+
     date = ""+ month + "/" + day ;
     return date;
   },
@@ -110,7 +111,7 @@ Page({
   kb: function(zs) {
     var zs_now = (Number(zs)-1) * 7;
     var test = "0";
-    var arr = ['一', '二', '三', '四', '五', '六', '日'];
+    var arr = ['一 ', '二 ', '三 ', '四 ', '五 ', '六 ', '日 '];
     for(var i = 0; i < 7;i++){
       test = this.showdate(zs_now+i);
       arr[i] = arr[i] + '\n' + test;

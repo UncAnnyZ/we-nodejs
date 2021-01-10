@@ -9,9 +9,9 @@ exports.main = async (event, context) => {
 
   return {
     hctime:"8000",
-    timeyear : "2020/8/31",
-    key : "2.0",
+    timeyear : "2021/3/1",
+    key : "2.2",
     title : "最新通知",
-    data : "1、更多的上课任务更新到下一个学期啦"
+    data: "1、课表更新下学期啦(请左右滑动来看课，可能课没有安排完)！！！\n 2、时间bug下午修复"
   }
 }
