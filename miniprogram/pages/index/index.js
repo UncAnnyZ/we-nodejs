@@ -227,6 +227,7 @@ Page({
     
   },
   we_index: function(data) {
+    console.log(data)
     getApp().globalData.achievement = data.a_data;
     getApp().globalData.quality = data.t_data;
     getApp().globalData.curriculum = data.c_data;

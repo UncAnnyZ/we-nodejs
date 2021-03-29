@@ -98,6 +98,7 @@ Page({
 
   showdate(n) { // 日期切换处理函数  返回时间格式 YYYY-MM-DD
     var date = new Date(getApp().globalData.timeyear);
+    console.log(date)
     date.setDate(date.getDate() + n);
     var month = date.getMonth() + 1
     month = month > 10 ? month :  month // 格式化月份
@@ -105,15 +106,21 @@ Page({
     day = day > 9 ? day : "0" + day // 格式化日期
 
     date = ""+ month + "/" + day ;
+    
     return date;
   },
 
   kb: function(zs) {
+    if (zs <= 0){
+      zs = 1;
+    }
     var zs_now = (Number(zs)-1) * 7;
-    var test = "0";
+    
+    var test = "1";
     var arr = ['一 ', '二 ', '三 ', '四 ', '五 ', '六 ', '日 '];
     for(var i = 0; i < 7;i++){
       test = this.showdate(zs_now+i);
+      console.log(test)
       arr[i] = arr[i] + '\n' + test;
     }
  

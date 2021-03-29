@@ -31,7 +31,7 @@
   display: block;
   color: #888;
   margin-top: 10rpx;
-  line-height: 40rpx;
+  line-height: 30rpx;
   font-size: 26rpx;
   text-align:center;
 }
@@ -47,7 +47,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 100rpx;
+  min-height: 90rpx;
   background: #fff;
   padding: 0 30rpx;
 }
