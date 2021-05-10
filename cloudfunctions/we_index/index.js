@@ -12,6 +12,7 @@ exports.main = async(event, context) => {
   var zh = await db.collection('username').where({_openid: wxContext.OPENID}).get({})
   username = zh.data[0]._user
   password = zh.data[0]._pwd + ''
+
   var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     output = "";
   var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
@@ -129,6 +130,7 @@ exports.main = async(event, context) => {
       c_data: JSON.parse(c_data.body).rows,
       _add: curriculum.data[0]._add,
       _de: curriculum.data[0]._de,
+      zt: curriculum.data[0]._zt,
       username: username
     }
   }

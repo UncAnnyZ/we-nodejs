@@ -1,16 +1,29 @@
 <view class='m2'>
-  <view class='m2_tit'>查询网课</view>
+  <view class='m2_tit'>二维码展示</view>
   <view class="coupon-line">
     <view></view>
     <view></view>
   </view>
   <form bindsubmit="cx">
-    <view class="cxwk">
+    <!-- <view class="cxwk">
       <textarea name="question"/>
+    </view> -->
+
+<image class="cxwk" src="data:image/png;base64,{{imgData}}"></image>
+
+  <picker class="cxwk2" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      当前选择：{{array[index]}}
     </view>
-    <button class="cxwk1" formType="submit">查询</button>
+  </picker>
+    <button class="cxwk1" formType="submit">获取二维码</button>
+    \n
+      会自动保存到相册，微信扫描（记得快准狠），不然会刷新
   </form>\n
-  <view>问题：{{question}}</view>
-  \n
-  <view>答案：{{answer}}</view>
+  <form bindsubmit="add">
+  <view hidden="{{hiddenn}}" >
+  <input type="text" name="username" placeholder="输入账号" />
+  <button formType="submit">添加账号</button>
+    </view>
+    </form>
 </view>

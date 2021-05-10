@@ -8,6 +8,7 @@ App({
     _add:[],
     _de:[],
     curriculum2:[],
+    zt: undefined,
     username:0,
     timeyear:"2021/3/1"
   },

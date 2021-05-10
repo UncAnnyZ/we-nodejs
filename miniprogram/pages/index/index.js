@@ -233,7 +233,7 @@ Page({
     getApp().globalData.curriculum = data.c_data;
     getApp().globalData.curriculum1 = JSON.parse(JSON.stringify(data.c_data));
     getApp().globalData.curriculum2 = JSON.parse(JSON.stringify(data.c_data));
-
+    getApp().globalData.zt = data.zt; 
     getApp().globalData.username = data.username;
     getApp().globalData._add = JSON.parse(data._add);
     getApp().globalData._de = JSON.parse(data._de);
@@ -283,6 +283,7 @@ Page({
     wx.cloud.callFunction({
       name: 'gg',
       success: res => {
+        console.log(res)
         var keydata = res.result.key
         getApp().globalData.timeyear = res.result.timeyear;
         if (bb != keydata) {
@@ -305,6 +306,7 @@ Page({
         })
       }
     })
+    
     wx.showLoading({
       title: '更新数据中',
       mask: true
