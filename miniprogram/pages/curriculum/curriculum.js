@@ -102,6 +102,9 @@ Page({
     date.setDate(date.getDate() + n);
     var month = date.getMonth() + 1
     month = month > 10 ? month :  month // 格式化月份
+    this.setData({
+      month
+    })
     var day = date.getDate()
     day = day > 9 ? day : "0" + day // 格式化日期
 

@@ -1,4 +1,4 @@
-<view class="container">
+<!-- <view class="container">
   <view class="loginbox">
     <view class="usermotto">
       <view class="imagewei">
@@ -24,4 +24,71 @@
   </view>
               新生初始密码可能是学号
         忘记密码或者修改密码请在教务官网修改 网站为：http://210.38.250.43/ \n
+</view> -->
+
+<view class="all">
+
+  <view class="container">
+    <view class="title">
+      <view class="title_bg"></view>
+      <view class="title_text">
+        <text>We广油</text>
+      </view>
+    </view>
+
+    <view class="hd">
+      <image class="logo" src="/images/xiaohui.png"></image>
+      <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
+      <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+    </view>
+
+    <view class="login">
+      <view class="login_user">
+        <label>帐号</label>
+        <input type="text" id="user" placeholder="请输入学号" bindinput="input" />
+      </view>
+
+      <view class="login_pwd">
+        <label>密码</label>
+        <input type="text" id="pwd" password="true" placeholder="请输入教务系统密码" bindinput="input" bindconfirm="login" />
+      </view>
+    </view>
+
+    <view class="help">
+      <text bindtap="showHelp">帮助</text>
+      <icon type="info_circle" size="30rpx" bindtap="showHelp"></icon>
+    </view>
+
+    <button class="btn" bindtap="login">确认登录</button>
+  </view>
+
+  <view class="help_model" id="help_model" wx:if="{{help_status}}" bindtap="tapHelp">
+    <view class="box">
+      <view class="box-hd">
+        <text class="box-title">帮助</text>
+        <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
+      </view>
+      <view class="box-bd">
+        <view class="help-q">1、账号和密码是什么？</view>
+        <view class="help-a">
+          <text>账号：账号就是您的学号。</text>
+          <text>密码：您设定的教务系统的登录密码。</text>
+        </view>
+        <view class="help-q">2、忘记密码？</view>
+        <view class="help-a">
+          <view>
+            <text>忘记密码请到教务系统</text>
+            <text style="color:rgb(45, 165, 230);" catchtap="copy">重置找回密码</text>
+            <text>。</text>
+          </view>
+          <text>找回后使用教务系统密码登录即可。</text>
+        </view>
+        <view class="help-q">3、大一新生？不知道密码😥</view>
+        <view class="help-a">
+          <text>请耐心等待教务通知。(初始密码可能是身份证后6位)</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
 </view>

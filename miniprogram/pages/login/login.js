@@ -2,8 +2,11 @@
 //获取应用实例
 const app = getApp()
 Page({
-
-  onLoad: function () {
+  data:{
+    user:"",
+    pwd:""
+  },
+  onReady: function () {
   },
   activity: function (e) {
     wx.navigateTo({
@@ -11,6 +14,14 @@ Page({
     })
   },
   login: function (e) {
+    var that = this
+    if (this.data.user.length == 0 || this.data.pwd.length == 0) {
+      wx.showToast({
+        title: '帐号及密码不能为空',
+        icon: "none"
+      })
+      return -1;
+    }
     wx.showLoading({
       title: '刷新中',
       mask: true
@@ -23,8 +34,8 @@ Page({
     wx.cloud.callFunction({
       name: 'login',
       data: {
-        username: e.detail.value.username,
-        password: e.detail.value.password,
+        username: that.data.user,
+        password: that.data.pwd,
       },
       success: res => {
         wx.setStorage({
@@ -51,5 +62,39 @@ Page({
         })
       }
     })
+  },
+  input(e){
+    this.setData({
+      [e.target.id]:e.detail.value
+    })
+  },
+
+  // 帮助弹窗
+  tapHelp: function(e){
+    if(e.target.id == 'help_model'){
+      this.hideHelp();
+    }
+  },
+  showHelp: function(e){
+    this.setData({
+      'help_status': true
+    });
+  },
+  hideHelp: function(e){
+    this.setData({
+      'help_status': false
+    });
+  },
+  copy(){
+    wx.setClipboardData({
+      data:'http://210.38.250.43/',
+      success(){
+        wx.showToast({
+          title: '已成功复制地址，快用浏览器打开吧',
+          icon: "none"
+        })
+      }
+    })
   }
+
 })

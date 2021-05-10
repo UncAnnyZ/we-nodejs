@@ -1,5 +1,5 @@
 <view class="nav-head">
-<view class="img-button add-course-btn" bindtap="addCourseHandler">
+  <view class="img-button add-course-btn" bindtap="addCourseHandler">
     <image src="../../images/btn_add@2x.png"></image>
   </view>
   <view class="week-selector">
@@ -31,17 +31,22 @@
       </view>
 
       <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker"> 当前选择(点击选择)：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}} {{multiArray[2][multiIndex[2]]}}{{multiArray[3][multiIndex[3]]}} </view>
+        <view class="picker"> 当前选择(点击选择)：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
+          {{multiArray[2][multiIndex[2]]}}{{multiArray[3][multiIndex[3]]}} </view>
       </picker>
       <view class="wx-remind-detail" bindtap='setClass'>
         <text>确认</text>
       </view>
     </view>
   </view>
+  
   <view style="display:{{xz}}">
     <view class="top">
+      <view style="month">
+        <text>{{month}}</text>
+        <text>月</text>
+      </view>
       <view wx:for="{{arr}}" wx:key="1" class="top-text">周{{item}}</view>
-      
     </view>
     <scroll-view scroll-y="true" class="scroll">
       <view style="height:1200rpx;width:730rpx;display:flex;">
@@ -51,15 +56,17 @@
           </view>
         </view>
         <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="2">
-          <view style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:1rpx solid {{index!=3?'greek':'lightgray'}};">
+          <view
+            style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:1rpx solid {{index!=3?'greek':'lightgray'}};">
           </view>
         </view>
-  <view class="round-click" bindtap='showPic'>
-    <text>时间表</text>
-  </view>
+        <view class="round-click" bindtap='showPic'>
+          <text>时间表</text>
+        </view>
         <!--课表-->
         <view wx:for="{{wlist}}" wx:key="4">
-          <view class="flex-item kcb-item" bindtap="showCardView"  data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.skjc-1)*100+5}}rpx;height:{{item.skcd*100-5}}rpx;background-color:{{colorArrays[index%9]}}">
+          <view class="flex-item kcb-item" bindtap="showCardView" data-statu="open" data-index="{{index}}"
+            style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.skjc-1)*100+5}}rpx;height:{{item.skcd*100-5}}rpx;background-color:{{colorArrays[index%9]}}">
             <view class="smalltext">{{item.kcmc}}</view>
           </view>
         </view>
