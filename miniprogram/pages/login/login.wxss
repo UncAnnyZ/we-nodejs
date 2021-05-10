@@ -159,7 +159,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 30%;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -174,7 +174,7 @@
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 0 50px rgba(22,22,22,.35);
-  transform: translate3d(0,-400rpx,0);
+  /* transform: translate3d(0,-400rpx,0); */
 }
 .box-hd {
   display: flex;
