@@ -78,7 +78,7 @@
         <view class="help-a">
           <view>
             <text>忘记密码请到教务系统</text>
-            <text style="color:rgb(45, 165, 230);" catchtap="copy">重置找回密码</text>
+            <text style="color:rgb(45, 165, 230);" catchtap="copy">网站为：http://210.38.250.43/重置找回密码</text>
             <text>。</text>
           </view>
           <text>找回后使用教务系统密码登录即可。</text>

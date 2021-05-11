@@ -3,6 +3,7 @@
 .all{
   height: 100vh;
   opacity: 0.9;
+  display:block;
   background-color: rgba(245, 245, 245, 0.9);
 }
 
@@ -11,6 +12,7 @@
   flex-direction: column;
   justify-content: flex-start;
   padding: 0;
+  
 }
 
 .title{
@@ -122,6 +124,8 @@
   opacity: .95;
 }
 .wave {
+  
+  max-width: unset;
   position: absolute;
   top: 50%;
   right: 0;

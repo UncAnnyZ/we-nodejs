@@ -1,4 +1,10 @@
 {
   "usingComponents": {},
+  "navigationBarBackgroundColor": "#5DDDAA",
+
+
+
+    "enablePullDownRefresh": false,
+    "disableScroll": true,
           "navigationBarTitleText": "We广油 - 登录"
 }
