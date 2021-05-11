@@ -58,9 +58,9 @@ exports.main = async(event, context) => {
 
   }
 
-  let getResponse = await got('http://210.38.250.43') //get请求 用httpbin.org这个网址做测试 
+  let getResponse = await got('https://jwxt.gdupt.edu.cn/') //get请求 用httpbin.org这个网址做测试 
   let cookie = getResponse.headers["set-cookie"]
-  let postResponse = await got.post('http://210.38.250.43/login!doLogin.action', {
+  let postResponse = await got.post('https://jwxt.gdupt.edu.cn//login!doLogin.action', {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36(KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge / 18.18362',
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -74,7 +74,7 @@ exports.main = async(event, context) => {
     })
   })
   if (JSON.parse(postResponse.body).msg == "/login!welcome.action") {
-    let a_data = await got.post('http://210.38.250.43/xskccjxx!getDataList.action', {
+    let a_data = await got.post('https://jwxt.gdupt.edu.cn//xskccjxx!getDataList.action', {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36(KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge / 18.18362',
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -90,7 +90,7 @@ exports.main = async(event, context) => {
         'order': 'asc',
       })
     })
-    let t_data = await got.post('http://210.38.250.43/xsktsbxx!getYxktDataList.action', {
+    let t_data = await got.post('https://jwxt.gdupt.edu.cn//xsktsbxx!getYxktDataList.action', {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36(KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge / 18.18362',
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -106,7 +106,7 @@ exports.main = async(event, context) => {
         'order': 'desc',
       })
     })
-    let c_data = await got.post('http://210.38.250.43/xsgrkbcx!getDataList.action', {
+    let c_data = await got.post('https://jwxt.gdupt.edu.cn//xsgrkbcx!getDataList.action', {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36(KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge / 18.18362',
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
