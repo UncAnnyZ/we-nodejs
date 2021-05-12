@@ -7,7 +7,7 @@
       <image src="../../images/btn_prev@2x.png"></image>
     </view>
     <view class="cur-week">
-      <view class="week">{{curWeek}}</view>
+      <view class="ttt">{{curWeek}}</view>
 
     </view>
     <view class="img-button next-week-btn" bindtap="nextWeekHandler">
@@ -18,62 +18,54 @@
     <image src="../../images/btn_feed@2x.png"></image>
   </view>
 </view>
-<view bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani1}}">
+<view  bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani1}}">
   <view class="shade" wx:if="{{shows}}" bindtap='close'></view>
-  <!----------------------------------------------------------------------------------3  -->
-  <!--弹出面板区域  -->
-  <view class="cont" wx:if="{{ shows}}">
-    <text class="tit">输入你想添加的课程（按外面可关闭）\n</text>
-    <text class="tit">删除请按课表左上角</text>
-    <view class="section">
-      <view class="section__title">输入添加课程的内容：
-        <input type="text" name="getname" placeholder="请输入课程内容" bindinput="getname"></input>
+
+  <view style="display:{{xz}}">
+
+
+    <scroll-view class="scroll">
+      <view class="top">
+        <view class='week' style='font-size:10pt; color:#6D7373;'>{{month}}月</view>
+        <!-- 周一单独处理 -->
+        <view class="top-text {{ dayOfWeek==1&&weekNow==weekOfYear?'top-text-strong':''}}" style='width:83rpx'>
+          周一
+          <view class="after-left {{dayOfWeek==1&&weekNow==weekOfYear?'after-left-strong':''}}">{{arr[0]}}</view>
+        </view>
+        <view wx:for="{{['二','三','四','五','六','日']}}" wx:key="unique" class="top-text {{dayOfWeek==(index+2)&&weekNow==weekOfYear?'top-text-strong':''}}">
+          <view>周{{item}}</view>
+          <view class="after-left {{dayOfWeek==(index+2)&&weekNow==weekOfYear?'after-left-strong':''}}">{{arr[index+1]}}</view>
+        </view>
       </view>
 
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker"> 当前选择(点击选择)：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
-          {{multiArray[2][multiIndex[2]]}}{{multiArray[3][multiIndex[3]]}} </view>
-      </picker>
-      <view class="wx-remind-detail" bindtap='setClass'>
-        <text>确认</text>
-      </view>
-    </view>
-  </view>
-  
-  <view style="display:{{xz}}">
-    <view class="top">
-      <view style="month">
-        <text>{{month}}</text>
-        <text>月</text>
-      </view>
-      <view wx:for="{{arr}}" wx:key="1" class="top-text">周{{item}}</view>
-    </view>
-    <scroll-view scroll-y="true" class="scroll">
-      <view style="height:1200rpx;width:730rpx;display:flex;">
-        <view style="  background-color: #eee;color: #000;border-radius: 10rpx;">
-          <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="3" class="left">
-            {{item}}
+      <view class="timetable">
+        <view>
+          <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="unique" class="left">
+            <view>{{item}}</view>
+            <view class="after-left1">{{courseTime[index]}}</view>
           </view>
         </view>
         <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="2">
-          <view
-            style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:1rpx solid {{index!=3?'greek':'lightgray'}};">
-          </view>
+          <view style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:2rpx solid {{index!=3 && index!=7?'greek':'lightgray'}};"> </view>
         </view>
-        <view class="round-click" bindtap='showPic'>
-          <text>时间表</text>
-        </view>
+
         <!--课表-->
-        <view wx:for="{{wlist}}" wx:key="4">
-          <view class="flex-item kcb-item" bindtap="showCardView" data-statu="open" data-index="{{index}}"
-            style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.skjc-1)*100+5}}rpx;height:{{item.skcd*100-5}}rpx;background-color:{{colorArrays[index%9]}}">
-            <view class="smalltext">{{item.kcmc}}</view>
+        <view wx:for="{{wlist}}" wx:key="unique">
+          <view class="flex-item timetable-item shadow shadow-lg bg-white" bindtap="showCardView" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*99+5}}rpx;margin-top:{{(item.skjc-1)*100+5}}rpx;height:{{item.skcd*100-5}}rpx;background-color:{{colorArrays[index%20]}};z-index:999">
+            <view class="smalltext text">{{item.kcmc}}@{{item.jxcdmc}}
+            </view>
           </view>
+          <!-- Todo 重叠课程右上角三角形 -->
+          <view wx-if="{{isScheduled[index]&&hasData[item.Course_Time][item.Course_Start]>1}}" class="triangle-topright" style="margin-left:{{(item.Course_Time-1)*99+(item.Course_Time==3?78:77)}}rpx;margin-top:{{(item.Course_Start-1)*100+5}}rpx;border-color: {{colorArrays[item.Course_Color%20]}}; z-index:{{1000*index}};"></view>
+
+
         </view>
       </view>
     </scroll-view>
   </view>
 
-  <view class='wx-isclass' style="display: {{isCourse}}">今天没有课，出去玩吧</view>
-  <view class='pd2' style="display: {{isCourse}}"> </view>
+
+<view class=' wx-isclass' style="display: {{isCourse}}">今天没有课，出去玩吧</view>
+  <view class=' pd2' style="display: {{isCourse}}"> </view>
+
 </view>

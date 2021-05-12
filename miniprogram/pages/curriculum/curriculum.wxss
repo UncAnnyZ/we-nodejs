@@ -1,5 +1,5 @@
 page {
-  background-color: rgb(252, 252, 252);
+  background-color: rgb(255, 255, 255);
 }
 
 .section__title {
@@ -67,6 +67,7 @@ page {
 }
 
 .wx-isclass {
+  width: 730rpx;
   text-align: center;
   font-size: 40rpx;
   color: #1cbbb4;
@@ -87,58 +88,122 @@ page {
 }
 
 .smalltext {
-  font-size: 7.9pt;
+  font-size: 80%;
   color: #fff;
   padding-left: 2px;
 }
 
 .top {
   display: flex;
+  padding-top:20rpx;
   flex-direction: row;
-  /* margin-left: 35rpx; */
-  margin-top: 15rpx;
-  background-color: #eee;
-  border-radius: 10rpx;
-  height: 60rpx;
+}
+.ttt{
+  font-size: 35rpx;
+}
+.text {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
 }
 
-.top-text {
-  width: 100rpx;
-  height: 35rpx;
-  font-size: 9pt;
 
+.after-left {
+  text-align: center;
+  font-size: 8.5pt;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  
+}
+
+.after-left1 {
+  text-align: center;
+  font-size: 7pt;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  
+}
+
+.timetable {
+  height: 1200rpx;
+  width: 730rpx;
+  display: flex;
+}
+.timetable-item {
+  position: absolute;
   justify-content: center;
   display: flex;
   align-items: center;
-  margin-top: 15rpx;
-  margin-left: 17rpx;
+  border-radius: 3px;
+}
+
+.after-left-strong {
+  color: #73b4ef;
+  font-weight: bold;
+}
+
+
+.top-text {
+  width: 103rpx;
+  height: 75rpx;
+  font-size: 11pt;
+  color: #4d4d4d;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.top-text-strong {
+  color: #73b4ef;
+  font-weight: bold;
 }
 
 .scroll {
-  height: 88%;
-  z-index: 101;
-  position: fixed;
+  /* height: 1300rpx; */
+  /* z-index: 9999999; */
+  /* height: 100%; */
+  position: absolute;
+  top:7%;
+  
 }
 
 .left {
-  width: 35rpx;
+  width: 42rpx;
   height: 100rpx;
-  font-size: 9pt;
+  font-size: 12pt;
+  color: #4d4d4d;
   justify-content: center;
-  display: flex;
   align-items: center;
+  text-align: center;
+  margin-top: 3%;
 }
 
 .nav-head {
   display: flex;
+  position:fixed;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 57px;
+  height: 7%;
+  z-index: 10000;
   border-bottom: 1rpx solid #cacbcc;
   background-color: #fff;
 }
-
+.week {
+  height: 35rpx;
+  width: 52rpx;
+  font-size: 9pt;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 15rpx;
+}
 .week-selector {
   display: flex;
   flex-direction: row;

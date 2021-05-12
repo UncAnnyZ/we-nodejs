@@ -5,6 +5,19 @@ var moveFlag = true;
 
 Page({
   data: {
+    courseTime: [
+      '8:00',
+      '9:40',
+      '10:00',
+      '11:40',
+      '14:30',
+      '16:10',
+      '16:20',
+      '17;50',
+      '19:40',
+      '21:20',
+      '22:05',
+    ],
     shows: false,
     whichWeek: '0',
     wlist: [],
@@ -120,11 +133,11 @@ Page({
     var zs_now = (Number(zs)-1) * 7;
     
     var test = "1";
-    var arr = ['一 ', '二 ', '三 ', '四 ', '五 ', '六 ', '日 '];
+    var arr = ['', '', '', '', '', '', ''];
     for(var i = 0; i < 7;i++){
       test = this.showdate(zs_now+i);
       console.log(test)
-      arr[i] = arr[i] + '\n' + test;
+      arr[i] = arr[i] + test;
     }
  
     var curriculum = getApp().globalData.curriculum
@@ -144,7 +157,26 @@ Page({
       xz = '';
     var a = 0;
     var data = {
-      colorArrays: ["#85B8CF", "#90C652", "rgb(236, 186, 100)", "#FC9F9D", "#0A9A84", "#61BC69", "#12AEF3", "#E29AAD", "#51BEE9"],
+      colorArrays: ['#99CCFF',
+        '#FFCC99',
+        '#FFCCCC',
+        '#CC6699',
+        '#99CCCC',
+        '#FF6666',
+        '#CCCC66',
+        '#66CC99',
+        '#FF9966',
+        '#66CCCC',
+        '#6699CC',
+        '#99CC99',
+        '#669966',
+        '#99CC99',
+        '#99CCCC',
+        '#66CCFF',
+        '#CCCCFF',
+        '#99CC66',
+        '#CCCC99',
+        '#FF9999',],
       wlist: []
     }
     var zc = 0;
@@ -154,11 +186,16 @@ Page({
         zc = String(Number(curriculum[i].zc) - 1);
       }
       if (zc == zs) {
+        var kcmcc = curriculum[i].kcmc;
+        if (kcmcc.length > 13) {
+          kcmcc = kcmcc.substring(0, 13) + "...";
+        }
         data.wlist.push({
           xqj: curriculum[i].xq,
           skjc: Number(curriculum[i].jcdm.substr(0, 2)),
           skcd: Number(curriculum[i].jcdm.substr(-2)) - Number(curriculum[i].jcdm.substr(0, 2)) + 1,
-          kcmc: curriculum[i].kcmc + "   " + curriculum[i].jxcdmc,
+          kcmc: kcmcc,
+            jxcdmc: curriculum[i].jxcdmc,
           teacher: curriculum[i].teaxms
         })
       }
