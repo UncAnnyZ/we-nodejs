@@ -24,8 +24,10 @@
 }
 .title_bg{
   position: absolute;
-  background-color: #58dfab;
-  background-image: linear-gradient( #58dfab 90%, #ffffff);/* 默认方向自下向上 */
+  /* background-color: #58dfab;
+  background-image: linear-gradient( #58dfab 90%, #ffffff);默认方向自下向上 */
+  background-color: #2da5e6;
+  background-image: linear-gradient( #2da5e6 90%, #ffffff);
   height: 30%;
   width: 100%;
 }
@@ -99,7 +101,8 @@
   position: absolute;
   bottom: 5%;
   width: 90%;
-  background-color: rgb(88, 223, 171);
+  /* background-color: rgb(88, 223, 171); */
+  background-color: rgb(45, 165, 230);
   color: white;
   border: none;
   outline: none;

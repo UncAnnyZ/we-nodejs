@@ -75,7 +75,7 @@ page {
 }
 
 .flex-item {
-  width: 95rpx;
+  width: 96rpx;
   height: 100px;
 }
 
@@ -90,7 +90,7 @@ page {
 .smalltext {
   font-size: 80%;
   color: #fff;
-  padding-left: 2px;
+  padding: 0 2rpx;
 }
 
 .top {
@@ -149,13 +149,14 @@ page {
 
 
 .top-text {
-  width: 103rpx;
-  height: 75rpx;
-  font-size: 11pt;
-  color: #4d4d4d;
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-grow: 1;
+  width: 100rpx;
+  height: 75rpx;
+  font-size: 11pt;
+  color: #4d4d4d;
 }
 
 .top-text-strong {
@@ -173,14 +174,15 @@ page {
 }
 
 .left {
-  width: 42rpx;
-  height: 100rpx;
-  font-size: 12pt;
-  color: #4d4d4d;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 3%;
+  width: 50rpx;
+  height: 100rpx;
+  font-size: 12pt;
+  color: #4d4d4d;
 }
 
 .nav-head {
@@ -197,7 +199,7 @@ page {
 }
 .week {
   height: 35rpx;
-  width: 52rpx;
+  width: 50rpx;
   font-size: 9pt;
   justify-content: center;
   display: flex;
