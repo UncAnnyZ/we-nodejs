@@ -13,7 +13,7 @@ Page({
   //事件处理函数
   onLoad: function() {
     console.log(getApp().globalData.zt)
-    if (getApp().globalData.zt == undefined){
+    if (getApp().globalData.zt != 1){
     wx.showModal({
       title: '提示',
       confirmText: '确定',
@@ -28,7 +28,7 @@ Page({
 
     }else{
       console.log(getApp().globalData.username)
-      if (getApp().globalData.username == 18024030112 || getApp().globalData.username == 18034460240){
+      if (getApp().globalData.username == 18024030112){
         this.setData({
           hiddenn: false,
         })
@@ -54,22 +54,55 @@ Page({
   add: function(e){
     var that = this
     console.log(that.data.username)
-    wx.cloud.callFunction({
-      name: 'getcode',
-      data: {
-        i: 1,
-        username: Number(e.detail.value.username)
-      },
-      success: res => {
-  
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '失败申请服务',
-        })
-      }
-    })
+    if (e.detail.target.dataset.type == 1) {
+
+      wx.cloud.callFunction({
+        name: 'getcode',
+        data: {
+          i: 1,
+          username: Number(e.detail.value.username)
+        },
+        success: res => {
+          if (res.result == 1) {
+            wx.showToast({
+              title: '添加成功',
+            })
+          }
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '失败申请服务',
+          })
+        }
+      })
+
+    } else if (e.detail.target.dataset.type == 2) {
+
+      wx.cloud.callFunction({
+        name: 'getcode',
+        data: {
+          i: 2,
+          username: Number(e.detail.value.username)
+        },
+        success: res => {
+          if (res.result == 1) {
+            wx.showToast({
+              title: '删除成功',
+            })
+          }
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '失败申请服务',
+          })
+        }
+      })
+
+    }
+
+
   },
 
   cx: function(e) {

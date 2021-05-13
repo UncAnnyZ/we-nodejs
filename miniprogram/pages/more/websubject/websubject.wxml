@@ -23,7 +23,8 @@
   <form bindsubmit="add">
   <view hidden="{{hiddenn}}" >
   <input type="text" name="username" placeholder="输入账号" />
-  <button formType="submit">添加账号</button>
+  <button formType="submit" data-type="1">添加账号</button>
+   <button formType="submit" data-type="2">删除账号</button>
     </view>
     </form>
 </view>

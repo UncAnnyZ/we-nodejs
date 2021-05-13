@@ -14,6 +14,14 @@ exports.main = async (event, context) => {
     })
     return 1
   } 
+  if (event.i == 2) {
+    await db.collection('curriculum').where({ _user: event.username }).update({
+      data: {
+        _zt: 2
+      }
+    })
+    return 1
+  } 
   const wxContext = cloud.getWXContext()
   // var taskid = "132200164628"
   let getResponse1 = await got('http://101.32.75.155:5000/one/' + event.code, {

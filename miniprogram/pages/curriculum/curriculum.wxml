@@ -65,7 +65,7 @@
   </view>
 
 
-<view class=' wx-isclass' style="display: {{isCourse}}">今天没有课，出去玩吧</view>
+<view class='scroll wx-isclass' style="display: {{isCourse}}">今天没有课，出去玩吧</view>
   <view class=' pd2' style="display: {{isCourse}}"> </view>
 
 </view>
