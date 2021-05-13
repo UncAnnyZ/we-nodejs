@@ -94,8 +94,11 @@ page {
 }
 
 .top {
+  justify-content:space-between;
   display: flex;
   padding-top:20rpx;
+  width: 745rpx;
+
   flex-direction: row;
   border-bottom: 1rpx solid rgba(240,240,240,0.5);
 }
