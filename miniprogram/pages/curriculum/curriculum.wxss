@@ -173,7 +173,7 @@ page {
 }
 
 .left {
-  width: 42rpx;
+  width: 52rpx;
   height: 100rpx;
   font-size: 12pt;
   color: #4d4d4d;
@@ -203,6 +203,7 @@ page {
   display: flex;
   align-items: center;
   margin-top: 15rpx;
+  margin-right: 10rpx;
 }
 .week-selector {
   display: flex;
