@@ -97,6 +97,7 @@ page {
   display: flex;
   padding-top:20rpx;
   flex-direction: row;
+  border-bottom: 1rpx solid rgba(240,240,240,0.5);
 }
 .ttt{
   font-size: 35rpx;
@@ -198,13 +199,11 @@ page {
   background-color: #fff;
 }
 .week {
-  height: 35rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50rpx;
   font-size: 9pt;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  margin-top: 15rpx;
 }
 .week-selector {
   display: flex;

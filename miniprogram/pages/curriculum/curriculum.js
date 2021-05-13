@@ -29,7 +29,9 @@ Page({
     isCourse: 'none',
     getname: "",
     multiArray: [], //二维数组，长度是多少是几列
-    addcurriculum: []
+    addcurriculum: [],
+    dayOfWeek: (new Date()).getDay()
+
   },
   onShareAppMessage: function(res) {
     return {
@@ -219,7 +221,11 @@ Page({
   },
 
   onLoad: function(options) {
+
     this.kb(getApp().globalData.whichWeek);
+    this.setData({
+      weekNow: getApp().globalData.whichWeek,
+    })
   },
   onShow: function(options) {
     this.kb(getApp().globalData.whichWeek);
