@@ -1,15 +1,16 @@
 <!-- <image src='cloud://un1-d62c68.756e-un1-d62c68-1258307938/微信图片_20200901125311.jpg' mode="widthFix"></image> -->
 <ad unit-id="adunit-3b513ed5750984a1"></ad>
 <view class='{{show}}'>
-    <view class="wx-list grid no-border}">
-        <view class="wx-item" wx:for="{{iconList}}"wx:key="1" id="{{item.url}}">
-            <navigator url='../{{item.url}}'>
-                <image class="fun-images" src="../../images/icon/{{item.icon}}.png" ></image>
+    <view class="iconn">
+        <view class="iconn_item" wx:for="{{iconList}}"wx:key="1" id="{{item.url}}">
+            <navigator url='../{{item.url}}' class="iconn_item_url">
+                <image class="iconn_item_image" src="../../images/icon/{{item.icon}}.png" ></image>
                 <text>{{item.name}}</text>
             </navigator>
         </view>
     </view>
-    <view class='wx-list menu margin-top}' style='display:{{news? "block":"none"}}'>
+
+    <view class='wx-list menu margin-top' style='display:{{news? "block":"none"}}'>
         <view class="wx-item">
             <view class="content">
                 <image class="inform-images" src="../../images/icon/inform.png"></image>
@@ -22,7 +23,7 @@
             </view>
         </view>
     </view>
-    <view class='wx-remind margin-top}' style='display:{{class? "block":"none"}}'>
+    <view class='wx-remind margin-top' style='display:{{class? "block":"none"}}'>
         <view class="wx-remind-header">
             <view class="wx-remind-title">
                 <text>上课提醒</text>

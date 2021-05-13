@@ -1,37 +1,70 @@
+
 page {
   background-color: rgb(255, 255, 255);
 }
 
-.section__title {
-
-  margin-bottom: 20rpx;
-  height: 70rpx;
-}
-
-.picker {
-  height: 80rpx;
-}
-
-.section {
-
-  margin: 50rpx 0;
-
-  font-size: 30rpx;
-
-}
-
-.wx-remind-detail {
-  justify-content: center;
-  align-items: center;
+/* 头部 */
+.nav-head {
   display: flex;
+  position:fixed;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 7%;
+  z-index: 10000;
+  border-bottom: 1rpx solid #cacbcc;
+  background-color: #fff;
 }
-
-.wx-remind-detail text {
-
-  padding: 14rpx 20rpx;
-  border: 4rpx solid coral;
-  color: coral;
-  border-radius: 20rpx;
+.img-button {
+  display: inline-block;
+}
+.img-button image {
+  width: 100%;
+  height: 100%;
+}
+.week-selector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 330rpx;
+}
+.ttt{
+  font-size: 35rpx;
+}
+.add-course-btn {
+  width: 52rpx;
+  height: 52rpx;
+  margin-left: 20rpx;
+}
+.pre-week-btn {
+  width: 20rpx;
+  height: 39rpx;
+}
+.cur-week {
+  text-align: center;
+  line-height: 1.5;
+}
+.cur-week .week {
+  font-size: 38rpx;
+  color: #18191A;
+}
+.cur-week .title {
+  font-size: 28rpx;
+  color: #7A7D80;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.next-week-btn {
+  width: 20rpx;
+  height: 39rpx;
+}
+.feedback-btn {
+  width: 50rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
 }
 
 /*-----------------------------遮罩层样式-------------------------------------  */
@@ -62,97 +95,46 @@ page {
   background-color: white;
 }
 
-.tit {
-  color: coral;
-}
 
-.wx-isclass {
-  width: 730rpx;
-  text-align: center;
-  font-size: 40rpx;
-  color: #1cbbb4;
-  margin-top: 20rpx;
-}
-
-.flex-item {
-  width: 96rpx;
-  height: 100px;
-}
-
-.kcb-item {
+/* 滑块 */
+.scroll {
+  /* height: 1300rpx; */
+  /* z-index: 9999999; */
+  /* height: 100%; */
   position: absolute;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
+  top:7%;
 }
 
-.smalltext {
-  font-size: 80%;
-  color: #fff;
-  padding: 0 2rpx;
-}
-
+/* 星期 */
 .top {
-  justify-content:space-between;
   display: flex;
-  padding-top:20rpx;
-  width: 745rpx;
-
   flex-direction: row;
+  justify-content:space-between;
+  padding-top:20rpx;
+  width: 100%;
   border-bottom: 1rpx solid rgba(240,240,240,0.5);
 }
-.ttt{
-  font-size: 35rpx;
+.week {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50rpx;
+  font-size: 9pt;
 }
-.text {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-}
-
-
 .after-left {
   text-align: center;
   font-size: 8.5pt;
   justify-content: center;
   align-items: center;
   color: #aaa;
-  
 }
-
-.after-left1 {
-  text-align: center;
-  font-size: 7pt;
-  justify-content: center;
-  align-items: center;
-  color: #aaa;
-  
-}
-
-.timetable {
-  height: 1200rpx;
-  width: 730rpx;
-  display: flex;
-}
-.timetable-item {
-  position: absolute;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  border-radius: 3px;
-}
-
 .after-left-strong {
   color: #73b4ef;
   font-weight: bold;
 }
-
-
 .top-text {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -162,21 +144,19 @@ page {
   font-size: 11pt;
   color: #4d4d4d;
 }
-
 .top-text-strong {
   color: #73b4ef;
   font-weight: bold;
 }
 
-.scroll {
-  /* height: 1300rpx; */
-  /* z-index: 9999999; */
-  /* height: 100%; */
-  position: absolute;
-  top:7%;
-  
-}
 
+/* 时间表 */
+.timetable {
+  position: relative;
+  display: flex;
+  height: 1200rpx;
+  width: 100%;
+}
 .left {
   display: flex;
   flex-direction: column;
@@ -188,122 +168,51 @@ page {
   font-size: 12pt;
   color: #4d4d4d;
 }
-
-.nav-head {
-  display: flex;
-  position:fixed;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 7%;
-  z-index: 10000;
-  border-bottom: 1rpx solid #cacbcc;
-  background-color: #fff;
-}
-.week {
-  display: flex;
+.after-left1 {
+  text-align: center;
+  font-size: 7pt;
   justify-content: center;
   align-items: center;
-  width: 50rpx;
-  font-size: 9pt;
+  color: #aaa;
 }
-.week-selector {
+
+
+/* 课表 */
+.kbcontain{
+  position: relative;
+}
+.kb{
+  position: absolute;
+  width: 96rpx;
+  margin: 4rpx 2rpx 2rpx 2rpx;
+
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 330rpx;
-}
 
-.img-button {
-  display: inline-block;
+  border-radius: 3px;
 }
-
-.img-button image {
+.smalltext {    
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
+  font-size: 80%;
+  color: #fff;
+  padding: 0 2rpx;
 }
 
-.add-course-btn {
-  width: 52rpx;
-  height: 52rpx;
-  margin-left: 20rpx;
-}
 
-.pre-week-btn {
-  width: 20rpx;
-  height: 39rpx;
-}
-
-.cur-week {
+/* 没课 */
+.wx-isclass {
+  width: 730rpx;
   text-align: center;
-  line-height: 1.5;
-
+  font-size: 40rpx;
+  color: #1cbbb4;
+  margin-top: 20rpx;
 }
-
-.cur-week .week {
-  font-size: 38rpx;
-  color: #18191A;
-}
-
-.cur-week .title {
-  font-size: 28rpx;
-  color: #7A7D80;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.next-week-btn {
-  width: 20rpx;
-  height: 39rpx;
-}
-
-.feedback-btn {
-  width: 50rpx;
-  height: 48rpx;
-  margin-right: 20rpx;
-}
-
 .pd2 {
-  height: 100%;
-
   justify-content: space-between;
+  height: 100%;
   padding: 88% 0;
   box-sizing: border-box;
-}
-
-.round-click {
-  height: 120rpx;
-  width: 120rpx;
-  background-color: #bc3e49;
-  border-radius: 100%;
-  position: fixed;
-  bottom: 50rpx;
-  right: 25rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9;
-}
-
-.round-click text {
-  font-size: 32rpx;
-  max-width: 80rpx;
-  color: #fff;
-  text-align: center;
-}
-
-.month{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 35rpx;
-}
-.month text{
-  min-width: 35rpx;
-  text-align: center;
 }

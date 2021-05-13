@@ -218,6 +218,7 @@ Page({
       isCourse: isCourse,
       multiIndex: [(Number(zs) - 1), 0, 0, 0],
     })
+
   },
 
   onLoad: function(options) {

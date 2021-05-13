@@ -1,3 +1,4 @@
+<!-- 头部 -->
 <view class="nav-head">
   <view class="img-button add-course-btn" bindtap="addCourseHandler">
     <image src="../../images/btn_add@2x.png"></image>
@@ -23,8 +24,9 @@
 
   <view style="display:{{xz}}">
 
-
+    <!-- 滑块部分 -->
     <scroll-view class="scroll">
+      <!-- 首栏 月份+星期几 -->
       <view class="top">
         <view class='week' style='font-size:10pt; color:#6D7373;'>{{month}}月</view>
 
@@ -52,12 +54,17 @@
         </view>
 
         <!--课表-->
-        <view wx:for="{{wlist}}" wx:key="unique">
+        <view wx:for="{{wlist}}" wx:key="unique" class="kbcontain">
 
-          <view class="flex-item timetable-item shadow shadow-lg bg-white" bindtap="showCardView" data-index="{{index}}" style=" margin: {{(item.skjc-1)*100+4}}rpx 2rpx {{(item.skjc-1)*100+2}}rpx {{(item.xqj-1)*100+2}}rpx; height:{{item.skcd*100-5}}rpx;  background-color:{{colorArrays[index%20]}}; z-index:999">
-            <view class="smalltext text">{{item.kcmc}}@{{item.jxcdmc}}
+          <view class="kb" bindtap="showCardView" data-index="{{index}}" style="top: {{(item.skjc-1)*100}}rpx; left:{{(item.xqj-1)*100}}rpx; height:{{item.skcd*100-5}}rpx; background-color:{{colorArrays[index%20]}}; z-index:999">
+            <view class="smalltext">{{item.kcmc}}@{{item.jxcdmc}}
             </view>
           </view>
+
+          <!-- <view class="flex-item timetable-item " bindtap="showCardView" data-index="{{index}}" style=" margin: {{(item.skjc-1)*100+4}}rpx 2rpx {{(item.skjc-1)*100+2}}rpx {{(item.xqj-1)*100+2}}rpx; height:{{item.skcd*100-5}}rpx;  background-color:{{colorArrays[index%20]}}; z-index:999">
+            <view class="smalltext text">{{item.kcmc}}@{{item.jxcdmc}}
+            </view>
+          </view> -->
           <!-- Todo 重叠课程右上角三角形 -->
           <view wx-if="{{isScheduled[index]&&hasData[item.Course_Time][item.Course_Start]>1}}" class="triangle-topright" style="margin-left:{{(item.Course_Time-1)*99+(item.Course_Time==3?78:77)}}rpx;margin-top:{{(item.Course_Start-1)*100+5}}rpx;border-color: {{colorArrays[item.Course_Color%20]}}; z-index:{{1000*index}};"></view>
 

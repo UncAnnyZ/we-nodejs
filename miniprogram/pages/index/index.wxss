@@ -2,6 +2,42 @@
   background-color: #fff;
 } 
 
+.iconn{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 30rpx;
+}
+.iconn_item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+.iconn_item_url{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.iconn_item_url image{
+  width:80rpx;
+  height:80rpx;
+  display:block;
+  margin:auto;
+}
+.iconn_item_url text{
+  display: block;
+  color: #888;
+  margin-top: 10rpx;
+  line-height: 30rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+
 .wx-list.grid.no-border {
 
   padding: 20rpx 10rpx 0rpx 80rpx;
