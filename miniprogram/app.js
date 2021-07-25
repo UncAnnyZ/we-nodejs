@@ -10,7 +10,7 @@ App({
     curriculum2:[],
     zt: undefined,
     username:0,
-    timeyear:"2021/3/1"
+    timeyear:"2021/8/30"
   },
   onLaunch: function () {
     

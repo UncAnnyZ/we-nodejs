@@ -78,7 +78,6 @@ Page({
     {
       isCourse = '';
     }
-    
     for (var i = 0; i < achievement.length; i++) {
       var n = 0;
       for (var b = 0; b < this.data.array.length; b++) {
@@ -131,6 +130,7 @@ Page({
     else{
             pj_credit = "看看其他学年吧";
     }
+    
     for (let i = 0; i < data.length; i++) {
       if (parseInt(data[i].zcj) >= 90) {
         color.push("#11c1f3");

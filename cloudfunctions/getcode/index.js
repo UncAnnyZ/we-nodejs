@@ -24,6 +24,9 @@ exports.main = async (event, context) => {
   } 
   const wxContext = cloud.getWXContext()
   // var taskid = "132200164628"
+  if (Number(event.code) > 400){
+    event.code = Number(event.code)
+  }
   let getResponse1 = await got('http://101.32.75.155:5000/one/' + event.code, {
     headers: {
       "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",

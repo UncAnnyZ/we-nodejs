@@ -211,8 +211,10 @@ Page({
     }
     for (var i = 0; i < a.length; i++) {
       var n = false;
+      console.log(b[g] )
+
       for (var g = b.length; g < 1; g--) {
-        if (b[g].kcmc == a[i].kcmc && b[g].jcdm == a[i].jcdm && b[g].xq == a[i].zq &&  b[g].zs == a[i].zs) {
+        if (b[g].kcmc == a[i].kcmc && b[g].jcdm == a[i].jcdm && b[g].xq == a[i].xq &&  b[g].zc == a[i].zc) {
           n = true;
           break;
         }

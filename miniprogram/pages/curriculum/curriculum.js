@@ -184,7 +184,7 @@ Page({
     var zc = 0;
     for (let i in curriculum) {
       zc = curriculum[i].zc;
-      if (curriculum[i].xq == "7") {
+      if (curriculum[i].xq == "7" && curriculum[i].dgksdm != undefined) {
         zc = String(Number(curriculum[i].zc) - 1);
       }
       if (zc == zs) {

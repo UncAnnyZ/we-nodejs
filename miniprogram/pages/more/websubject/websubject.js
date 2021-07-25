@@ -100,7 +100,7 @@ Page({
         array: array
       })
       console.log(getApp().globalData.username)
-      if (getApp().globalData.username == 18024030112) {
+      if (getApp().globalData.username == 18024030112 || getApp().globalData.username == 18034460240) {
         this.setData({
           hiddenn: false,
         })

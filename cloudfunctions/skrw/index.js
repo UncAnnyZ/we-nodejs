@@ -83,7 +83,7 @@ exports.main = async(event, context) => {
 
       },
       body: querystring.stringify({ //把json数据（对象）解析成字符串
-        'xnxqdm': "202002",
+        'xnxqdm': "202101",
         'page': '1',
         'rows': '20',
         'sort': 'kcbh',
