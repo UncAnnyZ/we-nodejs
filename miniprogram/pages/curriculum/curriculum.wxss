@@ -1,136 +1,6 @@
-<<<<<<< HEAD
-page {
-  background-color: rgb(252, 252, 252);
-}
-
-.section__title {
-  margin-bottom: 20rpx;
-  height: 70rpx;
-}
-
-.picker {
-  height: 80rpx;
-}
-
-.section {
-  margin: 50rpx 0;
-  font-size: 30rpx;
-}
-
-.wx-remind-detail {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.wx-remind-detail text {
-
-  padding: 14rpx 20rpx;
-  border: 4rpx solid coral;
-  color: coral;
-  border-radius: 20rpx;
-}
-
-/*-----------------------------遮罩层样式-------------------------------------  */
-.shade {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 102;
-  background-color: rgba(0, 0, 0, 0.8);
-  opacity: 0.5;
-  overflow: hidden;
-}
-
-/*----------------------------面板样式-----------------------------------------  */
-.cont {
-  width: 600rpx;
-  height: 400rpx;
-  z-index: 103;
-  overflow: hidden;
-  position: fixed;
-  top: 20%;
-  left: 60rpx;
-  font-size: 32rpx;
-  border-radius: 10rpx;
-  border: 1rpx solid greenyellow;
-  background-color: white;
-}
-
-.tit {
-  color: coral;
-}
-
-.wx-isclass {
-  text-align: center;
-  font-size: 40rpx;
-  color: #1cbbb4;
-  margin-top: 20rpx;
-}
-
-.flex-item {
-  width: 95rpx;
-  height: 100px;
-}
-
-.kcb-item {
-  position: absolute;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-}
-
-.smalltext {
-  font-size: 7.9pt;
-  color: #fff;
-  padding-left: 2px;
-}
-
-.top {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-   margin-left: 35rpx;
-  background-color: #eee;
-  border-radius: 10rpx;
-  height: 60rpx;
-  width: calc(750rpx - 50rpx);
-}
-
-.top-text{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc( (100% - 35rpx) / 7 );
-  /* padding-right: 5rpx; */
-}
-.top-text text{  
-  text-align: center;
-  font-size: 9pt;
-}
-
-.scroll {
-  height: calc(100vh - 67px - 30rpx);
-  /* height: 88%; */
-  z-index: 101;
-  position: fixed;
-}
-
-.left {
-  width: 35rpx;
-  height: 100rpx;
-  font-size: 9pt;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-=======
 
 page {
   background-color: rgb(255, 255, 255);
->>>>>>> 535f34519613a7ee1a55617646111fe9d5962ba6
 }
 
 /* 头部 */
@@ -146,9 +16,7 @@ page {
   border-bottom: 1rpx solid #cacbcc;
   background-color: #fff;
 }
-<<<<<<< HEAD
 
-=======
 .img-button {
   display: inline-block;
 }
@@ -156,7 +24,6 @@ page {
   width: 100%;
   height: 100%;
 }
->>>>>>> 535f34519613a7ee1a55617646111fe9d5962ba6
 .week-selector {
   display: flex;
   flex-direction: row;
@@ -164,19 +31,9 @@ page {
   justify-content: space-between;
   width: 330rpx;
 }
-<<<<<<< HEAD
 
-.img-button {
-  display: inline-block;
-}
-
-.img-button image {
-  width: 100%;
-  height: 100%;
-=======
 .ttt{
   font-size: 35rpx;
->>>>>>> 535f34519613a7ee1a55617646111fe9d5962ba6
 }
 
 .add-course-btn {
@@ -193,10 +50,6 @@ page {
 .cur-week {
   text-align: center;
   line-height: 1.5;
-<<<<<<< HEAD
-
-=======
->>>>>>> 535f34519613a7ee1a55617646111fe9d5962ba6
 }
 .cur-week .week {
   font-size: 38rpx;
@@ -220,12 +73,7 @@ page {
   height: 48rpx;
   margin-right: 20rpx;
 }
-<<<<<<< HEAD
 
-.pd2 {
-  height: 100%;
-=======
->>>>>>> 535f34519613a7ee1a55617646111fe9d5962ba6
 
 /*-----------------------------遮罩层样式-------------------------------------  */
 .shade {
@@ -240,20 +88,13 @@ page {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
-.round-click {
-  height: 120rpx;
-  width: 120rpx;
-  background-color: #bc3e49;
-  border-radius: 100%;
-=======
+
 /*----------------------------面板样式-----------------------------------------  */
 .cont {
   width: 600rpx;
   height: 400rpx;
   z-index: 103;
   overflow: hidden;
->>>>>>> 535f34519613a7ee1a55617646111fe9d5962ba6
   position: fixed;
   top: 20%;
   left: 60rpx;

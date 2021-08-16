@@ -23,19 +23,6 @@
   <view class="shade" wx:if="{{shows}}" bindtap='close'></view>
 
   <view style="display:{{xz}}">
-<<<<<<< HEAD
-    <view class="top">
-      <view wx:for="{{arr}}" wx:key="1" class="top-text">
-        <text>周{{item}}</text> 
-      </view>
-      
-    </view>
-    <scroll-view scroll-y="true" class="scroll">
-      <view style="height:1200rpx;width:730rpx;display:flex;">
-        <view style="  background-color: #eee;color: #000;border-radius: 10rpx;">
-          <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="3" class="left">
-            {{item}}
-=======
 
     <!-- 滑块部分 -->
     <scroll-view class="scroll">
@@ -60,7 +47,6 @@
           <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="unique" class="left">
             <view>{{item}}</view>
             <view class="after-left1">{{courseTime[index]}}</view>
->>>>>>> 535f34519613a7ee1a55617646111fe9d5962ba6
           </view>
         </view>
         <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="2">
@@ -68,17 +54,11 @@
         </view>
 
         <!--课表-->
-<<<<<<< HEAD
-        <view wx:for="{{wlist}}" wx:key="4">
-          <view class="flex-item kcb-item" bindtap="showCardView"  data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.skjc-1)*100+2}}rpx;height:{{item.skcd*100-2}}rpx;background-color:{{colorArrays[index%9]}}">
-            <view class="smalltext">{{item.kcmc}}</view>
-=======
         <view wx:for="{{wlist}}" wx:key="unique" class="kbcontain">
 
           <view class="kb" bindtap="showCardView" data-index="{{index}}" style="top: {{(item.skjc-1)*100}}rpx; left:{{(item.xqj-1)*100}}rpx; height:{{item.skcd*100-5}}rpx; background-color:{{colorArrays[index%20]}}; z-index:999">
             <view class="smalltext">{{item.kcmc}}@{{item.jxcdmc}}
             </view>
->>>>>>> 535f34519613a7ee1a55617646111fe9d5962ba6
           </view>
 
           <!-- <view class="flex-item timetable-item " bindtap="showCardView" data-index="{{index}}" style=" margin: {{(item.skjc-1)*100+4}}rpx 2rpx {{(item.skjc-1)*100+2}}rpx {{(item.xqj-1)*100+2}}rpx; height:{{item.skcd*100-5}}rpx;  background-color:{{colorArrays[index%20]}}; z-index:999">

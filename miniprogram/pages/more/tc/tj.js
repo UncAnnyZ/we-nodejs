@@ -5,7 +5,7 @@ const app = getApp()
 Page({
   data: {
     grade: '',       //年级
-    sex: 1,          //性别    男:1  女:2
+    sex: true,      //性别    男:true  女:false
     tall: 0,        //身高
     weight: 0,      //体重
     volume: 0,      //肺活量
@@ -18,10 +18,6 @@ Page({
     second: 0,
     sit_up: 0,      //仰卧起坐
     pull_up: 0,     //引体向上
-    style1: 'grade1',
-    style2: 'grade1',
-    style3: 'grade1',
-    style4: 'grade1',
     score: {
       fat: 0,          //体脂
       tall: 0,        //身高
@@ -34,7 +30,73 @@ Page({
       sit_up: 0,      //仰卧起坐
       pull_up: 0,     //引体向上
     },
-    total: 0
+    total: 0,
+    block:[
+      {
+        label:"身高",
+        input:"tall",
+        unit:"cm",
+        score:"tall",
+        sex:2,
+        power:0.15
+      },
+      {
+        label:"体重",
+        input:"weight",
+        unit:"kg",
+        score:"fat",
+        sex:2,
+        power:0.15
+      },
+      {
+        label:"肺活量",
+        input:"volume",
+        unit:"ml",
+        score:"volume",
+        sex:2,
+        power:0.15
+      },
+      {
+        label:"立定跳远",
+        input:"jump",
+        unit:"cm",
+        score:"jump",
+        sex:2,
+        power:0.1
+      },
+      {
+        label:"坐位体前屈",
+        input:"handlong",
+        unit:"cm",
+        score:"handlong",
+        sex:2,
+        power:0.1
+      },
+      {
+        label:"引体向上",
+        input:"pull_up",
+        unit:"个",
+        score:"pull_up",
+        sex: true,
+        power:0.1
+      },
+      {
+        label:"仰卧起坐",
+        input:"sit_up",
+        unit:"个",
+        score:"sit_up",
+        sex: false,
+        power:0.1
+      },
+      {
+        label:"50m",
+        input:"shortrun",
+        unit:'"',
+        score:"shortrun",
+        sex: 2,
+        power:0.2
+      }
+    ]
   },
 
   onLoad: function (e) {
@@ -46,14 +108,33 @@ Page({
         })
       },
     })
-    this.gradeClick1()
+    wx.setStorageSync('state', "onload")
+    this.gradeClick({
+      target:{ id:1 }
+    })
+    wx.removeStorageSync('state')
+  },
+
+  tips(e){
+    var id = e.target.id
+    var text;
+    if(id == "tall" || id == "fat")
+      text = "体脂\n权重为：" + e.target.dataset.power
+    else 
+      text = e.target.dataset.label + "\n" + "权重为：" + e.target.dataset.power
+
+    wx.showToast({
+      title: text,
+      icon: "none",
+      duration: 2000
+    })
   },
 
   /* 性别 */
   Setsex: function (e) {
-    if (e.detail.value == 1) {
+    if (e.detail.value) {
       this.setData({
-        sex: Number(e.detail.value),    //男：1 女：2
+        sex: e.detail.value,    //男：true 女：false
         min: 0,
         second: 0,
         longrun: 0,
@@ -62,9 +143,9 @@ Page({
 
       })
     }
-    if (e.detail.value == 2) {
+    if (!e.detail.value) {
       this.setData({
-        sex: Number(e.detail.value),    //男：1 女：2
+        sex: e.detail.value,    //男：true 女：false
         min: 0,
         second: 0,
         longrun: 0,
@@ -76,50 +157,13 @@ Page({
   },
 
   /* 年级 */
-  gradeClick1: function (e) {
-    console.log(e)
+  gradeClick: function (e) {
     this.setData({
-      style1: 'garde2',
-      style2: 'garde1',
-      style3: 'garde1',
-      style4: 'garde1',
-      grade: 1
+      grade: e.target.id
     })
     this.update();
   },
-  gradeClick2: function (e) {
-    console.log(e)
-    this.setData({
-      style1: 'garde1',
-      style2: 'garde2',
-      style3: 'garde1',
-      style4: 'garde1',
-      grade: 2
-    })
-    this.update();
-  },
-  gradeClick3: function (e) {
-    console.log(e)
-    this.setData({
-      style1: 'garde1',
-      style2: 'garde1',
-      style3: 'garde2',
-      style4: 'garde1',
-      grade: 3
-    })
-    this.update();
-  },
-  gradeClick4: function (e) {
-    console.log(e)
-    this.setData({
-      style1: 'garde1',
-      style2: 'garde1',
-      style3: 'garde1',
-      style4: 'garde2',
-      grade: 4
-    })
-    this.update();
-  },
+
 
   /* 体脂 */
   tall: function (e) {
@@ -130,7 +174,7 @@ Page({
     var fat;
     if (this.data.tall != 0 && this.data.tall != "" && this.data.weight != 0 && this.data.weight != "") {
       fat = this.data.weight / (this.data.tall * this.data.tall / 10000)
-      if (this.data.sex == 1)    //男生
+      if (this.data.sex == true)    //男生
       {
         if (fat >= 27.95)
           this.setData({
@@ -149,7 +193,7 @@ Page({
             'score.fat': 80
           })
       }
-      if (this.data.sex == 2)    //女生
+      if (this.data.sex == false)    //女生
       {
         if (fat >= 27.95)
           this.setData({
@@ -185,8 +229,7 @@ Page({
     var fat;
     if (this.data.tall != 0 && this.data.tall != "" && this.data.weight != 0 && this.data.weight != "") {
       fat = this.data.weight / (this.data.tall * this.data.tall / 10000)
-      console.log("fat = " + fat)
-      if (this.data.sex == 1)    //男生
+      if (this.data.sex == true)    //男生
       {
         if (fat >= 27.95)
           this.setData({
@@ -205,7 +248,7 @@ Page({
             'score.fat': 80
           })
       }
-      if (this.data.sex == 2)    //女生
+      if (this.data.sex == false)    //女生
       {
         if (fat >= 27.95)
           this.setData({
@@ -244,7 +287,7 @@ Page({
       })
     var volume;
 
-    if (this.data.sex == 1) {   //男生
+    if (this.data.sex == true) {   //男生
       if (this.data.grade == 1 || this.data.grade == 2) {   //大一、大二
         if (this.data.volume >= 4300) {
           if (this.data.volume >= 5040)
@@ -284,7 +327,7 @@ Page({
           volume = 0
       }
     }
-    if (this.data.sex == 2) {    //女生
+    if (this.data.sex == false) {    //女生
       if (this.data.grade == 1 || this.data.grade == 2) {
         if (this.data.volume >= 3000) {
           if (this.data.volume >= 3400)
@@ -337,7 +380,7 @@ Page({
       })
     var jump;
 
-    if (this.data.sex == 1) {   //男生
+    if (this.data.sex == true) {   //男生
       if (this.data.grade == 1 || this.data.grade == 2) {   //大一、大二
         if (this.data.jump >= 248) {
           if (this.data.jump >= 273)
@@ -383,7 +426,7 @@ Page({
           jump = 0
       }
     }
-    if (this.data.sex == 2) {   //女生
+    if (this.data.sex == false) {   //女生
       if (this.data.grade == 1 || this.data.grade == 2) {   //大一、大二
         if (this.data.jump >= 181) {
           if (this.data.jump >= 207)
@@ -436,14 +479,22 @@ Page({
   },
   /* 体前屈 */
   handlong: function (e) {
-    if (e != undefined)
+    if (e != "update") {
       this.setData({
+        ishandlong: true,
         handlong: Number(e.detail.value),
       })
-    var handlong;
+      if (e.detail.value == "") {
+        this.setData({
+          ishandlong: false
+        })
+      }
+    }
 
-    if (this.data.sex == 1) {   //男生
-      if (this.data.grade == 1 || this.data.grade == 2) {   //大一、大二
+    var handlong;
+    
+    if (this.data.sex == true) {   //男生
+      if (this.data.grade == 1 || this.data.grade == 2) { //大一、大二
         if (this.data.handlong >= 17.7) {
           if (this.data.handlong >= 24.9)
             handlong = 100;
@@ -478,7 +529,7 @@ Page({
           handlong = 0
       }
     }
-    if (this.data.sex == 2) {   //女生
+    if (this.data.sex == false) {   //女生
       if (this.data.grade == 1 || this.data.grade == 2) {   //大一、大二
         if (this.data.handlong >= 19) {
           if (this.data.handlong >= 25.8)
@@ -520,6 +571,10 @@ Page({
           handlong = 0
       }
     }
+
+    if (!this.data.ishandlong)
+      handlong = 0
+
     this.setData({
       'score.handlong': handlong
     })
@@ -624,15 +679,16 @@ Page({
   },
   /* 短跑50m */
   shortrun: function (e) {
-    if (e != undefined)
+    if (e != undefined) 
       this.setData({
         shortrun: Number(e.detail.value)
       })
+
     var shortrun;
 
-    if (this.data.sex == 1) {   //男生
+    if (this.data.sex == true) {   //男生
       if (this.data.grade == 1 || this.data.grade == 2) {   //大一、大二
-        if (this.data.shortrun > 10.1)
+        if (this.data.shortrun > 10.1 || this.data.shortrun == 0)
           shortrun = 0
         else if (this.data.shortrun >= 9.1) {
           shortrun = 60 - Math.ceil(((this.data.shortrun - 9.1) / 0.2)) * 10
@@ -662,7 +718,7 @@ Page({
           shortrun = 100
       }
     }
-    if (this.data.sex == 2) {   //女生
+    if (this.data.sex == false) {   //女生
       if (this.data.grade == 1 || this.data.grade == 2) {   //大一、大二
         if (this.data.shortrun > 11.3)
           shortrun = 0
@@ -700,10 +756,14 @@ Page({
           shortrun = 100
       }
     }
+
+    if(e != undefined && e.detail.value == 0)
+      shortrun = 0;
+
     this.setData({
       'score.shortrun': shortrun
     })
-    if (this.data.shortrun != 0)
+    // if (this.data.shortrun != 0)
       this.calculate();
   },
   /* 长跑800、1000 */
@@ -720,14 +780,14 @@ Page({
     if (e != undefined)
       this.setData({
         second: e.detail.value,
-        longrun: Number(Number(this.data.min) * 60 + Number(e.detail.value))
+        longrun: Number(this.data.min) * 60 + Number(e.detail.value)
       })
     this.longrun();
 
   },
   longrun: function (e) {
     var longrun;
-    if (this.data.sex == 1) {   //男生
+    if (this.data.sex == true) {   //男生
       if (this.data.grade == 1 || this.data.grade == 2) {   //大一、大二
         if (this.data.longrun > 372)
           longrun = 0
@@ -765,7 +825,7 @@ Page({
           longrun = 100
       }
     }
-    if (this.data.sex == 2) {   //女生
+    if (this.data.sex == false) {   //女生
       if (this.data.grade == 1 || this.data.grade == 2) {   //大一、大二
         if (this.data.longrun > 324)
           longrun = 0
@@ -803,20 +863,23 @@ Page({
           longrun = 100
       }
     }
+    if(this.data.longrun == 0)
+      longrun = 0;
+      
     this.setData({
       'score.longrun': longrun
     })
-    if (this.data.longrun != 0)
+    // if (this.data.longrun != 0)
       this.calculate();
   },
 
   /* 计算统计 */
   calculate: function (e) {
-    if (this.data.sex == 1)
+    if (this.data.sex == true)
       this.setData({
         total: (this.data.score.fat * 0.15 + this.data.score.volume * 0.15 + this.data.score.jump * 0.1 + this.data.score.handlong * 0.1 + this.data.score.pull_up * 0.1 + this.data.score.shortrun * 0.2 + this.data.score.longrun * 0.2).toFixed(2)
       })
-    if (this.data.sex == 2)
+    if (this.data.sex == false)
       this.setData({
         total: (this.data.score.fat * 0.15 + this.data.score.volume * 0.15 + this.data.score.jump * 0.1 + this.data.score.handlong * 0.1 + this.data.score.sit_up * 0.1 + this.data.score.shortrun * 0.2 + this.data.score.longrun * 0.2).toFixed(2)
       })
@@ -828,8 +891,8 @@ Page({
     this.weight();
     this.volume();
     this.jump();
-    if (this.data.handlong)
-      this.handlong();
+    if (wx.getStorageSync("state")=="")
+      this.handlong("update");
     this.sit_up();
     this.pull_up();
     if (this.data.shortrun != 0)
