@@ -1,71 +1,74 @@
-
-page{
-  background-color:rgb(252, 252, 252);
+page {
+  background-color: rgb(252, 252, 252);
 }
 
-.section__title{
-
+.section__title {
   margin-bottom: 20rpx;
   height: 70rpx;
 }
-.picker{
-   height: 80rpx;
-}
-.section{
 
+.picker {
+  height: 80rpx;
+}
+
+.section {
   margin: 50rpx 0;
-
   font-size: 30rpx;
+}
 
+.wx-remind-detail {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
-.wx-remind-detail{
-  justify-content:center;
-  align-items:center;
-  display:flex;
-}
-.wx-remind-detail text{
-  
-  padding:14rpx 20rpx;
-  border:4rpx solid coral;
+
+.wx-remind-detail text {
+
+  padding: 14rpx 20rpx;
+  border: 4rpx solid coral;
   color: coral;
-  border-radius:20rpx;
+  border-radius: 20rpx;
 }
+
 /*-----------------------------遮罩层样式-------------------------------------  */
-.shade{
+.shade {
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 102;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: 0.5;
   overflow: hidden;
-}   
+}
+
 /*----------------------------面板样式-----------------------------------------  */
 .cont {
-   width: 600rpx;
-   height: 400rpx;
-   z-index: 103;
-   overflow: hidden;
-   position: fixed;
-   top: 20%;
-   left: 60rpx;  
-   font-size: 32rpx; 
-   border-radius: 10rpx; 
-   border: 1rpx solid greenyellow;
-   background-color: white;
-}  
-.tit{
+  width: 600rpx;
+  height: 400rpx;
+  z-index: 103;
+  overflow: hidden;
+  position: fixed;
+  top: 20%;
+  left: 60rpx;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid greenyellow;
+  background-color: white;
+}
+
+.tit {
   color: coral;
 }
 
-.wx-isclass{
-  text-align:center;
-  font-size:40rpx;
-  color:#1cbbb4;
-  margin-top:20rpx;
+.wx-isclass {
+  text-align: center;
+  font-size: 40rpx;
+  color: #1cbbb4;
+  margin-top: 20rpx;
 }
+
 .flex-item {
   width: 95rpx;
   height: 100px;
@@ -87,34 +90,30 @@ page{
 
 .top {
   display: flex;
-
+  align-items: center;
   flex-direction: row;
-
-  margin-left: 35rpx;
-
-  margin-top: 15rpx;
-
+   margin-left: 35rpx;
   background-color: #eee;
-
   border-radius: 10rpx;
-
   height: 60rpx;
+  width: calc(750rpx - 50rpx);
 }
 
-.top-text {
-  width: 100rpx;
-  height: 35rpx;
-  font-size: 9pt;
-
-  justify-content: center;
+.top-text{
   display: flex;
+  justify-content: center;
   align-items: center;
-      margin-top: 15rpx;
-        margin-left: 17rpx;
+  width: calc( (100% - 35rpx) / 7 );
+  /* padding-right: 5rpx; */
+}
+.top-text text{  
+  text-align: center;
+  font-size: 9pt;
 }
 
 .scroll {
-  height: 88%;
+  height: calc(100vh - 67px - 30rpx);
+  /* height: 88%; */
   z-index: 101;
   position: fixed;
 }
@@ -137,6 +136,7 @@ page{
   border-bottom: 1rpx solid #cacbcc;
   background-color: #fff;
 }
+
 .week-selector {
   display: flex;
   flex-direction: row;
@@ -144,6 +144,7 @@ page{
   justify-content: space-between;
   width: 330rpx;
 }
+
 .img-button {
   display: inline-block;
 }
@@ -152,19 +153,22 @@ page{
   width: 100%;
   height: 100%;
 }
+
 .add-course-btn {
   width: 52rpx;
   height: 52rpx;
   margin-left: 20rpx;
 }
+
 .pre-week-btn {
   width: 20rpx;
   height: 39rpx;
 }
+
 .cur-week {
   text-align: center;
   line-height: 1.5;
-  
+
 }
 
 .cur-week .week {
@@ -179,22 +183,26 @@ page{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .next-week-btn {
   width: 20rpx;
   height: 39rpx;
 }
+
 .feedback-btn {
   width: 50rpx;
   height: 48rpx;
   margin-right: 20rpx;
 }
-.pd2{
+
+.pd2 {
   height: 100%;
 
   justify-content: space-between;
   padding: 88% 0;
   box-sizing: border-box;
 }
+
 .round-click {
   height: 120rpx;
   width: 120rpx;

@@ -40,7 +40,9 @@
   </view>
   <view style="display:{{xz}}">
     <view class="top">
-      <view wx:for="{{arr}}" wx:key="1" class="top-text">周{{item}}</view>
+      <view wx:for="{{arr}}" wx:key="1" class="top-text">
+        <text>周{{item}}</text> 
+      </view>
       
     </view>
     <scroll-view scroll-y="true" class="scroll">
@@ -59,7 +61,7 @@
   </view>
         <!--课表-->
         <view wx:for="{{wlist}}" wx:key="4">
-          <view class="flex-item kcb-item" bindtap="showCardView"  data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.skjc-1)*100+5}}rpx;height:{{item.skcd*100-5}}rpx;background-color:{{colorArrays[index%9]}}">
+          <view class="flex-item kcb-item" bindtap="showCardView"  data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.skjc-1)*100+2}}rpx;height:{{item.skcd*100-2}}rpx;background-color:{{colorArrays[index%9]}}">
             <view class="smalltext">{{item.kcmc}}</view>
           </view>
         </view>
