@@ -2,11 +2,12 @@ page{
   background-color:rgb(252, 252, 252);
 }
 .cxwk{
+  left: 50rpx;
   margin:33rpx auto auto auto;
-  border-style: solid; border-width: 1rpx;
+  /* border-style: solid; border-width: 1rpx; */
   width:500rpx;
-  height:300rpx;
-  font-size: 30rpx;
+  height:500rpx;
+  /* font-size: 30rpx; */
   background-color:rgb(252, 252, 252);
 }
 .cxwk1{
@@ -17,10 +18,18 @@ page{
   color: #ffffffd7;
   background-color:#0188f7d7;
 }
+.cxwk2{
+  margin:33rpx auto auto auto;
+  border-style: solid; border-width: 0rpx;
+  width:500rpx;
+  font-size: 35rpx;
+  /* color: #ffffffd7;
+  background-color:#0188f7d7; */
+}
 .m2{
   margin:33rpx auto 44rpx auto;
   width:600rpx;
-  height:800rpx;
+  height:1000rpx;
   background: linear-gradient(-18deg, #62b4f7d7, #62b4f7d7);
   border-radius: 12rpx;
 }

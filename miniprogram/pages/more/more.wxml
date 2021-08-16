@@ -20,7 +20,7 @@
               <image src='../../../images/home/student.png'></image>
           </view>
           <view class="content">
-              <text class="text-grey">查网课答案</text>
+              <text class="text-grey">打卡</text>
               <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
           </view>
       </view>

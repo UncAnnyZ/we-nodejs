@@ -211,8 +211,10 @@ Page({
     }
     for (var i = 0; i < a.length; i++) {
       var n = false;
+      console.log(b[g] )
+
       for (var g = b.length; g < 1; g--) {
-        if (b[g].kcmc == a[i].kcmc && b[g].jcdm == a[i].jcdm && b[g].xq == a[i].zq &&  b[g].zs == a[i].zs) {
+        if (b[g].kcmc == a[i].kcmc && b[g].jcdm == a[i].jcdm && b[g].xq == a[i].xq &&  b[g].zc == a[i].zc) {
           n = true;
           break;
         }
@@ -233,7 +235,7 @@ Page({
     getApp().globalData.curriculum = data.c_data;
     getApp().globalData.curriculum1 = JSON.parse(JSON.stringify(data.c_data));
     getApp().globalData.curriculum2 = JSON.parse(JSON.stringify(data.c_data));
-
+    getApp().globalData.zt = data.zt; 
     getApp().globalData.username = data.username;
     getApp().globalData._add = JSON.parse(data._add);
     getApp().globalData._de = JSON.parse(data._de);
@@ -283,6 +285,7 @@ Page({
     wx.cloud.callFunction({
       name: 'gg',
       success: res => {
+        console.log(res)
         var keydata = res.result.key
         getApp().globalData.timeyear = res.result.timeyear;
         if (bb != keydata) {
@@ -305,6 +308,7 @@ Page({
         })
       }
     })
+    
     wx.showLoading({
       title: '更新数据中',
       mask: true
