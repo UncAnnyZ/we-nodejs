@@ -203,9 +203,9 @@ button::after {
 }
 
 .login-btn {
-  font-size: 13pt;
-  line-height: 85rpx;
-  height: 85rpx;
+  margin-top: 40;
+  /* font-size: 13pt; */
+  height: 70rpx;
   background: #18febd;
  color: #010c10;
   text-align: center;

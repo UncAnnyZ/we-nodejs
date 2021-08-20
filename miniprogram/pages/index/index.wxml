@@ -2,9 +2,9 @@
 <ad unit-id="adunit-3b513ed5750984a1"></ad>
 <view class='{{show}}'>
     <view class="iconn">
-        <view class="iconn_item" wx:for="{{iconList}}"wx:key="1" id="{{item.url}}">
+        <view class="iconn_item" wx:for="{{iconList}}" wx:key="id" id="{{item.url}}">
             <navigator url='../{{item.url}}' class="iconn_item_url">
-                <image class="iconn_item_image" src="../../images/icon/{{item.icon}}.png" ></image>
+                <image class="iconn_item_image" src="{{item.icon}}" ></image>
                 <text>{{item.name}}</text>
             </navigator>
         </view>
@@ -15,7 +15,7 @@
             <view class="content">
                 <image class="inform-images" src="../../images/icon/inform.png"></image>
                 <view class="inform-text">
-                  <view  wx:for="{{inform}}"wx:key="2" bindtap='setFrom' id="{{item.title}}">
+                  <view  wx:for="{{inform}}"wx:key="id" bindtap='setFrom' id="{{item.title}}">
                     <text class='inform-comment'>{{item.comment}}</text>
                     <text class='inform-name'>{{item.name}}</text>
                   </view>
@@ -27,14 +27,14 @@
         <view class="wx-remind-header">
             <view class="wx-remind-title">
                 <text>上课提醒</text>
-                <text>{{time.month+1}}-{{time.date}} 周{{time.day}}</text>
+                <text>{{time.month+1}}-{{time.date}} 周{{time.day != 0 ? time.day : 7}}</text>
             </view>
             <view class="wx-remind-detail"  bindtap='setClass' >
                 <text>课程表</text>
             </view>
         </view>
         <view class="wx-remind-body margin-top">
-            <view class="wx-remind-class  margin-top:100rpx;" bindtap='setClass' wx:for="{{course}}"wx:key="3">
+            <view class="wx-remind-class  margin-top:100rpx;" bindtap='setClass' wx:for="{{course}}"wx:key="id">
                 <view class="wx-class-time" style='color:{{color[index]}};background-color:{{background[index]}}'>
                     <text>{{item.day}}</text>
                     <text>{{item.time}}</text>
@@ -44,7 +44,7 @@
                     <text><text class='iconfont icon-dingwei'></text>{{item.site}}</text>
                 </view>
             </view>
-             <view class='wx-isclass' style="display: {{isCourse? 'block':'none'}}">今天没有课，出去玩吧</view>
+             <view class='wx-isclass' style="display: {{isCourse? 'block':'none'}}">{{classMsg}}</view>
         </view>
     </view>
 </view>

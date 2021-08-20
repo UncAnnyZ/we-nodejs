@@ -112,8 +112,7 @@ Page({
   },
 
   showdate(n) { // 日期切换处理函数  返回时间格式 YYYY-MM-DD
-    var date = new Date(getApp().globalData.timeyear);
-    console.log(date)
+    var date = new Date(wx.getStorageSync('configData').timeYear);
     date.setDate(date.getDate() + n);
     var month = date.getMonth() + 1
     month = month > 10 ? month :  month // 格式化月份
@@ -138,7 +137,6 @@ Page({
     var arr = ['', '', '', '', '', '', ''];
     for(var i = 0; i < 7;i++){
       test = this.showdate(zs_now+i);
-      console.log(test)
       arr[i] = arr[i] + test;
     }
  
@@ -214,7 +212,6 @@ Page({
       wlist: data.wlist,
       colorArrays: data.colorArrays,
       xz: xz,
-
       isCourse: isCourse,
       multiIndex: [(Number(zs) - 1), 0, 0, 0],
     })

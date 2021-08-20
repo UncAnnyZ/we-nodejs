@@ -1,9 +1,13 @@
+.page {
+  background-color: #F6F6F6;
+} 
+
 .menu {
   display:block;
   overflow:hidden;
   background-color: #fff;
-
 }
+
 .wx-item{
   position:relative;
   display:flex;
@@ -11,7 +15,7 @@
   align-items:center;
   min-height:100rpx;
   background:#fff;
-  padding:10rpx 0rpx;
+  padding:8rpx 0rpx;
 }
 .content{
   display: flex;
@@ -21,13 +25,13 @@
 }
 .icon-arrow-right-copy-copy-copy{
   margin:auto;
-  font-size:40rpx;
+  font-size:30rpx;
   margin-right:30rpx;
   color:#afafaf;
 }
 .text-grey{
   line-height:100rpx;
-  font-size:35rpx;
+  font-size:32rpx;
   flex:1;
   color:#333333;
 }
@@ -46,12 +50,10 @@
   border: none;
 }
 .button{
-  background-color:#fff;
+  padding: 0;
+  /* background-color:#fff; */
   text-align:left;
   padding-left:5rpx;
-}
-.button::after {
-  border: none;
 }
 .user-img{
   width: 180rpx;

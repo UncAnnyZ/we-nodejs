@@ -1,79 +1,29 @@
-
 <view class="wx-list menu margin-top">
-<ad unit-id="adunit-d91c54d3a3ef3040"></ad>
-        
+    <ad unit-id="adunit-d91c54d3a3ef3040"></ad>
+
     <navigator url='/pages/more/tc/tj'>
-      <view class="wx-item">
-          <view class="wx-images">
-              <image src='../../../images/home/timg.png'></image>
-          </view>
-          <view class="content">
-              <text class="text-grey">体测成绩计算</text>
-              <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
-          </view>
-      </view>
+        <view class="wx-item">
+            <view class="wx-images">
+                <image src='../../../images/home/timg.png'></image>
+            </view>
+            <view class="content">
+                <text class="text-grey">体测成绩计算</text>
+                <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
+            </view>
+        </view>
     </navigator>
- 
-    <!-- <navigator url='/pages/more/websubject/websubject'>
-      <view class="wx-item">
-          <view class="wx-images">
-              <image src='../../../images/home/student.png'></image>
-          </view>
-          <view class="content">
-              <text class="text-grey">打卡</text>
-              <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
-          </view>
-      </view>
-    </navigator> -->
 
     <navigator url='/pages/more/skrw/skrw'>
-      <view class="wx-item">
-          <view class="wx-images">
-              <image src='/images/icon/1.png'></image>
-          </view>
-          <view class="content">
-              <text class="text-grey">学生上课任务</text>
-              <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
-          </view>
-      </view>
+        <view class="wx-item">
+            <view class="wx-images">
+                <image src='/images/icon/1.png'></image>
+            </view>
+            <view class="content">
+                <text class="text-grey">学生上课任务</text>
+                <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
+            </view>
+        </view>
     </navigator>
-
-    <!-- <view bindtap='tsg'>
-      <view class="wx-item">
-          <view class="wx-images">
-              <image src='/images/icon/book.png'></image>
-          </view>
-          <view class="content">
-              <text class="text-grey">图书馆考试</text>
-              <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
-          </view>
-      </view>
-    </view> -->
-                <!--
-    <navigator url='../house/house'>
-      <view class="wx-item">
-          <view class="wx-images">
-              <image src='../../../images/home/house.png'></image>
-          </view>
-          <view class="content">
-              <text class="text-grey">房贷计算</text>
-              <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
-          </view>
-      </view>
-    </navigator>
-      -->
-    <!-- <navigator url='/pages/more/yunphoto/yunphoto'>
-      <view class="wx-item">
-          <view class="wx-images">
-              <image src='../../../images/home/about.png'></image>
-          </view>
-          <view class="content">
-              <text class="text-grey">云毕业照片</text>
-              <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
-          </view>
-      </view>
-    </navigator> -->
-  
 </view>
 <view class="wx-list menu margin-top rests">
     <view class="wx-item" bindtap='CopyQQ'>
@@ -90,18 +40,8 @@
             <image src='../../../images/home/share.png'></image>
         </view>
         <view class="content">
-            <button open-type='share' class="text-grey button" >分享</button>
-            <!-- <text >分享我们</text> -->
+            <button open-type='share' class="text-grey button">分享</button>
             <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
         </view>
     </view>
-    <!-- <view class="wx-item">
-        <view class="wx-images">
-            <image src='../../../images/home/give.png'></image>
-        </view>
-        <view class="content">
-            <text class="text-grey">打赏我们</text>
-            <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
-        </view>
-    </view> -->
 </view>

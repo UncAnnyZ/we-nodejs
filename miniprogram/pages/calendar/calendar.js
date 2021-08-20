@@ -9,8 +9,25 @@ Page({
   data: {
     isLoading: true,
     jsonContent: '',
+    dates:'2021-8-01',
     colorArrays:["#8beeff", "#ffc2d6", "#b6ffea", "#ffb3a2"]
   },
+  
+    bindDateChange: function (e) {
+      console.log("用户选择日期",e.detail.value)
+      
+      this.setData({
+        dates: e.detail.value
+      }, () => { // 接收第二个回调函数
+        console.log("进入this.data.dates",this.data.dates);
+      })
+      
+      this.jsondata();
+    },
+
+ 
+ 
+ 
   num_data: function (start_date1, end_date1) {
     var start_date = new Date(start_date1.replace(/-/g, "/"));
     var end_date = new Date(end_date1.replace(/-/g, "/"));
@@ -18,18 +35,19 @@ Page({
     var day = parseInt(days / (1000 * 60 * 60 * 24));
     return day*-1;
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    // 调用函数时，传入new Date()参数，返回值是日期和时间  
+ 
+ 
+  jsondata: function (){
     let time = new Date();
     let times = {
       date: "",
       month: "",
       day: "",
     };
+    
     times.date = time.getDate();
+
+
     let day;
     switch (time.getDay()) {
       case 1:
@@ -56,12 +74,17 @@ Page({
     }
     times.month = time.getMonth();
     times.day = day;
+
+    
     this.setData({
       time: times
     })
+
+  
+   
+   
+
     var month = times.month +1 
-    // 再通过setData更改Page()里面的data，动态更新页面的数据  
-    var that = this;
     var time_zqj = this.num_data("2020-1-25", time.getFullYear() + '-' + month + '-' + time.getDate())
     var time_ej = this.num_data("2020-3-2", time.getFullYear() + '-' + month + '-' + time.getDate())
     var time_gqj = this.num_data("2019-10-1", time.getFullYear() + '-' + month + '-' + time.getDate())
@@ -70,6 +93,10 @@ Page({
     var time_yd = this.num_data("2020-1-1", time.getFullYear() + '-' + month + '-' + time.getDate())
     var time_ksz = this.num_data("2020-1-4", time.getFullYear() + '-' + month + '-' + time.getDate())
     var time_fj = this.num_data("2020-1-10", time.getFullYear() + '-' + month + '-' + time.getDate())
+    console.log("即将进入计算时，this.data.dates的值",this.data.dates);
+  
+    var time_daysmatter = this.num_data(this.data.dates, time.getFullYear() + '-' + month + '-' + time.getDate())
+    var that = this;
     var calendar = {
       "day": time.getDate(),
       "dayOfWeek": "星期" + times.day,
@@ -82,7 +109,7 @@ Page({
       {
         "holidayName": "春节",
         "holidayDate": "2020-1-25",
-          "gapDays": time_zqj,
+        "gapDays": time_zqj,
         "holidayRestInfo": "1月25日"
 
       },
@@ -127,6 +154,12 @@ Page({
         "holidayDate": "2020-1-17",
         "gapDays": time_fj,
         "holidayRestInfo": "1月17日"
+      },
+      {
+        "holidayName": "倒数日",
+        "holidayDate": "data.dates",
+        "gapDays": time_daysmatter,
+        "holidayRestInfo": this.data.dates
       }
     ]}
     that.setData({
@@ -134,8 +167,19 @@ Page({
     })
   },
   /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    this.jsondata();
+    // 调用函数时，传入new Date()参数，返回值是日期和时间  
+  
+  },
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
+  
+
+
   onReady: function() {
 
   },
@@ -160,5 +204,6 @@ Page({
       current: 'cloud://un1-d62c68.756e-un1-d62c68-1258307938/xl.png', // 当前显示图片的http链接
       urls: ['cloud://un1-d62c68.756e-un1-d62c68-1258307938/xl.png'] // 需要预览的图片http链接列表
     })
-  }
+  },
+
 })

@@ -4,39 +4,19 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "navigateToMiniProgramAppIdList": [
-    "wx909f7431e2ccba81",
-    "wxf40af775e49de00f",
-    "wx0dffe79bb2223828"
-  ],
   "pages": [
     "pages/index/index",
-    "pages/recommend/tj/tj",
-    "pages/login/login",
     "pages/achievement/achievement",
-    "pages/curriculum/curriculum",
-    "pages/more/more",
-    "pages/calendar/calendar",
     "pages/quality/quality",
     "pages/about/about",
-    "pages/activity/activity",
-    "pages/more/websubject/websubject",
-    "pages/more/skrw/skrw",
-    "pages/examination/examination",
     "pages/schoolNav/schoolNav",
+    "pages/curriculum/curriculum",
     "pages/curriculum/addcurriculum/addcurriculum",
     "pages/curriculum/add/add",
-    "pages/activity/sign/sign",
-    "pages/recommend/recommend",
-    "pages/more/tc/tj",
-    "pages/more/yunphoto/yunphoto"
+    "pages/activity/activity",
+    "pages/calendar/calendar",
+    "pages/more/more"
   ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
-  },
   "tabBar": {
     "color": "#404040",
     "selectedColor": "#118ffe",
@@ -56,11 +36,13 @@
       }
     ]
   },
-  "networkTimeout": {
-    "request": 6000
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "WE广油",
+    "navigationBarTextStyle": "black"
   },
-  "navigationBarTitleText": "We广油",
-  "sitemapLocation": "sitemap.json" 
-  
-
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
 }

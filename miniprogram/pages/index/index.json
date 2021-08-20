@@ -1,7 +1,3 @@
 {
-  "backgroundColor": "#fff",
-  "usingComponents": {},
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark",
-      "navigationBarTitleText": "We广油"
+  "enablePullDownRefresh": true
 }

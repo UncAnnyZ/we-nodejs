@@ -20,10 +20,10 @@
 <view class="main">
 <view class='wx-isclass' style="display: {{isCourse}}">木有成绩哟</view>
   <view class="list">
-    <block wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+    <block wx:key="id" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
       <view class="data">
         <view class="data-adj">
-          <view class="upWard" style="background-color:{{id==0?'#fff':'#e2e5f2'}}"></view>
+          <view class="upWard" style="background-color:{{id==0?'#fffcfc':'#e2e5f2'}}"></view>
           <view class="dot" style='background-color:{{color[id]}}'></view>
           <view class="offWard"></view>
         </view>

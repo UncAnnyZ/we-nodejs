@@ -26,7 +26,8 @@
     <view class="detail_button" bindtouchstart="goDetail">详情</view>
   </view>
   <view class="text_box" wx:else>
-    <view class="text">广东石油化工学院</view>
-    <view class="text">广东省茂名市茂南区官渡二路139号 (邮编：525000)</view>
+    <view class="text">广东石油化工学院 (邮编：525000)</view>
+    <view class="text">官渡校区：广东省茂名市茂南区官渡二路139号</view>
+    <view class="text">西城校区：茂名市茂南区中科云粤西产业园</view>
   </view>
 </view>

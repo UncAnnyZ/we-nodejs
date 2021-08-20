@@ -4,7 +4,7 @@
       <view class='page'>
         <view class="page__hd">
 
-          <view class="page__title">校历</view>
+          <view class="page__title">倒数日</view>
           <view class="page__desc">
             <text>2019-2020学年 第一学期\n</text>
             <text wx:if="{{jsonContent.teachWeek !=='N/A'}}">{{jsonContent.month+1}} 月{{jsonContent.day}} 日   {{jsonContent.dayOfWeek}}</text>
@@ -61,9 +61,9 @@
               </view>
             </view>
 
-            <button open-type="share" class="login-btn">
+            <!-- <button open-type="share" class="login-btn">
               <text>分享校历给同学</text>
-            </button>
+            </button> -->
 
             <view class="round-click" bindtap='showPic'>
               <text>查看校历</text>

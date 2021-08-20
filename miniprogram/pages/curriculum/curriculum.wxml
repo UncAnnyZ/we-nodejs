@@ -9,7 +9,6 @@
     </view>
     <view class="cur-week">
       <view class="ttt">{{curWeek}}</view>
-
     </view>
     <view class="img-button next-week-btn" bindtap="nextWeekHandler">
       <image src="../../images/btn_next@2x.png"></image>
@@ -50,13 +49,13 @@
           </view>
         </view>
         <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="2">
-          <view style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:2rpx solid {{index!=3 && index!=7?'greek':'lightgray'}};"> </view>
+          <view style="width:750rpx;margin-top:{{(index+1)*110}}rpx;  position: absolute;border-bottom:2rpx solid {{index!=3 && index!=7?'greek':'lightgray'}};"> </view>
         </view>
 
         <!--课表-->
         <view wx:for="{{wlist}}" wx:key="unique" class="kbcontain">
 
-          <view class="kb" bindtap="showCardView" data-index="{{index}}" style="top: {{(item.skjc-1)*100}}rpx; left:{{(item.xqj-1)*100}}rpx; height:{{item.skcd*100-5}}rpx; background-color:{{colorArrays[index%20]}}; z-index:999">
+          <view class="kb" bindtap="showCardView" data-index="{{index}}" style="top: {{(item.skjc-1)*110}}rpx; left:{{(item.xqj-1)*100}}rpx; height:{{item.skcd*110-5}}rpx; background-color:{{colorArrays[index%20]}}; z-index:999">
             <view class="smalltext">{{item.kcmc}}@{{item.jxcdmc}}
             </view>
           </view>

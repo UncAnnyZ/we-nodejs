@@ -46,8 +46,9 @@ page{
     display: flex;
     flex: 1;
     padding:20rpx 35rpx;
-    border-radius: 50rpx;
-    box-shadow: 0rpx 0rpx 10rpx #e2e2e2;
+    border-radius: 40rpx;
+    background-color: #fff;
+    box-shadow: 0rpx 0rpx 17rpx #e2e2e2;
 }
 .grade-column{
     font-size:32rpx;

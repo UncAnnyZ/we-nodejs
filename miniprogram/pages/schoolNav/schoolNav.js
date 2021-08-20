@@ -17,7 +17,7 @@ Page({
       latitude: 21.677456,
       longitude: 110.924444,
       iconPath: "/images/nav/others.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '公交站',
@@ -28,7 +28,7 @@ Page({
       latitude: 21.679041,
       longitude: 110.922631,
       iconPath: "/images/nav/sports.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '体育馆',
@@ -39,7 +39,7 @@ Page({
       latitude: 21.680033,
       longitude: 110.924519,
       iconPath: "/images/nav/sports.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '游泳池',
@@ -50,7 +50,7 @@ Page({
       latitude: 21.681175,
       longitude: 110.922615,
       iconPath: "/images/nav/sports.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '球类体育场',
@@ -61,7 +61,7 @@ Page({
       latitude: 21.678962,
       longitude: 110.923371,
       iconPath: "/images/nav/xingzheng.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '综合楼',
@@ -72,7 +72,7 @@ Page({
       latitude: 21.677855,
       longitude: 110.921939,
       iconPath: "/images/nav/xingzheng.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '中专楼',
@@ -83,7 +83,7 @@ Page({
       latitude: 21.680981,
       longitude: 110.921472,
       iconPath: "/images/nav/sports.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '操场',
@@ -94,7 +94,7 @@ Page({
       latitude: 21.677591,
       longitude: 110.922867,
       iconPath: "/images/nav/jiaoxuelou.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '一教',
@@ -105,7 +105,7 @@ Page({
       latitude: 21.677147,
       longitude: 110.921789,
       iconPath: "/images/nav/jiaoxuelou.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '二教A',
@@ -116,7 +116,7 @@ Page({
       latitude: 21.677541,
       longitude: 110.921778,
       iconPath: "/images/nav/jiaoxuelou.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '二教B',
@@ -127,7 +127,7 @@ Page({
       latitude: 21.678897,
       longitude: 110.920882,
       iconPath: "/images/nav/xiaomen.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '计算机楼',
@@ -138,7 +138,7 @@ Page({
       latitude: 21.679276,
       longitude: 110.920893,
       iconPath: "/images/nav/shitang.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '一饭',
@@ -149,7 +149,7 @@ Page({
       latitude: 21.682197,
       longitude: 110.922476,
       iconPath: "/images/nav/shitang.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '二饭',
@@ -160,7 +160,7 @@ Page({
       latitude: 21.679365,
       longitude: 110.920169,
       iconPath: "/images/nav/shitang.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '四饭和4D区',
@@ -171,7 +171,7 @@ Page({
       latitude: 21.679699,
       longitude: 110.920732,
       iconPath: "/images/nav/shitang.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '五饭',
@@ -182,7 +182,7 @@ Page({
       latitude: 21.679704,
       longitude: 110.92158,
       iconPath: "/images/nav/sushe.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '1区',
@@ -193,7 +193,7 @@ Page({
       latitude: 21.678842,
       longitude: 110.920657,
       iconPath: "/images/nav/sushe.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '2区',
@@ -204,7 +204,7 @@ Page({
       latitude: 21.682227,
       longitude: 110.921794,
       iconPath: "/images/nav/sushe.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '3区',
@@ -215,7 +215,7 @@ Page({
       latitude: 21.680123,
       longitude: 110.920544,
       iconPath: "/images/nav/sushe.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '4区',
@@ -226,7 +226,7 @@ Page({
       latitude: 21.676374,
       longitude: 110.92346,
       iconPath: "/images/nav/jiaoxuelou.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '实验楼',
@@ -237,10 +237,98 @@ Page({
       latitude: 21.678588,
       longitude: 110.924026,
       iconPath: "/images/nav/sushe.png",
-      width: 22.5,
+      width: 23,
       height: 24,
       callout: {
         content: '5区',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 21,
+      latitude: 21.658237,
+      longitude: 110.820106,
+      iconPath: "/images/nav/sushe.png",
+      width: 23,
+      height: 24,
+      callout: {
+        content: '北苑B区',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 22,
+      latitude: 21.65702,
+      longitude: 110.820272,
+      iconPath: "/images/nav/sushe.png",
+      width: 23,
+      height: 24,
+      callout: {
+        content: '北苑A区',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 23,
+      latitude: 21.655834,
+      longitude: 110.823206,
+      iconPath: "/images/nav/sports.png",
+      width: 23,
+      height: 24,
+      callout: {
+        content: '体育馆',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 24,
+      latitude: 21.656662,
+      longitude: 110.819054,
+      iconPath: "/images/nav/shitang.png",
+      width: 23,
+      height: 24,
+      callout: {
+        content: '北华饭堂',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 25,
+      latitude: 21.65375,
+      longitude: 110.821023,
+      iconPath: "/images/nav/jiaoxuelou.png",
+      width: 23,
+      height: 24,
+      callout: {
+        content: '艺术楼',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 26,
+      latitude: 21.652952,
+      longitude: 110.81847,
+      iconPath: "/images/nav/jiaoxuelou.png",
+      width: 23,
+      height: 24,
+      callout: {
+        content: '教学综合楼',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 27,
+      latitude: 21.653321,
+      longitude: 110.815943,
+      iconPath: "/images/nav/sushe.png",
+      width: 23,
+      height: 24,
+      callout: {
+        content: '西南区饭堂',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 28,
+      latitude: 21.65553,
+      longitude: 110.816774,
+      iconPath: "/images/nav/jiaoxuelou.png",
+      width: 23,
+      height: 24,
+      callout: {
+        content: '教学楼（看详细地图）',
         display: 'ALWAYS'
       }
     }],
@@ -256,15 +344,39 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(e) {
-    var _this = this
+  onLoad: function (e) {
+    var _this = this;
+    wx.showModal({
+      title: '选择校区',
+      showCancel: true, //是否显示取消按钮
+      content: "请选择校区",
+      cancelText: "西城校区", //默认是“取消”
+      cancelColor: 'skyblue', //取消文字的颜色
+      confirmText: "官渡校区", //默认是“确定”
+      confirmColor: 'skyblue', //确定文字的颜色
+      success: function (res) {
+        if (res.cancel) {
+          _this.setData({
+            userLongitude: 110.818019,
+            userLatitude: 21.654388
+          })
+        } else {
+          _this.setData({
+            userLongitude: 110.922599,
+            userLatitude: 21.679529,
+          })
+        }
+      },
+      fail: function (res) {}, //接口调用失败的回调函数
+      complete: function (res) {}, //接口调用结束的回调函数（调用成功、失败都会执行）
+    })
 
     if (e.markerId !== '' && Object.keys(e).length !== 0) {
       _this.makertap(e);
     }
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
-      success: function(res) {
+      success: function (res) {
         _this.setData({
           userLongitude: res.longitude,
           userLatitude: res.latitude
@@ -273,23 +385,23 @@ Page({
     })
 
   },
-  onReady: function() {
+  onReady: function () {
     var that = this;
-    setTimeout(function() {
+    setTimeout(function () {
       that.setData({
         isLoading: false
       });
     }, 800);
 
   },
-  makertap: function(e) {
+  makertap: function (e) {
     console.log(e)
     var id = e.markerId;
     var that = this;
     const markers = that.data.markers;
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
-      success: function(res) {
+      success: function (res) {
         that.setData({
           userLongitude: res.longitude,
           userLatitude: res.latitude
@@ -305,7 +417,7 @@ Page({
     })
 
   },
-  planPolyline: function(origin, destination) {
+  planPolyline: function (origin, destination) {
     var that = this;
     var id = that.data.activePlaceID;
     //规划步行路线
@@ -315,7 +427,7 @@ Page({
     myAmapFun.getWalkingRoute({
       origin: origin,
       destination: destination,
-      success: function(data) {
+      success: function (data) {
         var points = [];
         if (data.paths && data.paths[0] && data.paths[0].steps) {
           var steps = data.paths[0].steps;
@@ -373,11 +485,11 @@ Page({
       },
     })
   },
-  location: function() {
+  location: function () {
     var _this = this
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
-      success: function(res) {
+      success: function (res) {
         _this.setData({
           userLongitude: res.longitude,
           userLatitude: res.latitude
@@ -385,18 +497,64 @@ Page({
       }
     })
   },
-  moveSchool: function() {
+  moveSchool: function () {
     //视图返回学校
     var _this = this;
-    _this.setData({
-      userLongitude: 110.922599,
-      userLatitude: 21.679529,
+    wx.showModal({
+      title: '选择校区',
+      showCancel: true, //是否显示取消按钮
+      content: "请选择校区",
+      cancelText: "西城校区", //默认是“取消”
+      cancelColor: 'skyblue', //取消文字的颜色
+      confirmText: "官渡校区", //默认是“确定”
+      confirmColor: 'skyblue', //确定文字的颜色
+      success: function (res) {
+        if (res.cancel) {
+          _this.setData({
+            userLongitude: 110.818019,
+            userLatitude: 21.654388
+          })
+        } else {
+          _this.setData({
+            userLongitude: 110.922599,
+            userLatitude: 21.679529,
+          })
+        }
+      },
+      fail: function (res) {}, //接口调用失败的回调函数
+      complete: function (res) {}, //接口调用结束的回调函数（调用成功、失败都会执行）
     })
-  },
-  jtt: function() {
+
 
   },
-  goDetail: function() {
+  jtt: function () {
+    wx.showModal({
+      title: '选择校区',
+      showCancel: true, //是否显示取消按钮
+      content: "请选择校区",
+      cancelText: "西城校区", //默认是“取消”
+      cancelColor: 'skyblue', //取消文字的颜色
+      confirmText: "官渡校区", //默认是“确定”
+      confirmColor: 'skyblue', //确定文字的颜色
+      success: function (res) {
+        if (res.cancel) {
+          wx.previewImage({
+            current: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/a.png", // 当前显示图片的http链接
+            urls: ["cloud://un1-d62c68.756e-un1-d62c68-1258307938/a.png"]// 需要预览的图片http链接列表
+          })
+        } else {
+          wx.previewImage({
+            current: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/b.png", // 当前显示图片的http链接
+            urls: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/b.png" // 需要预览的图片http链接列表
+          })
+        }
+      },
+      fail: function (res) {}, //接口调用失败的回调函数
+      complete: function (res) {}, //接口调用结束的回调函数（调用成功、失败都会执行）
+    })
+
+  },
+  goDetail: function () {
     var that = this;
     const latitude = that.data.markers[that.data.activePlaceID].latitude;
     const longitude = that.data.markers[that.data.activePlaceID].longitude;
