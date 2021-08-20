@@ -1,66 +1,100 @@
-// pages/login/login.js
+//index.js
+//获取应用实例
+const app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
+  data:{
+    user:"",
+    pwd:""
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
-
+  },
+  activity: function (e) {
+    wx.navigateTo({
+      url: '/pages/about/about'
+    })
+  },
+  login: function (e) {
+    var that = this
+    if (this.data.user.length == 0 || this.data.pwd.length == 0) {
+      wx.showToast({
+        title: '帐号及密码不能为空',
+        icon: "none"
+      })
+      return -1;
+    }
+    wx.showLoading({
+      title: '刷新中',
+      mask: true
+    })
+    var that = this;
+    wx.showLoading({
+      title: '登录中',
+      mask: true
+    })
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {
+        username: that.data.user,
+        password: that.data.pwd,
+      },
+      success: res => {
+        wx.setStorage({
+          key: 'data',
+          data: ""
+        })
+        if (res.result.msg == "/login!welcome.action") {
+            wx.reLaunch({
+              url: '/pages/index/index'
+            })
+        }
+        else {
+          wx.showToast({
+            icon: 'none',
+            title: res.result.msg,
+          })
+        }
+      },
+      fail: err => {
+        console.log(err)
+        wx.showToast({
+          icon: 'none',
+          title: '失败申请服务',
+        })
+      }
+    })
+  },
+  input(e){
+    this.setData({
+      [e.target.id]:e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 帮助弹窗
+  tapHelp: function(e){
+    if(e.target.id == 'help_model'){
+      this.hideHelp();
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  showHelp: function(e){
+    this.setData({
+      'help_status': true
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  hideHelp: function(e){
+    this.setData({
+      'help_status': false
+    });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  copy(){
+    wx.setClipboardData({
+      data:'http://210.38.250.43/',
+      success(){
+        wx.showToast({
+          title: '已成功复制地址，快用浏览器打开吧',
+          icon: "none"
+        })
+      }
+    })
   }
+
 })
