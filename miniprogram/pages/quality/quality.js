@@ -11,6 +11,7 @@ Page({
     isCourse: 'none'
   },
   onLoad: function () {
+    getApp().loginState();
     let data = [], color = [], isCourse = 'none',n=0;
     var quality = getApp().globalData.quality;
     if (quality[0] == undefined) {

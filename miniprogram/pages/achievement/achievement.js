@@ -70,6 +70,7 @@ Page({
     })
   },
   onLoad: function() {
+    getApp().loginState();
     getApp().globalData.achievement.sort((a, b) => b.zcj.localeCompare(a.zcj, 'zh'))
 
     let data = [], color = [], isCourse = 'none', data1 = [];

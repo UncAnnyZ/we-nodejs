@@ -202,6 +202,10 @@ Page({
             this.setData({
               classMsg: '学校服务器出错，请等待',
             });
+            wx.showToast({
+              title: '学校服务器出错，请等待',
+              icon: 'none',
+            });
           }
         }
 

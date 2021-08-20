@@ -219,7 +219,7 @@ Page({
   },
 
   onLoad: function(options) {
-
+    getApp().loginState();
     this.kb(getApp().globalData.whichWeek);
     this.setData({
       weekNow: getApp().globalData.whichWeek,
