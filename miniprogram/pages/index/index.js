@@ -159,7 +159,7 @@ Page({
     // 获取个人数据
     var nowTime = new Date().getTime(); // 当前时间
     var personalData = wx.getStorageSync('personaldata');
-    personalData ?? this.we_index(personalData);
+    personalData ? this.we_index(JSON.parse(personalData)) : null;
     if (!(personalData.length != 0 && nowTime - wx.getStorageSync('oldTime') < Number(configData.time) * 1000)) {
       if (!(personalData.length != 0)) {
         wx.showLoading({
