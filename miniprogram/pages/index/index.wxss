@@ -45,27 +45,16 @@ page {
 
 .wx-list.grid.no-border {
 
-  padding: 20rpx 10rpx 0rpx 80rpx;
+  padding: 20rpx 45rpx 0 45rpx;
 }
 
-.bg{
-  display: block;
-  width: 100%;
-  height:260rpx;
-}
 .wx-list.grid.no-border>.wx-item {
   padding-top: 10rpx;
   padding-bottom: 20rpx;
-    display:  inline-flex;
-  flex-direction: row;
 }
 .wx-list.grid>.wx-item{
-  display: flex;
-  flex-direction: row;
-  padding: 200rpx 0 30rpx;
-  position:   relative;
   transition-duration: 1s;
-  width:25%;
+  width: 25%;
   
 }
 .wx-list.grid>.wx-item text {

@@ -1,6 +1,7 @@
 <!-- <image src='cloud://un1-d62c68.756e-un1-d62c68-1258307938/微信图片_20200901125311.jpg' mode="widthFix"></image> -->
-<ad unit-id="adunit-3b513ed5750984a1"></ad>
+<!-- <ad unit-id="adunit-3b513ed5750984a1"></ad> -->
 <view class='{{show}}'>
+
     <view class="iconn">
         <view class="iconn_item" wx:for="{{iconList}}" wx:key="id" id="{{item.url}}">
             <navigator url='../{{item.url}}' class="iconn_item_url">

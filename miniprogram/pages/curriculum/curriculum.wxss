@@ -16,6 +16,7 @@ page {
   border-bottom: 0.5rpx solid #cacbcc;
   background-color: #fff;
 }
+
 .img-button {
   display: inline-block;
 }
@@ -31,18 +32,22 @@ page {
   justify-content: space-between;
   width: 300rpx;
 }
+
 .ttt{
   font-size: 35rpx;
 }
+
 .add-course-btn {
   width: 52rpx;
   height: 52rpx;
   margin-left: 20rpx;
 }
+
 .pre-week-btn {
   width: 30rpx;
   height: 39rpx;
 }
+
 .cur-week {
   text-align: center;
   line-height: 1.5;
@@ -58,15 +63,18 @@ page {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .next-week-btn {
   width: 30rpx;
   height: 39rpx;
 }
+
 .feedback-btn {
   width: 50rpx;
   height: 48rpx;
   margin-right: 20rpx;
 }
+
 
 /*-----------------------------遮罩层样式-------------------------------------  */
 .shade {
@@ -80,6 +88,7 @@ page {
   opacity: 0.5;
   overflow: hidden;
 }
+
 
 /*----------------------------面板样式-----------------------------------------  */
 .cont {
