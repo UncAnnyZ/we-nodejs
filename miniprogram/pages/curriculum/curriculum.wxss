@@ -209,7 +209,8 @@ page {
   width: 100%;
   font-size: 80%;
   color: #fff;
-  padding: 0 10rpx;
+  padding: 0 8rpx;
+  word-break: break-word;
 }
 
 
@@ -253,6 +254,7 @@ button{
   height: 100%;
 }
 .add_contain{
+  position: relative;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -386,26 +388,29 @@ button{
   border: none; 
 }
 .add_show{
-  animation: add_show .9s;
+  animation: add_show .5s;
+}
+.add_hide{
+  animation: add_hide .5s;
 }
 /*自定义动画*/
 @keyframes add_show {
   0% {
       opacity: 0;
+      transform: translateY(100%);
   }
   100% {
       opacity: 1;
+      transform: translateY(0%);
   }
-}
-
-.add_hide{
-  animation: add_hide .9s;
 }
 @keyframes add_hide {
   0% {
       opacity: 1;
+      transform: translateY(0%);
   }
   100% {
       opacity: 0;
+      transform: translateY(100%);
   }
 }

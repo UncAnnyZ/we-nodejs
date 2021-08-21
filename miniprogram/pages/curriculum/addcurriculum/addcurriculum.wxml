@@ -1,4 +1,4 @@
-<view class="head wx-head {{show}}">
+<view class="head wx-head">
   <view class="head-time">
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
       <view class="weui-input">{{array[index]}}
@@ -13,7 +13,7 @@
     </view>
   </view>
 </view>
-<view class="main">
+<view class="main" wx:if="false" style="display: none;">
   <view class="shade" wx:if="{{shows}}" bindtap='close'></view>
   <view class="cont" wx:if="{{ shows}}">
     <text class="tit">请选择你想要删除的课程 按外面可关闭\n</text>
@@ -54,4 +54,26 @@
     </block>
   </view>
   <text>\n</text>
+</view>
+
+<view class="all">
+  <view class="top">
+    <radio-group bindchange="change">
+      <radio value="1" checked="true">
+        <label>按课程</label>
+      </radio>
+      
+        <label>
+          <radio value="2">按周数</radio>
+        </label>
+    </radio-group>
+  </view>
+
+  <view class="container">
+    
+
+
+  </view>
+
+
 </view>

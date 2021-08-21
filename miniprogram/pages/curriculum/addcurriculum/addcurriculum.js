@@ -222,6 +222,8 @@ Page({
     })
   },
   onLoad: function () {
-    this.add();
+    // this.add();
+    var lesson = wx.getStorageSync("personaldata").c_data;
+    console.log(lesson)
   },
 })

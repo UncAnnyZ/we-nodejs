@@ -80,11 +80,11 @@
 </view>
 
 
-<view class="add" wx:if="{{showAdd}}" class="{{add_style}}">
+<view class="add " wx:if="{{showAdd}}">
   <!-- 背景蒙版 -->
-  <view class="add_background"></view>
+  <view class="add_background" bindtap="feedbackHandler"></view>
 
-  <view class="add_contain">
+  <view class="add_contain {{add_style}}" >
     <view class="add_title">
       <text>课程详情</text>
     </view>
