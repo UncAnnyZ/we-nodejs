@@ -1,0 +1,519 @@
+/* ==================
+        初始化
+ ==================== */
+
+page {
+  background: #f1f1f1;
+  font-size: 28rpx;
+  color: #333;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+}
+
+view, text, scroll-view, swiper, button, form, input, textarea, label, navigator,
+image {
+  box-sizing: border-box;
+}
+
+.round {
+  border-radius: 5000rpx;
+}
+
+.radius {
+  border-radius: 6rpx;
+}
+/* ==================
+          图片
+ ==================== */
+
+image {
+
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+}
+
+image.loading::before {
+  content: "";
+  background: #f5f5f5;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+image.loading::after {
+  content: "\e7f1";
+  font-family: "iconfont";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  font-size: 32rpx;
+  margin: auto;
+  color: #ccc;
+  -webkit-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear;
+  display: block;
+}
+
+.response {
+  width: 100%;
+}
+/* ==================
+          文字
+ ==================== */
+/* ==================
+          列表
+ ==================== */
+ .wx-bar {
+  display: flex;
+  align-items: center;
+  min-height: 100rpx;
+  justify-content: space-between;
+}
+ .wx-list.menu {
+  display: block;
+  overflow: hidden;
+}
+ .wx-list.grid {
+  text-align: center;
+  background: #fff;
+}
+/* grid布局 */
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.margin-top {
+  margin-top: 20rpx;
+}
+.inline-block{
+  display: inline-block;
+}
+inform-text{
+  flex:1;
+}
+.wx-head{
+  display:flex;
+  line-height:50rpx;
+  box-shadow:0px 0px 10px #e2e2e2;
+  padding-bottom:10rpx;
+}
+.wx-item-left{
+  padding-left:20rpx;
+  color:#666;
+  border-left:10rpx solid #f37b1d;
+  border-radius:8rpx;
+  flex: 1;
+}
+.wx-item-head{
+  border-bottom:2rpx solid #e2e2e2;
+  padding: 0rpx 35rpx;
+}
+.background{
+  background-color: #fff;
+}
+
+
+
+.bg-red.light {
+  color: #e54d42;
+  background: #fadbd9;
+}
+
+.bg-orange.light {
+  color: #f37b1d;
+  background: #fde6d2;
+}
+
+.bg-yellow.light {
+  color: #fbbd08;
+  background: #fef2ce;
+}
+
+.bg-olive.light {
+  color: #8dc63f;
+  background: #e8f4d9;
+}
+
+.bg-green.light {
+  color: #39b54a;
+  background: #d7f0db;
+}
+
+.bg-cyan.light {
+  color: #1cbbb4;
+  background: #d2f1f0;
+}
+
+.bg-blue.light {
+  color: #0081ff;
+  background: #cce6ff;
+}
+
+.bg-purple.light {
+  color: #6739b6;
+  background: #e1d7f0;
+}
+
+.bg-mauve.light {
+  color: #9c26b0;
+  background: #ebd4ef;
+}
+
+.bg-pink.light {
+  color: #e03997;
+  background: #f9d7ea;
+}
+
+.bg-brown.light {
+  color: #a5673f;
+  background: #ede1d9;
+}
+
+.bg-grey.light {
+  color: #8799a3;
+  background: #e7ebed;
+}
+
+.bg-gray.light {
+  color: #666;
+  background: #fadbd9;
+}
+
+.bg-gray.light {
+  color: #888;
+  background: #f1f1f1;
+}
+
+/* ==================
+         开关
+ ==================== */
+
+switch, checkbox, radio {
+  position: relative;
+}
+
+switch::after, switch::before {
+  font-family: "iconfont";
+  content: "\e699";
+  position: absolute;
+  color: #fff !important;
+  top: 0%;
+  left: 0rpx;
+  font-size: 26rpx;
+  line-height: 26px;
+  width: 26px;
+  text-align: center;
+  pointer-events: none;
+  transform: scale(0, 0);
+  transition: all 0.3s ease-in-out 0s;
+  z-index: 9;
+}
+
+switch::before {
+  content: "\e68f";
+  right: 0;
+  transform: scale(1, 1);
+  left: auto;
+}
+
+switch[checked]::after {
+  transform: scale(1, 1);
+}
+
+switch[checked]::before {
+  transform: scale(0, 0);
+}
+
+radio::before, checkbox::before {
+  font-family: "iconfont";
+  content: "\e699";
+  position: absolute;
+  color: #fff !important;
+  top: 50%;
+  margin-top: -8px;
+  right: 5px;
+  font-size: 32rpx;
+  line-height: 16px;
+  pointer-events: none;
+  transform: scale(1, 1);
+  transition: all 0.3s ease-in-out 0s;
+  z-index: 9;
+}
+
+switch[checked]::before {
+  transform: scale(0, 0);
+}
+
+switch .wx-switch-input {
+  border: none;
+  padding: 0 24px;
+  width: 48px;
+  height: 26px;
+  margin: 0;
+  border-radius: 100rpx;
+}
+
+switch .wx-switch-input:not([class*="bg-"]) {
+  background: #aaa !important;
+}
+
+switch .wx-switch-input::after {
+  margin: auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 100rpx;
+  left: 0rpx;
+  top: 0rpx;
+  bottom: 0rpx;
+  position: absolute;
+  transform: scale(0.9, 0.9);
+  transition: all 0.1s ease-in-out 0s;
+}
+
+switch .wx-switch-input.wx-switch-input-checked::after {
+  margin: auto;
+  left: 22px;
+  box-shadow: none;
+  transform: scale(0.9, 0.9);
+}
+
+radio-group {
+  display: inline-block;
+}
+
+radio .wx-radio-input, checkbox .wx-checkbox-input {
+  margin: 0;
+  width: 24px;
+  height: 24px;
+}
+
+checkbox.round .wx-checkbox-input {
+  border-radius: 100rpx;
+}
+
+switch.radius .wx-switch-input::after, switch.radius .wx-switch-input,
+switch.radius .wx-switch-input::before {
+  border-radius: 10rpx;
+}
+
+switch .wx-switch-input::before, radio.radio::before,
+checkbox .wx-checkbox-input::before, radio .wx-radio-input::before {
+  display: none;
+}
+
+radio.radio[checked]::after {
+  content: "";
+  background: transparent;
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  z-index: 999;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 200rpx;
+  border: 8px solid #fff !important;
+}
+
+.switch-sex::after {
+  content: "\e71c";
+}
+
+.switch-sex::before {
+  content: "\e71a";
+}
+
+.switch-sex .wx-switch-input {
+  background: #e54d42 !important;
+  border-color: #e54d42 !important;
+}
+
+.switch-sex[checked] .wx-switch-input {
+  background: #0081ff !important;
+  border-color: #0081ff !important;
+}
+
+switch.red[checked] .wx-switch-input, checkbox.red[checked] .wx-checkbox-input,
+radio.red[checked] .wx-radio-input {
+  border-color: #e54d42 !important;
+}
+
+switch.orange[checked] .wx-switch-input,
+checkbox.orange[checked] .wx-checkbox-input,
+radio.orange[checked] .wx-radio-input {
+  border-color: #f37b1d !important;
+}
+
+switch.yellow[checked] .wx-switch-input,
+checkbox.yellow[checked] .wx-checkbox-input,
+radio.yellow[checked] .wx-radio-input {
+  border-color: #fbbd08 !important;
+}
+
+switch.olive[checked] .wx-switch-input,
+checkbox.olive[checked] .wx-checkbox-input, radio.olive[checked] .wx-radio-input {
+  border-color: #8dc63f !important;
+}
+
+switch.green[checked] .wx-switch-input,
+checkbox.green[checked] .wx-checkbox-input, checkbox[checked] .wx-checkbox-input,
+radio.green[checked] .wx-radio-input {
+  border-color: #39b54a !important;
+}
+
+switch.cyan[checked] .wx-switch-input, checkbox.cyan[checked] .wx-checkbox-input,
+radio.cyan[checked] .wx-radio-input {
+  border-color: #1cbbb4 !important;
+}
+
+switch.blue[checked] .wx-switch-input, checkbox.blue[checked] .wx-checkbox-input,
+radio.blue[checked] .wx-radio-input {
+  border-color: #0081ff !important;
+}
+
+switch.purple[checked] .wx-switch-input,
+checkbox.purple[checked] .wx-checkbox-input,
+radio.purple[checked] .wx-radio-input {
+  border-color: #6739b6 !important;
+}
+
+switch.mauve[checked] .wx-switch-input,
+checkbox.mauve[checked] .wx-checkbox-input, radio.mauve[checked] .wx-radio-input {
+  border-color: #9c26b0 !important;
+}
+
+switch.pink[checked] .wx-switch-input, checkbox.pink[checked] .wx-checkbox-input,
+radio.pink[checked] .wx-radio-input {
+  border-color: #e03997 !important;
+}
+
+switch.brown[checked] .wx-switch-input,
+checkbox.brown[checked] .wx-checkbox-input, radio.brown[checked] .wx-radio-input {
+  border-color: #a5673f !important;
+}
+
+switch.grey[checked] .wx-switch-input, checkbox.grey[checked] .wx-checkbox-input,
+radio.grey[checked] .wx-radio-input {
+  border-color: #8799a3 !important;
+}
+
+switch.gray[checked] .wx-switch-input, checkbox.gray[checked] .wx-checkbox-input,
+radio.gray[checked] .wx-radio-input {
+  border-color: #aaa !important;
+}
+
+switch.black[checked] .wx-switch-input,
+checkbox.black[checked] .wx-checkbox-input, radio.black[checked] .wx-radio-input {
+  border-color: #333 !important;
+}
+
+switch.white[checked] .wx-switch-input,
+checkbox.white[checked] .wx-checkbox-input, radio.white[checked] .wx-radio-input {
+  border-color: #fff !important;
+}
+
+switch.red[checked] .wx-switch-input.wx-switch-input-checked,
+checkbox.red[checked] .wx-checkbox-input, radio.red[checked] .wx-radio-input {
+  background-color: #e54d42 !important;
+  color: #fff !important;
+}
+
+switch.orange[checked] .wx-switch-input,
+checkbox.orange[checked] .wx-checkbox-input,
+radio.orange[checked] .wx-radio-input {
+  background-color: #f37b1d !important;
+  color: #fff !important;
+}
+
+switch.yellow[checked] .wx-switch-input,
+checkbox.yellow[checked] .wx-checkbox-input,
+radio.yellow[checked] .wx-radio-input {
+  background-color: #fbbd08 !important;
+  color: #333 !important;
+}
+
+switch.olive[checked] .wx-switch-input,
+checkbox.olive[checked] .wx-checkbox-input, radio.olive[checked] .wx-radio-input {
+  background-color: #8dc63f !important;
+  color: #fff !important;
+}
+
+switch.green[checked] .wx-switch-input, switch[checked] .wx-switch-input,
+checkbox.green[checked] .wx-checkbox-input, checkbox[checked] .wx-checkbox-input,
+radio.green[checked] .wx-radio-input, radio[checked] .wx-radio-input {
+  background-color: #39b54a !important;
+  color: #fff !important;
+}
+
+switch.cyan[checked] .wx-switch-input, checkbox.cyan[checked] .wx-checkbox-input,
+radio.cyan[checked] .wx-radio-input {
+  background-color: #1cbbb4 !important;
+  color: #fff !important;
+}
+
+switch.blue[checked] .wx-switch-input, checkbox.blue[checked] .wx-checkbox-input,
+radio.blue[checked] .wx-radio-input {
+  background-color: #0081ff !important;
+  color: #fff !important;
+}
+
+switch.purple[checked] .wx-switch-input,
+checkbox.purple[checked] .wx-checkbox-input,
+radio.purple[checked] .wx-radio-input {
+  background-color: #6739b6 !important;
+  color: #fff !important;
+}
+
+switch.mauve[checked] .wx-switch-input,
+checkbox.mauve[checked] .wx-checkbox-input, radio.mauve[checked] .wx-radio-input {
+  background-color: #9c26b0 !important;
+  color: #fff !important;
+}
+
+switch.pink[checked] .wx-switch-input, checkbox.pink[checked] .wx-checkbox-input,
+radio.pink[checked] .wx-radio-input {
+  background-color: #e03997 !important;
+  color: #fff !important;
+}
+
+switch.brown[checked] .wx-switch-input,
+checkbox.brown[checked] .wx-checkbox-input, radio.brown[checked] .wx-radio-input {
+  background-color: #a5673f !important;
+  color: #fff !important;
+}
+
+switch.grey[checked] .wx-switch-input, checkbox.grey[checked] .wx-checkbox-input,
+radio.grey[checked] .wx-radio-input {
+  background-color: #8799a3 !important;
+  color: #fff !important;
+}
+
+switch.gray[checked] .wx-switch-input, checkbox.gray[checked] .wx-checkbox-input,
+radio.gray[checked] .wx-radio-input {
+  background-color: #f0f0f0 !important;
+  color: #666 !important;
+}
+
+switch.black[checked] .wx-switch-input,
+checkbox.black[checked] .wx-checkbox-input, radio.black[checked] .wx-radio-input {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+switch.white[checked] .wx-switch-input,
+checkbox.white[checked] .wx-checkbox-input, radio.white[checked] .wx-radio-input {
+  background-color: #fff !important;
+  color: #666 !important;
+}

@@ -58,7 +58,6 @@
 }
 
 .version {
-  border-radius: 20rpx;
   height: 100rpx;
   background: #fff;
   display: flex;

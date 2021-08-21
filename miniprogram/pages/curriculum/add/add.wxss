@@ -13,141 +13,137 @@ page {
   font-family: unset;
 }
 
-.all{
+
+/* 添加课表 */
+.add,
+.add_background{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.add_background{
+  background-color: #000;
+  opacity: 0.6;
+  height: 100%;
+}
+.add_contain{
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20rpx;
-  /* 
-    border-bottom: rgb(190, 190, 190) dashed 1rpx;  
-    padding-bottom: 20rpx;
-    张老师要的虚线👿dashed(虚线)solid(实线) 
-  */
+  bottom: 0;
+  width: 100%;
+  /* background-color: rgb(230,230,230); */
+  background-color: #fff;
+  border-radius: 50rpx;
+  padding: 50rpx 0;
 }
-
-/* 填写信息（课程 地点 老师） */
-.course,.place,.teacher,.weekTitle{
+.add_title{
+  padding-bottom: 50rpx;
+  size: 18px;
+  font-weight: 600;
+}
+/* 课名 + 教室 + 老师 */
+.add_block{
   display: flex;
   flex-direction: row;
-  align-content: center;
-  padding-top: 50rpx;
-  box-sizing: unset;
-}
-.course label,.place label,.teacher label,.weekTitle label{
-  display: flex;
   align-items: center;
-  width: 160rpx;
-  padding-right: 30rpx;
+  background-color: rgb(245, 245, 245);
+  width: 80%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  border-radius: 20rpx;
+  margin: 20rpx 0;
 }
-.course input,.place input,.teacher input{
-  font-size: 0.7rem;
-  border-radius: 8rem;
-  box-shadow: 0 0 0.15rem #aaa;
-  padding: 0.3rem;
-  padding-left: 50rpx;
-  width: 250rpx;
+.add_block label{
+  width: 20%;
+  font-weight: 600;
+  font-size: 14px;
 }
-
-.weekTitle button{
-  width: 310rpx;
-  text-align: right;
-  background-color: white;
-  padding: 0;
+.add_block input{
+  margin-left: 50rpx;
+  width: 60%;
 }
-.weekTitle button::after{
-  border: none;
-}
-
-/* 周数小字部分 */
-.show{
-  color: #aaa;
-}
-/* 选择周数按钮 */
-.week{
+/* 星期 + 节数 */
+.add_wjs{
   display: flex;
-  justify-content: center;   /*子项水平居中*/
-  align-content: center;     /*子项垂直方向上居中*/
-  flex-wrap: wrap;           /*水平自动换行*/
-  padding: 20rpx 0rpx;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 85%;
+  margin: 20rpx 0;
+  border-radius: 20rpx;
+  background-color: rgb(245, 245, 245);
 }
-.Week_btn{
+.add_wjs_block{
   display: flex;
-  padding: 10rpx;
-  width: 120rpx;
+  flex-direction: row;
+  align-items: center;
+  width: 49%;
+  padding: 20rpx;
 }
-.Week_btn button{
+.add_wjs_block_title{
+  font-weight: 600;
+  font-size: 14px;
+}
+.add_picker{
+  flex-grow: 1;
+  text-align: center;
+}
+/* 上课周数 */
+.add_week_title{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  height: 80rpx;
+}
+.add_week_title label{
+  font-weight: 600;
+  font-size: 14px;
+}
+.add_week{
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 85%;
+}
+.add_weekBtn{
   display: flex;
   justify-content: center;
-  width: 100%;
+  align-items: center;
+  width: 15%;
+  height: 50rpx;
+  margin: 10rpx 0;
 }
-
-/* 节数选择器 */
-.picker{
+.add_weekBtn label{
   display: flex;
-  width: 70%;
-  justify-content: space-between;
-  padding: 50rpx 0;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  height: 100%;
+  color: rgb(100, 100, 100);
+  border: 1rpx rgba(200, 200, 200, 0.6) solid;
+  border-radius: 20rpx;
 }
-.picker label{
-  padding-right: 30rpx;
-}
-.picker text{
-  padding-left: 30rpx;
-  padding-right: 200rpx;  /* 扩大点击有效范围 */
-}
-#lastSection{
-  padding: 20rpx 0 50rpx 0;
-}
-
-.submit{
-  width: 70%;
-  padding-top: 50rpx;
-}
-.submit button{
-  width: 100%;
-  background-color: rgb(60, 200, 60);
-  color: white;
-  font-size: 16px;        /* 字体大小 */
-  letter-spacing: 5rpx;   /* 字间距 */
-}
-
-.del{
+/* 底部确认按钮 */
+.add_btn{
   display: flex;
-  flex-direction: column;
-  width: 80%;
-  padding: 50rpx 0 100rpx 0;
-  margin-top: 100rpx;
-  border-top: rgb(230,230,230) dashed 1px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 70rpx 0 50rpx;
+  width: 85%;
 }
-.del label{
-  color: #aaa;
+.add_btn button{
+  width: 45%;
+  border-radius: 50rpx;
+  color: gray;
+  size: 16px;
 }
-.del-picker-selector{
-  display: flex;
-  justify-content: space-between;
-  padding: 50rpx 0;
-}
-.del-picker-selector label{
-  padding-right: 30rpx;
-}
-.del-picker-selector text{
-  padding: 0 200rpx 0 30rpx;
-}
-.del-picker-multiSelector{
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding: 50rpx 0;
-}
-#zhou,#xingqi{
-  border-right: rgb(230,230,230) solid 1px;
-}
-.del button{
-  width: 60%;
-  background-color: rgb(255, 60, 60);
-  color: white;
-  font-size: 16px;        /* 字体大小 */
-  letter-spacing: 5rpx;   /* 字间距 */
-  font-weight: 400;
-  margin-top: 20rpx;
+.add_btn button::after{
+  border: none; 
 }
