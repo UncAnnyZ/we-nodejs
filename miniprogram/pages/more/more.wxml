@@ -1,7 +1,7 @@
 <view class="wx-list menu margin-top">
     <ad unit-id="adunit-d91c54d3a3ef3040"></ad>
 
-    <navigator url='/pages/more/tc/tc'>
+    <navigator url='/pages/more/tc/tj'>
         <view class="wx-item">
             <view class="wx-images">
                 <image src='../../../images/home/timg.png'></image>

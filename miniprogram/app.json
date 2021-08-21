@@ -47,5 +47,6 @@
     "navigationBarTitleText": "WE广油",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
 }

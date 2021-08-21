@@ -1,9 +1,13 @@
+.page {
+  background-color: #F6F6F6;
+} 
+
 .menu {
   display:block;
   overflow:hidden;
   background-color: #fff;
-
 }
+
 .wx-item{
   position:relative;
   display:flex;
@@ -46,12 +50,10 @@
   border: none;
 }
 .button{
-  background-color:#fff;
+  padding: 0;
+  /* background-color:#fff; */
   text-align:left;
   padding-left:5rpx;
-}
-.button::after {
-  border: none;
 }
 .user-img{
   width: 180rpx;

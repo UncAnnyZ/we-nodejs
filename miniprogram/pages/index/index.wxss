@@ -1,13 +1,18 @@
- page {
-  background-color: #fff;
+page {
+  background-color: #F6F6F6;
 } 
 
 .iconn{
+  background-color: #fff;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  padding: 0 30rpx;
+  width: 730rpx;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+  margin-bottom: 10rpx;
+  border-radius: 20rpx;
 }
+
 .iconn_item{
   display: flex;
   flex-direction: column;
@@ -74,7 +79,11 @@
   align-items: center;
   min-height: 90rpx;
   background: #fff;
-  padding: 0 30rpx;
+  margin-bottom: 10rpx;
+  border-radius: 20rpx;
+  width: 710rpx;
+  padding-left: 20rpx;
+  margin-left: 10rpx;
 }
 .wx-list.menu>.wx-item .content {
 
@@ -162,6 +171,9 @@
 .wx-remind{
   background: #fff;
   padding: 20rpx 30rpx 50rpx 30rpx;
+  border-radius: 20rpx;
+  margin-left: 10rpx;
+  width: 670rpx;
 }
 .wx-remind-header{
   display: flex;
@@ -171,11 +183,12 @@
 }
 .wx-remind-title text:nth-child(1){
   display:block;
-  font-size:34rpx;
-  padding-bottom:10rpx;
+  font-size:32rpx;
+  /* padding-bottom:2rpx; */
   color:#5480b1;
 }
 .wx-remind-title text:nth-child(2){
+  font-size:28rpx;
   color:#dfe0e2;
 }
 .wx-remind-detail{
@@ -187,10 +200,8 @@
   padding:7rpx 10rpx;
   border:4rpx solid #acebe3;
   color:#acebe3;
+  font-size:30rpx;
   border-radius:20rpx;
-}
-.wx-remind-body{
-
 }
 .wx-remind-class{
   display: flex;
@@ -198,6 +209,7 @@
   color:#28cbb8;
 }
 .wx-class-time{
+  width: 62rpx;
   padding:8px 15px;
   border-radius:20rpx;
   margin-right:20rpx;
@@ -207,9 +219,6 @@
 }
 .wx-class-time text:nth-child(1){
   display: block;
-}
-.wx-class-time text:nth-child(2){
-
 }
 .wx-class-title{
   justify-content:space-between;
@@ -227,22 +236,13 @@
   font-size:32rpx;
 
 }
-.wx-class-title text:nth-child(2){
-}
-
-.round{
-  width:25rpx;
-  height:25rpx;
-  border:7rpx solid #fff;
-  margin-bottom:6px;
-}
 .show{
   display : show;
 }
 
 .wx-isclass{
   text-align:center;
-  font-size:40rpx;
+  font-size:35rpx;
   color:#1cbbb4;
   margin-top:30rpx;
 }

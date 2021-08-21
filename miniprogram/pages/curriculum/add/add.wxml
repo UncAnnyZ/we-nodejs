@@ -17,38 +17,37 @@
     <input bindblur="setCPT" placeholder="请输入任课老师" id="teacher"></input>
   </view>
   <!-- 设置上课时间 -->
-  <!-- 设置周数标题 -->
-  <view class="title">
-    <view class="weekTitle">
-      <label>设置周数</label>
-      <button bindtap="selectWeek">∨</button>
+    <!-- 设置周数标题 -->
+    <view class="title">
+      <view class="weekTitle">
+          <label>设置周数</label>
+          <button bindtap="selectWeek">∨</button>
+      </view>
+    </view>    
+    <!-- 小字显示选择结果 -->
+    <view class="show" wx:if="{{selectWeek}}">
+        <text wx:if="{{week[index][0]}}" wx:for="{{week}}" wx:key="key" >{{index+1}},</text>
+    </view> 
+    <!-- 选择按钮 -->
+    <view class="week" wx:if="{{selectWeek}}">
+      <view wx:for="{{week}}" wx:key="key" class="Week_btn">
+        <button bindtap="changeWB" id="{{index+1}}" class="Tbutton" style="{{week[index][1]}}">
+          {{index+1}}
+        </button>
+      </view>
     </view>
-  </view>
-  <!-- 小字显示选择结果 -->
-  <view class="show" wx:if="{{selectWeek}}">
-    <text wx:if="{{week[index][0]}}" wx:for="{{week}}" wx:key="key">{{index+1}},</text>
-  </view>
-  <!-- 选择按钮 -->
-  <view class="week" wx:if="{{selectWeek}}">
-    <view wx:for="{{week}}" wx:key="key" class="Week_btn">
-      <button bindtap="changeWB" id="{{index+1}}" class="Tbutton" style="{{week[index][1]}}">
-        {{index+1}}
-      </button>
-    </view>
-  </view>
-  <!-- 选择星期 -->
-  <picker mode="selector" bindchange="setCPT" value="{{WeekIndex}}" range="{{Week}}" class="picker" id="WeekIndex">
-    <label>设置星期</label>
-    <text space="nbsp">{{Week[WeekIndex]}}</text>
-  </picker>
+    <!-- 选择星期 -->
+    <picker mode="selector" bindchange="setCPT" value="{{WeekIndex}}" range="{{Week}}" class="picker" id="WeekIndex">
+        <label>设置星期</label>
+        <text space="nbsp">{{Week[WeekIndex]}}</text>
+    </picker>
 
-  <!-- 选择节数 -->
-  <picker mode="multiSelector" bindcolumnchange="ChangeSectionIndex" value="{{sectionIndex}}" range="{{section}}"
-    class="picker" id="lastSection">
-    <label>设置节数</label>
-    <text space="nbsp">{{section[0][sectionIndex[0]]}} - {{section[0][sectionIndex[1]]}}</text>
-  </picker>
-  <view class="submit">
+    <!-- 选择节数 -->
+    <picker mode="multiSelector" bindcolumnchange="ChangeSectionIndex" value="{{sectionIndex}}" range="{{section}}" class="picker" id="lastSection">
+        <label>设置节数</label>
+        <text space="nbsp">{{section[0][sectionIndex[0]]}}  -  {{section[0][sectionIndex[1]]}}</text>
+    </picker>
+  <view class="submit">  
     <button bindtap="addSubmit">新增课程</button>
   </view>
 
@@ -56,100 +55,20 @@
   <view class="del">
     <label>屏蔽课程</label>
 
-    <picker mode="selector" bindchange="setCPT" value="{{kcmcIndex}}" range="{{kcmc}}" class="del-picker-selector"
-      id="kcmcIndex">
-      <label>选择课程</label>
-      <text space="nbsp">{{kcmc[kcmcIndex]}}</text>
+    <picker mode="selector" bindchange="setCPT" value="{{kcmcIndex}}" range="{{kcmc}}" class="del-picker-selector" id="kcmcIndex">
+        <label>选择课程</label>
+        <text space="nbsp">{{kcmc[kcmcIndex]}}</text>
     </picker>
 
-    <picker mode="multiSelector" bindcolumnchange="ChangeDelIndex" value="{{delIndex}}" range="{{del}}"
-      class="del-picker-multiSelector">
-      <text space="nbsp" id="zhou" style="margin-right:{{winWidth}}rpx;padding-right:{{winWidth}}rpx">第
-        {{del[0][delIndex[0]]}} 周</text>
-      <text space="nbsp" id="xingqi"
-        style="margin-right:{{winWidth}}rpx;padding-right:{{winWidth}}rpx">{{del[1][delIndex[1]]}}</text>
-      <text space="nbsp" id="jieshu"
-        style="margin-right:{{winWidth}}rpx;padding-right:{{winWidth}}rpx">{{del[2][delIndex[2]]}}</text>
+    <picker mode="multiSelector" bindcolumnchange="ChangeDelIndex" value="{{delIndex}}" range="{{del}}" class="del-picker-multiSelector">
+        <text space="nbsp" id="zhou" style="margin-right:{{winWidth}}rpx;padding-right:{{winWidth}}rpx">第 {{del[0][delIndex[0]]}} 周</text>
+        <text space="nbsp" id="xingqi" style="margin-right:{{winWidth}}rpx;padding-right:{{winWidth}}rpx">{{del[1][delIndex[1]]}}</text>
+        <text space="nbsp" id="jieshu" style="margin-right:{{winWidth}}rpx;padding-right:{{winWidth}}rpx">{{del[2][delIndex[2]]}}</text>
     </picker>
     <button bindtap="delSubmit">确认屏蔽</button>
-
+  
   </view>
 
-
-
-</view>
-
-<view class="add">
-  <!-- 背景蒙版 -->
-  <view class="add_background"></view>
-
-  <view class="add_contain">
-    <view class="add_title">
-      <text>课程详情</text>
-    </view>
-
-    <!-- 课程名称 -->
-    <view class="add_block">
-      <label>*课程名</label>
-      <input bindblur="setCPT" id="course"></input>
-    </view>
-    <!-- 教室 -->
-    <view class="add_block">
-      <label>教室</label>
-      <input bindblur="setCPT" id="place"></input>
-    </view>
-    <!-- 老师 -->
-    <view class="add_block">
-      <label>老师</label>
-      <input bindblur="setCPT" id="teacher"></input>
-    </view>
-
-    <!-- 星期 + 节数 -->
-    <view class="add_wjs">
-
-      <view class="add_wjs_block">
-        <label class="add_wjs_block_title">星期</label>
-        <!-- 选择星期 -->
-        <picker mode="selector" bindchange="setCPT" value="{{WeekIndex}}" range="{{Week}}" class="add_picker"
-          id="WeekIndex" style="border-right:">
-          <label>{{Week[WeekIndex]}}</label>
-        </picker>
-      </view>
-
-      <view style="height:100%;text-align:center;color:rgb(200,200,200)">|</view>
-
-      <view class="add_wjs_block">
-        <label class="add_wjs_block_title">节数</label>
-        <!-- 选择节数 -->
-        <picker mode="multiSelector" bindcolumnchange="ChangeSectionIndex" value="{{sectionIndex}}" range="{{section}}"
-          class="add_picker">
-          <text space="emsp">{{section[0][sectionIndex[0]]}} - {{section[0][sectionIndex[1]]}}</text>
-        </picker>
-      </view>
-
-
-    </view>
-
-    <!-- 上课周数 -->
-    <view class="add_week_title">
-      <label>上课周数</label>
-    </view>
-    <view class="add_week">
-      <view class="add_weekBtn" wx:for="{{week}}">
-        <label id="{{index+1}}" bindtap="changeWB" style="{{week[index][1]}}">
-          {{index+1}}
-        </label>
-      </view>
-
-    </view>
-
-    <!-- 按钮 -->
-    <view class="add_btn">
-      <button>取 消</button>
-      <button bindtap="addSubmit">保 存</button>
-    </view>
-
-  </view>
 
 
 </view>

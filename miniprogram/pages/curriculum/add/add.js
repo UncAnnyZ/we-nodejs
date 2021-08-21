@@ -1,4 +1,5 @@
 // pages/index/index.js
+const app = getApp()
 Page({
 
   /* 页面的初始数据 */
@@ -12,7 +13,7 @@ Page({
     section: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]],
     sectionIndex: [0, 0],
 
-    Week: ["一", "二", "三", "四", "五", "六", "七"],// [1,2,3,4,5,6,7]
+    Week: ["1", "2", "3", "4", "5", "6", "7"],// [1,2,3,4,5,6,7]
     WeekIndex: 0,
 
     del: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],  // 第 x 周
@@ -85,11 +86,11 @@ Page({
     let data = this.data.week
     if (data[e.target.id - 1][0]) {
       data[e.target.id - 1][0] = false
-      data[e.target.id - 1][1] = 'color: rgb(100, 100, 100);'
+      data[e.target.id - 1][1] = 'background:gary;color:black'
     }
     else {
       data[e.target.id - 1][0] = true
-      data[e.target.id - 1][1] = "background:rgb(8, 178, 255);color:rgb(245,245,245);border:none;"
+      data[e.target.id - 1][1] = "background:rgb(60, 200, 60);color:white"
     }
 
     this.setData({
@@ -168,29 +169,27 @@ Page({
         getApp().globalData._add.push(add)
       }
       wx.cloud.callFunction({
-        name: 'we_add',
+        name: 'weLoading',
         data: {
           _add: JSON.stringify(getApp().globalData._add),
-          username: getApp().globalData.username
+          username: getApp().globalData.username,
+          type: 'add'
         },
         success: res => {
           wx.showToast({
             title: '添加成功',
             icon: 'none',
           })
-          let a = tt;
-          let b = getApp().globalData.curriculum;
-          for (var i = 0; i < a.length; i++) {
-            b.push(a[i])
-          }
+          var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum);
+          getApp().globalData.curriculum = curriculum;
           wx.setStorage({
-            key: 'hctime',
+            key: 'oldTime',
             data: "1"
           })
         },
         fail: err => {
           wx.showToast({
-            title: '添加失败',
+            title: '添加失败(校园网关闭或者服务器异常)',
             icon: 'none',
           })
         }
@@ -366,7 +365,8 @@ Page({
 
     }
     var that = this;
-    getApp().globalData._de.push(de)
+    console.log(de,1)
+    getApp().globalData._de.push(de);
     wx.showModal({
       title: "温馨提示",
       content: "确认屏蔽 第" +
@@ -384,55 +384,34 @@ Page({
             mask: true
           })
           wx.cloud.callFunction({
-            name: 'we_de',
+            name: 'weLoading',
             data: {
               _de: JSON.stringify(getApp().globalData._de),
-              username: getApp().globalData.username
+              username: getApp().globalData.username,
+              type: 'de'
             },
             success: res => {
               wx.showToast({
                 title: '屏蔽成功',
                 icon: 'none',
               })
-              if (that.data.del[0][that.data.delIndex[0]] == "全部") {
-                for (var i = 0; i < getApp().globalData.curriculum.length; i++) {
-                  if (getApp().globalData.curriculum[i].kcmc == that.data.kcmc[that.data.kcmcIndex]) {
-                    getApp().globalData.curriculum.splice(i, 1);
-                    i--;
-                  }
-                }
-                for (var i = 0; i < getApp().globalData.curriculum1.length; i++) {
-                  if (getApp().globalData.curriculum1[i].kcmc == that.data.kcmc[that.data.kcmcIndex]) {
-                    getApp().globalData.curriculum1.splice(i, 1);
-                    i--;
-                  }
-                }
-              }
-              else {
-                for (var i = 0; i < getApp().globalData.curriculum.length; i++) {
-                  if (getApp().globalData.curriculum[i].kcmc == that.data.kcmc[that.data.kcmcIndex] && getApp().globalData.curriculum[i].jcdm == jcdm && getApp().globalData.curriculum[i].zc == that.data.del[0][that.data.delIndex[0]] &&
-                    getApp().globalData.curriculum[i].xq == xq) {
-                    getApp().globalData.curriculum.splice(i, 1);
-                    i--;
-                  }
-                }
-                for (var i = 0; i < getApp().globalData.curriculum1.length; i++) {
-                  if (getApp().globalData.curriculum1[i].kcmc == that.data.kcmc[that.data.kcmcIndex] && getApp().globalData.curriculum1[i].jcdm == jcdm && getApp().globalData.curriculum1[i].zc == that.data.del[0][that.data.delIndex[0]] &&
-                    getApp().globalData.curriculum1[i].xq == xq) {
-                    getApp().globalData.curriculum1.splice(i, 1);
-                    i--;
-                  }
+              var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum);
+              getApp().globalData.curriculum = curriculum;
+              for (var i = 0; i < getApp().globalData.curriculum1.length; i++) {
+                if (getApp().globalData.curriculum1[i].kcmc == that.data.kcmc[that.data.kcmcIndex]) {
+                  getApp().globalData.curriculum1.splice(i, 1);
+                  i--;
                 }
               }
               that.onLoad()
               wx.setStorage({
-                key: 'hctime',
+                key: 'oldTime',
                 data: "1"
               })
             },
             fail: err => {
               wx.showToast({
-                title: '屏蔽失败',
+                title: '屏蔽失败(校园网关闭或者服务器异常)',
                 icon: 'none',
               })
             }

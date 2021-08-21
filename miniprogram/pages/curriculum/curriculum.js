@@ -30,17 +30,7 @@ Page({
     getname: "",
     multiArray: [], //二维数组，长度是多少是几列
     addcurriculum: [],
-    dayOfWeek: (new Date()).getDay(),
-    
-    // 添加课表
-    showAdd:false,
-    week:[],
-    section: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]],
-    sectionIndex: [0, 0],
-
-    Week: ["一", "二", "三", "四", "五", "六", "七"],// [1,2,3,4,5,6,7]
-    WeekIndex: 0,
-    addSubmitStyle:""
+    dayOfWeek: (new Date()).getDay()
 
   },
   onShareAppMessage: function(res) {
@@ -79,30 +69,10 @@ Page({
     })
   },
   feedbackHandler: function(e) {
-    var showAdd = this.data.showAdd
-    var that = this
-    if(showAdd){
-      this.setData({
-        add_style: "add_hide"
-      })
-      setTimeout(() => {
-        that.setData({
-          showAdd: !showAdd
-        })
-      }, 900);
-    } 
-    else {
-      this.setData({
-        add_style: "add_show",
-        showAdd: !showAdd
-      })
-    }
-
-    // wx.navigateTo({
-    //   url: 'add/add'
-    // })
-  }, 
-  // 点击遮罩层，显示的遮罩层与面板又隐藏起来  
+    wx.navigateTo({
+      url: 'add/add'
+    })
+  }, // 点击遮罩层，显示的遮罩层与面板又隐藏起来  
   close: function() {
     this.setData({
       shows: false,
@@ -257,7 +227,6 @@ Page({
   },
   onShow: function(options) {
     this.kb(getApp().globalData.whichWeek);
-    this.initWeek();
   },
   addCourseHandler: function(e) {
     wx.navigateTo({
@@ -268,175 +237,6 @@ Page({
     wx.previewImage({
       current: 'cloud://un1-d62c68.756e-un1-d62c68-1258307938/kb.png', // 当前显示图片的http链接
       urls: ['cloud://un1-d62c68.756e-un1-d62c68-1258307938/kb.png'] // 需要预览的图片http链接列表
-    })
-  },
-
-  // 添加课表
-
-  initWeek(){
-    // 初始化"设置周数"
-    var week = [];
-    for (var i = 0; i < 18; i++) {
-      week.push([false, 'color:gary'])
-    }
-    this.setData({
-      week: week
-    })
-  },
-  // 设置 课程、地点、老师、星期选择器、课程选择器
-  setCPT(e) {
-    this.setData({
-      [e.target.id]: e.detail.value
-    })
-    this.checkSubmit()
-  },
-  // 节数选择器
-  ChangeSectionIndex(e) {
-    var index = this.data.sectionIndex
-    //修改第一列
-    if (e.detail.column == 0) {
-      index[e.detail.column] = e.detail.value
-      if (e.detail.value > index[1]) {  //选择后，第一列>第二列
-        index[1] = e.detail.value
-      }
-    }
-    //修改第二列
-    else {
-      if (e.detail.value < index[0])   //选择后，第二列<第一列
-        wx.showToast({
-          title: '注意选择格式',
-          icon: "none"
-        })
-      else
-        index[e.detail.column] = e.detail.value
-    }
-    this.setData({
-      sectionIndex: index
-    })
-    this.checkSubmit()
-  },
-  // 周数选择按钮
-  changeWB(e) {
-    let data = this.data.week
-    if (data[e.target.id - 1][0]) {
-      data[e.target.id - 1][0] = false
-      data[e.target.id - 1][1] = 'color: rgb(100, 100, 100);'
-    }
-    else {
-      data[e.target.id - 1][0] = true
-      data[e.target.id - 1][1] = "background:rgb(8, 178, 255);color:rgb(245,245,245);border:none;"
-    }
-
-    this.setData({
-      week: data
-    })
-    this.checkSubmit()
-  },
-  // 新增课程按钮
-  addSubmit(e) {
-    var that = this
-    wx.showLoading({
-      title: '处理中',
-      mask: true
-    })
-    var week = []
-    for (var i = 0; i < 18; i++) {
-      if (this.data.week[i][0])
-        week.push(i + 1)
-    }
-    // 检查填写是否为空
-    if (this.data.course == null || this.data.course == "" || this.data.course == undefined) {
-      this.showToast("课程名称不能为空")
-    } else if (this.data.place == null || this.data.place == "" || this.data.place == undefined) {
-      this.showToast("上课地点不能为空")
-    } else if (this.data.teacher == null || this.data.teacher == "" || this.data.teacher == undefined) {
-      this.showToast("任课老师不能为空")
-    } else if (week == null || week == "" || week == undefined || week.length == 0) {
-      this.showToast("请设置周数")
-    } else {
-      if (Number(this.data.sectionIndex[0] + 1) < 10) {
-        var a = "0" + String(Number(this.data.sectionIndex[0] + 1))
-      } else {
-        var a = String(Number(this.data.sectionIndex[0] + 1))
-      }
-      if (Number(this.data.sectionIndex[1] + 1) < 10) {
-        var b = "0" + String(Number(this.data.sectionIndex[1] + 1))
-      } else {
-        var b = String(Number(this.data.sectionIndex[1] + 1))
-      }
-      var tt = []
-      for (i = 0; i < week.length; i++) {
-        var jcdm = '0' + Number(this.data.sectionIndex[0] + 1)
-        Number(this.data.sectionIndex[1] + 1)
-        var add = {
-          'jcdm': a + b,
-          'jxcdmc': this.data.place,
-          'kcmc': this.data.course,
-          'teaxms': this.data.teacher,
-          'xq': this.data.Week[this.data.WeekIndex],
-          'zc': String(week[i])
-        }
-        tt.push(add)
-        getApp().globalData._add.push(add)
-      }
-      wx.cloud.callFunction({
-        name: 'we_add',
-        data: {
-          _add: JSON.stringify(getApp().globalData._add),
-          username: getApp().globalData.username
-        },
-        success: res => {
-          wx.showToast({
-            title: '添加成功',
-            icon: 'none',
-          })
-          let a = tt;
-          let b = getApp().globalData.curriculum;
-          for (var i = 0; i < a.length; i++) {
-            b.push(a[i])
-          }
-          wx.setStorage({
-            key: 'hctime',
-            data: "1"
-          })
-        },
-        fail: err => {
-          wx.showToast({
-            title: '添加失败',
-            icon: 'none',
-          })
-        },
-        complete(){
-          that.setData({
-            showAdd: !that.data.showAdd
-          })
-        }
-      })
-    }
-  },
-  checkSubmit(){
-    var week = []
-    for (var i = 0; i < 18; i++) {
-      if (this.data.week[i][0])
-        week.push(i + 1)
-    }
-    // 检查填写是否为空
-    if (this.data.course == null || this.data.course == "" || this.data.course == undefined) {
-      this.setData({ addSubmitStyle: "" })
-    } else if (this.data.place == null || this.data.place == "" || this.data.place == undefined) {
-      this.setData({ addSubmitStyle: "" })
-    } else if (this.data.teacher == null || this.data.teacher == "" || this.data.teacher == undefined) {
-      this.setData({ addSubmitStyle: "" })
-    } else if (week == null || week == "" || week == undefined || week.length == 0) {
-      this.setData({ addSubmitStyle: "" })
-    } else {
-      this.setData({ addSubmitStyle: "background-color:rgb(20, 205, 255);color: #fff;" })
-    }
-  },
-  showToast(msg) {
-    wx.showToast({
-      title: msg,
-      icon: "none"
     })
   }
 })
