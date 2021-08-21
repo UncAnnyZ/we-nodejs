@@ -133,6 +133,12 @@ exports.main = async(event, context) => {
       zt: curriculum.data[0]._zt,
       username: username
     }
+    if(data.c_data.length == 0){
+      data.c_data = [{
+        "kcmc" : "test",
+        "jcdm" : ""
+      }]
+    }
   }
   else{
     data = 0;
@@ -160,12 +166,7 @@ exports.main = async(event, context) => {
   // }
 
   //处理课表为0的问题，导致账户进不去
-  if(data.c_data.length == 0){
-    data.c_data = [{
-      "kcmc" : "test",
-      "jcdm" : ""
-    }]
-  }
+
   
   return data //返回数据
 }
