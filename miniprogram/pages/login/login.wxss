@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: flex-start;
   padding: 0;
-  
+  height: 100vh;
 }
 
 .title{
@@ -106,6 +106,7 @@
   color: white;
   border: none;
   outline: none;
+  letter-spacing: 5rpx;
 }
 
 /* 悬浮的校徽+波浪 */

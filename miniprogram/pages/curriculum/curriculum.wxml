@@ -55,7 +55,7 @@
         <!--课表-->
         <view wx:for="{{wlist}}" wx:key="unique" class="kbcontain">
 
-          <view class="kb" bindtap="showCardView" data-index="{{index}}" style="top: {{(item.skjc-1)*110}}rpx; left:{{(item.xqj-1)*100}}rpx; height:{{item.skcd*110-5}}rpx; background-color:{{colorArrays[index%20]}}; z-index:999">
+          <view class="kb" bindtap="showCardView" data-index="{{index}}" style="top: {{(item.skjc-1)*110}}rpx; left:{{(item.xqj-1)*100}}rpx; height:{{item.skcd*110-5}}rpx; background-color:{{colorArrays[index%20]}}; z-index:0">
             <view class="smalltext">{{item.kcmc}}@{{item.jxcdmc}}
             </view>
           </view>
@@ -76,5 +76,80 @@
 
 <view class='scroll wx-isclass' style="display: {{isCourse}}">今天没有课，出去玩吧</view>
   <view class=' pd2' style="display: {{isCourse}}"> </view>
+
+</view>
+
+
+<view class="add" wx:if="{{showAdd}}" class="{{add_style}}">
+  <!-- 背景蒙版 -->
+  <view class="add_background"></view>
+
+  <view class="add_contain">
+    <view class="add_title">
+      <text>课程详情</text>
+    </view>
+
+    <!-- 课程名称 -->
+    <view class="add_block">
+      <label>*课程名</label>
+      <input bindblur="setCPT" id="course"></input>
+    </view>
+    <!-- 教室 -->
+    <view class="add_block">
+      <label>教室</label>
+      <input bindblur="setCPT" id="place"></input>
+    </view>
+    <!-- 老师 -->
+    <view class="add_block">
+      <label>老师</label>
+      <input bindblur="setCPT" id="teacher"></input>
+    </view>
+
+    <!-- 星期 + 节数 -->
+    <view class="add_wjs">
+
+      <view class="add_wjs_block">
+        <label class="add_wjs_block_title">星期</label>
+        <!-- 选择星期 -->
+        <picker mode="selector" bindchange="setCPT" value="{{WeekIndex}}" range="{{Week}}" class="add_picker"
+          id="WeekIndex">
+          <label>{{Week[WeekIndex]}}</label>
+        </picker>
+      </view>
+
+      <view style="height:100%;text-align:center;color:rgb(200,200,200)">|</view>
+
+      <view class="add_wjs_block">
+        <label class="add_wjs_block_title">节数</label>
+        <!-- 选择节数 -->
+        <picker mode="multiSelector" bindcolumnchange="ChangeSectionIndex" value="{{sectionIndex}}" range="{{section}}"
+          class="add_picker">
+          <text space="emsp">{{section[0][sectionIndex[0]]}} - {{section[0][sectionIndex[1]]}}</text>
+        </picker>
+      </view>
+
+
+    </view>
+
+    <!-- 上课周数 -->
+    <view class="add_week_title">
+      <label>上课周数</label>
+    </view>
+    <view class="add_week">
+      <view class="add_weekBtn" wx:for="{{week}}">
+        <label id="{{index+1}}" bindtap="changeWB" class="{{week[index][1]?'add_weekBtn_select':'add_weekBtn_noSelect'}}">
+          {{index+1}}
+        </label>
+      </view>
+
+    </view>
+
+    <!-- 按钮 -->
+    <view class="add_btn">
+      <button bindtap="feedbackHandler">取 消</button>
+      <button bindtap="addSubmit" class="{{addSubmitStyle?'cansubmit':''}}">保 存</button>
+    </view>
+
+  </view>
 
 </view>
