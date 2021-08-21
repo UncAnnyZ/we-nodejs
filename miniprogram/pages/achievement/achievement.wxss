@@ -1,13 +1,12 @@
 
 page{
-  background-color:#fffcfc;
+  background-color:#fff;
 }
 .head{
     display: flex;
     line-height: 70rpx;
     box-shadow:0px 0px 10px #e2e2e2;
     padding-bottom: 10rpx;
-    background-color: #fff;
 }
 .head-time{
   margin-left: 25rpx;
@@ -48,9 +47,8 @@ page{
     display: flex;
     flex: 1;
     padding:20rpx 35rpx;
-    border-radius: 12rpx;
-    background-color:#fff;
-    box-shadow: 0rpx 0rpx 12rpx #e2e2e2;
+    border-radius: 6rpx;
+    box-shadow: 0rpx 0rpx 10rpx #e2e2e2;
 }
 .grade-column{
     font-size:35rpx;
