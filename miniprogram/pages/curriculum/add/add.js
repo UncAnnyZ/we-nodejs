@@ -39,8 +39,16 @@ Page({
     var lesson = getApp().globalData.curriculum1
     var kcmc = []
     for (let i = 0; i < lesson.length; i++) {
+      let g = true;
       if (!kcmc.includes(lesson[i].kcmc)) {
-        kcmc.push(lesson[i].kcmc)
+        for (let j = 0; j < getApp().globalData._de.length; j++) {
+          if(getApp().globalData._de[j].kcmc == lesson[i].kcmc){
+            g = false
+          }
+        }
+        if(g){
+          kcmc.push(lesson[i].kcmc)
+        }
       }
     }
     this.setData({
@@ -180,7 +188,7 @@ Page({
             title: '添加成功',
             icon: 'none',
           })
-          var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum);
+          var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum1);
           getApp().globalData.curriculum = curriculum;
           wx.setStorage({
             key: 'oldTime',
@@ -395,14 +403,11 @@ Page({
                 title: '屏蔽成功',
                 icon: 'none',
               })
-              var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum);
+              var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum1);
               getApp().globalData.curriculum = curriculum;
-              for (var i = 0; i < getApp().globalData.curriculum1.length; i++) {
-                if (getApp().globalData.curriculum1[i].kcmc == that.data.kcmc[that.data.kcmcIndex]) {
-                  getApp().globalData.curriculum1.splice(i, 1);
-                  i--;
-                }
-              }
+
+              
+              
               that.onLoad()
               wx.setStorage({
                 key: 'oldTime',

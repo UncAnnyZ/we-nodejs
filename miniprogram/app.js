@@ -53,6 +53,7 @@ App({
   },
     // 处理课表增删
     changeCurriculum: function (addCurriculum, deCurriculum, allCurriculum) {
+      allCurriculum = JSON.parse(JSON.stringify(allCurriculum));
       for (var i = 0; i < deCurriculum.length; i++) {
         for (var g = 0; g < allCurriculum.length; g++) {
           if (deCurriculum[i].zc == "全部") {

@@ -24,7 +24,7 @@ Page({
     skjc2: "",
     xxx: 'set1'
   },
-  bindMultiPickerChange: function(e) {
+  bindMultiPickerChange: function (e) {
     this.setData({
       multiIndex: e.detail.value,
       zcs: e.detail.value[0] + 1,
@@ -34,7 +34,7 @@ Page({
       skcd: e.detail.value[3] - e.detail.value[2],
     })
   },
-  bindMultiPickerChange1: function(e) {
+  bindMultiPickerChange1: function (e) {
     this.setData({
       kb1: this.data.decurriculum[0][e.detail.value],
       multiIndex1: e.detail.value,
@@ -70,17 +70,17 @@ Page({
     }
 
   },
-  setde12: function(e) {
+  setde12: function (e) {
     this.setData({
       shows: true,
     })
   }, // 点击遮罩层，显示的遮罩层与面板又隐藏起来  
-  close: function() {
+  close: function () {
     this.setData({
       shows: false,
     })
   },
-  set1: function(e) {
+  set1: function (e) {
     wx.showLoading({
       title: '处理中',
       mask: true
@@ -100,11 +100,10 @@ Page({
           title: '删除成功',
           icon: 'none',
         })
-        if (index != -1) {
-          var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum);
-          getApp().globalData.curriculum = curriculum;
-          this.add();
-        }
+
+        var curriculum = getApp().changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum1);
+        getApp().globalData.curriculum = curriculum;
+        this.add();
         wx.setStorage({
           key: 'oldTime',
           data: "1"
@@ -119,17 +118,16 @@ Page({
     })
 
   },
-  set2: function(e) {
+  set2: function (e) {
     wx.showLoading({
       title: '处理中',
       mask: true
     })
-    var de = getApp().globalData._de
-    de.splice(e.currentTarget.dataset.bean, 1)
+    getApp().globalData._de.splice(e.currentTarget.dataset.bean, 1)
     wx.cloud.callFunction({
       name: 'weLoading',
       data: {
-        _de: JSON.stringify(de),
+        _de: JSON.stringify(getApp().globalData._de),
         username: getApp().globalData.username,
         type: 'de'
       },
@@ -138,7 +136,7 @@ Page({
           title: '恢复成功',
           icon: 'none',
         })
-        var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum);
+        var curriculum = getApp().changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum1);
         getApp().globalData.curriculum = curriculum;
         this.de()
         wx.setStorage({
@@ -154,7 +152,7 @@ Page({
       }
     })
   },
-  remove: function(array, a, zcs, xq, jcdm2) { //删除工具
+  remove: function (array, a, zcs, xq, jcdm2) { //删除工具
     for (var i = 0; i < array.length; i++) {
       if (array[i].kcmc == a && array[i].zcs == zcs && array[i].jcdm2[1] == jcdm2) {
         array.splice(i, 1);
@@ -163,7 +161,7 @@ Page({
     }
     return -1;
   },
-  add: function() {
+  add: function () {
     var addcurriculum = getApp().globalData._add;
     var wlist = [];
     var isCourse = 'none';
@@ -185,7 +183,7 @@ Page({
       isCourse: isCourse,
     })
   },
-  de: function() {
+  de: function () {
     var decurriculum = getApp().globalData._de;
     var wlist = [];
     var isCourse = 'none';
@@ -223,7 +221,7 @@ Page({
       isCourse: isCourse,
     })
   },
-  onLoad: function() {
+  onLoad: function () {
     this.add();
   },
 })
