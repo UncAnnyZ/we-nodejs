@@ -57,7 +57,7 @@
 </view>
 
 <view class="all">
-  <view class="top">
+  <!-- <view class="top">
     <radio-group bindchange="change">
       <radio value="1" checked="true">
         <label>按课程</label>
@@ -67,13 +67,73 @@
           <radio value="2">按周数</radio>
         </label>
     </radio-group>
-  </view>
+  </view> -->
 
   <view class="container">
     
+    <view class="block" wx:for="{{kcmc}}" id="{{index}}" bindtap="change">
 
+      <label class="block_kcmc">{{item}}</label>
+      <view class="block_bottom">
+        <label class="block_teacher">{{ll[item]['data'][0].teaxms}}</label>
+        <label class="block_skcs">剩余{{ll[item]['data'].length}}次课</label>
+      </view>
+
+    </view>
+
+      <!-- <view class="block_zcxq">
+        <label wx:for="{{ll[item]['zcxq']}}" wx:for-item="zcxq">{{zcxq}}</label>
+      </view> -->
 
   </view>
 
+
+</view>
+
+<view class="add " wx:if="{{block_show}}">
+  <!-- 背景蒙版 -->
+  <view class="add_background" bindtap="block_show"></view>
+
+  <view class="add_contain {{add_style}}" >
+    <view class="add_title">
+      <text>课程详情</text>
+    </view>
+
+    <!-- 课程名称 -->
+    <view class="add_block">
+      <label>课程名</label>
+      <view>{{showDetail.course}}</view>
+    </view>
+    <!-- 教室 -->
+    <view class="add_block">
+      <label>教室</label>
+      <view>{{showDetail.place}}</view>
+    </view>
+    <!-- 老师 -->
+    <view class="add_block">
+      <label>老师</label>
+      <view>{{showDetail.teacher}}</view>
+    </view>
+
+    <!-- 上课周数 -->
+    <view class="add_week_title">
+      <label>周-星期-节次</label>
+    </view>
+    <view class="add_week">
+      <view class="add_weekBtn" wx:for="{{showDetail.week}}">
+        <label id="{{index}}" bindtap="changeWB" class="{{item[1]?'add_weekBtn_select':'add_weekBtn_noSelect'}}">
+          {{item[0]}}
+        </label>
+      </view>
+
+    </view>
+
+    <!-- 按钮 -->
+    <view class="add_btn">
+      <button bindtap="block_show">取 消</button>
+      <button bindtap="addSubmit" class="{{addSubmitStyle?'cansubmit':''}}">保 存</button>
+    </view>
+
+  </view>
 
 </view>
