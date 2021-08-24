@@ -2,15 +2,20 @@
 
 
 @media (prefers-color-scheme: dark) {
+
   input{
-    color: #f6f6f6;
+    color: black;
   }
   .title_text,
   .title_bg{
     filter: invert(90%) !important;
   }  
+  .hd{
+    overflow: hidden;
+  }
 
 }
+
 
 
 .all{
