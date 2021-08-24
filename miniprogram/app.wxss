@@ -29,3 +29,23 @@ page {
   justify-content: flex-start;
   font-family: Helvetica Neue, Helvetica, sans-serif;
 }
+
+/* 深夜模式 */
+
+@media (prefers-color-scheme: dark) {
+  Page,
+  page{
+    min-height: 100vh;
+    filter: invert(90%) !important;
+    background-color: rgb(25, 25, 25) !important;
+    color: rgb(25, 25, 25) ; 
+  }
+  
+  button,
+  switch,
+  scroll-view,
+  image{
+    filter: invert(90%) !important;
+  }
+}
+

@@ -1,0 +1,24 @@
+{
+  "light": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTextStyle": "black",
+    "navBackgroundColor": "#F6F6F6",
+    "navTextStyle": "black",
+
+    "color": "#404040",
+    "selectedColor": "#118ffe"
+  },
+  "dark": {
+    "backgroundColor": "#191919",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#191919",
+    "navigationBarTextStyle": "black",
+    "navBackgroundColor": "#191919",
+    "navTextStyle": "white",
+
+    "color": "#BFBFBF",
+    "selectedColor": "#EE7001"
+  }
+}
