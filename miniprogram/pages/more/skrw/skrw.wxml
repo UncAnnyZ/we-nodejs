@@ -1,7 +1,10 @@
 <view class="head wx-head {{show}}">
   <view class="head-time">
-      <view class="weui-input">你的2021-2022-1上课任务！
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="weui-input">{{array[index]}}
+        <text class='iconfont icon-open'></text>
       </view>
+    </picker>
   </view>
   <view class="head-title" style='color:coral'>
     <view>学分:

@@ -55,6 +55,7 @@ Page({
   we_index: function (data) {
     getApp().globalData.achievement = data.a_data;
     getApp().globalData.quality = data.t_data;
+    getApp().globalData.task = data.k_data;
     getApp().globalData._de = JSON.parse(data._de);
     getApp().globalData._add = JSON.parse(data._add);
     getApp().globalData.curriculum = JSON.parse(JSON.stringify(data.c_data));
