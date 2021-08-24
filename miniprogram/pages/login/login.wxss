@@ -1,5 +1,18 @@
 /**index.wxss**/
 
+
+@media (prefers-color-scheme: dark) {
+  input{
+    color: #f6f6f6;
+  }
+  .title_text,
+  .title_bg{
+    filter: invert(90%) !important;
+  }  
+
+}
+
+
 .all{
   height: 100vh;
   opacity: 0.9;
@@ -55,9 +68,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba(245, 245, 245, 0.9);
+  position: relative;
   width: 90%;
-  padding-top: 35%;
+  top: 17.5vh;
+  overflow: hidden;
 }
 .login_user, .login_pwd{
   display: flex;
@@ -65,7 +79,6 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  width: 100%;
   padding: 30rpx 20rpx;
 }
 .login_user label,
@@ -91,6 +104,8 @@
   align-items: center;
   width: 90%;
   padding-top: 20rpx;
+  position: relative;
+  top: 17.5vh;
 }
 .help text{
   color: rgb(45, 165, 230);

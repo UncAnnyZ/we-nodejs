@@ -91,7 +91,7 @@ Page({
         that.setData({
           showAdd: !showAdd
         })
-      }, 900);
+      }, 200);
     } 
     else {
       this.setData({
