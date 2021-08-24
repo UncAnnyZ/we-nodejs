@@ -142,14 +142,11 @@ Page({
     wx.cloud.callFunction({
       name: 'configjson',
       success: res => {
-        // 判断版本加载页面内容
-        if (res.result.version != configData.version) {
           this.setStorageData(res.result.index);
           wx.setStorage({
             key: 'configData',
             data: res.result
           });
-        }
         // 判断信息发主页通知
         if (res.result.msgData != wx.getStorageSync('msgData')) {
           wx.showModal({

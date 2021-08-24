@@ -13,6 +13,15 @@ exports.main = async (event, context) => {
     timeYear : "2021/8/30",
     time: "10000", // 秒
     msgData: "1.修改上课时间 \n 2.修复部分添加课表的bug",
+    more: [{
+      url: '/pages/more/tc/tc',
+      name: '体测成绩计算',
+      imgUrl: '../../../images/home/timg.png'
+    },{
+      url: '/pages/more/skrw/skrw',
+      name: '学生上课任务',
+      imgUrl: '/images/icon/1.png'
+    }],
     index: {
       news: true, // 通知内容显示
       iconList: [{

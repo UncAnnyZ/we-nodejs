@@ -6,36 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ad:true,
+    more:[],
     view: 1,
     name: "",
     no: ""
   },
 
-  // 关闭广告位
-  hide(e){
-    if (e.type == 'close' && e.mut == false) {
-      this.setData({
-        ad: false
-      }) 
-    }
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-
+  onLoad: function (options) {
+    this.setData({
+      more: wx.getStorageSync('configData').more
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
 
   },
-  CopyQQ: function() {
+  CopyQQ: function () {
     wx.cloud.callFunction({
       name: 'quit',
       success: res => {
@@ -56,7 +49,7 @@ Page({
     })
 
   },
-  tsg: function() {
+  tsg: function () {
 
     wx.showToast({
       title: '图书馆暂无开放考试',
@@ -68,40 +61,40 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     return {
       title: 'We广油',
     }
