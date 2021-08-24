@@ -22,7 +22,8 @@ App({
       _add:[],
       _de:[],
       username:0,
-      timeyear:""
+      timeyear:"",
+      task:[]
     }
   },
   // 登录判断

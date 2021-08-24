@@ -29,6 +29,10 @@ Page({
     wx.cloud.callFunction({
       name: 'quit',
       success: res => {
+        wx.setStorage({
+          key: 'personaldata',
+          data: ''
+        });
         wx.redirectTo({
           url: '/pages/login/login'
         })

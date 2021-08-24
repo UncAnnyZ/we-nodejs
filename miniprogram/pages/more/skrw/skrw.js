@@ -53,6 +53,9 @@ Page({
     if (skrw[0] == undefined) {
       isCourse = '';
     }
+    for(let i = 0; i < skrw.length; i++){
+      
+    }
     for (let i = 0; i < skrw.length; i++) {
       if (skrw[i].xf >= 3) {
         color.push("#11c1f3");

@@ -120,14 +120,27 @@ exports.main = async(event, context) => {
         'order': 'asc',
       })
     })
-
-
+    let k_data = await got.post('https://jwxt.gdupt.edu.cn/xskktzd!getDataList.action', {
+      headers,
+      body: querystring.stringify({ //把json数据（对象）解析成字符串
+        'xnxqdm': "",
+        'page': '1',
+        'rows': '2000',
+        'sort': 'kcbh',
+        'order': 'asc',
+        'kcmc':'',
+        'kcfldm':'',
+        'kcdldm':''
+      })
+    })
+    console.log(JSON.parse(k_data.body).rows)
     
     var curriculum = await db.collection('curriculum').where({ _user: username }).get({})
     var data = {
       a_data: JSON.parse(a_data.body).rows,
       t_data: JSON.parse(t_data.body).rows,
       c_data: JSON.parse(c_data.body).rows,
+      k_data: JSON.parse(k_data.body).rows,
       _add: curriculum.data[0]._add,
       _de: curriculum.data[0]._de,
       zt: curriculum.data[0]._zt,
