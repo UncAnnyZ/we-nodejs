@@ -1,4 +1,6 @@
 // pages/grade/show/show.js
+var pageXstart = 0;
+var pageX = 0;
 Page({
 
   /**
@@ -22,7 +24,9 @@ Page({
     xq: "",
     skcd: "",
     skjc2: "",
-    xxx: 'set1'
+    xxx: 'set1',
+    block_show: false,
+    addSubmitStyle: false
   },
   bindMultiPickerChange: function (e) {
     this.setData({
@@ -222,6 +226,165 @@ Page({
     })
   },
   onLoad: function () {
-    this.add();
+    // this.add();
+    this.init()
+
   },
+
+  init(){
+    var lesson = wx.getStorageSync("personaldata").c_data;
+
+    // 按上课时间排序先
+    lesson.sort((a,b) => {
+      return new Date(a.pkrq).getTime() - new Date(b.pkrq).getTime()
+    })
+
+    console.log(lesson)
+
+    var ll = {}
+    var kcmc = []
+
+    // 处理数据=>以'课程名称'为字段 的对象数组
+    for (let i = 0; i < lesson.length; i++) {
+      let index = kcmc.indexOf(lesson[i].kcmc)
+      if( index == -1 ) {
+        kcmc.push(lesson[i].kcmc)
+        ll[lesson[i].kcmc] = []
+        ll[lesson[i].kcmc].push(lesson[i])
+      } else {
+        ll[lesson[i].kcmc].push(lesson[i])
+      }
+    }
+    
+    // 处理数据，将已经上过的剔除
+    var nowtime = new Date().getTime();
+    for (let i = 0; i < kcmc.length; i++) {
+      var arr = ll[kcmc[i]]
+      var obj = {}
+      obj['data'] = [];
+      obj['zcxq'] = []; // 列出该课程所有的 周次-星期-节次
+      obj['jxcd'] = []; // 教学场地，这门课上课的地点
+      for (let k = 0; k < arr.length; k++) {
+        // 还没上的课
+        if (nowtime < new Date(arr[k].pkrq).getTime()) {
+          obj['data'].push(arr[k])
+          obj['zcxq'].push([arr[k].zc + "-" + arr[k].xq + "-" + arr[k].jcdm, true]);
+          // 找出该门课的上课场地
+          if ( !obj['jxcd'].includes(arr[k].jxcdmc) ) {
+            obj['jxcd'].push(arr[k].jxcdmc)
+          }
+
+        }
+      }
+      ll[kcmc[i]] = obj
+    }
+
+    this.setData({
+      ll,kcmc
+    })
+
+    console.log(kcmc,ll)
+  },
+
+  change(e){
+    console.log(e)
+    this.block_show()
+
+    var id = e.currentTarget.id
+    let ll = JSON.parse( JSON.stringify( this.data.ll[ this.data.kcmc[id] ] ))  // 深拷贝
+    var showDetail = {
+      course: this.data.kcmc[id],
+      place: ll.jxcd,
+      teacher: ll.data[0].teaxms,
+      week: ll.zcxq
+    }
+    this.setData({
+      showDetail
+    })
+    console.log(showDetail)
+
+  },
+
+  changeWB(e){
+    var id = e.currentTarget.id
+    var ll = this.data.ll
+    var showDetail = this.data.showDetail
+    showDetail.week[id][1] = !showDetail.week[id][1]
+
+    if( JSON.stringify(showDetail.week) == JSON.stringify(ll[showDetail.course].zcxq) ){
+      this.setData({
+        showDetail,
+        addSubmitStyle:false
+      })
+    } else {
+      this.setData({
+        showDetail,
+        addSubmitStyle:true
+      })
+    }
+    
+
+  },
+
+  block_show(){
+    var block_show = this.data.block_show
+    var that = this
+    if(block_show){
+      this.setData({
+        add_style: "add_hide"
+      })
+      setTimeout(() => {
+        that.setData({
+          block_show: !block_show
+        })
+      }, 200);
+    } 
+    else {
+      this.setData({
+        add_style: "add_show",
+        block_show: !block_show
+      })
+    }
+  },
+
+  addSubmit(){
+    console.log('点击保存')
+
+  },
+
+  // 左滑
+  move(e){
+    console.log(e)
+    console.log(this.pageXstart,this.pageX,this.pageX - this.pageXstart)
+    var id = e.currentTarget.id
+    if (e.type == "touchstart") {
+      this.pageXstart = e.touches[0].pageX
+      this.data.ll[this.data.kcmc[id]].show = false
+    }
+    else{
+      this.pageX = e.touches[0].pageX
+      this.setData({ 
+        ddd: (this.pageXstart - this.pageX)  + "px"
+      })
+
+      // if (this.pageX - this.pageXstart < -50) {
+      //   let ll = this.data.ll
+      //   ll[this.data.kcmc[id]].show = true
+      //   this.setData({ 
+      //     ll,
+      //     ddd: (this.pageXstart - this.pageX)  + "px"
+      //   })
+        
+
+      //   this.pageX = 0;
+      // }
+      // else if(this.pageX - this.pageXstart > 0){
+      //   let ll = this.data.ll
+      //   ll[this.data.kcmc[id]].show = false
+      //   this.setData({ ll })
+      // }
+    }
+  }
+
+
 })

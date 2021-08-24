@@ -231,3 +231,281 @@ page {
   color: #fff;
   padding-left: 2px;
 }
+
+
+.all{
+
+}
+.top{
+  padding: 10rpx;
+  text-align: end;    
+  font-size: 16px;
+}
+.top label{
+  width: 200rpx;
+}
+.top radio{
+  margin-right: 20rpx;
+}
+/* 
+.top radio
+ {
+  height: 24rpx;
+  width: 24rpx;
+  border-radius: 50%;
+  border: 2rpx solid #e6c171;
+  background: transparent;
+}
+
+.top radio{
+  text-align: center;
+  background: #e6c171;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+} */
+
+
+.block{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 10rpx;
+  margin-top: 25rpx;
+  padding:20rpx 35rpx;
+  border-radius: 50rpx;
+  box-shadow: 0rpx 0rpx 10rpx #e2e2e2;
+  /* width: -webkit-fill-available; */
+  width: 80%;
+  overflow: hidden;
+}
+
+
+.block_kcmc{
+  font-size:32rpx;
+  font-weight:500;
+  line-height:60rpx;
+  width:500rpx;
+  overflow:hidden;
+  text-overflow:elipsis;
+  white-space:nowrap;
+}
+.block_bottom{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.block_bottom label{
+  font-size: 24rpx;
+  color: #8a8a8a;
+  padding-right: 20rpx;
+  min-width: 3rem;
+}
+
+
+.block_btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 7rem;
+  border-radius: 10rpx 50rpx 50rpx 10rpx;
+  box-shadow: 0rpx 0rpx 10rpx #e2e2e2;
+  overflow: hidden;
+}
+.block_btn view{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.block_btn_xiugai{
+  background-color: orange;
+}
+.block_btn_pb{
+  background-color: rgb(244, 67, 54);
+}
+.block_btn view>label{
+  color: rgb(230, 230, 230);
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2rpx;
+  width: 3rem;
+}
+
+.block_zcxq{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.block_zcxq label{
+  width: 22%;
+  text-align: center;
+}
+
+
+
+/* 添加课表 */
+view, text, scroll-view, swiper, button, form, input, textarea, label, navigator, image {
+  box-sizing: content-box;
+}
+button{
+  box-sizing: border-box;
+}
+
+.add,
+.add_background{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  font-family: unset;
+}
+.add_background{
+  background-color: #000;
+  opacity: 0.6;
+  height: 100%;
+}
+.add_contain{
+  position: relative;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  /* background-color: rgb(230,230,230); */
+  background-color: #fff;
+  border-radius: 50rpx;
+  padding: 50rpx 0;
+  z-index: 99999;
+}
+.add_title{
+  padding-bottom: 50rpx;
+  size: 18px;
+  font-weight: 600;
+}
+/* 课名 + 教室 + 老师 */
+.add_block{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  width: 80%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  border-radius: 20rpx;
+  margin: 20rpx 0;
+}
+.add_block label{
+  width: 20%;
+  font-weight: 600;
+  font-size: 14px;
+}
+.add_block view{
+  margin-left: 50rpx;
+  width: 60%;
+  font-size: 15px;
+}
+/* 上课周数 */
+.add_week_title{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  height: 80rpx;
+}
+.add_week_title label{
+  font-weight: 600;
+  font-size: 14px;
+}
+.add_week{
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 85%;
+}
+.add_weekBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 50rpx;
+  margin: 10rpx 0;
+}
+.add_weekBtn label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  height: 100%;
+  color: rgb(100, 100, 100);
+  border: 1rpx rgba(200, 200, 200, 0.6) solid;
+  border-radius: 20rpx;
+}
+.add_weekBtn_noSelect{
+  color: rgb(100, 100, 100);
+}
+.add_weekBtn_select{
+  background: rgb(8, 178, 255);
+  color: rgb(245,245,245) !important;
+  border: none !important;
+}
+/* 底部确认按钮 */
+.add_btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 70rpx 0 50rpx;
+  width: 85%;
+}
+.add_btn button{
+  width: 45% !important;
+  border-radius: 50rpx;
+  color: gray;
+  background-color:rgb(245, 245, 245);
+  size: 16px;
+}
+.cansubmit{
+  background-color:rgb(20, 205, 255) !important;
+  color: #fff !important;
+}
+.add_btn button::after{
+  border: none; 
+}
+.add_show{
+  animation: add_show .5s;
+}
+.add_hide{
+  animation: add_hide .5s;
+}
+/*自定义动画*/
+@keyframes add_show {
+  0% {
+      opacity: 0;
+      transform: translateY(100%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+}
+@keyframes add_hide {
+  0% {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(100%);
+  }
+}

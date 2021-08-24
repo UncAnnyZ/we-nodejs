@@ -80,6 +80,7 @@ Page({
       icon: 'none',
     })
   },
+  // 添加课表 蒙版
   feedbackHandler: function(e) {
     var showAdd = this.data.showAdd
     var that = this
@@ -91,7 +92,7 @@ Page({
         that.setData({
           showAdd: !showAdd
         })
-      }, 900);
+      }, 200);
     } 
     else {
       this.setData({

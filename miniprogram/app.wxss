@@ -1,4 +1,5 @@
 @import "css/icon.wxss";
+/* @import "css/wxui.wxss"; */
 /**app.wxss**/
 /**app.wxss**/
 .container {
@@ -26,4 +27,5 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
 }
