@@ -19,7 +19,6 @@ Page({
   onLoad: function () {
     var that = this;
     let skrw = JSON.parse(JSON.stringify(getApp().globalData.task));
-    console.log(skrw);
     for(let i = 0; i < skrw.length; i++){
       let [year, month] = String(skrw[i].cjsj).split('-');
       let date = ''
