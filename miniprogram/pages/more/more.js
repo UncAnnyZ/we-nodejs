@@ -6,9 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ad:true,
     view: 1,
     name: "",
     no: ""
+  },
+
+  // 关闭广告位
+  hide(e){
+    if (e.type == 'close' && e.mut == false) {
+      this.setData({
+        ad: false
+      }) 
+    }
   },
 
   /**

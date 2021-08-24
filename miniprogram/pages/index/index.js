@@ -19,6 +19,7 @@ Page({
     return whichWeek;
   },
   data: {
+    ad:true,
     news: false, // 通知内容显示
     class: false, // 课程内容显示
     classMsg: '今天没有课，出去玩吧',
@@ -103,6 +104,15 @@ Page({
     });
   },
 
+
+  // 关闭广告位
+  hide(e){
+    if (e.type == 'close' && e.mut == false) {
+      this.setData({
+        ad: false
+      }) 
+    }
+  },
 
 
   onLoad: function (options) {

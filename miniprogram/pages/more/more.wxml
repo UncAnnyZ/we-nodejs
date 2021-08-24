@@ -1,5 +1,5 @@
 <view class="wx-list menu margin-top">
-    <ad unit-id="adunit-d91c54d3a3ef3040"></ad>
+    <!-- <ad unit-id="adunit-d91c54d3a3ef3040" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad> -->
 
     <navigator url='/pages/more/tc/tc'>
         <view class="wx-item">
