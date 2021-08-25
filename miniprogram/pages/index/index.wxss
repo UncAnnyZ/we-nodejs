@@ -27,12 +27,12 @@ page {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 120rpx;
 }
 .iconn_item_url image{
   width:80rpx;
   height:80rpx;
   display:block;
-  margin:auto;
 }
 .iconn_item_url text{
   display: block;
