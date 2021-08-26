@@ -1,0 +1,46 @@
+
+<view class="head wx-head {{show}}">
+  <view class="head-time">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="weui-input">{{array[index]}}
+        <text class='iconfont icon-open'></text>
+      </view>
+    </picker>
+  </view>
+  <view class="head-title">
+    <view>学分:
+      <text>{{TotalCredit}}</text>
+    </view>
+    <view>平均绩点:
+      <text>{{AverageScorePoint}}</text>
+      <text>  无公选:{{Achi}}</text>
+    </view>
+  </view>
+</view>
+<view class="main">
+<view class='wx-isclass' style="display: {{isCourse}}">木有成绩哟</view>
+  <view class="list">
+    <block wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+      <view class="data">
+        <view class="data-adj">
+          <view class="upWard" style="background-color:{{id==0?'#fff':'#e2e5f2'}}"></view>
+          <view class="dot" style='background-color:{{color[id]}}'></view>
+          <view class="offWard"></view>
+        </view>
+        <view class="grade">
+          <view class="grade-title">
+            <view class="grade-column">{{list[id].kcmc}}</view>
+            <view class="grade-rum">
+              <text>{{list[id].xdfsmc}}</text>
+              <text>学分:{{list[id].xf}}</text>
+              <text>绩点:{{list[id].cjjd}}</text>
+              <text>状态:{{list[id].ksxzmc}}</text>
+            </view>
+          </view>
+          <view class="data-score" style='color:{{color[id]}}'>{{list[id].zcj}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <text>\n</text>
+</view>

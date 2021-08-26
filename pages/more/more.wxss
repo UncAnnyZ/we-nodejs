@@ -1,0 +1,93 @@
+.menu {
+  display:block;
+  overflow:hidden;
+  background-color: #fff;
+
+}
+.wx-item{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  min-height:100rpx;
+  background:#fff;
+  padding:10rpx 0rpx;
+}
+.content{
+  display: flex;
+  border-bottom: 2rpx #eeeeee solid;
+  flex: 1;
+  padding-left:15rpx;
+}
+.icon-arrow-right-copy-copy-copy{
+  margin:auto;
+  font-size:40rpx;
+  margin-right:30rpx;
+  color:#afafaf;
+}
+.text-grey{
+  line-height:100rpx;
+  font-size:35rpx;
+  flex:1;
+  color:#333333;
+}
+.wx-images{
+  margin-right: 20rpx;
+  padding-left: 30rpx;
+}
+.wx-images image{
+  width:45rpx;
+  height:45rpx;
+}
+.wx-list navigator:last-child .wx-item .content{
+  border: none;
+}
+.rests .wx-item:last-child .content{
+  border: none;
+}
+.button{
+  background-color:#fff;
+  text-align:left;
+  padding-left:5rpx;
+}
+.button::after {
+  border: none;
+}
+.user-img{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  justify-content: center;
+  margin-bottom: 40rpx;
+  border:20rpx solid #5ab1ff;
+}
+.header{
+  background-color: #118ffe;
+  background-size:cover;
+  height:400rpx;
+  display:flex;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+  flex-direction:column;
+  align-items:center;
+  color:#fff;
+  font-weight:300;
+  text-shadow:0 0 3px rgba(0, 0, 0, 0.3);
+  padding-bottom:50rpx;
+}
+.user-name{
+  text-align:center;
+  font-size:37rpx;
+  font-weight:600;
+}
+.student{
+  text-align: 500;
+}
+.rests{
+  margin-bottom: 100rpx;
+}
+Page {
+  background-color: #fcfcfc;
+}

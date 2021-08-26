@@ -1,0 +1,259 @@
+ page {
+  background-color: #fff;
+} 
+
+.iconn{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 30rpx;
+}
+.iconn_item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+.iconn_item_url{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.iconn_item_url image{
+  width:80rpx;
+  height:80rpx;
+  display:block;
+  margin:auto;
+}
+.iconn_item_url text{
+  display: block;
+  color: #888;
+  margin-top: 10rpx;
+  line-height: 30rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.wx-list.grid.no-border {
+
+  padding: 20rpx 10rpx 0rpx 80rpx;
+}
+
+.bg{
+  display: block;
+  width: 100%;
+  height:260rpx;
+}
+.wx-list.grid.no-border>.wx-item {
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+    display:  inline-flex;
+  flex-direction: row;
+}
+.wx-list.grid>.wx-item{
+  display: flex;
+  flex-direction: row;
+  padding: 200rpx 0 30rpx;
+  position:   relative;
+  transition-duration: 1s;
+  width:25%;
+  
+}
+.wx-list.grid>.wx-item text {
+  display: block;
+  color: #888;
+  margin-top: 10rpx;
+  line-height: 30rpx;
+  font-size: 26rpx;
+  text-align:center;
+}
+
+.fun-images{
+  width:80rpx;
+  height:80rpx;
+  display:block;
+  margin:auto;
+
+}
+.wx-list.menu>.wx-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 90rpx;
+  background: #fff;
+  padding: 0 30rpx;
+}
+.wx-list.menu>.wx-item .content {
+
+  display: flex;
+  font-size: 30rpx;
+}
+
+.inform-images{
+  width:60rpx;
+  height: 60rpx
+}
+.inform-text{
+  overflow:hidden;
+  height:60rpx;
+  line-height: 60rpx;
+}
+.inform-text view{
+  width: 580rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  animation: first 10s;
+  animation-iteration-count: infinite;
+}
+@keyframes first
+{
+  0%{
+    transform:translateY(-0rpx);
+  }
+  26%{
+    transform:translateY(-0rpx);
+  }
+  32%{
+    transform:translateY(-60rpx);
+  }
+  57%{
+    transform:translateY(-60rpx);
+  }
+  63%{
+    transform:translateY(-120rpx);
+  } 
+  88%{
+    transform:translateY(-120rpx);
+  } 
+  95%{
+    transform:translateY(-180rpx);
+  } 
+  100%{
+    transform:translateY(-180rpx);
+  }
+}
+.inform-comment{
+  background-color: #e54d42;
+  font-size: 20rpx;
+  color: #fff;
+  padding:9rpx 15rpx;
+  border-top-left-radius:30rpx;
+  border-bottom-right-radius:30rpx;
+  border-bottom-left-radius:30rpx;
+  margin:0rpx 20rpx;
+}
+.inform-name{
+  font-size: 27rpx;
+  color: #f37b1d;
+}
+.icon-arrow-right-copy-copy-copy{
+  font-size: 50rpx;
+  color: #888;
+}
+.mymove{
+  height: 60rpx;
+  animation:mymove 15s infinite;
+}
+@keyframes mymove{
+  0%{
+    transform: translateY(0%)
+    
+  }
+  33.33%{
+    transform: translateY(-100%)
+  }
+  66.66%{
+    transform: translateY(-150%)
+  }
+} 
+.wx-remind{
+  background: #fff;
+  padding: 20rpx 30rpx 50rpx 30rpx;
+}
+.wx-remind-header{
+  display: flex;
+}
+.wx-remind-title{
+  flex: 1;
+}
+.wx-remind-title text:nth-child(1){
+  display:block;
+  font-size:34rpx;
+  padding-bottom:10rpx;
+  color:#5480b1;
+}
+.wx-remind-title text:nth-child(2){
+  color:#dfe0e2;
+}
+.wx-remind-detail{
+  justify-content:space-between;
+  align-items:center;
+  display:flex;
+}
+.wx-remind-detail text{
+  padding:7rpx 10rpx;
+  border:4rpx solid #acebe3;
+  color:#acebe3;
+  border-radius:20rpx;
+}
+.wx-remind-body{
+
+}
+.wx-remind-class{
+  display: flex;
+  margin-top:15rpx;
+  color:#28cbb8;
+}
+.wx-class-time{
+  padding:8px 15px;
+  border-radius:20rpx;
+  margin-right:20rpx;
+  text-align:center;
+  background-color: #e6f9f7;
+  font-size:13px;
+}
+.wx-class-time text:nth-child(1){
+  display: block;
+}
+.wx-class-time text:nth-child(2){
+
+}
+.wx-class-title{
+  justify-content:space-between;
+  display:flex;
+  font-size:13px;
+  align-items:center;
+  border-radius:20rpx;
+  flex:1;
+  padding:0.5px 11px;
+  background-color: #e6f9f7;
+}
+
+.wx-class-title text:nth-child(1){
+  width:320rpx;
+  font-size:32rpx;
+
+}
+.wx-class-title text:nth-child(2){
+}
+
+.round{
+  width:25rpx;
+  height:25rpx;
+  border:7rpx solid #fff;
+  margin-bottom:6px;
+}
+.show{
+  display : show;
+}
+
+.wx-isclass{
+  text-align:center;
+  font-size:40rpx;
+  color:#1cbbb4;
+  margin-top:30rpx;
+}

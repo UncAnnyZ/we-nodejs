@@ -1,0 +1,57 @@
+<view class="head wx-head {{show}}">
+  <view class="head-time">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="weui-input">{{array[index]}}
+        <text class='iconfont icon-open'></text>
+      </view>
+    </picker>
+  </view>
+  <view class="head-title" style='color:coral'>
+    <view>注意！
+    </view>
+    <view>（可以选择自增课程和学校课程）
+    </view>
+  </view>
+</view>
+<view class="main">
+  <view class="shade" wx:if="{{shows}}" bindtap='close'></view>
+  <view class="cont" wx:if="{{ shows}}">
+    <text class="tit">请选择你想要删除的课程 按外面可关闭\n</text>
+    <text class="tit">恢复请按课表左上角的学校课程</text>
+    <view class="section">
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange1" value="{{multiIndex1}}" range="{{decurriculum}}">
+        <view class="picker"> 选择删除课程：{{decurriculum[0][multiIndex1[0]]}}</view>
+      </picker>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker"> 当前选择：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}} {{multiArray[2][multiIndex[2]]}}{{multiArray[3][multiIndex[3]]}} </view>
+      </picker>
+      <view class="wx-remind-detail" bindtap='setClass1'>
+        <text>删除</text>
+      </view>
+    </view>
+  </view>
+  <text class="qq" style="display: {{isCourse2}}">以下为被删除的学校课程:</text>
+  <view class='wx-isclass' style="display: {{isCourse}}">{{xx}}</view>
+  <view class="list">
+    <block wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+      <view class="data">
+        <view class="grade">
+          <view class="grade-title">
+            <view class="grade-column">{{list[id].kcmc}}</view>
+            <view class="grade-rum">
+              <text style='color:#11c1f3'>{{list[id].zs}}</text>
+              <text style='color:#11c1f3'>{{list[id].xqj}}</text>
+              <text style='color:#11c1f3'>{{list[id].skjc}}</text>
+            </view>
+          </view>
+          <view class="data-score">
+            <view class="wx-remind-detail" bindtap='{{xxx}}' data-bean="{{id}}">
+              <text>{{button}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <text>\n</text>
+</view>

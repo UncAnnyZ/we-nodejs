@@ -1,0 +1,163 @@
+/**index.wxss**/
+Page {
+  background-color: #fcfcfc;
+}
+.all{
+  padding: 10rpx 0rpx 10rpx 0rpx;
+  border:5rpx solid skyblue;
+  min-height: 100%;
+}
+
+/**性别**/
+  .sex{
+    display: flex;
+  }
+
+  .sex radio-group{
+    right: 5rpx;
+  }
+
+  radio{
+    padding-left: 50rpx;
+    justify-content: space-evenly;
+   font-size:1rpx; /* 对勾大小 30rpx */
+  }
+
+
+/*年级**/
+  .grade{
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 30rpx;
+    background-color: whitesmoke;
+  }
+
+  button{
+    line-height:2;
+    font-size: 16px;
+    right: 10rpx;
+  }
+
+  .garde1{
+    background-color: white;
+  }
+  .garde2{
+    background-color: rgb(60, 200, 60);
+    color: white;
+  }
+
+.unit{
+  position: absolute;
+  left: 58%;
+  color: gray;
+  font-size: 14px;
+  padding-left: 10rpx;
+}
+
+/*总*/
+
+  .sex,.grade,.tall,.weight,.volume,.jump,.handlong,.run,.sit_up,.pull_up,.shortrun{
+    padding-left: 30rpx;
+    padding-top: 35rpx;
+    padding-bottom: 35rpx;
+    border-top:1rpx solid rgb(200, 200, 200);
+  }
+
+  .sex{
+    border: none
+  }
+
+  .tall,.weight,.volume,.jump,.handlong,.run,.sit_up,.pull_up,.shortrun{
+    display: flex;
+  }
+
+  .tall input,.weight input,.volume input,.jump input,.handlong input,.sit_up input,.pull_up input,.shortrun input{
+    position: absolute;
+    left: 43%;
+    padding-left: 20rpx;
+    padding-top: 5rpx;
+    margin-top: -5rpx;
+    font-size: 16px;
+    color: rgb(100, 100, 100);
+    width: 12%;
+    height: 50rpx;
+    border-bottom: 1rpx solid #ff9508;
+  }
+
+  .score{
+    position: absolute;
+    left: 85%;
+    font-size: 14px;
+    color: rgb(0, 255, 0);
+    margin-top: 5rpx;
+  }
+
+/*跑步*/
+
+  .run-1{
+    position: absolute;
+    left: 40%;
+    padding-left: 10rpx;
+    padding-right: 5rpx;
+    padding-top: 5rpx;
+    margin-top: -5rpx;
+    font-size: 16px;
+    color: rgb(100, 100, 100);
+    width: 6%;
+    height: 50rpx;
+    border-bottom: 1rpx solid #ff9508;
+  }
+
+  .run-2{
+    position: absolute;
+    left: 54%;
+    padding-left: 18rpx;
+    padding-right: 5rpx;
+    padding-top: 5rpx;
+    margin-top: -5rpx;
+    font-size: 16px;
+    color: rgb(100, 100, 100);
+    width: 8%;
+    height: 50rpx;
+    border-bottom: 1rpx solid #ff9508;
+  }
+
+  .unit-1{
+    position: absolute;
+    left: 49%;
+    color: gray;
+    font-size: 14px;
+    padding-left: 10rpx;
+  }
+
+  .unit-2{
+    position: absolute;
+    left: 65%;
+    color: gray;
+    font-size: 14px;
+    padding-left: 10rpx;
+  }
+
+  .last{
+    /*  margin-top: 40rpx; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+
+  .head_img{
+    width: 135rpx;
+    height: 135rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+
+  }
+
+  .name{
+    color: #aaa;
+  }
+
+  .welcome{
+    font-size: 20rpx
+  }

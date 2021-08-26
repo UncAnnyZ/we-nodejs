@@ -1,0 +1,64 @@
+page{
+  background-color:rgb(252, 252, 252);
+}
+.cxwk{
+  left: 50rpx;
+  margin:33rpx auto auto auto;
+  /* border-style: solid; border-width: 1rpx; */
+  width:500rpx;
+  height:500rpx;
+  /* font-size: 30rpx; */
+  background-color:rgb(252, 252, 252);
+}
+.cxwk1{
+  margin:33rpx auto auto auto;
+  border-style: solid; border-width: 0rpx;
+  width:500rpx;
+  font-size: 35rpx;
+  color: #ffffffd7;
+  background-color:#0188f7d7;
+}
+.cxwk2{
+  margin:33rpx auto auto auto;
+  border-style: solid; border-width: 0rpx;
+  width:500rpx;
+  font-size: 35rpx;
+  /* color: #ffffffd7;
+  background-color:#0188f7d7; */
+}
+.m2{
+  margin:33rpx auto 44rpx auto;
+  width:600rpx;
+  height:1000rpx;
+  background: linear-gradient(-18deg, #62b4f7d7, #62b4f7d7);
+  border-radius: 12rpx;
+}
+.m2_tit{
+  font-size:40rpx;
+  text-align:center;
+  color:#fff;
+  padding-top:26rpx;
+  margin-bottom:21rpx;
+}
+
+.coupon-line{
+  position:relative;
+  width:530rpx;
+  margin:auto;
+  border-top:4rpx dashed #fff;
+}
+.coupon-line view{
+  width:28rpx;
+  height:28rpx;
+  background:#fff;
+  border-radius:50%;
+  position:absolute;
+  z-index:99;
+  top:-14rpx;
+}
+.coupon-line :first-child{
+  left:-28rpx;
+}
+.coupon-line :last-child{
+  right:-28rpx;
+}
