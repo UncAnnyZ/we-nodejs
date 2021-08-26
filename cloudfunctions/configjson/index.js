@@ -56,11 +56,11 @@ exports.main = async (event, context) => {
         name: "校历"
       }, {
         id: "7",
-        url: "recommend/recommend",
-        tt1: "none",
-        tt: "examination",
-        icon: "../../images/icon/examination.png",
-        name: "邻家小市"
+        url: "more/skrw/skrw",
+        // tt1: "none",
+        // tt: "examination",
+        icon: "../../images/icon/1.png",
+        name: "上课任务"
       }, {
         id: "8",
         url: "about/about",

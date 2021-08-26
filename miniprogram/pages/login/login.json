@@ -1,7 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarBackgroundColor": "#2da5e6",
-
+  "navigationBarBackgroundColor": "@loginnavBackgroundColor",
   "enablePullDownRefresh": false,
   "disableScroll": true,
   "navigationBarTitleText": "We广油 - 登录"
