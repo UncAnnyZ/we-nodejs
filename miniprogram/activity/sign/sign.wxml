@@ -1,0 +1,51 @@
+<!--pages/page_vip/active/active.wxml-->
+<view class="title">
+  <text>{{name3}}</text>
+</view>
+<view class="activeTotal">
+  <form class="activeform" bindsubmit="check_submit">
+    <view class="activer">
+      <text>学 号</text>
+      <input type="text" placeholder="请输入您的学号" placeholder-class="plaseholder"  name="xuehao" value='{{xuehao}}'></input>
+    </view>
+    <view class="activer">
+      <text>姓 名</text>
+      <input type="text" placeholder="请输入您的姓名" placeholder-class="plaseholder"  name="name" value='{{name}}'></input>
+    </view>
+
+    <view class="activer">
+      <text>电 话</text>
+      <input type="number" placeholder="请输入联系方式" placeholder-class="plaseholder"  name="tel" maxlength="11"></input>
+    </view>
+    <view class="activer">
+      <text>学 院</text>
+      <input type="text" placeholder="请输入所在学院" placeholder-class="plaseholder"  name="school" value="{{school}}"></input>
+    </view>
+        <view class="activer">
+      <text>校 区</text>
+      <input type="text" placeholder="请输入所在校区" placeholder-class="plaseholder"  name="xiao" value="{{xiao}}"></input>
+    </view>
+    <view class="activer">
+      <text>班 级</text>
+      <input type="text" placeholder="请输入所在班级" placeholder-class="plaseholder"  name="classname" value="{{classname}}"></input>
+    </view>
+    
+    <text>\n{{name2}}\n</text>
+    <view class="activers">
+      <checkbox-group bindchange="checkboxChange">
+        <view wx:for="{{list}}" wx:key="1" wx:for-item="item" wx:for-index="id">
+          <label>
+            <checkbox value="{{list[id]}}" name="pp{{id}}">{{list[id]}}</checkbox>
+          </label>
+          <text space="nbsp"></text>
+        </view>
+      </checkbox-group>
+    </view>
+    <view class="textatea">
+      <input type="text" placeholder="备注栏：" placeholder-class="plaseholder"  name="other" value="{{other}}"></input>
+    </view>
+    <text>\n</text>
+    <button form-type="submit" value="确认报名" class="submit">确认报名</button>
+  </form>
+
+</view>
