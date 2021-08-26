@@ -86,7 +86,7 @@
 
   <view class="add_contain {{add_style}}" >
     <view class="add_title">
-      <text>课程详情</text>
+      <text>课程添加</text>
     </view>
 
     <!-- 课程名称 -->

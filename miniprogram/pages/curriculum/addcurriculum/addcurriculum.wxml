@@ -1,76 +1,40 @@
-<view class="head wx-head">
+<view class="head">
   <view class="head-time">
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="weui-input">{{array[index]}}
-        <text class='iconfont icon-open'></text>
-      </view>
+      <label class="weui-input">{{array[index]}}</label>
+      <text class='iconfont icon-open'></text>
     </picker>
   </view>
   <view class="head-title" style='color:coral'>
-    <view>注意！
-    </view>
-    <view>（可以选择自增课程和学校课程）
-    </view>
+    <view>注意！</view>
+    <view>（可以选择自增课程和学校课程）</view>
   </view>
 </view>
-<view class="main" wx:if="false" style="display: none;">
-  <view class="shade" wx:if="{{shows}}" bindtap='close'></view>
-  <view class="cont" wx:if="{{ shows}}">
-    <text class="tit">请选择你想要删除的课程 按外面可关闭\n</text>
-    <text class="tit">恢复请按课表左上角的学校课程</text>
-    <view class="section">
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange1" value="{{multiIndex1}}" range="{{decurriculum}}">
-        <view class="picker"> 选择删除课程：{{decurriculum[0][multiIndex1[0]]}}</view>
-      </picker>
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker"> 当前选择：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}} {{multiArray[2][multiIndex[2]]}}{{multiArray[3][multiIndex[3]]}} </view>
-      </picker>
-      <view class="wx-remind-detail" bindtap='setClass1'>
-        <text>删除</text>
-      </view>
-    </view>
-  </view>
-  <text class="qq" style="display: {{isCourse2}}">以下为被删除的学校课程:</text>
-  <view class='wx-isclass' style="display: {{isCourse}}">{{xx}}</view>
-  <view class="list">
-    <block wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
-      <view class="data">
-        <view class="grade">
-          <view class="grade-title">
-            <view class="grade-column">{{list[id].kcmc}}</view>
-            <view class="grade-rum">
-              <text style='color:#11c1f3'>{{list[id].zs}}</text>
-              <text style='color:#11c1f3'>{{list[id].xqj}}</text>
-              <text style='color:#11c1f3'>{{list[id].skjc}}</text>
-            </view>
-          </view>
-          <view class="data-score">
-            <view class="wx-remind-detail" bindtap='{{xxx}}' data-bean="{{id}}">
-              <text>{{button}}</text>
-            </view>
-          </view>
-        </view>
-      </view>
-    </block>
-  </view>
-  <text>\n</text>
-</view>
+<view class="head-padding"></view>
 
 <view class="all">
-  <!-- <view class="top">
-    <radio-group bindchange="change">
-      <radio value="1" checked="true">
-        <label>按课程</label>
-      </radio>
-      
-        <label>
-          <radio value="2">按周数</radio>
-        </label>
-    </radio-group>
-  </view> -->
+  <view class="container" wx:if="{{index == 0}}">
 
-  <view class="container">
-    
+    <view class='self_tip' style="display: {{list.length==0?'':'none'}};">木有自增课程</view>
+    <view class="block" style="flex-direction: row;" wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+        <view class="grade-title">
+          <!-- 课程名称 -->
+          <view class="grade-column">{{list[id].kcmc}}</view>
+          <!-- 周-星期-节次 -->
+          <view class="grade-rum">
+            <text style='color:#11c1f3'>{{list[id].zs}}</text>
+            <text style='color:#11c1f3'>{{list[id].xqj}}</text>
+            <text style='color:#11c1f3'>{{list[id].skjc}}</text>
+          </view>
+        </view>
+        <view class="grade-score" bindtap='set1' data-bean="{{id}}">
+          <label>删除</label>
+        </view>
+    </view>
+  </view>
+
+  <view class="container" wx:if="{{index == 1}}">
+
     <view class="block" wx:for="{{kcmc}}" id="{{index}}" bindtap="change">
 
       <label class="block_kcmc">{{item}}</label>
@@ -81,10 +45,6 @@
 
     </view>
 
-      <!-- <view class="block_zcxq">
-        <label wx:for="{{ll[item]['zcxq']}}" wx:for-item="zcxq">{{zcxq}}</label>
-      </view> -->
-
   </view>
 
 
@@ -94,7 +54,7 @@
   <!-- 背景蒙版 -->
   <view class="add_background" bindtap="block_show"></view>
 
-  <view class="add_contain {{add_style}}" >
+  <view class="add_contain {{add_style}}">
     <view class="add_title">
       <text>课程详情</text>
     </view>
@@ -117,7 +77,7 @@
 
     <!-- 上课周数 -->
     <view class="add_week_title">
-      <label>周-星期-节次</label>
+      <label>周-星期-节次（点亮即代表显示）</label>
     </view>
     <view class="add_week">
       <view class="add_weekBtn" wx:for="{{showDetail.week}}">
@@ -131,7 +91,7 @@
     <!-- 按钮 -->
     <view class="add_btn">
       <button bindtap="block_show">取 消</button>
-      <button bindtap="addSubmit" class="{{addSubmitStyle?'cansubmit':''}}">保 存</button>
+      <button bindtap="addSubmit" class="{{addSubmitStyle?'cansubmit':''}}" disabled="{{!addSubmitStyle}}">保 存</button>
     </view>
 
   </view>

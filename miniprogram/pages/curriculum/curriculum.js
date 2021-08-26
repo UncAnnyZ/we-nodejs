@@ -424,19 +424,11 @@ Page({
         week.push(i + 1)
     }
     // 检查填写是否为空
-    if (this.data.course == null || this.data.course == "" || this.data.course == undefined) {
-      this.setData({
-        addSubmitStyle: false
-      })
-    } else if (this.data.place == null || this.data.place == "" || this.data.place == undefined) {
-      this.setData({
-        addSubmitStyle: false
-      })
-    } else if (this.data.teacher == null || this.data.teacher == "" || this.data.teacher == undefined) {
-      this.setData({
-        addSubmitStyle: false
-      })
-    } else if (week == null || week == "" || week == undefined || week.length == 0) {
+    if (this.data.course  == null || this.data.course  == "" || this.data.course  == undefined || 
+        this.data.place   == null || this.data.place   == "" || this.data.place   == undefined ||
+        this.data.teacher == null || this.data.teacher == "" || this.data.teacher == undefined || 
+                     week == null ||              week == "" ||              week == undefined ||              week.length == 0
+    ) {
       this.setData({
         addSubmitStyle: false
       })
@@ -445,6 +437,7 @@ Page({
         addSubmitStyle: true
       })
     }
+
   },
   showToast(msg) {
     wx.showToast({

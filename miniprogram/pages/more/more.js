@@ -32,10 +32,10 @@ Page({
     wx.cloud.callFunction({
       name: 'quit',
       success: res => {
-        wx.setStorage({
-          key: 'personaldata',
-          data: ''
-        });
+        // wx.setStorageSync('historyData',JSON.parse(JSON.stringify(wx.getStorageSync('personaldata'))) )
+        if (wx.getStorageSync('personaldata').username != 18034530129) {
+          wx.setStorageSync('personaldata', '');
+        }
         wx.redirectTo({
           url: '/pages/login/login'
         })
