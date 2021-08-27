@@ -1,4 +1,4 @@
-<view style="display: none;">
+<view>
   <text>欢迎其他社团与我们合作（可提供报名程序）\n\n</text>
   社团:
   <view class="wx-list grid no-border">
@@ -12,7 +12,7 @@
 
 </view>
 
-<view class="all">
+<view class="all" style="display: none;">
 
   <view class="head">
 
