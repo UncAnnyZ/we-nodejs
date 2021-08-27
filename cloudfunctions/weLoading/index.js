@@ -11,8 +11,12 @@ exports.main = async(event, context) => {
 
   const wxContext = cloud.getWXContext()
   var zh = await db.collection('username').where({_openid: wxContext.OPENID}).get({})
-  username = zh.data[0]._user
-  password = zh.data[0]._pwd + ''
+  try{
+    username = zh.data[0]._user
+    password = zh.data[0]._pwd + ''
+  }catch{
+    return 0
+  }
 
   var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     output = "";
