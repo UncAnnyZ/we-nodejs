@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
     msgTitle : "更新",
     timeYear : "2021/8/30",
     time: "10000", // 秒
-    msgData: "1.修改上课时间 \n 2.修复部分添加课表的bug",
+    msgData: "1.欢迎使用We广油",
     more: [{
       url: '/pages/more/tc/tc',
       name: '体测成绩计算',
@@ -24,6 +24,8 @@ exports.main = async (event, context) => {
     }],
     index: {
       news: true, // 通知内容显示
+      ad: true,
+      adImg : '',
       iconList: [{
         id: "1",
         url: "achievement/achievement",
