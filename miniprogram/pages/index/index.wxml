@@ -1,4 +1,4 @@
-<!-- <image src='cloud://un1-d62c68.756e-un1-d62c68-1258307938/微信图片_20200901125311.jpg' mode="widthFix"></image> -->
+<image style="display: {{adImg?adImg:'none'}}" src='{{adImg}}' mode="widthFix"></image>
 <ad class="ad" unit-id="adunit-3b513ed5750984a1" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad>
 <view class='{{show}}'>
 

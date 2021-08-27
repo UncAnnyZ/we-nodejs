@@ -19,7 +19,8 @@ Page({
     return whichWeek;
   },
   data: {
-    ad:true,
+    adImg: '',
+    ad:false,
     news: false, // 通知内容显示
     class: false, // 课程内容显示
     classMsg: '今天没有课，出去玩吧',
@@ -128,7 +129,9 @@ Page({
       this.setData({
         iconList: indexData.iconList,
         inform: indexData.inform,
-        news: indexData.news
+        news: indexData.news,
+        ad: indexData.ad,
+        adImg: indexData.adImg
       });
     }
 
@@ -142,6 +145,7 @@ Page({
     wx.cloud.callFunction({
       name: 'configjson',
       success: res => {
+          // 自己堆的屎自己收拾（@阿伟）
           this.setStorageData(res.result.index);
           wx.setStorage({
             key: 'configData',
