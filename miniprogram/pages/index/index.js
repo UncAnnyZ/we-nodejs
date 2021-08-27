@@ -20,7 +20,7 @@ Page({
   },
   data: {
     adImg: '',
-    ad:false,
+    ad: false,
     news: false, // 通知内容显示
     class: false, // 课程内容显示
     classMsg: '今天没有课，出去玩吧',
@@ -29,7 +29,7 @@ Page({
     color_dark: ['#28cbb8', '#C6E2FF', '#28cbb8', '#C6E2FF', '#28cbb8', '#C6E2FF', '#28cbb8'],
     background: ['#e6f9f7', '#fef7e5'],
     // background_dark: ['#238773 !important','#a0c8e1 !important'],
-    background_dark: ['#237b87 !important','#a0c8e1 !important'],
+    background_dark: ['#237b87 !important', '#a0c8e1 !important'],
     inform: [],
     course: [],
     time: {
@@ -56,8 +56,6 @@ Page({
     })
   },
 
-
-
   // 一个进入课表采集的函数
   we_index: function (data) {
     getApp().globalData.achievement = data.a_data;
@@ -71,6 +69,7 @@ Page({
     var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum);
     this.setcurriculum(curriculum);
     getApp().globalData.curriculum = curriculum;
+
   },
 
   // 最后一步渲染
@@ -112,16 +111,12 @@ Page({
     });
   },
 
-
   // 关闭广告位
-  hide(e){
-    if (e.type == 'close' && e.mut == false) {
-      this.setData({
-        ad: false
-      }) 
-    }
+  hide(e) {
+    this.setData({
+      ad: false
+    })
   },
-
 
   onLoad: function (options) {
     // 渲染场景
@@ -152,12 +147,12 @@ Page({
     wx.cloud.callFunction({
       name: 'configjson',
       success: res => {
-          // 自己堆的屎自己收拾（@阿伟）
-          that.setStorageData(res.result.index);
-          wx.setStorage({
-            key: 'configData',
-            data: res.result
-          });
+        // 自己堆的屎自己收拾（@阿伟）
+        that.setStorageData(res.result.index);
+        wx.setStorage({
+          key: 'configData',
+          data: res.result
+        });
         // 判断信息发主页通知
         if (res.result.msgData != wx.getStorageSync('msgData')) {
           wx.showModal({
@@ -253,5 +248,6 @@ Page({
     this.setData({
       theme: wx.getSystemInfoSync().theme
     })
+
   },
 })

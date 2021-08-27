@@ -9,13 +9,16 @@ Page({
     more:[],
     view: 1,
     name: "",
-    no: ""
+    no: "",
+    ad:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 暂不开启广告
+    this.hide()
     this.setData({
       more: wx.getStorageSync('configData').more
     })
@@ -58,6 +61,14 @@ Page({
 
 
   },
+
+  // 关闭广告位
+  hide(e){
+    this.setData({
+      ad: false
+    }) 
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
