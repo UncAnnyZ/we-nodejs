@@ -25,7 +25,8 @@ Page({
     class: false, // 课程内容显示
     classMsg: '今天没有课，出去玩吧',
     curriculum: [],
-    color: ['#28cbb8', '#ffca43', '#28cbb8', '#ffca43', '#28cbb8'],
+    color: ['#28cbb8', '#ffca43', '#28cbb8', '#ffca43', '#28cbb8', '#ffca43', '#28cbb8'],
+    color_dark: ['#28cbb8', '#C6E2FF', '#28cbb8', '#C6E2FF', '#28cbb8', '#C6E2FF', '#28cbb8'],
     background: ['#e6f9f7', '#fef7e5'],
     // background_dark: ['#238773 !important','#a0c8e1 !important'],
     background_dark: ['#237b87 !important','#a0c8e1 !important'],
@@ -88,7 +89,7 @@ Page({
       if (curriculum[y].xq == "7") {
         zc = String(Number(curriculum[y].zc) - 1)
       }
-      if (zc == this.getweekString() && curriculum[y].xq == xq) {
+      if (zc == 1 && curriculum[y].xq == 4) {
         course.push({
           day: '今天',
           time: '第' + curriculum[y].jcdm[1] + '节',

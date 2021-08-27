@@ -256,10 +256,13 @@ page {
     /* color: #191919 !important; */
   }
   .wx-class-title,
+  .inform-text{
+    filter: invert(90%) !important;
+  }
   .wx-class-time{
     filter: invert(90%) !important;
     /* background-color: unset !important;  */
-    color: #fff !important;
+    /* color: #fff !important; */
     /* background-color: #238773 !important; */
     /* background-color: #a0c8e1 !important; */
     /* background-color: #237b87 !important; */
