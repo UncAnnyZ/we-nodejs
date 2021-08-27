@@ -393,13 +393,11 @@ Page({
             title: '添加成功',
             icon: 'none',
           })
-          let a = tt;
-          let b = getApp().globalData.curriculum;
-          for (var i = 0; i < a.length; i++) {
-            b.push(a[i])
-          }
+          var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum1);
+          getApp().globalData.curriculum = curriculum;      
+          that.onShow()
           wx.setStorage({
-            key: 'hctime',
+            key: 'oldTime',
             data: "1"
           })
         },

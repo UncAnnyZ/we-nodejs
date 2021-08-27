@@ -505,9 +505,7 @@ Page({
       showCancel: true, //是否显示取消按钮
       content: "请选择校区",
       cancelText: "西城校区", //默认是“取消”
-      cancelColor: 'skyblue', //取消文字的颜色
       confirmText: "官渡校区", //默认是“确定”
-      confirmColor: 'skyblue', //确定文字的颜色
       success: function (res) {
         if (res.cancel) {
           _this.setData({
