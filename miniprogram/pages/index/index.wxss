@@ -2,6 +2,10 @@ page {
   background-color: #F6F6F6;
 } 
 
+.navigation{
+  background-color: #F6F6F6;
+}
+
 .iconn{
   background-color: #fff;
   display: flex;
@@ -247,4 +251,9 @@ page {
   margin-top:30rpx;
 }
 
-
+@media (prefers-color-scheme: dark) {
+  .wx-isclass{
+    filter: invert(90%) !important;
+    color:#1cbbb4;
+  }
+}

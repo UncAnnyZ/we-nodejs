@@ -40,6 +40,9 @@ page {
     background-color: rgb(25, 25, 25) !important;
     color: rgb(25, 25, 25) ; 
   }
+  .ad{
+    filter: invert(90%) !important;
+  }
   
   button,
   switch,

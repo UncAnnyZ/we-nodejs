@@ -1,6 +1,9 @@
 .page {
   background-color: #F6F6F6;
 } 
+Page {
+  background-color: #fcfcfc;
+}
 
 .menu {
   display:block;
@@ -89,7 +92,4 @@
 }
 .rests{
   margin-bottom: 100rpx;
-}
-Page {
-  background-color: #fcfcfc;
 }

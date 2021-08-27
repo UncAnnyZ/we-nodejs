@@ -18,8 +18,8 @@
     "pages/more/more",
     "pages/more/skrw/skrw",
     "pages/more/tc/tc",
-    "pages/login/login"
-
+    "pages/login/login",
+    "pages/setting/setting"
   ],
   "tabBar": {
     "color": "@color",

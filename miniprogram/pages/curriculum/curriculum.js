@@ -75,6 +75,8 @@ Page({
 
 
   showCardView: function (e) {
+    console.log(this.data.wlist[e.currentTarget.dataset.index])
+    
     wx.showToast({
       title: '教师:' + this.data.wlist[e.currentTarget.dataset.index].teacher,
       icon: 'none',

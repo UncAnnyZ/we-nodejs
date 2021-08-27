@@ -67,9 +67,38 @@ Page({
         name: "健与美协会"
       },
     ],
-    
+    picker:['校级机构', '院级机构', '学生社团'],
+    index:0,
+    list:[
+      // 校级机构
+      [
+        {
+          url:"",
+          name:"",
+          intro:""
+        } 
+      ],
+      // 院级机构
+      [
+        {
+          url:"",
+          name:"",
+          intro:"",
+          xy:"",
+        }
+      ],
+      // 学生社团
+      [
+        {
+          url:"",
+          name:"",
+          intro:""
+        }
+      ]
+    ]
   },
   activityjr: function(e) {
+    console.log(e)
     if (e.currentTarget.dataset.index == 0) {
       wx.navigateToMiniProgram({
         appId: 'wx909f7431e2ccba81',
@@ -170,5 +199,11 @@ Page({
 
   },
   onLoad: function() {
+  },
+
+  bindPickerChange(e){
+    this.setData({
+      index: e.detail.value
+    })
   }
 })
