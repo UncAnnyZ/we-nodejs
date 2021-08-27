@@ -146,7 +146,7 @@ Page({
       name: 'configjson',
       success: res => {
           // 自己堆的屎自己收拾（@阿伟）
-          this.setStorageData(res.result.index);
+          that.setStorageData(res.result.index);
           wx.setStorage({
             key: 'configData',
             data: res.result
