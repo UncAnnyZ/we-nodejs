@@ -144,6 +144,7 @@ Page({
 
   // 请求进行信息获取
   showAll: function () {
+    var that = this
     var configData = wx.getStorageSync('configData');
     this.setStorageData(configData.index);
     // 基础配置信息
