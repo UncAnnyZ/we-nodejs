@@ -213,7 +213,7 @@ page {
   color:#28cbb8;
 }
 .wx-class-time{
-  width: 62rpx;
+  /* width: 62rpx; */
   padding:8px 15px;
   border-radius:20rpx;
   margin-right:20rpx;
@@ -236,7 +236,7 @@ page {
 }
 
 .wx-class-title text:nth-child(1){
-  width:320rpx;
+  /* width:320rpx; */
   font-size:32rpx;
 
 }
@@ -252,6 +252,18 @@ page {
 }
 
 @media (prefers-color-scheme: dark) {
+  .wx-remind-class text{
+    /* color: #191919 !important; */
+  }
+  .wx-class-title,
+  .wx-class-time{
+    filter: invert(90%) !important;
+    /* background-color: unset !important;  */
+    color: #fff !important;
+    /* background-color: #238773 !important; */
+    /* background-color: #a0c8e1 !important; */
+    /* background-color: #237b87 !important; */
+  }
   .wx-isclass{
     filter: invert(90%) !important;
     color:#1cbbb4;

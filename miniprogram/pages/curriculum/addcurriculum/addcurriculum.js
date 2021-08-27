@@ -16,7 +16,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['自增课程', '学校课程'],
+    array: ['学校课程', '自增课程'],
     index: "0",
 
     decurriculum: [], //二维数组，长度是多少是几列
@@ -32,12 +32,12 @@ Page({
       this.setData({
         index: e.detail.value
       })
-      this.de();
+      this.add();
     } else {
       this.setData({
         index: e.detail.value
       })
-      this.add();
+      this.de();
     }
 
   },

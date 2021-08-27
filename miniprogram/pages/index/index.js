@@ -26,7 +26,9 @@ Page({
     classMsg: '今天没有课，出去玩吧',
     curriculum: [],
     color: ['#28cbb8', '#ffca43', '#28cbb8', '#ffca43', '#28cbb8'],
-    background: ['#e6f9f7', '#fef7e5', '#e6f9f7', '#fef7e5', '#e6f9f7', '', ''],
+    background: ['#e6f9f7', '#fef7e5'],
+    // background_dark: ['#238773 !important','#a0c8e1 !important'],
+    background_dark: ['#237b87 !important','#a0c8e1 !important'],
     inform: [],
     course: [],
     time: {
@@ -48,6 +50,9 @@ Page({
     if (getApp().globalData.curriculum) {
       this.setcurriculum(getApp().globalData.curriculum)
     }
+    this.setData({
+      theme: wx.getSystemInfoSync().theme
+    })
   },
 
 
@@ -243,5 +248,8 @@ Page({
     this.showAll();
     wx.hideNavigationBarLoading() //完成停止加载
     wx.stopPullDownRefresh() //停止下拉刷新
+    this.setData({
+      theme: wx.getSystemInfoSync().theme
+    })
   },
 })
