@@ -36,11 +36,11 @@
         </view>
         <view class="wx-remind-body margin-top">
             <view class="wx-remind-class  margin-top:100rpx;" bindtap='setClass' wx:for="{{course}}"wx:key="id">
-                <view class="wx-class-time" style='color:{{color[index%2]}};background-color:{{theme=="light"?background[index%2]:background_dark[index%2]}}'>
+                <view class="wx-class-time color_{{index%2}} background-color_{{index%2}}">
                     <text>{{item.day}}</text>
                     <text>{{item.time}}</text>
                 </view>
-                <view class="wx-class-title" style='font-size:13px;color:{{color[index%2]}};background-color:{{theme=="light"?background[index%2]:background_dark[index%2]}}'>
+                <view class="wx-class-title color_{{index%2}} background-color_{{index%2}}">
                     <text>{{item.name}}</text>
                     <text><text class='iconfont icon-dingwei'></text>{{item.site}}</text>
                 </view>

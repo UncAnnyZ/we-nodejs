@@ -58,7 +58,7 @@ page{
     line-height:60rpx;
     width:500rpx;
     overflow:hidden;
-    text-overflow:elipsis;
+    text-overflow:ellipsis;
     white-space:nowrap;
 }
 .grade-rum{
