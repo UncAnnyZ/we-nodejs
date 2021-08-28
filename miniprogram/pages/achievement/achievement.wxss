@@ -127,14 +127,3 @@ page{
   display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .data{
-    filter: invert(90%) !important;
-  }
-  .data-adj{
-
-  }
-  .grade{
-    /* filter: invert(90%) !important; */
-  }
-}

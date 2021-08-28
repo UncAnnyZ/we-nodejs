@@ -42,7 +42,13 @@
                 </view>
                 <view class="wx-class-title color_{{index%2}} background-color_{{index%2}}">
                     <text>{{item.name}}</text>
-                    <text><text class='iconfont icon-dingwei'></text>{{item.site}}</text>
+                    <text><text class='iconfont icon-dingwei'
+                    
+                    
+                    
+                    
+                    
+                    ></text>{{item.site}}</text>
                 </view>
             </view>
              <view class='wx-isclass' style="display: {{isCourse? 'block':'none'}}">{{classMsg}}</view>
