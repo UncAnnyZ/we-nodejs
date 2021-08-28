@@ -10,33 +10,44 @@ Page({
     //类型1
     for (var i=0;i<this.data.info_st.length;i++){
       if(e.currentTarget.dataset.index == this.data.info_st[i].id){
-        if (this.data.info_st[i].type==1 ){
-          getApp().globalData.club_detail = this.data.inform_st[i];
-          wx.navigateTo({
-            url: 'mod/mod',
+        if (this.data.info_st[i].isopen==true){
+          if (this.data.info_st[i].type==1 ){
+            getApp().globalData.club_detail = this.data.inform_st[i];
+            wx.navigateTo({
+              url: 'mod/mod',
+            })
+        }   
+            //类型2
+        else if (this.data.info_st[i].type==2 ){
+          wx.previewImage({
+            current: this.data.info_st[i].current, // 当前显示图片的http链接
+            urls: this.data.info_st[i].url// 需要预览的图片http链接列表
           })
-      }   
-          //类型2
-      else if (this.data.info_st[i].type==2 ){
-        wx.previewImage({
-          current: this.data.info_st[i].current, // 当前显示图片的http链接
-          urls: this.data.info_st[i].url// 需要预览的图片http链接列表
+       }   
+          //类型3
+       else if (this.data.info_st[i].type==3 ){
+        wx.navigateToMiniProgram({
+          appId: this.data.info_st[i].appid,//数据库传入appid
+          path: this.data.info_st[i].path,//数据库传入路径
+          extraData: {
+            xuehao: getApp().globalData.xuehao
+          },
+          envVersion: 'release',
+          success(res) {
+            console.log('跳转成功');
+          }
         })
-     }   
-        //类型3
-     else if (this.data.info_st[i].type==3 ){
-      wx.navigateToMiniProgram({
-        appId: this.data.info_st[i].appid,//数据库传入appid
-        path: this.data.info_st[i].path,//数据库传入路径
-        extraData: {
-          xuehao: getApp().globalData.xuehao
-        },
-        envVersion: 'release',
-        success(res) {
-          console.log('跳转成功');
+     }  
         }
-      })
-   }   
+        else{
+          wx.showModal({
+            title:"提示",
+            content:"不在该社团报名时间内",
+            showCancel:false
+
+          })
+        }
+      
   }
     
   }
@@ -47,33 +58,43 @@ Page({
       console.log(e.currentTarget.dataset.index)
       //类型1
       if(e.currentTarget.dataset.index == this.data.info_jg[i].id){
-        if (this.data.info_jg[i].type==1 ){
-          getApp().globalData.club_detail = this.data.inform_jg[i];
-          wx.navigateTo({
-            url: 'mod/mod',
+        if (this.data.info_jg[i].isopen==true){
+          if (this.data.info_jg[i].type==1 ){
+            getApp().globalData.club_detail = this.data.inform_jg[i];
+            wx.navigateTo({
+              url: 'mod/mod',
+            })
+        }   
+        //类型2
+        else if (this.data.info_jg[i].type==2 ){
+          wx.previewImage({
+            current: this.data.info_jg[i].current, // 数据库传入显示图片的http链接
+            urls: this.data.info_jg[i].url// 数据库传入预览的图片http链接列表
           })
-      }   
-      //类型2
-      else if (this.data.info_jg[i].type==2 ){
-        wx.previewImage({
-          current: this.data.info_jg[i].current, // 数据库传入显示图片的http链接
-          urls: this.data.info_jg[i].url// 数据库传入预览的图片http链接列表
+       }   
+       //类型3
+       else if (this.data.info_jg[i].type==3 ){
+        wx.navigateToMiniProgram({
+          appId: this.data.info_jg[i].appid, //数据库传入appid
+          path: this.data.info_jg[i].path, //数据库传入path
+          extraData: {
+            xuehao: getApp().globalData.xuehao
+          },
+          envVersion: 'release',
+          success(res) {
+            console.log('跳转成功');
+          }
         })
      }   
-     //类型3
-     else if (this.data.info_jg[i].type==3 ){
-      wx.navigateToMiniProgram({
-        appId: this.data.info_jg[i].appid, //数据库传入appid
-        path: this.data.info_jg[i].path, //数据库传入path
-        extraData: {
-          xuehao: getApp().globalData.xuehao
-        },
-        envVersion: 'release',
-        success(res) {
-          console.log('跳转成功');
         }
-      })
-   }   
+        else{
+          wx.showModal({
+            title:"提示",
+            content:"不在该机构报名时间内",
+            showCancel:false
+
+          })
+        }
   }
     
   }
