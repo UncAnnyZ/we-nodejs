@@ -1,37 +1,25 @@
-<view>
-  <text>欢迎其他社团与我们合作（可提供报名程序）\n\n</text>
-  社团:
+<text class="title">欢迎其他社团与我们合作（可提供报名程序）\n</text>
+<!-- 添加机构报名的功能 -->
+<view class="back">
+  <text class="txt">机构</text>
   <view class="wx-list grid no-border">
-    <view class="wx-item" wx:for="{{iconList}}" wx:key="1" id="{{item.url}}">
-      <view bindtap="activityjr" data-statu="open" data-index="{{index}}">
-        <image class="fun-images" src="../../images/activity/{{item.icon}}.png"></image>
+    <view class="wx-item" wx:for="{{info_jg}}" wx:key="1" id="{{item.url}}">
+      <view bindtap="act" data-statu="open" data-index="{{index}}">
+        <image class="fun-images" src="{{item.icon}}"></image>
         <text>{{item.name}}</text>
       </view>
     </view>
   </view>
-
 </view>
-
-<view class="all" style="display: none;">
-
-  <view class="head">
-
-    <view class="head_picker">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{picker}}">
-        <label class="weui-input">{{picker[index]}}</label>
-        <text class='iconfont icon-open'></text>
-      </picker>
-    </view>
-
-    <view class="head-title">
-      <input type="text"></input>
-      <image src="../../images/activity/search.png"></image>
+<view class="back">
+  <text class="txt">社团</text>
+  <view class="wx-list grid no-border">
+    <view class="wx-item" wx:for="{{info_st}}" wx:key="1" id="{{item.url}}">
+      <view bindtap="activityjr" data-statu="open" data-index="{{index}}">
+        <image class="fun-images" src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
     </view>
   </view>
-
-
-  <view class="head-padding"></view>
-
-
-
 </view>
+
