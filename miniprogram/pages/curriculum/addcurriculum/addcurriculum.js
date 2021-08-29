@@ -238,7 +238,6 @@ Page({
 
   // 设置'课程详情'显示的课程
   change(e) {
-    console.log(e)
     this.block_show()
 
     var id = e.currentTarget.id
@@ -252,7 +251,6 @@ Page({
     this.setData({
       showDetail
     })
-    console.log(showDetail)
     this.flushbtn()
   },
 
@@ -367,16 +365,17 @@ Page({
           wx.showLoading({
             title: '更新中...'
           })
+          var global_de = JSON.parse(JSON.stringify(getApp().globalData._de));
 
           // 处理屏蔽的课程
           for (let i in del)
-            getApp().globalData._de.push(del[i])
+            global_de.push(del[i])
 
           // 处理恢复的课程
           for (let i in add)
-            getApp().globalData._de.remove(add[i])
+            global_de.remove(add[i])
 
-          that.update2Cloud()
+          that.update2Cloud(global_de)
 
           var ll = that.data.ll
           ll[kcmc].zcxq = newweek
@@ -394,12 +393,12 @@ Page({
 
   },
 
-  update2Cloud() {
+  update2Cloud(global_de) {
     var that = this
     wx.cloud.callFunction({
       name: 'weLoading',
       data: {
-        _de: JSON.stringify(getApp().globalData._de),
+        _de: JSON.stringify(global_de),
         username: getApp().globalData.username,
         type: 'de'
       },
@@ -408,6 +407,7 @@ Page({
           title: '更新成功',
           icon: 'none',
         })
+        getApp().globalData._de = global_de
         var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum1);
         getApp().globalData.curriculum = curriculum;
 

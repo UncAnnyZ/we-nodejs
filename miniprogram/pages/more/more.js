@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function (options) {
     // 暂不开启广告
-    this.hide()
+    // this.hide()
     this.setData({
       more: wx.getStorageSync('configData').more
     })

@@ -18,7 +18,7 @@
     "pages/more/skrw/skrw",
     "pages/more/tc/tc",
     "pages/login/login",
-    "pages/setting/setting"，
+    "pages/setting/setting",
     "pages/recommend/recommend"
   ],
   "tabBar": {
