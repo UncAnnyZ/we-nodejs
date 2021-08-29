@@ -58,7 +58,7 @@ Page({
         console.log(err)
         wx.showToast({
           icon: 'none',
-          title: '失败申请服务',
+          title: '校园网关闭或者服务器异常',
         })
       }
     })
