@@ -7,6 +7,7 @@ var querystring = require("querystring");
 // 云函数入口函数
 const db = cloud.database()
 const _ = db.command;
+const curriculumTime = '202101' // 每学期的id，来清空修改课表的课记录
 exports.main = async(event, context) => {
 
   const wxContext = cloud.getWXContext()
@@ -140,6 +141,16 @@ exports.main = async(event, context) => {
     console.log(JSON.parse(k_data.body).rows)
     
     var curriculum = await db.collection('curriculum').where({ _user: username }).get({})
+    // 每学期清空修改过的课表
+    if(curriculum.data[0].curriculumTime != curriculumTime){
+      await db.collection('curriculum').where({ _user: username }).update({
+        data: {
+          _add: "[]",
+          _de: "[]",
+          curriculumTime: curriculumTime
+        }
+      })
+    }
     var data = {
       a_data: JSON.parse(a_data.body).rows,
       t_data: JSON.parse(t_data.body).rows,
@@ -147,7 +158,6 @@ exports.main = async(event, context) => {
       k_data: JSON.parse(k_data.body).rows,
       _add: curriculum.data[0]._add,
       _de: curriculum.data[0]._de,
-      zt: curriculum.data[0]._zt,
       username: username
     }
     if(data.c_data.length == 0){

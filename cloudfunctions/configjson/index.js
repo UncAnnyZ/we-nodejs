@@ -7,6 +7,27 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
+  const db = cloud.database()
+  const _ = db.command;
+  // 紧急Patch 9.4号删除
+  var zh = await db.collection('username').where({_openid: wxContext.OPENID}).get({})
+  try{
+    username = zh.data[0]._user
+    var curriculum = await db.collection('curriculum').where({ _user: username }).get({})
+    if(curriculum.data[0].curriculumTime != '202101'){
+      await db.collection('curriculum').where({ _user: username }).update({
+        data: {
+          _add: "[]",
+          _de: "[]",
+          curriculumTime: '202101'
+        }
+      })
+    }
+  }catch{
+
+  }
+
+
   return {
     version: "0.0.1",
     msgTitle : "更新",
