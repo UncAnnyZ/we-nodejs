@@ -80,7 +80,7 @@ Page({
       if (curriculum[y].xq == "7") {
         zc = String(Number(curriculum[y].zc) - 1)
       }
-      if (zc == 1 && curriculum[y].xq == 4) {
+      if (zc == this.getweekString() && curriculum[y].xq == xq) {
         course.push({
           day: '今天',
           time: '第' + curriculum[y].jcdm[1] + '节',
