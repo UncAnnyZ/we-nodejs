@@ -155,8 +155,7 @@ Page({
           type: 'read'
         },
         success:res=>{
-          console.log(res, 1111)
-          this.data.get=JSON.parse(res.result.data[0]._adday)
+          this.data.get=res.result
           getApp().globalData._adday=this.data.get
         },
         fail:err=>{
