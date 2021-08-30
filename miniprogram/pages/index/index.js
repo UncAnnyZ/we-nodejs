@@ -46,7 +46,6 @@ Page({
     if (getApp().globalData.curriculum) {
       this.setcurriculum(getApp().globalData.curriculum)
     }
-    this.searchData()
   },
 
   // 一个进入课表采集的函数
@@ -228,22 +227,7 @@ Page({
 
   },
 
-  searchData:function(){
-    wx.cloud.callFunction({
-      name:'readday',
-      data:{
-        username: getApp().globalData.username
-      },
-      success:res=>{
-        this.data.get=JSON.parse(res.result.data[0]._adday)
-        getApp().globalData._adday=this.data.get
-        getApp().globalData.DaysMatter2=this.data.get
-      },
-      fail:err=>{
-        console.log(err)
-      }
-    })
-  },
+
 
   // 分享we广油
   onShareAppMessage: function (res) {

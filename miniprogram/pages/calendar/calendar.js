@@ -7,8 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    jsonContent: {
+      day: "2",
+      month: new Date().getMonth(),
+      dayOfWeek: "星期" + util.formatDay(new Date().getDay()),
+    },
     isLoading: true,
-    jsonContent: '',
     dates:'2021-8-01',
     wlist:[],
     startX: 0, //开始坐标
@@ -32,142 +36,6 @@ Page({
  
   
  
-  jsondata: function (){
-    let time = new Date();
-    let times = {
-      date: "",
-      month: "",
-      day: "",
-    };
-    
-    times.date = time.getDate();
-
-    let day;  
-    switch (time.getDay()) {
-      case 1:
-        day = "一";
-        break;
-      case 2:
-        day = "二";
-        break;
-      case 3:
-        day = "三";
-        break;
-      case 4:
-        day = "四";
-        break;
-      case 5:
-        day = "五";
-        break;
-      case 6:
-        day = "六";
-        break;
-      case 0:
-        day = "日";
-        break;
-    }
-    times.month = time.getMonth();
-    times.day = day;
-
-    
-    this.setData({
-      time: times
-    })
-
-    var holidayname=getApp().globalData.dayName
-    var gapdays=getApp().globalData.gapDays
-    var holidaydate2=getApp().globalData.dates
-    var holidaydate=getApp().globalData.dates
-   
-
-    var month = times.month +1 
-    var time_zqj = this.num_data("2020-1-25", time.getFullYear() + '-' + month + '-' + time.getDate())
-    var time_ej = this.num_data("2020-3-2", time.getFullYear() + '-' + month + '-' + time.getDate())
-    var time_gqj = this.num_data("2019-10-1", time.getFullYear() + '-' + month + '-' + time.getDate())
-    var time_slj = this.num_data("2019-12-14", time.getFullYear() + '-' + month + '-' + time.getDate())
-    var time_ky = this.num_data("2019-12-21", time.getFullYear() + '-' + month + '-' + time.getDate())
-    var time_yd = this.num_data("2020-1-1", time.getFullYear() + '-' + month + '-' + time.getDate())
-    var time_ksz = this.num_data("2020-1-4", time.getFullYear() + '-' + month + '-' + time.getDate())
-    var time_fj = this.num_data("2020-1-10", time.getFullYear() + '-' + month + '-' + time.getDate())
-  
-    
-    var that = this;
-    var calendar = {
-      "day": time.getDate(),
-      "dayOfWeek": "星期" + times.day,
-      "examWeekDate": "2020-1-1",
-      "gap2ExamWeek": "50",
-      "gap2StartClass": "59",
-      "month": times.month,
-      "nextHoliday": [
-        {},
-      {
-        "holidayName": "春节",
-        "holidayDate": "2020-1-25",
-        "gapDays": time_zqj,
-        "holidayRestInfo": "1月25日"
-
-      },
-      {
-        "holidayName": "开学",
-        "holidayDate": "2020-3-2",
-        "gapDays": time_ej,
-        "holidayRestInfo": "3月2日"
-      },
-      {
-        "holidayName": "国庆节",
-        "holidayDate": "2019-10-1",
-        "gapDays": time_gqj,
-        "holidayRestInfo": "10月1日~7日(放假7天)"
-      },
-      {
-        "holidayName": "英语四六级",
-        "holidayDate": "2019-12-14",
-        "gapDays": time_slj,
-        "holidayRestInfo": "12月14日"
-      },
-      {
-        "holidayName": "考研",
-        "holidayDate": "2019-12-21",
-        "gapDays": time_ky,
-        "holidayRestInfo": "12月21日"
-      },
-      {
-        "holidayName": "元旦",
-        "holidayDate": "2020-1-1",
-        "gapDays": time_yd,
-        "holidayRestInfo": "1月1日"
-      },
-      {
-        "holidayName": "考试周",
-        "holidayDate": "2020-1-4",
-        "gapDays": time_ksz,
-        "holidayRestInfo": "1月4日"
-      },
-      {
-        "holidayName": "放假",
-        "holidayDate": "2020-1-17",
-        "gapDays": time_fj,
-        "holidayRestInfo": "1月17日"
-      },
-
-       
-     
-      
-     /*
-      {
-        "holidayName": holidayname,
-        "holidayDate": holidaydate,
-        "gapDays": gapdays,
-        "holidayRestInfo": holidaydate2,
-      }
-      */
-    ]}
-    that.setData({
-      jsonContent: calendar,
-    })
-  },
-  
 
 
   add: function() {
@@ -283,7 +151,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.jsondata();
+
+      wx.cloud.callFunction({
+        name:'readday',
+        data:{
+          username: getApp().globalData.username,
+          type: 'read'
+        },
+        success:res=>{
+          this.data.get=JSON.parse(res.result.data[0]._adday)
+          getApp().globalData._adday=this.data.get
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
     this.add();
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   },
@@ -291,7 +173,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onShow: function(options) {
-    this.jsondata();
     this.add();
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   

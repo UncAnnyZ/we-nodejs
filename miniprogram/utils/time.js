@@ -18,12 +18,35 @@ function formatTime(date) {
   return year + "年" + month + "月" + day + "日" + "  " + weekday[d.getDay()] + '  ' + hour + "点"
 }
 
-function formatNumber(n) {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+function formatDay(day) {
+  switch (day) {
+    case 1:
+      day = "一";
+      break;
+    case 2:
+      day = "二";
+      break;
+    case 3:
+      day = "三";
+      break;
+    case 4:
+      day = "四";
+      break;
+    case 5:
+      day = "五";
+      break;
+    case 6:
+      day = "六";
+      break;
+    case 0:
+      day = "日";
+      break;
+  }
+  return day
 }
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatDay: formatDay
 }
 
