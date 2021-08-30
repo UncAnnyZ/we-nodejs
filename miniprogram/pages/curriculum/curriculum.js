@@ -75,6 +75,8 @@ Page({
 
 
   showCardView: function (e) {
+    console.log(this.data.wlist[e.currentTarget.dataset.index])
+    
     wx.showToast({
       title: '教师:' + this.data.wlist[e.currentTarget.dataset.index].teacher,
       icon: 'none',
@@ -343,6 +345,7 @@ Page({
       mask: true
     })
     var week = []
+    var tt =    JSON.parse(JSON.stringify(getApp().globalData._add));
     for (var i = 0; i < 18; i++) {
       if (this.data.week[i][0])
         week.push(i + 1)
@@ -367,7 +370,6 @@ Page({
       } else {
         var b = String(Number(this.data.sectionIndex[1] + 1))
       }
-      var tt = []
       for (i = 0; i < week.length; i++) {
         var jcdm = '0' + Number(this.data.sectionIndex[0] + 1)
         Number(this.data.sectionIndex[1] + 1)
@@ -379,33 +381,33 @@ Page({
           'xq': this.data.Week[this.data.WeekIndex],
           'zc': String(week[i])
         }
+        
         tt.push(add)
-        getApp().globalData._add.push(add)
       }
       wx.cloud.callFunction({
-        name: 'we_add',
+        name: 'weLoading',
         data: {
-          _add: JSON.stringify(getApp().globalData._add),
-          username: getApp().globalData.username
+          _add: JSON.stringify(tt),
+          username: getApp().globalData.username,
+          type: 'add'
         },
         success: res => {
           wx.showToast({
             title: '添加成功',
             icon: 'none',
           })
-          let a = tt;
-          let b = getApp().globalData.curriculum;
-          for (var i = 0; i < a.length; i++) {
-            b.push(a[i])
-          }
+          getApp().globalData._add = tt;
+          var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum1);
+          getApp().globalData.curriculum = curriculum;      
+          that.onShow()
           wx.setStorage({
-            key: 'hctime',
+            key: 'oldTime',
             data: "1"
           })
         },
         fail: err => {
           wx.showToast({
-            title: '添加失败',
+            title: '添加失败(校园网关闭或者服务器异常)',
             icon: 'none',
           })
         },

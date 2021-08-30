@@ -2,14 +2,16 @@ page {
   background-color: #F6F6F6;
 } 
 
+.navigation{
+  background-color: #F6F6F6;
+}
+
 .iconn{
   background-color: #fff;
   display: flex;
   flex-wrap: wrap;
   width: 730rpx;
-  margin-top: 10rpx;
-  margin-left: 10rpx;
-  margin-bottom: 10rpx;
+  margin: 10rpx;
   border-radius: 20rpx;
 }
 
@@ -209,7 +211,7 @@ page {
   color:#28cbb8;
 }
 .wx-class-time{
-  width: 62rpx;
+  /* width: 62rpx; */
   padding:8px 15px;
   border-radius:20rpx;
   margin-right:20rpx;
@@ -232,7 +234,7 @@ page {
 }
 
 .wx-class-title text:nth-child(1){
-  width:320rpx;
+  /* width:320rpx; */
   font-size:32rpx;
 
 }
@@ -247,4 +249,44 @@ page {
   margin-top:30rpx;
 }
 
+.color_0{
+  color: #28cbb8;
+}
+.color_1{
+  color: #ffca43;
+}
+.background-color_0{
+  background-color: #e6f9f7;
+}
+.background-color_1{
+  background-color: #fef7e5;
+}
 
+@media (prefers-color-scheme: dark) {
+  .wx-class-title,
+  .inform-text{
+    filter: invert(90%) !important;
+  }
+  .wx-class-time{
+    filter: invert(90%) !important;
+    color: #fff !important;
+  }
+  .wx-isclass{
+    filter: invert(90%) !important;
+    color:#1cbbb4;
+  }
+
+  .color_0{
+    /* color: #28cbb8 !important; */
+    color: #fff !important;
+  }
+  .color_1{
+    color: #fff !important;
+  }
+  .background-color_0{
+    background-color: #237b87 !important;
+  }
+  .background-color_1{
+    background-color: #a0c8e1 !important;
+  }
+}

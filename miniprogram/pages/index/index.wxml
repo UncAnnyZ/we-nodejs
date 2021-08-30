@@ -1,11 +1,11 @@
-<!-- <image src='cloud://un1-d62c68.756e-un1-d62c68-1258307938/微信图片_20200901125311.jpg' mode="widthFix"></image> -->
-<!-- <ad unit-id="adunit-3b513ed5750984a1" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad> -->
+<image style="display: {{adImg?adImg:'none'}}" src='{{adImg}}' mode="widthFix"></image>
+<ad class="ad" unit-id="adunit-3b513ed5750984a1" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad>
 <view class='{{show}}'>
 
     <view class="iconn">
         <view class="iconn_item" wx:for="{{iconList}}" wx:key="id" id="{{item.url}}">
             <navigator url='../{{item.url}}' class="iconn_item_url">
-                <image class="iconn_item_image" src="{{item.icon}}" ></image>
+                <image class="iconn_item_image" src="{{item.icon}}"></image>
                 <text>{{item.name}}</text>
             </navigator>
         </view>
@@ -16,10 +16,10 @@
             <view class="content">
                 <image class="inform-images" src="../../images/icon/inform.png"></image>
                 <view class="inform-text">
-                  <view  wx:for="{{inform}}"wx:key="id" bindtap='setFrom' id="{{item.title}}">
-                    <text class='inform-comment'>{{item.comment}}</text>
-                    <text class='inform-name'>{{item.name}}</text>
-                  </view>
+                    <view wx:for="{{inform}}" wx:key="id" bindtap='setFrom' id="{{item.title}}">
+                        <text class='inform-comment'>{{item.comment}}</text>
+                        <text class='inform-name'>{{item.name}}</text>
+                    </view>
                 </view>
             </view>
         </view>
@@ -30,22 +30,22 @@
                 <text>上课提醒</text>
                 <text>{{time.month+1}}-{{time.date}} 周{{time.day != 0 ? time.day : 7}}</text>
             </view>
-            <view class="wx-remind-detail"  bindtap='setClass' >
+            <view class="wx-remind-detail" bindtap='setClass'>
                 <text>课程表</text>
             </view>
         </view>
         <view class="wx-remind-body margin-top">
-            <view class="wx-remind-class  margin-top:100rpx;" bindtap='setClass' wx:for="{{course}}"wx:key="id">
-                <view class="wx-class-time" style='color:{{color[index]}};background-color:{{background[index]}}'>
+            <view class="wx-remind-class  margin-top:100rpx;" bindtap='setClass' wx:for="{{course}}" wx:key="id">
+                <view class="wx-class-time color_{{index%2}} background-color_{{index%2}}">
                     <text>{{item.day}}</text>
                     <text>{{item.time}}</text>
                 </view>
-                <view class="wx-class-title" style='font-size:13px;color:{{color[index]}};background-color:{{background[index]}}'>
+                <view class="wx-class-title color_{{index%2}} background-color_{{index%2}}">
                     <text>{{item.name}}</text>
                     <text><text class='iconfont icon-dingwei'></text>{{item.site}}</text>
                 </view>
             </view>
-             <view class='wx-isclass' style="display: {{isCourse? 'block':'none'}}">{{classMsg}}</view>
+            <view class='wx-isclass' style="display: {{isCourse? 'block':'none'}}">{{classMsg}}</view>
         </view>
     </view>
 </view>

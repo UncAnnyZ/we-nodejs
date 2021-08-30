@@ -40,6 +40,9 @@ page {
     background-color: rgb(25, 25, 25) !important;
     color: rgb(25, 25, 25) ; 
   }
+  .ad{
+    filter: invert(90%) !important;
+  }
   
   button,
   switch,
@@ -47,5 +50,18 @@ page {
   image{
     filter: invert(90%) !important;
   }
+
+  .data-score {
+    filter: invert(90%) !important;
+  }
+  .dot{
+    filter: invert(90%) !important;
+  }
+  .head-title{
+    filter: invert(40%) !important;
+  }
+
 }
+
+
 

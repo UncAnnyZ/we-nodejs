@@ -1,18 +1,20 @@
+<ad class="ad" unit-id="adunit-3b513ed5750984a1" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad>
 <view class="wx-list menu margin-top">
-    <!-- <ad unit-id="adunit-d91c54d3a3ef3040" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad> -->
 
-        <navigator  wx:for="{{more}}" wx:key="id" url="{{item.url}}">
-            <view class="wx-item">
-                <view class="wx-images">
-                    <image src="{{item.imgUrl}}"></image>
-                </view>
-                <view class="content">
-                    <text class="text-grey">{{item.name}}</text>
-                    <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
-                </view>
+    <navigator wx:for="{{more}}" wx:key="id" url="{{item.url}}">
+        <view class="wx-item">
+            <view class="wx-images">
+                <image src="{{item.imgUrl}}"></image>
             </view>
-        </navigator>
+            <view class="content">
+                <text class="text-grey">{{item.name}}</text>
+                <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
+            </view>
+        </view>
+    </navigator>
 </view>
+
+
 <view class="wx-list menu margin-top rests">
     <view class="wx-item" bindtap='CopyQQ'>
         <view class="wx-images">

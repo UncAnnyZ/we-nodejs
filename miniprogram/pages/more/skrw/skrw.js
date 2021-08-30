@@ -17,6 +17,7 @@ Page({
     this.xiu(this.data.skrw,  this.data.array[e.detail.value]);
   },
   onLoad: function () {
+    getApp().loginState();
     var that = this;
     let skrw = JSON.parse(JSON.stringify(getApp().globalData.task));
     for(let i = 0; i < skrw.length; i++){

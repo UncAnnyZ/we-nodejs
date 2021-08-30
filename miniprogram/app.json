@@ -12,14 +12,19 @@
     "pages/schoolNav/schoolNav",
     "pages/curriculum/curriculum",
     "pages/curriculum/addcurriculum/addcurriculum",
-    "pages/curriculum/add/add",
     "pages/activity/activity",
     "pages/calendar/calendar",
     "pages/calendar/addition/addition",
     "pages/more/more",
     "pages/more/skrw/skrw",
     "pages/more/tc/tc",
+<<<<<<< HEAD
     "pages/login/login"
+=======
+    "pages/login/login",
+    "pages/setting/setting",
+    "pages/recommend/recommend"
+>>>>>>> 8abd9b40c6aa9a409ec671c056b31c6bd5685977
   ],
   "tabBar": {
     "color": "@color",

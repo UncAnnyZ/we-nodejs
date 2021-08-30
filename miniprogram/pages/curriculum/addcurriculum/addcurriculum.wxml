@@ -13,27 +13,8 @@
 <view class="head-padding"></view>
 
 <view class="all">
+
   <view class="container" wx:if="{{index == 0}}">
-
-    <view class='self_tip' style="display: {{list.length==0?'':'none'}};">木有自增课程</view>
-    <view class="block" style="flex-direction: row;" wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
-        <view class="grade-title">
-          <!-- 课程名称 -->
-          <view class="grade-column">{{list[id].kcmc}}</view>
-          <!-- 周-星期-节次 -->
-          <view class="grade-rum">
-            <text style='color:#11c1f3'>{{list[id].zs}}</text>
-            <text style='color:#11c1f3'>{{list[id].xqj}}</text>
-            <text style='color:#11c1f3'>{{list[id].skjc}}</text>
-          </view>
-        </view>
-        <view class="grade-score" bindtap='set1' data-bean="{{id}}">
-          <label>删除</label>
-        </view>
-    </view>
-  </view>
-
-  <view class="container" wx:if="{{index == 1}}">
 
     <view class="block" wx:for="{{kcmc}}" id="{{index}}" bindtap="change">
 
@@ -46,6 +27,28 @@
     </view>
 
   </view>
+
+  <view class="container" wx:if="{{index == 1}}">
+
+    <view class='self_tip' style="display: {{list.length==0?'':'none'}};">木有自增课程</view>
+    <view class="block" style="flex-direction: row;" wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+      <view class="grade-title">
+        <!-- 课程名称 -->
+        <view class="grade-column">{{list[id].kcmc}}</view>
+        <!-- 周-星期-节次 -->
+        <view class="grade-rum">
+          <text style='color:#11c1f3'>{{list[id].zs}}</text>
+          <text style='color:#11c1f3'>{{list[id].xqj}}</text>
+          <text style='color:#11c1f3'>{{list[id].skjc}}</text>
+        </view>
+      </view>
+      <view class="grade-score" bindtap='set1' data-bean="{{id}}">
+        <label>删除</label>
+      </view>
+    </view>
+  </view>
+
+
 
 
 </view>

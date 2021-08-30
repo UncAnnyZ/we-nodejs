@@ -19,13 +19,12 @@ Page({
     return whichWeek;
   },
   data: {
-    ad:true,
+    adImg: '',
+    ad: false,
     news: false, // 通知内容显示
-    class: false, // 课程内容显示
+    class: false, // 课程内容显示s
     classMsg: '今天没有课，出去玩吧',
     curriculum: [],
-    color: ['#28cbb8', '#ffca43', '#28cbb8', '#ffca43', '#28cbb8'],
-    background: ['#e6f9f7', '#fef7e5', '#e6f9f7', '#fef7e5', '#e6f9f7', '', ''],
     inform: [],
     course: [],
     time: {
@@ -50,8 +49,6 @@ Page({
     this.searchData()
   },
 
-
-
   // 一个进入课表采集的函数
   we_index: function (data) {
     getApp().globalData.achievement = data.a_data;
@@ -65,6 +62,7 @@ Page({
     var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum);
     this.setcurriculum(curriculum);
     getApp().globalData.curriculum = curriculum;
+
   },
 
   // 最后一步渲染
@@ -106,16 +104,12 @@ Page({
     });
   },
 
-
   // 关闭广告位
-  hide(e){
-    if (e.type == 'close' && e.mut == false) {
-      this.setData({
-        ad: false
-      }) 
-    }
+  hide(e) {
+    this.setData({
+      ad: false
+    })
   },
-
 
   onLoad: function (options) {
     // 渲染场景
@@ -129,7 +123,9 @@ Page({
       this.setData({
         iconList: indexData.iconList,
         inform: indexData.inform,
-        news: indexData.news
+        news: indexData.news,
+        ad: indexData.ad,
+        adImg: indexData.adImg
       });
     }
 
@@ -137,17 +133,22 @@ Page({
 
   // 请求进行信息获取
   showAll: function () {
+    var that = this
     var configData = wx.getStorageSync('configData');
     this.setStorageData(configData.index);
     // 基础配置信息
     wx.cloud.callFunction({
       name: 'configjson',
       success: res => {
-          this.setStorageData(res.result.index);
-          wx.setStorage({
-            key: 'configData',
-            data: res.result
-          });
+        if (res.result.reset == true) {
+          // 清除所有缓存
+          wx.clearStorageSync();
+        }
+        that.setStorageData(res.result.index);
+        wx.setStorage({
+          key: 'configData',
+          data: res.result
+        });
         // 判断信息发主页通知
         if (res.result.msgData != wx.getStorageSync('msgData')) {
           wx.showModal({
