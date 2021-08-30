@@ -35,10 +35,7 @@ Page({
   },
  
   
- 
-
-
-  add: function() {
+  setDataCalendar: function() {
     var addday = getApp().globalData._adday;
     var xlist = [];
     for (let i = 0; i < addday.length; i++) {
@@ -61,7 +58,6 @@ Page({
   
   touchstart: function (e) {
     //开始触摸时 重置所有删除
-    
     this.data.wlist.forEach(function (v, i) {
       if (v.isTouchMove)//只操作为true的
       v.isTouchMove = false;
@@ -130,7 +126,7 @@ Page({
           })
           if (result != -1) {
             getApp().globalData.DaysMatter2.splice(result, 1);
-            this.add();
+            this.setDataCalendar();
           }
         },
         fail: err => {
@@ -166,14 +162,14 @@ Page({
           console.log(err)
         }
       })
-    this.add();
+    this.setDataCalendar();
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onShow: function(options) {
-    this.add();
+    this.setDataCalendar();
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   
   },
