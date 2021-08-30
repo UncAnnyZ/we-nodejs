@@ -20,10 +20,16 @@ App({
       quality: [],
       curriculum1:[], //保存一份原始课表
       _add:[],
+      _adday:[],
       _de:[],
       username:0,
       timeyear:"",
-      task:[]
+      task:[],
+      dates:'2021-8-01',
+      timeyear:"2021/3/1",
+      dayName: '',
+      gapDays:0,
+      DaysMatter2:[]
     }
   },
   // 登录判断

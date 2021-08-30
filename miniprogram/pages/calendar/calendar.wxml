@@ -4,7 +4,7 @@
       <view class='page'>
         <view class="page__hd">
 
-          <view class="page__title">倒数日</view>
+          <view class="page__title">校历</view>
           <view class="page__desc">
             <text>2019-2020学年 第一学期\n</text>
             <text wx:if="{{jsonContent.teachWeek !=='N/A'}}">{{jsonContent.month+1}} 月{{jsonContent.day}} 日   {{jsonContent.dayOfWeek}}</text>
@@ -29,7 +29,29 @@
 
 
 
-          <block wx:for="{{jsonContent.nextHoliday}}" wx:key="jjr" wx:index="index">
+          <!---
+          <view class="touch-item {{list[id].isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{list}}" wx:key="4" wx:for-item="item" wx:for-index="id">
+            <view class="weui-item border-shadow " style="background-color:{{colorArrays[id%4]}}"wx:if="{{list[id].gapDays > 0}}">
+              <view class="weui-flex">
+                <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#010C10;'>
+                  <view class="weui-item__title">
+                    {{list[id].holidayName}}
+                  </view>
+                  <view class="weui-item__desc" wx:if="{{list[id].holidayRestInfo !=''}}">{{list[id].holidayRestInfo}}</view>
+                  <view class="weui-item__desc" wx:else>{{list[id].holidayDate}}</view>
+                </view>
+                <view class="weui-flex__item">
+                  <view style='float:right;font-size:55rpx;color:#fffff;margin: 0 20rpx 0 0;'>{{list[id].gapDays}}天</view>
+                </view>
+              </view>
+            </view>
+            <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+          </view>
+          ----->
+
+          
+
+          <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{list}}" wx:key=" ">
             <view class="weui-item border-shadow " style="background-color:{{colorArrays[index%4]}}"wx:if="{{item.gapDays > 0}}">
               <view class="weui-flex">
                 <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#010C10;'>
@@ -40,35 +62,42 @@
                   <view class="weui-item__desc" wx:else>{{item.holidayDate}}</view>
                 </view>
                 <view class="weui-flex__item">
-                  <view style='float:right;font-size:55rpx;color:#fffff;margin: 0 20rpx 0 0;'>{{item.gapDays}}天</view>
+                  <view style='float:right;font-size:55rpx;color:#ffff; margin-right: 20rpx ;'>{{item.gapDays}}天</view>
                 </view>
               </view>
             </view>
-          </block>
+            <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+          </view>
+
+
+
 
 
           <view class="weui-item border-shadow hanshujia" wx:if="{{jsonContent.gap2StartClass > 0 && jsonContent.gap2StartClass <= 30}}">
             <view class="weui-flex">
-              <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color: #010c10;;'>
+              <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color: #010c10;'>
                 <view class="weui-item__title">
                   放{{jsonContent.month
                   <8? '暑': '寒'}}假 </view>
                     <view class="weui-item__desc">{{jsonContent.vactionDate}}</view>
                 </view>
                 <view class="weui-flex__item">
-                  <view style='float:right;font-size:50rpx;color: #fffff;margin: 0 20rpx 0 0;'>{{jsonContent.gap2Vaction}}天</view>
+                  <view style='float:right; font-size:50rpx;  color: #ffff;  margin-right:20rpx;'>{{jsonContent.gap2Vaction}}天</view>
                 </view>
               </view>
             </view>
 
-            <!-- <button open-type="share" class="login-btn">
-              <text>分享校历给同学</text>
-            </button> -->
-
+           
+            <view class="nav-head">
+              <view class="img-button feedback-btn" bindtap="feedbackHandler">
+                <image src="../../images/btn_feed@2x.png" ></image>
+              </view>
+            </view>
+         
             <view class="round-click" bindtap='showPic'>
               <text>查看校历</text>
             </view>
-
+            
           </view>
         </view>
       </view>

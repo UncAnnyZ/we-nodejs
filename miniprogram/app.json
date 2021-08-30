@@ -15,11 +15,11 @@
     "pages/curriculum/add/add",
     "pages/activity/activity",
     "pages/calendar/calendar",
+    "pages/calendar/addition/addition",
     "pages/more/more",
     "pages/more/skrw/skrw",
     "pages/more/tc/tc",
     "pages/login/login"
-
   ],
   "tabBar": {
     "color": "@color",

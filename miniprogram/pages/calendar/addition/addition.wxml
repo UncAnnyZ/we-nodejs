@@ -1,0 +1,26 @@
+<view class='page'>
+  <view class="all">
+
+    
+
+    <view class="course">  
+      <label>目标日名称:</label> 
+        <input class="input" placeholder="名称" name="userName" bindinput="userNameInput"></input>
+    </view>
+
+    <view class="section" bindtap='bindDateChange' dates='1'>  
+      <picker mode="date" value="{{date}}" start="1978-01-01" end="2050-1-23" bindchange="bindDateChange">  
+        <view class="picker">  
+          目标日日期:  {{dates}}  
+        </view>  
+      </picker>  
+    </view>
+
+     
+
+      <view class="submit">  
+        <button bindtap="addSubmit">新增课程</button>
+      </view>
+    
+  </view>
+</view>

@@ -66,10 +66,17 @@ Page {
 }
 
 .weui-item {
-  margin: 30rpx 5rpx;
+  margin: 30rpx;
   padding: 1rpx;
   color: #fff;
   height: 150rpx;
+  width:100%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  margin-left: -90px;
+  margin-right:0px;
 }
 
 .weui-flex {
@@ -78,15 +85,15 @@ Page {
 }
 
 .background-1 {
-  background: #8beeff;
+  background: #FFF8D7;
 }
 
 .background-2 {
-  background: #ffc2d6;
+  background: #f1f1b8;
 }
 
 .background-3 {
-  background: #b6ffea;
+  background: #FFF8D7;
 }
 .background-4 {
   background: #ffb3a2;
@@ -154,7 +161,8 @@ Page {
 }
 
 .border-shadow {
-  border-radius: 15rpx;
+  border-top-left-radius: 15rpx;
+  border-bottom-left-radius: 15rpx;
 }
 
 .clear {
@@ -202,15 +210,7 @@ button::after {
   margin-right: 5px;
 }
 
-.login-btn {
-  margin-top: 40;
-  /* font-size: 13pt; */
-  height: 70rpx;
-  background: #18febd;
- color: #010c10;
-  text-align: center;
-  border-radius: 15rpx;
-}
+
 
 /* 悬浮按钮的 */
 
@@ -234,3 +234,66 @@ button::after {
   color: #fff;
   text-align: center;
 }
+
+.nav-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow:0px 0px 4px 0px #c7c7c7;
+  height: 100rpx;
+  width: 110rpx;
+  right: 5rpx;
+  background-color:#FAFAFA;
+  position: fixed;
+  top: 50rpx;
+  border-bottom-left-radius: 100%;
+  border-top-left-radius: 100%;
+  z-index: 9;
+}
+.feedback-btn {
+  width: 70rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+.img-button {
+  display: inline-block;
+  margin-left:30rpx;
+  margin-top: 10rpx;
+}
+.img-button image {
+  width: 80%;
+  height: 80%;
+}
+.touch-item {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 100%;
+  }
+  .del {
+    background-color: orangered;
+    width: 90px;
+    height: 150rpx;
+    margin-top:30rpx;
+    border-top-right-radius: 15rpx;
+    border-bottom-right-radius: 15rpx;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-transform: translateX(90px);
+    transform: translateX(90px);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+    .touch-move-active .weui-item,
+
+    .touch-move-active .del {
+      -webkit-transform: translateX(0);
+
+      transform: translateX(0);
+
+    }

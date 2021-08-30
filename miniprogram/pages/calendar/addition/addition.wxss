@@ -1,0 +1,66 @@
+@import"../weui.wxss";
+view, text, scroll-view, swiper, button, form, input, textarea, label, image {
+  box-sizing: content-box;
+}
+button{
+  box-sizing: border-box;
+}
+page {
+  background-color:rgb(226, 240, 243);
+  font-size: 16px;
+  font-family: unset;
+ 
+}
+
+.all{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+}
+.course{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  width:85%;
+  padding:20rpx;
+  margin:20rpx;
+  border-radius: 20rpx;
+  box-sizing: unset;
+  background-color: rgb(255, 255, 255);
+}
+.course label{
+  display: flex;
+  align-items: center;
+  width: 170rpx;
+  padding-right: 30rpx;
+}
+.course input{
+  font-size: 1.1rem;
+  padding: 0.3rem;
+  width: 250rpx;
+}
+.section{
+  margin:20rpx;
+  padding:20rpx;
+  width:85%;
+  border-radius: 20rpx;
+  background-color: rgb(255, 255, 255);
+}
+
+
+
+.background-1 {
+  background: #8beeff;
+}
+
+.background-2 {
+  background: #ffc2d6;
+}
+
+.background-3 {
+  background: #b6ffea;
+}
+.background-4 {
+  background: #ffb3a2;
+}
