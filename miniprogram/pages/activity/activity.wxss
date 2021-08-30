@@ -8,7 +8,7 @@
 }
 .wx-list.grid.no-border {
   border-radius:30rpx ;
-  padding: 20rpx 10rpx 0rpx 20rpx;
+  padding: 20rpx 10rpx 0rpx 80rpx;
 
 }
 .club{

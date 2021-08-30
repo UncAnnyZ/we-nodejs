@@ -10,9 +10,11 @@ Page({
     //类型1
     for (var i=0;i<this.data.info_st.length;i++){
       if(e.currentTarget.dataset.index == this.data.info_st[i].id){
+        //索引和设置的id相等相等
         if (this.data.info_st[i].isopen==true){
           if (this.data.info_st[i].type==1 ){
-            getApp().globalData.club_detail = this.data.inform_st[i];
+            // getApp().globalData.club_detail= this.data.inform_st[i];
+            getApp().globalData.club_detail= this.data.info_st[i]
             wx.navigateTo({
               url: 'mod/mod',
             })
@@ -60,7 +62,7 @@ Page({
       if(e.currentTarget.dataset.index == this.data.info_jg[i].id){
         if (this.data.info_jg[i].isopen==true){
           if (this.data.info_jg[i].type==1 ){
-            getApp().globalData.club_detail = this.data.inform_jg[i];
+            getApp().globalData.club_detail = this.data.info_jg[i];
             wx.navigateTo({
               url: 'mod/mod',
             })
