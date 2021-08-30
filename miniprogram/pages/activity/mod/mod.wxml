@@ -25,8 +25,8 @@
         </view>
       </view>
   </checkbox-group>
-  <view class="ttt">
-      <button class="ttt" formType="submit"   type="primary" style="position: relative; left: 0rpx; top: 2rpx; background-color: rgb(45, 165, 230)">提交</button>
+  <view class="ttt" style="width: 626rpx; height: 80rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+      <button class="ttt1" formType="submit"   type="primary"  style="width: 686rpx; height: 80rpx; display: block; box-sizing: border-box; left: -10rpx; top: 0rpx; position: relative; background-color: rgb(45, 165, 230)">提交</button>
     </view>
   </form>
 </view>

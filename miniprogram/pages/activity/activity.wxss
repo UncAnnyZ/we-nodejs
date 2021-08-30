@@ -12,7 +12,7 @@
 
 }
 .club{
-  display: block;
+  display: block; 
 
 }
 .wx-list.grid.no-border>.wx-item {

@@ -138,7 +138,7 @@ Page({
       mask:true
     })
     
-    setTimeout(function () {
+
       wx.cloud.callFunction({
         name:"get_data",
         data:{
@@ -165,7 +165,6 @@ Page({
       })
   
       wx.hideLoading()
-    }, 2000)
    
   },
 })
