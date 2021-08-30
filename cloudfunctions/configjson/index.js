@@ -27,13 +27,18 @@ exports.main = async (event, context) => {
 
   }
 
+  // 免广告列表
+  var noAd = [
+    "oisor5MkCO8itCeQT57U5hE3T7U4", // xld
+    "oisor5N21e4VQQDeTnXcu1oXCAV8"  // xld
+  ]  
 
   return {
     version: "0.0.1",
     msgTitle : "致歉信",
     timeYear : "2021/8/30",
     time: "10000", // 秒
-    reset: true,
+    reset: false,
     msgData: "由于新版本发布太匆忙，有一个屏蔽课表严重bug，影响到了部分用户，非常抱歉。有好的建议或者是bug欢迎联系我们。谢谢大家一直的支持",
     more: [{
       url: '/pages/more/tc/tc',
@@ -46,7 +51,7 @@ exports.main = async (event, context) => {
     }],
     index: {
       news: true, // 通知内容显示
-      ad: true,
+      ad: noAd.includes(wxContext.OPENID) ? false : true,
       adImg : '',
       iconList: [{
         id: "1",

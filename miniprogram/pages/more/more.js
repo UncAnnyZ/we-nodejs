@@ -20,7 +20,8 @@ Page({
     // 暂不开启广告
     // this.hide()
     this.setData({
-      more: wx.getStorageSync('configData').more
+      more: wx.getStorageSync('configData').more,
+      ad: wx.getStorageSync('configData').index.ad
     })
   },
 
