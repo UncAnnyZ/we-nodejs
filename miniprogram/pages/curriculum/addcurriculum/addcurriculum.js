@@ -407,7 +407,13 @@ Page({
           title: '更新成功',
           icon: 'none',
         })
+        // 更新全局_de
         getApp().globalData._de = global_de
+        // 更新缓存_de
+        let hc = wx.getStorageSync('personaldata')
+        hc._de = JSON.stringify(global_de)
+        wx.setStorageSync('personaldata', hc)
+
         var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum1);
         getApp().globalData.curriculum = curriculum;
 

@@ -139,6 +139,10 @@ Page({
     wx.cloud.callFunction({
       name: 'configjson',
       success: res => {
+        if (res.result.reset == true) {
+          // 清除所有缓存
+          wx.clearStorageSync();
+        }
         that.setStorageData(res.result.index);
         wx.setStorage({
           key: 'configData',
