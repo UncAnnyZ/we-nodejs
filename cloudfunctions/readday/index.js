@@ -6,10 +6,24 @@ const db = cloud.database()
 const _ = db.command;
 // 云函数入口函数
 exports.main = async (event, context) => {
+
   const wxContext = cloud.getWXContext()
-  return await db.collection('daysmatter').where({ _user: event.username }).get({
-      success:function(res){
-        return res
-      }
-    })
+  if(event.type == "read"){
+    var data = await db.collection('daysmatter').where({ _user: event.username }).get({ })
+    if(data.data[0] === undefined){
+      db.collection('daysmatter').add({
+        data: {
+          _user: Number(event.username),
+          _adday: '[]',
+        },
+        success(res) {
+        },
+        fail(res) {
+          console.log('数据库操作失败');
+        }
+      })
+      return "[]"
+    }
+    return data.data[0]._adday
+  }
 }
