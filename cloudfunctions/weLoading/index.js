@@ -142,15 +142,6 @@ exports.main = async(event, context) => {
     
     var curriculum = await db.collection('curriculum').where({ _user: username }).get({})
     // 每学期清空修改过的课表
-    if(curriculum.data[0].curriculumTime != curriculumTime){
-      await db.collection('curriculum').where({ _user: username }).update({
-        data: {
-          _add: "[]",
-          _de: "[]",
-          curriculumTime: curriculumTime
-        }
-      })
-    }
     var data = {
       a_data: JSON.parse(a_data.body).rows,
       t_data: JSON.parse(t_data.body).rows,
@@ -160,6 +151,19 @@ exports.main = async(event, context) => {
       _de: curriculum.data[0]._de,
       username: username
     }
+
+    if(curriculum.data[0].curriculumTime != curriculumTime){
+      await db.collection('curriculum').where({ _user: username }).update({
+        data: {
+          _add: "[]",
+          _de: "[]",
+          curriculumTime: curriculumTime
+        }
+      })
+      data._add ="[]"
+      data._de = "[]"
+    }
+  
     if(data.c_data.length == 0){
       data.c_data = [{
         "kcmc" : "test",

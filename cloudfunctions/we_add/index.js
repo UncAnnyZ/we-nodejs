@@ -1,4 +1,4 @@
-//patch同步，过时间此云函数作废
+// 云函数入口文件
 const cloud = require('wx-server-sdk')
 var got = require('got'); //引用 got
 // cloud.init()
@@ -7,17 +7,11 @@ var querystring = require("querystring");
 // 云函数入口函数
 const db = cloud.database()
 const _ = db.command;
-const curriculumTime = '202101' // 每学期的id，来清空修改课表的课记录
 exports.main = async(event, context) => {
-
   const wxContext = cloud.getWXContext()
   var zh = await db.collection('username').where({_openid: wxContext.OPENID}).get({})
-  try{
-    username = zh.data[0]._user
-    password = zh.data[0]._pwd + ''
-  }catch{
-    return 0
-  }
+  username = zh.data[0]._user
+  password = zh.data[0]._pwd + ''
 
   var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     output = "";
