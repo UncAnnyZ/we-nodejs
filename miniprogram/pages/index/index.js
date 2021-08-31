@@ -120,8 +120,19 @@ Page({
   setStorageData: function (indexData) {
     if (indexData) // 判断不为空渲染
     {
+      var lll = indexData.iconList
+      var iconList = []
+      var aa = []
+      for (let i = 0; i < lll.length; i++) {
+        aa.push(lll[i])
+        if ( (i % 8 == 0 && i != 0) || i == lll.length-1) {
+          iconList.push(aa)
+          aa = []
+        }
+      }
+      
       this.setData({
-        iconList: indexData.iconList,
+        iconList: iconList,  // indexData.iconList,
         inform: indexData.inform,
         news: indexData.news,
         ad: indexData.ad,

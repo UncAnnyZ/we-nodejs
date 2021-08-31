@@ -14,8 +14,33 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const getHeight = {
+  // 总高度
+  screenHeight() {
+    return wx.getSystemInfoSync().screenHeight
+  },
+  // 状态栏高度（时间、点亮、信号）
+  statusBar() {
+    return wx.getSystemInfoSync().statusBarHeight
+  },
+  // 顶部标题栏（胶囊那栏）
+  navigationBar() {
+    var capsule = wx.getMenuButtonBoundingClientRect()
+    var statusBarHeight = wx.getSystemInfoSync().statusBarHeight
+    // var height = capsule.top - statusBarHeight + capsule.bottom - statusBarHeight
+    var height = ( capsule.top - statusBarHeight ) * 2 + capsule.height
+    return height
+  },
+  // 底部导航栏
+  tabBar() {
+    var info = wx.getSystemInfoSync()
+    return info.screenHeight - info.windowHeight
+  }
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getHeight: getHeight
 }
 
 const getTouchData = (endX, endY, startX, startY) => {

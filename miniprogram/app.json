@@ -6,6 +6,7 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/more/more",
     "pages/achievement/achievement",
     "pages/quality/quality",
     "pages/about/about",
@@ -15,16 +16,11 @@
     "pages/activity/activity",
     "pages/calendar/calendar",
     "pages/calendar/addition/addition",
-    "pages/more/more",
     "pages/more/skrw/skrw",
     "pages/more/tc/tc",
-<<<<<<< HEAD
-    "pages/login/login"
-=======
     "pages/login/login",
     "pages/setting/setting",
     "pages/recommend/recommend"
->>>>>>> 8abd9b40c6aa9a409ec671c056b31c6bd5685977
   ],
   "tabBar": {
     "color": "@color",

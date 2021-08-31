@@ -1,4 +1,28 @@
+<!-- <view class="statusBar" style="height: {{statusBar}}px;"></view>
+<view class="navigationBar" style="height: {{navigationBar}}px; top: {{statusBar}}px;">
+    <image src="images/home/setting.png" bindtap="setting"></image>
+    <label>{{title}}</label>
+</view>
+<view class="padding" style="height: {{statusBar+navigationBar}}px;width: 100%;"></view> -->
+
 <ad class="ad" unit-id="adunit-3b513ed5750984a1" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad>
+
+<!-- 头部个人信息 -->
+<!-- <view class="info">
+    <image class="info_avatar" src="../../images/xiaohui.png"></image>
+    <view class="info_data">
+        <text>细粒丁</text>
+        <text>物联网工程 18-1</text>
+    </view>
+</view>
+
+<view class="container">
+    <view class="icoon_item" wx:for="{{10}}">
+        <image class="info_avatar" src="../../images/xiaohui.png"></image>
+        <label>体测计算器</label>
+    </view>
+</view> -->
+
 <view class="wx-list menu margin-top">
 
     <navigator wx:for="{{more}}" wx:key="id" url="{{item.url}}">
@@ -34,4 +58,5 @@
             <text class="iconfont icon-arrow-right-copy-copy-copy"></text>
         </view>
     </view>
+    
 </view>

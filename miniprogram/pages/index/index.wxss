@@ -6,15 +6,27 @@ page {
   background-color: #F6F6F6;
 }
 
+.scroll{
+  display: flex;
+  flex-direction: row;
+  border-radius: 20rpx;
+  width: 730rpx;
+  height: 300rpx;
+  margin: 10rpx;
+}
+.scroll_view{
+  display: flex;
+  background-color: #fff;
+  height: 300rpx;
+}
+
 .iconn{
   background-color: #fff;
   display: flex;
   flex-wrap: wrap;
   width: 730rpx;
-  margin: 10rpx;
-  border-radius: 20rpx;
+  height: 300rpx;
 }
-
 .iconn_item{
   display: flex;
   flex-direction: column;
@@ -261,6 +273,9 @@ page {
 .background-color_1{
   background-color: #fef7e5;
 }
+
+
+
 
 @media (prefers-color-scheme: dark) {
   .wx-class-title,
