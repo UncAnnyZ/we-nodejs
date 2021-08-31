@@ -101,8 +101,32 @@ Page({
     
   }
 },
-
-
+process1:function  (ar) {
+  var ret=[];
+  for (var i=0;i<ar.length;i++){
+    console.log(ar[i])
+    if(ar[i].type==1){
+      ret.push(ar[i])
+    }
+  }
+  console.log(ret,1246)
+  this.setData({
+    inform_st:ret
+  })
+},
+process2:function  (ar) {
+  var ret=[];
+  for (var i=0;i<ar.length;i++){
+    console.log(ar[i])
+    if(ar[i].type==1){
+      ret.push(ar[i])
+    }
+  }
+  console.log(ret,1246)
+  this.setData({
+    inform_jg:ret
+  })
+},
 
   onLoad: function (res) {
     //类别1按模板
@@ -115,10 +139,25 @@ Page({
         shape:1
       },
       success(res){
+
         console.log(res,"请求成功1")
         that.setData({
           info_st:res.result.data,
+
         })
+        console.log(that.data.info_st.length,123)
+        that.process1(that.data.info_st)
+        // var ret=[];
+        // for (var i=0;i<that.data.info_st.length;i++){
+        //   console.log(that.data.info_st[i])
+        //   if(that.data.info_st[i].type==1){
+        //     ret.push(that.data.info_st[i])
+        //   }
+        // }
+        // console.log(ret,1246)
+        // this.setData({
+        //   inform_st:ret
+        // })
       }
     })
     wx.cloud.callFunction({
@@ -131,40 +170,39 @@ Page({
         that.setData({
           info_jg:res.result.data,
         })
+        that.process2(that.data.info_jg)
       }
-    })
-    wx.showLoading({
-      title: '加载中',
-      mask:true
-    })
-    
 
-      wx.cloud.callFunction({
-        name:"get_data",
-        data:{
-          shape:3
-        },
-        success(res){
-          console.log(res,"请求成功3")
-          that.setData({
-            inform_st:res.result.data,
-          })
-        }
-      })
-      wx.cloud.callFunction({
-        name:"get_data",
-        data:{
-          shape:4
-        },
-        success(res){
-          console.log(res.result.data,"请求成功4")
-          that.setData({
-            inform_jg:res.result.data,
-          })
-        }
-      })
-  
-      wx.hideLoading()
+    })
+
+    //
+      // wx.cloud.callFunction({
+      //   name:"get_data",
+      //   data:{
+      //     shape:3
+      //   },
+      //   success(res){
+      //     console.log(res,"请求成功3")
+      //     that.setData({
+      //       inform_st:res.result.data,
+      //     })
+      //     console.log(that.data.inform_st,1111111111)
+      //   }
+      // })
+      // wx.cloud.callFunction({
+      //   name:"get_data",
+      //   data:{
+      //     shape:4
+      //   },
+      //   success(res){
+      //     console.log(res.result.data,"请求成功4")
+      //     that.setData({
+      //       inform_jg:res.result.data,
+      //     })
+      //   }
+      // })
+      
+
    
   },
 })
