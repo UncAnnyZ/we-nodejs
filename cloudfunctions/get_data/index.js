@@ -11,10 +11,12 @@ cloud.init()
 
 exports.main = async (event, context) => {
 
-    // case 3:
-    //   break;
-    // case 4:
-    //   break;
+  // var result_st =await cloud.database().collection("club_st").get()
+  // var result_jg =await cloud.database().collection("club_jg").get()
+  // return {
+  //   result_st:result_st,
+  //   result_jg:result_jg
+  // }
 
   if (event.shape===1){
     return cloud.database().collection("club_st").get({
