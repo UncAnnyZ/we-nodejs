@@ -3,7 +3,7 @@ Page({
   data: {
     curriculum: [],
     inform:[],
-  },
+  },  
 
   //写出一个函数
   action_fun:function (e,data,b) {
@@ -60,18 +60,6 @@ Page({
   act:function(e){
     this.action_fun(e,this.data.info_jg,"机构")
 },
-  process:function  (ar) {
-    var ret=[];
-    for (var i=0;i<ar.length;i++){
-      if(ar[i].type==1){
-        ret.push(ar[i])
-      }
-    }
-    return ret
-
-  },
-
-
   onLoad: function (res) {
     //类别1按模板
     //类别2海报
