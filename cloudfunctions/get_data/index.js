@@ -11,26 +11,11 @@ cloud.init()
 
 exports.main = async (event, context) => {
 
-  // var result_st =await cloud.database().collection("club_st").get()
-  // var result_jg =await cloud.database().collection("club_jg").get()
-  // return {
-  //   result_st:result_st,
-  //   result_jg:result_jg
-  // }
-
-  if (event.shape===1){
-    return cloud.database().collection("club_st").get({
-      success(res){
-        return res
-      }
-    })
-  }
-  if (event.shape===2){
-    return cloud.database().collection("club_jg").get({
-      success(res){
-        return res
-      }
-    })
+  var result_st =await cloud.database().collection("club_jg").get({ })
+  var result_jg =await cloud.database().collection("club_jg").get({})
+  return {
+    result_st:result_st,
+    result_jg:result_jg
   }
 
 }
