@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['2019-2020-1'],
+    array: ['公选课','2019-2020-1'],
     index: "0",
     achievement: [],
     color: [],
@@ -35,7 +35,6 @@ Page({
     // 年份从大到小
     this.data.array.sort()
     this.data.array.reverse()
-    this.data.array.push('公选课')
 
     console.log(achievement)
     console.log(this.data.array)
@@ -44,8 +43,7 @@ Page({
       achievement: achievement
     })
 
-    this.showList(0)
-
+    this.showList(1)
   },
 
   // 处理展示
@@ -62,7 +60,7 @@ Page({
       color = [],
       achievement = this.data.achievement;
     for (var i = 0; i < achievement.length; i++) {
-      if (achievement[i].xnxqmc == this.data.array[id] || (achievement[i].kcdlmc == "公共选修课" && id == this.data.array.length - 1)) {
+      if (achievement[i].xnxqmc == this.data.array[id] || (achievement[i].kcdlmc == "公共选修课" && id == 0)) {
         a = Number(achievement[i].xf) + a;
         b = Number(achievement[i].cjjd) + b;
         c = Number(achievement[i].xf) * Number(achievement[i].cjjd) + c;
@@ -108,5 +106,19 @@ Page({
       AverageScorePoint: pj_credit.toFixed(2)
     })
 
+  },
+
+  // 总绩点
+  totalJD(){
+    let zxf = 0;
+    let cjjd = 0
+    var achievement = this.data.achievement
+    for (var i = 0; i < achievement.length; i++) {
+      if (achievement[i].kcdlmc != "公共选修课") {
+        zxf += Number(achievement[i].xf);
+        cjjd += Number(achievement[i].xf) * Number(achievement[i].cjjd);
+      }
+    }
+    console.log( (cjjd / zxf).toFixed(2) )
   }
 })
