@@ -16,12 +16,12 @@ page {
 }
 .scroll_view{
   display: flex;
-  /* background-color: #fff; */
+  background-color: #fff;
   height: 300rpx;
 }
 
 .iconn{
-  /* background-color: #fff; */
+  background-color: #fff;
   display: flex;
   flex-wrap: wrap;
   width: 730rpx;
