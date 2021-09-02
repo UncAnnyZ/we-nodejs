@@ -16,12 +16,12 @@ page {
 }
 .scroll_view{
   display: flex;
-  background-color: #fff;
+  /* background-color: #fff; */
   height: 300rpx;
 }
 
 .iconn{
-  background-color: #fff;
+  /* background-color: #fff; */
   display: flex;
   flex-wrap: wrap;
   width: 730rpx;
@@ -278,6 +278,9 @@ page {
 
 
 @media (prefers-color-scheme: dark) {
+  .iconn{
+    filter: invert(100%) !important;
+  }
   .wx-class-title,
   .inform-text{
     filter: invert(90%) !important;

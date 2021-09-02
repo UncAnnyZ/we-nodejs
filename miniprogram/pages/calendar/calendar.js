@@ -148,6 +148,7 @@ Page({
    */
   onLoad: function(options) {
 
+    var that = this
       wx.cloud.callFunction({
         name:'readday',
         data:{
@@ -160,9 +161,11 @@ Page({
         },
         fail:err=>{
           console.log(err)
+        },
+        complete(){
+          that.setDataCalendar()
         }
       })
-    this.setDataCalendar();
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   },
   /**
