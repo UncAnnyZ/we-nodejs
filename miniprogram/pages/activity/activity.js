@@ -65,7 +65,12 @@ Page({
     //类别2海报
     //类别3小程序
     let that =this
-    wx.cloud.callFunction({
+    wx.showLoading({
+      title: '加载中',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    },     wx.cloud.callFunction({
       name:"get_data",
       success(res){
         console.log(res,"请求成功11")
@@ -73,6 +78,7 @@ Page({
                 info_jg:res.result.result_jg.data,info_st:res.result.result_st.data,
               })
       }
-    })
+    }))
+
   },
 })

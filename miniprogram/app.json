@@ -20,7 +20,8 @@
     "pages/more/tc/tc",
     "pages/login/login",
     "pages/setting/setting",
-    "pages/recommend/recommend"
+    "pages/recommend/recommend",
+    "pages/activity/mod/mod"
   ],
   "tabBar": {
     "color": "@color",
