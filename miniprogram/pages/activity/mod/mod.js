@@ -25,47 +25,60 @@ Page({
     this.setData({
       detail:e.detail.value
     })
+    var that =this
     var phone=this.data.detail.phone
     //手机号格式判断
     var phoneCodeVerification = /^[1][3,4,5,7,8][0-9]{9}$/;
     var isPhone=phoneCodeVerification.test(phone);
-
-     if(this.data.detail.name!=''&&this.data.detail.phone!=''&&this.data.detail.chckbox!=''&&this.data.detail.num!=''&&this.data.detail.major!=''&&this.data.detail.xueyuan!=""&&isPhone==true){
-       console.log(this.data.detail,2123)
-       wx.showLoading({
-         title: '加载中',
-       })
-       setTimeout(function(e){
-        wx.hideLoading()
-       }, data.add({
-        data:{
-          name:this.data.detail.name,
-          phone:this.data.detail.phone,
-          num:this.data.detail.num,
-          major:this.data.detail.major,
-          checkbox:this.data.detail.checkbox,
-          club_name:this.data.club_name,
-        },
-        sucess:res =>{
-          console.log(this.data)
-        }
-      }))
-       wx.showToast({
-        title: '成功',
-        icon: 'success',
-        duration: 2000
-    })
-      setTimeout(function () {
-        wx.navigateBack({
-          delta: 0,
+    console.log(this.data.detail.checkbox)
+     if(this.data.detail.name!=''&&this.data.detail.phone!=''&&this.data.detail.checkbox.length!=[]&&this.data.detail.num!=''&&this.data.detail.major!=''&&this.data.detail.xueyuan!=""){
+       if (isPhone==true){
+        console.log(this.data.detail)
+        wx.showLoading({
+          title: '加载中',
+          mask:true
+ 
         })
-      }, 2000)
+        data.add({
+         data:{
+           name:this.data.detail.name,
+           phone:this.data.detail.phone,
+           num:this.data.detail.num,
+           major:this.data.detail.major,
+           checkbox:this.data.detail.checkbox,
+           club_name:this.data.club_name,
+         },
+         success(res){
+           // console.log(res,123)
+           // console.log(that.data,"@34")
+           wx.hideLoading()
+           wx.showToast({
+             title: '成功',
+             icon: 'success',
+             duration: 2000,
+             mask:true
+         })
+         wx.navigateBack({
+           delta: 0,
+           }
+         )
+       }
+     }
+   )
+  }
+        else{
+    wx.showModal({
+      title:"提示",
+      content:"联系电话格式错误",
+      showCancel:false
+    })
+  }
 
-    }
-    else{
+}
+      else{
       wx.showModal({
         title:"提示",
-        content:"信息还未填写完毕或联系电话错误",
+        content:"信息还未填写完毕",
         showCancel:false
       })
     }
@@ -79,8 +92,6 @@ Page({
     this.setData({
       title:app.globalData.club_detail.title,
       content:app.globalData.club_detail.content,
-      // condition:app.globalData.club_detail.condition,
-      // condition_en:app.globalData.club_detail.condition_en,
       sector_list:app.globalData.club_detail.sector_list,
       club_name:app.globalData.club_detail.name
     })

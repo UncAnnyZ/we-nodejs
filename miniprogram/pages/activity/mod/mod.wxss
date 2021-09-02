@@ -68,9 +68,10 @@ page{
   background-color: white;
   border-radius:40rpx ;
   /* height: 400rpx; */
-  padding-top:10rpx ;
+  padding-top:20rpx ;
   padding-left:20rpx ;
   padding-bottom: 30rpx;
+  padding-right: 20rpx;
 }
 text{
   padding-top: 30rpx;
