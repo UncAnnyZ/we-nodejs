@@ -192,7 +192,7 @@ Page({
         name: 'weLoading',
         success: res => {
           if (res.result == "0") {
-            this.setData({
+            that.setData({
               classMsg: '暂无登录',
             });
             wx.showToast({
@@ -204,7 +204,7 @@ Page({
               key: 'personaldata',
               data: res.result
             });
-            this.we_index(res.result);
+            that.we_index(res.result);
             wx.showToast({
               title: '加载完成',
               icon: 'none',
@@ -223,7 +223,7 @@ Page({
               icon: 'none',
             });
           } else {
-            this.setData({
+            that.setData({
               classMsg: '学校服务器出错，请等待',
             });
             wx.showToast({
