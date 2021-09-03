@@ -162,11 +162,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-<<<<<<< HEAD
-=======
-
-    var that = this
->>>>>>> 5982aac3129400fdd54fda0e9bd4d5a6502ecf02
+      var that = this
       wx.cloud.callFunction({
         name:'readday',
         data:{
@@ -174,26 +170,15 @@ Page({
           type: 'read'
         },
         success:res=>{
-<<<<<<< HEAD
           console.log(res, 1111)
           getApp().globalData._adday=JSON.parse(res.result)
           this.setDataCalendar();
-=======
-          this.data.get=res.result
-          getApp().globalData._adday=this.data.get
->>>>>>> 5982aac3129400fdd54fda0e9bd4d5a6502ecf02
         },
         fail:err=>{
           console.log(err)
         },
-        complete(){
-          that.setDataCalendar()
-        }
       })
-<<<<<<< HEAD
     this.terms();
-=======
->>>>>>> 5982aac3129400fdd54fda0e9bd4d5a6502ecf02
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   },
   /**
