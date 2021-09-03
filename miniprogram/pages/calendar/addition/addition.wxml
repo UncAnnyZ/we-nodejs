@@ -19,7 +19,7 @@
      
 
       <view class="submit">  
-        <button bindtap="addSubmit">新增倒数日</button>
+        <button bindtap="addSubmit">新增课程</button>
       </view>
     
   </view>
