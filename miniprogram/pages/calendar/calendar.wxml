@@ -4,31 +4,55 @@
       <view class='page'>
         <view class="page__hd">
 
-          <view class="page__title">校历</view>
+          <view class="page__title">倒数日</view>
           <view class="page__desc">
-            <text>2019-2020学年 第一学期\n</text>
+            <view>{{term}}</view>
             <text>{{jsonContent.month+1}} 月{{jsonContent.day}} 日   {{jsonContent.dayOfWeek}}</text>
-
           </view>
           
-
           <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{list}}" wx:key=" ">
-            <view class="weui-item border-shadow " style="background-color:{{colorArrays[index%4]}}"wx:if="{{item.gapDays > 0}}">
+            <view class="weui-item border-shadow" wx:if="{{item.gapDays > 0}}">
               <view class="weui-flex">
-                <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#010C10;'>
+                <view class="weui-flex__item" style='margin-left:10rpx;color:#010C10;'>
                   <view class="weui-item__title">
-                    {{item.holidayName}}
+                    {{item.holidayName}} 
                   </view>
                   <view class="weui-item__desc" wx:if="{{item.holidayRestInfo !=''}}">{{item.holidayRestInfo}}</view>
                   <view class="weui-item__desc" wx:else>{{item.holidayDate}}</view>
                 </view>
                 <view class="weui-flex__item">
-                  <view style='float:right;font-size:55rpx;color:#ffff; margin-right: 20rpx ;'>{{item.gapDays}}天</view>
+                  <view class="gapDays1 background-color_0">
+                    <text>{{item.gapDays}}</text>
+                    <view class="Days background-color_1">
+                      <text>天</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <view class="weui-item border-shadow" wx:if="{{item.gapDays <= 0}}">
+              <view class="weui-flex">
+                <view class="weui-flex__item" style='margin-left:10rpx;color:#010C10;'>
+                  <view class="weui-item__title">
+                    {{item.holidayName}} 
+                  </view>
+                  <view class="weui-item__desc" wx:if="{{item.holidayRestInfo !=''}}">{{item.holidayRestInfo}}</view>
+                  <view class="weui-item__desc" wx:else>{{item.holidayDate}}</view>
+                </view>
+                <view class="weui-flex__item">
+                  <view class="gapDays2 background-color_2">
+                    <text>{{0-item.gapDays}}</text>
+                    <view class="Days background-color_3">
+                      <text>天</text>
+                    </view>
+                  </view>
                 </view>
               </view>
             </view>
             <view class="del" catchtap="del" data-index="{{index}}">删除</view>
           </view>
+
 
            
             <view class="nav-head">

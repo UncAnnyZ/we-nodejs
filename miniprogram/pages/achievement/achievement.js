@@ -28,6 +28,7 @@ Page({
     let data = [],
       color = [],
       achievement = this.data.achievement;
+      
     for (var i = 0; i < achievement.length; i++) {
       if (achievement[i].xnxqmc == this.data.array[e.detail.value]) {
         data.push(achievement[i]);

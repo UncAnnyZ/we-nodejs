@@ -11,16 +11,17 @@ Page({
       day: "2",
       month: new Date().getMonth(),
       dayOfWeek: "星期" + util.formatDay(new Date().getDay()),
+      
     },
     isLoading: true,
     dates:'2021-8-01',
     wlist:[],
+    index:"0",
     startX: 0, //开始坐标
     startY: 0,
-    colorArrays:["#EB9F9F", "#F1BBBA","#F8ECC9","#FFD08E"]
   },
   
-  feedbackHandler: function(e) {
+  feedbackHandler(e) {
     wx.navigateTo({
       url: 'addition/addition'
     })
@@ -34,16 +35,30 @@ Page({
     return day*-1;
   },
  
+  /*bindPickerChange(e){
+    //var term=this.data.array[e.detail.value];
+    this.setData({
+      term:this.data.array[e.detail.value]
+    })
+  },*/
+  terms:function(){
+    var achievement = getApp().globalData.achievement;
+    var term=achievement[0].xnxqmc;
+    this.setData({
+      term
+    })
+  },
   
   setDataCalendar: function() {
+    console.log("getApp().globalData._adday",getApp().globalData._adday)
     var addday = getApp().globalData._adday;
-    var xlist = [];
+    var xlist=[];
     for (let i = 0; i < addday.length; i++) {
       xlist.push({
-        holidayName: addday[i].dayname,
-        holidayDate: addday[i].day,
-        gapDays: addday[i].gapDays2,
-        holidayRestInfo: addday[i].day,
+        holidayName: addday[i].holidayName,
+        holidayDate: addday[i].holidayDate,
+        gapDays: addday[i].gapDays,
+        holidayRestInfo: addday[i].holidayRestInfo,
         isTouchMove: false
       })
       this.data.wlist=xlist
@@ -66,7 +81,7 @@ Page({
     this.setData({
       startX: e.changedTouches[0].clientX,
       startY: e.changedTouches[0].clientY,
-      list: this.data.wlist
+      list:this.data.wlist
     })
   },
 
@@ -147,7 +162,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
       wx.cloud.callFunction({
         name:'readday',
         data:{
@@ -156,14 +170,14 @@ Page({
         },
         success:res=>{
           console.log(res, 1111)
-          this.data.get=JSON.parse(res.result.data[0]._adday)
-          getApp().globalData._adday=this.data.get
+          getApp().globalData._adday=JSON.parse(res.result)
+          this.setDataCalendar();
         },
         fail:err=>{
           console.log(err)
         }
       })
-    this.setDataCalendar();
+    this.terms();
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   },
   /**
@@ -171,6 +185,7 @@ Page({
    */
   onShow: function(options) {
     this.setDataCalendar();
+    
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   
   },
