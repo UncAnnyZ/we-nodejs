@@ -11,69 +11,64 @@ Page({
       day: "2",
       month: new Date().getMonth(),
       dayOfWeek: "星期" + util.formatDay(new Date().getDay()),
-      
     },
     isLoading: true,
-    dates:'2021-8-01',
-    wlist:[],
     index:"0",
     startX: 0, //开始坐标
     startY: 0,
   },
   
-  feedbackHandler(e) {
+  feedbackHandler(e) {                                                //跳转到子页
     wx.navigateTo({
       url: 'addition/addition'
     })
-  }, // 点击遮罩层，显示的遮罩层与面板又隐藏起来
+  }, 
 
-  num_data: function (start_date1, end_date1) {
+  
+  num_data: function (start_date1,end_date1) {                        //计算倒数日
     var start_date = new Date(start_date1.replace(/-/g, "/"));
     var end_date = new Date(end_date1.replace(/-/g, "/"));
     var days = end_date.getTime() - start_date.getTime();
     var day = parseInt(days / (1000 * 60 * 60 * 24));
     return day*-1;
   },
- 
-  /*bindPickerChange(e){
-    //var term=this.data.array[e.detail.value];
+
+  terms:function(){                                                    //学年显示
+    var year='';
+    if(new Date().getMonth()>4){
+      year=new Date().getFullYear() + '-' + (new Date().getFullYear()+1) + '-' + 1
+    }else{
+      year=new Date().getFullYear()-1 + '-' + new Date().getFullYear() + '-' + 2
+    }
     this.setData({
-      term:this.data.array[e.detail.value]
-    })
-  },*/
-  terms:function(){
-    var achievement = getApp().globalData.achievement;
-    var term=achievement[0].xnxqmc;
-    this.setData({
-      term
+      term:year
     })
   },
   
-  setDataCalendar: function() {
-    console.log("getApp().globalData._adday",getApp().globalData._adday)
+  setDataCalendar: function() {                                       //页面渲染全部倒数日
     var addday = getApp().globalData._adday;
     var xlist=[];
+    var nowdate=new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDate();
+    console.log("yesr",new Date().getFullYear());
     for (let i = 0; i < addday.length; i++) {
+      var gapDays2=this.num_data(addday[i].holidayDate,nowdate);
       xlist.push({
         holidayName: addday[i].holidayName,
         holidayDate: addday[i].holidayDate,
-        gapDays: addday[i].gapDays,
-        holidayRestInfo: addday[i].holidayRestInfo,
+        gapDays: gapDays2,
+        holidayRestInfo: addday[i].holidayDate,
         isTouchMove: false
       })
-      this.data.wlist=xlist
     }
-    console.log("before-wlist",this.data.wlist)
+    console.log("before-list",xlist)
     this.setData({
       show: "",
-      list: this.data.wlist,
+      list: xlist
     })
   },
-
   
-  touchstart: function (e) {
-    //开始触摸时 重置所有删除
-    this.data.wlist.forEach(function (v, i) {
+  touchstart: function (e) {                                            //开始触摸时 重置所有删除
+    this.data.list.forEach(function (v, i) {
       if (v.isTouchMove)//只操作为true的
       v.isTouchMove = false;
     })
@@ -81,7 +76,7 @@ Page({
     this.setData({
       startX: e.changedTouches[0].clientX,
       startY: e.changedTouches[0].clientY,
-      list:this.data.wlist
+      list:this.data.list
     })
   },
 
@@ -94,7 +89,7 @@ Page({
     touchMoveY = e.changedTouches[0].clientY,//滑动变化坐标
     //获取滑动角度
     angle = that.angle({ X: startX, Y: startY }, { X: touchMoveX, Y: touchMoveY });
-    that.data.wlist.forEach(function (v, i) {
+    that.data.list.forEach(function (v, i) {
       v.isTouchMove = false
       //滑动超过30度角 return
       if (Math.abs(angle) > 30) return;
@@ -108,7 +103,7 @@ Page({
     
     //更新数据
     that.setData({
-    list: that.data.wlist
+    list: that.data.list
     })
   },
 
@@ -119,19 +114,12 @@ Page({
       return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
     },
 
-    del: function (e) {
-      var addbefore = this.data.wlist;
-      var result = getApp().globalData.DaysMatter2.indexOf(addbefore[e.currentTarget.dataset.index]);
-      this.data.wlist.splice(e.currentTarget.dataset.index, 1)
-      //getApp().globalData._adday=this.data.wlist
-
-      console.log("result",result)
-      console.log("after-wlist",this.data.wlist)
-
+    del: function (e) {                                                 //删除倒数日  
+      this.data.list.splice(e.currentTarget.dataset.index, 1)
       wx.cloud.callFunction({
         name: 'we_adday1',
         data: {
-          _adday: JSON.stringify(this.data.wlist),
+          _adday: JSON.stringify(this.data.list),
           username: getApp().globalData.username,
         },
         success: res => {
@@ -139,10 +127,9 @@ Page({
             title: '删除成功',
             icon: 'none',
           })
-          if (result != -1) {
-            getApp().globalData.DaysMatter2.splice(result, 1);
-            this.setDataCalendar();
-          }
+          this.setData({
+            list: this.data.list
+          })
         },
         fail: err => {
           wx.showToast({
@@ -151,17 +138,12 @@ Page({
           })
         }
       })
-      console.log("wlist",this.data.wlist)
-      this.setData({
-        list: this.data.wlist
-      })
-      
     },
      
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function(options) {                                           //读取数据库
       wx.cloud.callFunction({
         name:'readday',
         data:{
@@ -178,14 +160,12 @@ Page({
         }
       })
     this.terms();
-    // 调用函数时，传入new Date()参数，返回值是日期和时间  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onShow: function(options) {
     this.setDataCalendar();
-    
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   
   },
@@ -216,5 +196,4 @@ Page({
       urls: ['cloud://un1-d62c68.756e-un1-d62c68-1258307938/xl.png'] // 需要预览的图片http链接列表
     })
   },
-
 })

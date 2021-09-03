@@ -5,7 +5,7 @@
 
     <view class="course">  
       <label>目标日名称:</label> 
-        <input class="input" placeholder="名称" name="userName" bindinput="userNameInput"></input>
+        <input class="input" placeholder="名称" name="DayName" bindinput="DayNameInput"></input>
     </view>
 
     <view class="section" bindtap='bindDateChange' dates='1'>  
