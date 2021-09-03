@@ -93,3 +93,95 @@ Page {
 .rests{
   margin-bottom: 100rpx;
 }
+
+
+/* 状态栏 + 导航栏 */
+.statusBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #F6F6F6;
+  z-index: 999;
+}
+.navigationBar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #F6F6F6;
+  z-index: 999;
+}
+.navigationBar image{
+  position: fixed;
+  height: 40rpx;
+  width: 40rpx;
+  padding-left: 20rpx;
+}
+.navigationBar label{
+  font-size: 14px;
+  text-align: center;
+  flex: 1;
+}
+
+/* 头 */
+.info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  height: 180rpx;
+}
+.info view{
+  /* height: 120rpx; */
+}
+
+.info_avatar{
+  width: 120rpx;
+  height: 120rpx;
+}
+.info_data{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 20rpx;
+  flex: 1;
+  height: 80%;
+}
+.info_data text{
+  margin-right: 20rpx;
+}
+
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20rpx;
+}
+
+/* 图标 - 文字 */
+.icoon_item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15rpx 0;
+  width: 25%;
+}
+  /* .middle_img */
+.icoon_item image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.icoon_item label{
+  margin-top: 10rpx;
+  line-height: 30rpx;
+  color: #888;
+  font-size: 26rpx;
+  text-align: center;
+}

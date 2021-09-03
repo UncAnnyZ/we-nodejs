@@ -6,6 +6,7 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/more/more",
     "pages/achievement/achievement",
     "pages/quality/quality",
     "pages/about/about",
@@ -15,12 +16,12 @@
     "pages/activity/activity",
     "pages/calendar/calendar",
     "pages/calendar/addition/addition",
-    "pages/more/more",
     "pages/more/skrw/skrw",
     "pages/more/tc/tc",
     "pages/login/login",
     "pages/setting/setting",
-    "pages/recommend/recommend"
+    "pages/recommend/recommend",
+    "pages/activity/mod/mod"
   ],
   "tabBar": {
     "color": "@color",
@@ -42,7 +43,7 @@
     ]
   },
   "window": {
-    "navigationBarTitleText": "WE广油",
+    "navigationBarTitleText": "We广油",
     "backgroundColor": "@backgroundColor",
     "backgroundTextStyle": "@backgroundTextStyle",
     "navigationBarBackgroundColor": "@navBackgroundColor",

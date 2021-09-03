@@ -1,11 +1,14 @@
 // pages/about/home/home.js
 var app = getApp();
+var util = require("../../utils/util.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    title: "We广油 - 更多",
+    statusBarHeight:44,
     more:[],
     view: 1,
     name: "",
@@ -21,7 +24,11 @@ Page({
     // this.hide()
     this.setData({
       more: wx.getStorageSync('configData').more,
-      ad: wx.getStorageSync('configData').index.ad
+      ad: wx.getStorageSync('configData').index.ad,
+      screenWidth: wx.getSystemInfoSync().screenWidth,
+      statusBar: util.getHeight.statusBar(),
+      navigationBar: util.getHeight.navigationBar(),
+      capsule: wx.getMenuButtonBoundingClientRect()
     })
   },
 
@@ -63,6 +70,12 @@ Page({
 
   },
 
+  // 跳转设置
+  setting(){
+    wx.navigateTo({
+      url: '../setting/setting',
+    })
+  },
   // 关闭广告位
   hide(e){
     this.setData({
