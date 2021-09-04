@@ -56,12 +56,14 @@ Page({
              title: '成功',
              icon: 'success',
              duration: 2000,
-             mask:true
+             mask:true,
+             success(res){
+              wx.navigateBack({
+                delta: 0,
+                }
+              )
+             }
          })
-         wx.navigateBack({
-           delta: 0,
-           }
-         )
        }
      }
    )
