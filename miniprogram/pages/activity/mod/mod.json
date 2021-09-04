@@ -1,11 +1,5 @@
-
   {
     "navigationBarTitleText": "we广油-招新报名",
-    "ligth":{
-      "navigationBarBackgroundColor": "#E9EFF9"
-    },
-    "dark":{
-      "navigationBarBackgroundColor": "#161006"
-    }
-  
+    "navigationBarBackgroundColor": "@navigationBarBackgroundColor_mod"
   }
+
