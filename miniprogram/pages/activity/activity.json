@@ -1,7 +1,20 @@
+<<<<<<< HEAD
 {
   "navigationBarTitleText": "We广油 - 社团",
     "navigationBarBackgroundColor": "@navigationBarBackgroundColor_mod"
 
 
   
+=======
+{
+  "navigationBarTitleText": "We广油 - 社团",
+  "ligth":{
+    "navigationBarBackgroundColor": "#E9EFF9"
+  },
+  "dark":{
+    "navigationBarBackgroundColor": "#161006"
+  }
+
+  
+>>>>>>> 1d2ddfa78ad890a855b00597e3039be2e4442fd1
 }
