@@ -2,7 +2,7 @@
 @import "weui.wxss";
 
 Page {
-  background-color: #fafafa;
+  background-color: #eeeeee;
 }
 
 .page__hd {
@@ -66,37 +66,63 @@ Page {
 }
 
 .weui-item {
-  margin: 30rpx;
-  padding: 1rpx;
+  margin: 19rpx;
   color: #fff;
-  height: 150rpx;
+  background-color: rgba(248, 248,248, 0.9);
+  height: 110rpx;
   width:100%;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
   -webkit-transform: translateX(90px);
   transform: translateX(90px);
   margin-left: -90px;
-  margin-right:0px;
+  -moz-box-shadow:0 9rpx 9rpx #d1cece;
+  -webkit-box-shadow:0 9rpx 9rpx #d1cece;
+  box-shadow:0 9rpx 9rpx #d1cece;
 }
-
+.border-shadow{
+  border-radius: 22rpx;
+}
 .weui-flex {
   justify-content: space-between;
+  
+}
+
+.gapDays1{
+    height:110rpx;
+    font-size:62rpx;
+    color:#ffff; 
+    text-align: center;
+    border-top-right-radius: 22rpx;
+    border-bottom-right-radius:22rpx;
+    text-shadow: -1px -1px 1px #865204f3!important;
+}
+
+.gapDays2{
+  height:110rpx;
+  font-size:62rpx;
+  color:#ffff; 
+  text-align: center;
+  border-top-right-radius: 22rpx;
+  border-bottom-right-radius:22rpx;
+  text-shadow:  -1px -1px 1px #294161!important;
+}
+
+.Days{
+  height:110rpx;
+  width:115rpx;
+  float:right; 
+  border-top-right-radius: 22rpx;
+  border-bottom-right-radius:22rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  
 }
-
-.background-1 {
-  background: #FFF8D7;
-}
-
-.background-2 {
-  background: #f1f1b8;
-}
-
-.background-3 {
-  background: #FFF8D7;
-}
-.background-4 {
-  background: #ffb3a2;
+.Days text{
+  font-size: 38rpx;
+  color:#ffff;
 }
 
 .thisWeek {
@@ -150,20 +176,28 @@ Page {
   font-size: 42rpx;
 }
 
+
+
 .weui-item__title {
+    width: 300rpx;
     color: #444444;
-  font-size: 42rpx;
+    font-size: 40rpx;
+    margin-left: 30rpx;
+    display:-webkit-box;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
 }
 
 .weui-item__desc {
   color: #686868;
   font-size: 28rpx;
+  margin-left: 22rpx;
+  padding:6rpx;
 }
 
-.border-shadow {
-  border-top-left-radius: 15rpx;
-  border-bottom-left-radius: 15rpx;
-}
+
 
 .clear {
   position: inherit;
@@ -210,7 +244,18 @@ button::after {
   margin-right: 5px;
 }
 
-
+.background-color_0{
+  background-color: #fd9801e1!important;
+}
+.background-color_1{
+  background-color: #e27c07e8!important;
+}
+.background-color_2{
+  background-color: #5685c2c2!important;
+}
+.background-color_3{
+  background-color: #3170a7e3!important;
+}
 
 /* 悬浮按钮的 */
 
@@ -270,20 +315,21 @@ button::after {
   display: flex;
   justify-content: space-between;
   overflow: hidden;
-  width: 100%;
-  }
+  margin-left: 20rpx;
+  width:97%;
+
+}
   .del {
-    background-color: orangered;
-    width: 90px;
-    height: 150rpx;
-    margin-top:30rpx;
-    border-top-right-radius: 15rpx;
-    border-bottom-right-radius: 15rpx;
+    background-color: orangered!important;
+    width: 80px;
+    height: 110rpx;
+    margin-top:20rpx;
     display: flex;
     flex-direction: column; 
     align-items: center;
     justify-content: center;
     color: #fff;
+    border-radius: 22rpx;
     -webkit-transform: translateX(90px);
     transform: translateX(90px);
     -webkit-transition: all 0.4s;
@@ -293,7 +339,23 @@ button::after {
 
     .touch-move-active .del {
       -webkit-transform: translateX(0);
-
       transform: translateX(0);
 
     }
+    
+    @media (prefers-color-scheme: dark) {
+     .gapDays1{
+      filter: invert(100%) !important;
+     }
+     .gapDays2{
+      filter: invert(100%) !important;
+     }
+      .del{
+        filter: invert(100%) !important;
+      }
+      .weui-item{
+        background-color: rgba(224, 224, 224, 0.589);
+      }
+      
+  }
+ 

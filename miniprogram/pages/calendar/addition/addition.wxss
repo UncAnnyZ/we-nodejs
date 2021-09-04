@@ -32,7 +32,6 @@ page {
 .course label{
   display: flex;
   align-items: center;
-  width: 170rpx;
   padding-right: 30rpx;
 }
 .course input{
@@ -47,20 +46,57 @@ page {
   border-radius: 20rpx;
   background-color: rgb(255, 255, 255);
 }
-
-
-
-.background-1 {
-  background: #8beeff;
+.submit{
+  width: 100%;
+  padding-top: 50rpx;
+}
+.submit button{
+  width: 100%;
+  border-radius: 30rpx;
+  box-shadow:0px 0px 4px 0px #c7c7c7;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 15px;        /* 字体大小 */
+  letter-spacing: 5rpx;   /* 字间距 */
 }
 
-.background-2 {
-  background: #ffc2d6;
-}
 
-.background-3 {
-  background: #b6ffea;
-}
-.background-4 {
-  background: #ffb3a2;
+
+
+@media (prefers-color-scheme: dark) {
+  .course{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    width:85%;
+    padding:20rpx;
+    margin:20rpx;
+    border-radius: 20rpx;
+    box-sizing: unset;
+    background-color: rgb(233, 233, 233);
+    box-shadow: 0rpx 0rpx 17rpx #e2e2e2
+  }
+  
+  .section{
+    margin:20rpx;
+    padding:20rpx;
+    width:85%;
+    border-radius: 20rpx;
+    background-color: rgb(233, 233, 233);
+    box-shadow: 0rpx 0rpx 17rpx #e2e2e2
+  }
+  .submit{
+    width: 100%;
+    padding-top: 50rpx;
+  }
+  .submit button{
+    width: 100%;
+    border-radius: 30rpx;
+    box-shadow: 0rpx 0rpx 17rpx #e2e2e2;
+    background-color: rgb(233, 233, 233);
+    color: rgb(0, 0, 0);
+    font-size: 15px;        /* 字体大小 */
+    letter-spacing: 5rpx;   /* 字间距 */
+  }
+
 }

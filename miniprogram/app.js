@@ -1,3 +1,4 @@
+
 //app.js
 App({
   onLaunch: function () {
@@ -25,11 +26,7 @@ App({
       username:0,
       timeyear:"",
       task:[],
-      dates:'2021-8-01',
       timeyear:"2021/3/1",
-      dayName: '',
-      gapDays:0,
-      DaysMatter2:[]
     }
   },
   // 登录判断
@@ -82,3 +79,4 @@ App({
       return allCurriculum;
     },
 })
+
