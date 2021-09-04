@@ -1,5 +1,10 @@
 {
   "navigationBarTitleText": "We广油 - 社团",
-  "navigationBarBackgroundColor": "#E9EFF9"
+  "light": {
+    "navigationBarBackgroundColor": "#E9EFF9"
+  },
+  "dark": {
+    "navigationBarBackgroundColor": "#161006"
+  }
   
 }
