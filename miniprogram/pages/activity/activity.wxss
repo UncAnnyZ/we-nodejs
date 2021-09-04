@@ -1,5 +1,5 @@
  page {
-  background-color: #E7E7E7;
+  background-color: #E9EFF9;
 } 
 .back{
   margin: 15rpx;
@@ -12,7 +12,7 @@
 
 }
 .club{
-  display: block;
+  display: block; 
 
 }
 .wx-list.grid.no-border>.wx-item {

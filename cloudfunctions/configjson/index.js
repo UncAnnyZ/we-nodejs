@@ -37,7 +37,7 @@ exports.main = async (event, context) => {
     version: "0.0.1",
     msgTitle : "致歉信",
     timeYear : "2021/8/30",
-    time: "10000", // 秒
+    time: "43200", // 秒
     reset: false,
     msgData: "由于新版本发布太匆忙，有一个屏蔽课表严重bug，影响到了部分用户，非常抱歉。有好的建议或者是bug欢迎联系我们。谢谢大家一直的支持",
     more: [{

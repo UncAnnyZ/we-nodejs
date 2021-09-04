@@ -5,7 +5,10 @@ page{
   color:rgb(45, 165, 230);
   display: flex;
   font-size: 40rpx;
-  margin: 30rpx;
+  margin-top: 10rpx;
+  margin-left:30rpx;
+  margin-right:30rpx;
+  margin-bottom:30rpx;
   justify-content: center;
 
   
@@ -56,14 +59,50 @@ page{
 .content{
   background-color: white;
   border-radius:40rpx ;
-  height: 400rpx;
+  /* height: 430rpx; */
   padding-top:40rpx ;
   padding-left:20rpx ;
+  padding-bottom: 20rpx;
 }
 .contentt{
   background-color: white;
   border-radius:40rpx ;
-  height: 400rpx;
-  padding-top:10rpx ;
+  /* height: 400rpx; */
+  padding-top:20rpx ;
   padding-left:20rpx ;
+  padding-bottom: 30rpx;
+  padding-right: 20rpx;
+}
+text{
+  padding-top: 30rpx;
+}
+button{
+  width: 626rpx; height: 80rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx;
+      width: 686rpx; height: 80rpx; display: block; box-sizing: border-box; left: -10rpx; top: 0rpx; position: relative; background-color: rgb(45, 165, 230);
+}
+@media (prefers-color-scheme: dark) {
+  .ttt{
+    filter: invert(80%) !important;
+  }
+  .inp {
+    filter: invert(90%) !important;
+  }
+  .contentt {
+    filter: invert(20%) !important;
+  }
+  .contentt > text{
+    filter: invert(60%) !important;
+  }
+  .swtou{
+    filter: invert(60%) !important;
+  }
+  .name{
+    filter: invert(90%) !important;
+  }
+  .content{
+    filter: invert(20%) !important;
+  }
+  button{
+    filter: invert(30%) !important;
+  }
 }

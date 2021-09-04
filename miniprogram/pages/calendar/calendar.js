@@ -1,4 +1,5 @@
-// pages/calendar/calendar.js
+
+/// pages/calendar/calendar.js
 var util = require('../../utils/time.js');
 var app = getApp();
 Page({
@@ -48,8 +49,8 @@ Page({
   setDataCalendar: function() {                                       //页面渲染全部倒数日
     var addday = getApp().globalData._adday;
     var xlist=[];
-    var nowdate=new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDate();
-    console.log("yesr",new Date().getFullYear());
+    var nowdate=new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate();
+    console.log("yesr",nowdate);
     for (let i = 0; i < addday.length; i++) {
       var gapDays2=this.num_data(addday[i].holidayDate,nowdate);
       xlist.push({
@@ -144,28 +145,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {                                           //读取数据库
-      wx.cloud.callFunction({
-        name:'readday',
-        data:{
-          username: getApp().globalData.username,
-          type: 'read'
-        },
-        success:res=>{
-          console.log(res, 1111)
-          getApp().globalData._adday=JSON.parse(res.result)
-          this.setDataCalendar();
-        },
-        fail:err=>{
-          console.log(err)
-        }
-      })
     this.terms();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onShow: function(options) {
-    this.setDataCalendar();
+    wx.cloud.callFunction({
+      name:'readday',
+      data:{
+        username: getApp().globalData.username,
+        type: 'read'
+      },
+      success:res=>{
+        console.log(res, 1111)
+        getApp().globalData._adday=JSON.parse(res.result)
+        this.setDataCalendar();
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   
   },

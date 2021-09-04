@@ -1,3 +1,4 @@
+
 //app.js
 App({
   onLaunch: function () {
@@ -78,3 +79,4 @@ App({
       return allCurriculum;
     },
 })
+

@@ -67,9 +67,8 @@ Page {
 
 .weui-item {
   margin: 19rpx;
-  padding: 1rpx;
   color: #fff;
-  background-color: rgba(248, 248, 248, 0.9);
+  background-color: rgba(248, 248,248, 0.9);
   height: 110rpx;
   width:100%;
   -webkit-transition: all 0.4s;
@@ -77,24 +76,26 @@ Page {
   -webkit-transform: translateX(90px);
   transform: translateX(90px);
   margin-left: -90px;
-  margin-right:0px;
   -moz-box-shadow:0 9rpx 9rpx #d1cece;
   -webkit-box-shadow:0 9rpx 9rpx #d1cece;
   box-shadow:0 9rpx 9rpx #d1cece;
 }
-
+.border-shadow{
+  border-radius: 22rpx;
+}
 .weui-flex {
   justify-content: space-between;
-  align-items: center;
+  
 }
+
 .gapDays1{
     height:110rpx;
-    font-size:60rpx;
-    margin-top: -8rpx;
+    font-size:62rpx;
     color:#ffff; 
     text-align: center;
-    text-shadow: -1px -1px 1px #794125!important;
-    
+    border-top-right-radius: 22rpx;
+    border-bottom-right-radius:22rpx;
+    text-shadow: -1px -1px 1px #865204f3!important;
 }
 
 .gapDays2{
@@ -102,7 +103,8 @@ Page {
   font-size:62rpx;
   color:#ffff; 
   text-align: center;
-  margin-top: -8rpx;
+  border-top-right-radius: 22rpx;
+  border-bottom-right-radius:22rpx;
   text-shadow:  -1px -1px 1px #294161!important;
 }
 
@@ -110,14 +112,16 @@ Page {
   height:110rpx;
   width:115rpx;
   float:right; 
+  border-top-right-radius: 22rpx;
+  border-bottom-right-radius:22rpx;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .Days text{
   font-size: 38rpx;
-  
   color:#ffff;
 }
 
@@ -175,17 +179,22 @@ Page {
 
 
 .weui-item__title {
+    width: 300rpx;
     color: #444444;
-    font-size: 38rpx;
+    font-size: 40rpx;
     margin-left: 30rpx;
-    
+    display:-webkit-box;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
 }
 
 .weui-item__desc {
   color: #686868;
   font-size: 28rpx;
   margin-left: 22rpx;
-  padding:8rpx;
+  padding:6rpx;
 }
 
 
@@ -236,16 +245,16 @@ button::after {
 }
 
 .background-color_0{
-  background-color: #FA7E23!important;
+  background-color: #fd9801e1!important;
 }
 .background-color_1{
-  background-color: #D9652B!important;
+  background-color: #e27c07e8!important;
 }
 .background-color_2{
-  background-color: #5685C2!important;
+  background-color: #5685c2c2!important;
 }
 .background-color_3{
-  background-color: #3170A7!important;
+  background-color: #3170a7e3!important;
 }
 
 /* 悬浮按钮的 */
@@ -307,12 +316,12 @@ button::after {
   justify-content: space-between;
   overflow: hidden;
   margin-left: 20rpx;
-  width: 97%;
-  border-radius: 19%;
+  width:97%;
+
 }
   .del {
     background-color: orangered!important;
-    width: 90px;
+    width: 80px;
     height: 110rpx;
     margin-top:20rpx;
     display: flex;
@@ -320,7 +329,7 @@ button::after {
     align-items: center;
     justify-content: center;
     color: #fff;
-    
+    border-radius: 22rpx;
     -webkit-transform: translateX(90px);
     transform: translateX(90px);
     -webkit-transition: all 0.4s;
@@ -330,16 +339,23 @@ button::after {
 
     .touch-move-active .del {
       -webkit-transform: translateX(0);
-      
       transform: translateX(0);
 
     }
     
     @media (prefers-color-scheme: dark) {
-      .gapDays{
-        filter: invert(100%) !important;
-      }
+     .gapDays1{
+      filter: invert(100%) !important;
+     }
+     .gapDays2{
+      filter: invert(100%) !important;
+     }
       .del{
         filter: invert(100%) !important;
       }
+      .weui-item{
+        background-color: rgba(224, 224, 224, 0.589);
+      }
+      
   }
+ 
