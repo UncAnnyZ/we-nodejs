@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 {
   "light": {
     "backgroundColor": "#F6F6F6",
@@ -25,29 +25,3 @@
     "navigationBarBackgroundColor_mod":"#161006"
   }
 }
-=======
-{
-  "light": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTextStyle": "black",
-    "navBackgroundColor": "#FFFFFF",
-    "navTextStyle": "black",
-    "loginnavBackgroundColor": "#2da5e6",
-    "color": "#404040",
-    "selectedColor": "#118ffe"
-  },
-  "dark": {
-    "backgroundColor": "#191919",
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#191919",
-    "navigationBarTextStyle": "black",
-    "navBackgroundColor": "#191919",
-    "navTextStyle": "white",
-    "loginnavBackgroundColor": "#191919",
-    "color": "#BFBFBF",
-    "selectedColor": "#EE7001"
-  }
-}
->>>>>>> 1d2ddfa78ad890a855b00597e3039be2e4442fd1
