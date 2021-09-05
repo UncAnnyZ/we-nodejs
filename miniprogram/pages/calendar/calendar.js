@@ -61,9 +61,10 @@ Page({
       })
     }
     console.log("before-list", xlist)
+    
     this.setData({
       show: "",
-      list: xlist
+      list: xlist.reverse(xlist.holidayDate)
     })
   },
 

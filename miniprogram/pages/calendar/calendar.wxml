@@ -18,7 +18,8 @@
           </view>
           <view class="weui-flex__item">
             <view class="gapDays {{item.gapDays > 0 ? 'gapDays_bg1':'gapDays_bg2'}}  ">
-              <text>{{item.gapDays}}</text>
+              <text wx:if="{{item.gapDays > 0}}">{{item.gapDays}}</text>
+              <text wx:if="{{item.gapDays <= 0}}">{{0-item.gapDays}}</text>
               <view class="Days {{item.gapDays > 0 ? 'background-color_1':'background-color_3'}} ">
                 <text>天</text>
               </view>
