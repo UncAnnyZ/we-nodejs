@@ -124,7 +124,7 @@ Page({
       var aa = []
       for (let i = 0; i < lll.length; i++) {
         aa.push(lll[i])
-        if ( (i % 8 == 0 && i != 0) || i == lll.length-1) {
+        if ( ( (i+1) % 8 == 0) || i == lll.length-1) {
           iconList.push(aa)
           aa = []
         }
