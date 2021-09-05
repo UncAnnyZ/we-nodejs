@@ -1,76 +1,47 @@
-<view class='page' >
-  <view class="page__bd">
-    <view class="weui-tab__content">
-      <view class='page'>
-        <view class="page__hd">
+<view class='page'>
+  <view class="page__hd">
 
-          <view class="page__title">倒数日</view>
-          <view class="page__desc">
-            
-            <view>{{term}}</view>
-            <text>{{jsonContent.month+1}} 月{{jsonContent.day}} 日   {{jsonContent.dayOfWeek}}</text>
+    <view class="page__title">倒数日</view>
+    <view class="page__desc">
+      <view>{{term}}</view>
+      <text>{{jsonContent.month+1}} 月{{jsonContent.day}} 日 {{jsonContent.dayOfWeek}}</text>
+    </view>
+
+    <view class="touch">
+      <view class="touch-container {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}"
+        bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{list}}" wx:key=" ">
+        <view class="touch-item">
+          <view class="weui-flex__item" style='margin-left:10rpx;color:#010C10;'>
+            <view class="weui-item__title">{{item.holidayName}}</view>
+            <view class="weui-item__desc" wx:if="{{item.holidayRestInfo !=''}}">{{item.holidayRestInfo}}</view>
+            <view class="weui-item__desc" wx:else>{{item.holidayDate}}</view>
           </view>
-          
-          <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{list}}" wx:key=" ">
-            <view class="weui-item border-shadow" wx:if="{{item.gapDays > 0}}">
-              <view class="weui-flex">
-                <view class="weui-flex__item" style='margin-left:10rpx;color:#010C10;'>
-                  <view class="weui-item__title">
-                    <text>{{item.holidayName}} </text>
-                  </view>
-                  <view class="weui-item__desc" wx:if="{{item.holidayRestInfo !=''}}">{{item.holidayRestInfo}}</view>
-                  <view class="weui-item__desc" wx:else>{{item.holidayDate}}</view>
-                </view>
-                <view class="weui-flex__item dates">
-                  <view class="gapDays1 background-color_0">
-                    <text style="top: 10rpx;">{{item.gapDays}}</text>
-                    <view class="Days background-color_1">
-                      <text>天</text>
-                    </view>
-                  </view>
-                </view>
+          <view class="weui-flex__item">
+            <view class="gapDays {{item.gapDays > 0 ? 'gapDays_bg1':'gapDays_bg2'}}  ">
+              <text>{{item.gapDays}}</text>
+              <view class="Days {{item.gapDays > 0 ? 'background-color_1':'background-color_3'}} ">
+                <text>天</text>
               </view>
             </view>
-
-            <view class="weui-item border-shadow" wx:else>
-              <view class="weui-flex">
-                <view class="weui-flex__item" style='margin-left:10rpx;color:#010C10;'>
-                  <view class="weui-item__title">
-                    {{item.holidayName}} 
-                  </view>
-                  <view class="weui-item__desc" wx:if="{{item.holidayRestInfo !=''}}">{{item.holidayRestInfo}}</view>
-                  <view class="weui-item__desc" wx:else>{{item.holidayDate}}</view>
-                </view>
-                <view class="weui-flex__item">
-                  <view class="gapDays2 background-color_2">
-                    <text style="">{{0-item.gapDays}}</text>
-                    <view class="Days background-color_3">
-                      <text>天</text>
-                    </view>
-                  </view>
-                </view>
-              </view>
-            </view>
-            <view class="del" catchtap="del" data-index="{{index}}">删除</view>
-          </view>
-
-
-           
-            <view class="nav-head">
-              <view class="img-button feedback-btn" bindtap="feedbackHandler">
-                <image src="../../images/btn_feed@2x.png" ></image>
-              </view>
-            </view>
-         
-            <view class="round-click" bindtap='showPic'>
-              <text>查看校历</text>
-            </view>
-            
           </view>
         </view>
+
+        <view class="del" catchtap="del" data-index="{{index}}">删除</view>
       </view>
     </view>
-    
-   
+
+
+
+
+    <view class="nav-head">
+      <view class="img-button feedback-btn" bindtap="feedbackHandler">
+        <image src="../../images/btn_feed@2x.png"></image>
+      </view>
+    </view>
+
+    <view class="round-click" bindtap='showPic'>
+      <text>查看校历</text>
+    </view>
 
   </view>
+</view>
