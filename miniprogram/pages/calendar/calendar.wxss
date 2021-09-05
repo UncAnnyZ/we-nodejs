@@ -1,13 +1,116 @@
 /* pages/calendar/calendar.wxss */
 @import "weui.wxss";
 
-Page {
+page {
   background-color: #eeeeee;
 }
 
-.page__hd {
-  padding: 40px;
+.page {
+  margin-top: 30rpx;
+  padding-bottom: 1rpx;
 }
+.page__hd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20rpx 35rpx 0 35rpx;
+}
+
+.page__title {
+  color: rgb(0, 0, 0);
+  margin-left: 30rpx;
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+.page__desc {
+  color: rgb(97, 97, 97);
+  text-align: left;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+
+.touch{
+  padding-left: 20rpx;
+}
+.touch-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.touch-item {
+  display: flex;
+  justify-content: space-around;
+  height: 110rpx;
+  width: 100%;
+
+  color: #fff;
+  background-color: rgba(248, 248, 248, 0.9);
+  
+  box-shadow: 0 9rpx 9rpx #d1cece;
+  border-radius: 22rpx;
+  overflow: hidden;
+
+  transition: all 0.4s;
+  transform: translateX(90px);
+  margin-left: -90px;
+}
+.weui-item__title {
+  width: 300rpx;
+  margin-left: 30rpx;
+  color: #444444;
+  font-size: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.weui-item__desc {
+  color: #686868;
+  font-size: 28rpx;
+  margin-left: 22rpx;
+  padding: 6rpx;
+}
+
+.gapDays{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 110rpx;
+  font-size: 62rpx;
+  color: #ffff;
+  text-align: center;
+}
+.gapDays text{
+  flex: 1;
+}
+.gapDays_bg1{
+  text-shadow: -1px -1px 1px #865204f3 !important;  
+  background-color: #fd9801e1 !important;
+}
+.gapDays_bg2{
+  text-shadow: -1px -1px 1px #294161 !important;
+  background-color: #5685c2c2 !important;
+}
+
+.Days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110rpx;
+  width: 115rpx;
+}
+.Days text {
+  font-size: 38rpx;
+  color: #ffff;
+}
+
+
+
+/* 没用的 */
 
 .page__bd_spacing {
   padding-left: 15px;
@@ -17,22 +120,6 @@ Page {
 .page__ft {
   padding-bottom: 10px;
   text-align: center;
-}
-
-.page__title {
-  color: rgb(0, 0, 0);
-  margin-left: 30rpx;
-  text-align: left;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.page__desc {
-  margin-top: 5px;
-  color: rgb(97, 97, 97);
-  text-align: left;
-  font-size: 30rpx;
-  margin-left: 30rpx;
 }
 
 .panelBK {
@@ -50,79 +137,6 @@ Page {
   width: 26px;
   height: 26px;
   vertical-align: text-bottom;
-}
-
-.page__bd {
-  margin-top: 30rpx;
-  padding-bottom: 1rpx;
-}
-
-.page__hd {
-  padding: 20rpx 35rpx 0 35rpx;
-}
-
-.weui-items {
-  margin: 30rpx 20rpx;
-}
-
-.weui-item {
-  margin: 19rpx;
-  color: #fff;
-  background-color: rgba(248, 248,248, 0.9);
-  height: 110rpx;
-  width:100%;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  -webkit-transform: translateX(90px);
-  transform: translateX(90px);
-  margin-left: -90px;
-  -moz-box-shadow:0 9rpx 9rpx #d1cece;
-  -webkit-box-shadow:0 9rpx 9rpx #d1cece;
-  box-shadow:0 9rpx 9rpx #d1cece;
-}
-.border-shadow{
-  border-radius: 22rpx;
-}
-.weui-flex {
-  justify-content: space-between;
-  
-}
-
-.gapDays1{
-    height:110rpx;
-    font-size:62rpx;
-    color:#ffff; 
-    text-align: center;
-    border-top-right-radius: 22rpx;
-    border-bottom-right-radius:22rpx;
-    text-shadow: -1px -1px 1px #865204f3!important;
-}
-
-.gapDays2{
-  height:110rpx;
-  font-size:62rpx;
-  color:#ffff; 
-  text-align: center;
-  border-top-right-radius: 22rpx;
-  border-bottom-right-radius:22rpx;
-  text-shadow:  -1px -1px 1px #294161!important;
-}
-
-.Days{
-  height:110rpx;
-  width:115rpx;
-  float:right; 
-  border-top-right-radius: 22rpx;
-  border-bottom-right-radius:22rpx;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-.Days text{
-  font-size: 38rpx;
-  color:#ffff;
 }
 
 .thisWeek {
@@ -176,29 +190,6 @@ Page {
   font-size: 42rpx;
 }
 
-
-
-.weui-item__title {
-    width: 300rpx;
-    color: #444444;
-    font-size: 40rpx;
-    margin-left: 30rpx;
-    display:-webkit-box;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    -webkit-line-clamp:1;
-    -webkit-box-orient: vertical;
-}
-
-.weui-item__desc {
-  color: #686868;
-  font-size: 28rpx;
-  margin-left: 22rpx;
-  padding:6rpx;
-}
-
-
-
 .clear {
   position: inherit;
   display: inherit;
@@ -244,17 +235,19 @@ button::after {
   margin-right: 5px;
 }
 
-.background-color_0{
-  background-color: #fd9801e1!important;
+
+
+.background-color_0 {
+  background-color: #fd9801e1 !important;
 }
-.background-color_1{
-  background-color: #e27c07e8!important;
+.background-color_1 {
+  background-color: #e27c07e8 !important;
 }
-.background-color_2{
-  background-color: #5685c2c2!important;
+.background-color_2 {
+  background-color: #5685c2c2 !important;
 }
-.background-color_3{
-  background-color: #3170a7e3!important;
+.background-color_3 {
+  background-color: #3170a7e3 !important;
 }
 
 /* 悬浮按钮的 */
@@ -285,11 +278,11 @@ button::after {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  box-shadow:0px 0px 4px 0px #c7c7c7;
+  box-shadow: 0px 0px 4px 0px #c7c7c7;
   height: 100rpx;
   width: 110rpx;
   right: 5rpx;
-  background-color:#FAFAFA;
+  background-color: #FAFAFA;
   position: fixed;
   top: 50rpx;
   border-bottom-left-radius: 100%;
@@ -303,59 +296,49 @@ button::after {
 }
 .img-button {
   display: inline-block;
-  margin-left:30rpx;
+  margin-left: 30rpx;
   margin-top: 10rpx;
 }
 .img-button image {
   width: 80%;
   height: 80%;
 }
-.touch-item {
-  font-size: 16px;
+
+
+.del {
+  background-color: orangered !important;
+  width: 80px;
+  height: 110rpx;
   display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-  margin-left: 20rpx;
-  width:97%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 22rpx;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.touch-move-active .touch-item,
+.touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 
 }
+
+@media (prefers-color-scheme: dark) {
+  .gapDays {
+    filter: invert(100%) !important;
+  }
+
   .del {
-    background-color: orangered!important;
-    width: 80px;
-    height: 110rpx;
-    margin-top:20rpx;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    border-radius: 22rpx;
-    -webkit-transform: translateX(90px);
-    transform: translateX(90px);
-    -webkit-transition: all 0.4s;
-    transition: all 0.4s;
+    filter: invert(100%) !important;
   }
-    .touch-move-active .weui-item,
 
-    .touch-move-active .del {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-
-    }
-    
-    @media (prefers-color-scheme: dark) {
-     .gapDays1{
-      filter: invert(100%) !important;
-     }
-     .gapDays2{
-      filter: invert(100%) !important;
-     }
-      .del{
-        filter: invert(100%) !important;
-      }
-      .weui-item{
-        background-color: rgba(224, 224, 224, 0.589);
-      }
-      
+  .touch-item {
+    background-color: rgba(224, 224, 224, 0.589);
   }
- 
+
+}
