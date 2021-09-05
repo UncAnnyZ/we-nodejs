@@ -78,7 +78,8 @@ Page({
     console.log(this.data.wlist[e.currentTarget.dataset.index])
     
     wx.showToast({
-      title: '教师:' + this.data.wlist[e.currentTarget.dataset.index].teacher,
+      title: '教师:' + this.data.wlist[e.currentTarget.dataset.index].teacher + "\n" + 
+             '地点:' + this.data.wlist[e.currentTarget.dataset.index].jxcdmc,
       icon: 'none',
     })
   },
