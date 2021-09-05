@@ -23,7 +23,7 @@
                 </view>
                 <view class="weui-flex__item dates">
                   <view class="gapDays1 background-color_0">
-                    <text>{{item.gapDays}}</text>
+                    <text style="top: 10rpx;">{{item.gapDays}}</text>
                     <view class="Days background-color_1">
                       <text>天</text>
                     </view>
@@ -43,7 +43,7 @@
                 </view>
                 <view class="weui-flex__item">
                   <view class="gapDays2 background-color_2">
-                    <text>{{0-item.gapDays}}</text>
+                    <text style="">{{0-item.gapDays}}</text>
                     <view class="Days background-color_3">
                       <text>天</text>
                     </view>

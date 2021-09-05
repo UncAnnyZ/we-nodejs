@@ -93,14 +93,15 @@ Page {
     font-size:62rpx;
     color:#ffff; 
     text-align: center;
-    border-top-right-radius: 22rpx;
-    border-bottom-right-radius:22rpx;
+    /* border-top-right-radius: 22rpx;
+    border-bottom-right-radius:22rpx; */
     text-shadow: -1px -1px 1px #865204f3!important;
 }
 
 .gapDays2{
-  height:110rpx;
-  font-size:62rpx;
+  /* height:110rpx; */
+  top:20rpx;
+  font-size:70rpx;
   color:#ffff; 
   text-align: center;
   border-top-right-radius: 22rpx;

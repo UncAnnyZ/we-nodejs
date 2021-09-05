@@ -35,11 +35,11 @@ exports.main = async (event, context) => {
 
   return {
     version: "0.0.1",
-    msgTitle : "致歉信",
+    msgTitle : "预告",
     timeYear : "2021/8/30",
     time: "43200", // 秒
     reset: false,
-    msgData: "由于新版本发布太匆忙，有一个屏蔽课表严重bug，影响到了部分用户，非常抱歉。有好的建议或者是bug欢迎联系我们。谢谢大家一直的支持",
+    msgData: "1.修复多项bug\n2.广告即将可以关闭（也可以不关多多支持我们）\n3.新功能倒数日即将上线",
     more: [{
       url: '/pages/more/tc/tc',
       name: '体测成绩计算',
