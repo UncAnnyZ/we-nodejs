@@ -1,4 +1,5 @@
 const app = getApp()
+const time = require("../../utils/time.js")
 var startX, endX;
 var moveFlag = true;
 
@@ -76,17 +77,17 @@ Page({
 
   showCardView: function (e) {
     console.log(this.data.wlist[e.currentTarget.dataset.index])
-    
+
     wx.showToast({
-      title: '教师:' + this.data.wlist[e.currentTarget.dataset.index].teacher + "\n" + 
-             '地点:' + this.data.wlist[e.currentTarget.dataset.index].jxcdmc,
+      title: '教师:' + this.data.wlist[e.currentTarget.dataset.index].teacher + "\n" +
+        '地点:' + this.data.wlist[e.currentTarget.dataset.index].jxcdmc,
       icon: 'none',
     })
   },
-  feedbackHandler: function(e) {
+  feedbackHandler: function (e) {
     var showAdd = this.data.showAdd
     var that = this
-    if(showAdd){
+    if (showAdd) {
       this.setData({
         add_style: "add_hide"
       })
@@ -95,8 +96,7 @@ Page({
           showAdd: !showAdd
         })
       }, 200);
-    } 
-    else {
+    } else {
       this.setData({
         add_style: "add_show",
         showAdd: !showAdd
@@ -284,7 +284,7 @@ Page({
     // 初始化"设置周数"
     var week = [];
     for (var i = 0; i < 18; i++) {
-      week.push([false, false])  //week.push([false, 'color:gary'])
+      week.push([false, false]) //week.push([false, 'color:gary'])
     }
     this.setData({
       week: week
@@ -327,10 +327,10 @@ Page({
     let data = this.data.week
     if (data[e.target.id - 1][0]) {
       data[e.target.id - 1][0] = false
-      data[e.target.id - 1][1] = false  // 'color: rgb(100, 100, 100);'
+      data[e.target.id - 1][1] = false // 'color: rgb(100, 100, 100);'
     } else {
       data[e.target.id - 1][0] = true
-      data[e.target.id - 1][1] = true  // "background:rgb(8, 178, 255);color:rgb(245,245,245);border:none;"
+      data[e.target.id - 1][1] = true // "background:rgb(8, 178, 255);color:rgb(245,245,245);border:none;"
     }
 
     this.setData({
@@ -346,7 +346,7 @@ Page({
       mask: true
     })
     var week = []
-    var tt =    JSON.parse(JSON.stringify(getApp().globalData._add));
+    var tt = JSON.parse(JSON.stringify(getApp().globalData._add));
     for (var i = 0; i < 18; i++) {
       if (this.data.week[i][0])
         week.push(i + 1)
@@ -372,17 +372,16 @@ Page({
         var b = String(Number(this.data.sectionIndex[1] + 1))
       }
       for (i = 0; i < week.length; i++) {
-        var jcdm = '0' + Number(this.data.sectionIndex[0] + 1)
-        Number(this.data.sectionIndex[1] + 1)
+        console.log(week[i])
         var add = {
           'jcdm': a + b,
           'jxcdmc': this.data.place,
           'kcmc': this.data.course,
           'teaxms': this.data.teacher,
-          'xq': this.data.Week[this.data.WeekIndex],
+          'xq': time.formatDay(this.data.Week[this.data.WeekIndex]),
           'zc': String(week[i])
         }
-        
+
         tt.push(add)
       }
       wx.cloud.callFunction({
@@ -399,7 +398,7 @@ Page({
           })
           getApp().globalData._add = tt;
           var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum1);
-          getApp().globalData.curriculum = curriculum;      
+          getApp().globalData.curriculum = curriculum;
           that.onShow()
           wx.setStorage({
             key: 'oldTime',
@@ -427,10 +426,10 @@ Page({
         week.push(i + 1)
     }
     // 检查填写是否为空
-    if (this.data.course  == null || this.data.course  == "" || this.data.course  == undefined || 
-        this.data.place   == null || this.data.place   == "" || this.data.place   == undefined ||
-        this.data.teacher == null || this.data.teacher == "" || this.data.teacher == undefined || 
-                     week == null ||              week == "" ||              week == undefined ||              week.length == 0
+    if (this.data.course == null || this.data.course == "" || this.data.course == undefined ||
+      this.data.place == null || this.data.place == "" || this.data.place == undefined ||
+      this.data.teacher == null || this.data.teacher == "" || this.data.teacher == undefined ||
+      week == null || week == "" || week == undefined || week.length == 0
     ) {
       this.setData({
         addSubmitStyle: false

@@ -20,28 +20,25 @@ function formatTime(date) {
 
 function formatDay(day) {
   switch (day) {
-    case 1:
-      day = "一";
-      break;
-    case 2:
-      day = "二";
-      break;
-    case 3:
-      day = "三";
-      break;
-    case 4:
-      day = "四";
-      break;
-    case 5:
-      day = "五";
-      break;
-    case 6:
-      day = "六";
-      break;
-    case 0:
-      day = "日";
-      break;
+    case 1: day = "一"; break;
+    case 2: day = "二"; break;
+    case 3: day = "三"; break;
+    case 4: day = "四"; break;
+    case 5: day = "五"; break;
+    case 6: day = "六"; break;
+    case 7: day = "日"; break;
+    case 0: day = "日"; break;
+
+    case "一": day = 1; break;
+    case "二": day = 2; break;
+    case "三": day = 3; break;
+    case "四": day = 4; break;
+    case "五": day = 5; break;
+    case "六": day = 6; break;
+    case "七": day = 7; break;
+    case "日": day = 7; break;
   }
+
   return day
 }
 
@@ -49,4 +46,3 @@ module.exports = {
   formatTime: formatTime,
   formatDay: formatDay
 }
-
