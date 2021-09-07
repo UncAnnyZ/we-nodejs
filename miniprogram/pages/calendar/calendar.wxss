@@ -334,6 +334,9 @@ button::after {
 }
 
 @media (prefers-color-scheme: dark) {
+  .round-click{
+    filter: invert(90%) !important;
+  }
   .gapDays {
     filter: invert(100%) !important;
   }

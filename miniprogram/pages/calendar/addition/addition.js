@@ -43,10 +43,11 @@ Page({
       tt.push(add)
       getApp().globalData._adday.push(add)
       wx.cloud.callFunction({             //访问云函数
-        name: 'we_adday1',
+        name: 'readday',
         data: {
           _adday: JSON.stringify(getApp().globalData._adday),
-          username: getApp().globalData.username
+          username: getApp().globalData.username,
+          type: 'write'
         },
         success: res => {
           wx.showToast({
@@ -75,9 +76,7 @@ Page({
         type: 'read'
       },
       success:res=>{
-        console.log(res, 1111)
         getApp().globalData._adday=JSON.parse(res.result)
-        //this.setDataCalendar();
       },
       fail:err=>{
         console.log(err)

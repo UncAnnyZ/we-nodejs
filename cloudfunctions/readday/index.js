@@ -26,4 +26,11 @@ exports.main = async (event, context) => {
     }
     return data.data[0]._adday
   }
+  if(event.type == "write"){
+    await db.collection('daysmatter').where({ _user: event.username }).update({
+      data: {
+        _adday: event._adday
+      }
+    })
+  }
 }

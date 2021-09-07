@@ -45,6 +45,15 @@ Page({
     })
   },
 
+  compare: function (property){
+    return function(a,b){
+      console.log(a,b)
+        var value1 = a[property];
+        var value2 = b[property];
+        return value1 - value2;
+    }
+},
+
   setDataCalendar: function () { //页面渲染全部倒数日
     var addday = getApp().globalData._adday;
     var xlist = [];
@@ -60,11 +69,10 @@ Page({
         isTouchMove: false
       })
     }
-    console.log("before-list", xlist)
     
     this.setData({
       show: "",
-      list: xlist.reverse(xlist.holidayDate)
+      list: xlist.sort(this.compare("gapDays")).reverse()
     })
   },
 
@@ -151,6 +159,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) { //读取数据库
+    getApp().loginState();
     this.terms();
   },
   /**
@@ -164,7 +173,6 @@ Page({
         type: 'read'
       },
       success: res => {
-        console.log(res, 1111)
         getApp().globalData._adday = JSON.parse(res.result)
         this.setDataCalendar();
       },
