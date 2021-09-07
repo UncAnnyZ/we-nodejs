@@ -5,23 +5,30 @@ page {
 .navigation{
   background-color: #F6F6F6;
 }
-
-.scroll{
-  display: flex;
-  flex-direction: row;
+.scroll1{
   border-radius: 20rpx;
   width: 730rpx;
   height: 300rpx;
   margin: 10rpx;
+  background-color: #fff;
+}
+.scroll{
+  display: flex;
+  flex-direction: row;
+  border-radius: 20rpx;
+  /* width: 730rpx; */
+  height: 300rpx;
+  /* margin: 10rpx; */
 }
 .scroll_view{
   display: flex;
-  background-color: #fff;
+  /* background-color: #fff; */
   height: 300rpx;
+  border-radius: 20rpx;
 }
 
 .iconn{
-  background-color: #fff;
+  /* background-color: #fff; */
   display: flex;
   flex-wrap: wrap;
   width: 730rpx;
@@ -120,6 +127,23 @@ page {
   line-height: 60rpx;
   animation: first 10s;
   animation-iteration-count: infinite;
+}
+.slide{
+  height:30rpx;
+  background:#fff;
+  with:100%;
+  padding:14rpx 0 5rpx 0
+}
+.slide .slide-bar{
+  width:230rpx;
+  margin:0 auto;
+  height:1.5px;
+  background:#eee;
+}
+.slide .slide-bar .slide-show{
+  height:100%;
+  background-color:#ff6969;
+
 }
 @keyframes first
 {

@@ -1,11 +1,11 @@
 <image style="display: {{adImg?adImg:'none'}}" src='{{adImg}}' mode="widthFix"></image>
 <ad class="ad" unit-id="adunit-3b513ed5750984a1" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad>
 <view class='{{show}}'>
-
-    <scroll-view class="scroll" scroll-x="true" enable-flex="false" fast-deceleration="false">
+    <view class="scroll1" > 
+    <scroll-view scroll-x="true" class="scroll" scroll-x="true" enable-flex="false" fast-deceleration="false">
         <view class="scroll_view">
             <view class="iconn" wx:for="{{iconList}}" wx:for-item="block">
-                <view class="iconn_item" wx:for="{{block}}" wx:key="id" id="{{item.url}}">
+                <view  class="iconn_item" wx:for="{{block}}" wx:key="id" id="{{item.url}}">
                     <navigator url='../{{item.url}}' class="iconn_item_url">
                         <image class="iconn_item_image" src="{{item.icon}}"></image>
                         <text>{{item.name}}</text>
@@ -14,6 +14,14 @@
             </view>
         </view>
     </scroll-view>
+</view>
+    <!-- 滚动条 -->
+    <!-- <view class="slide">
+        <view class='slide-bar'>
+            <view class="slide-show"
+                style="width:{{slideWidth}}rpx; margin-left:{{slideLeft<=1 ? 0 : slideLeft+'rpx'}};"></view>
+        </view>
+    </view> -->
 
     <view class='wx-list menu margin-top' style='display:{{news? "block":"none"}}'>
         <view class="wx-item">
