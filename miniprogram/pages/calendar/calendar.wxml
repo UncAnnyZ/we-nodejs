@@ -4,7 +4,7 @@
     <view class="page__title">倒数日</view>
     <view class="page__desc">
       <view>{{term}}</view>
-      <text>{{jsonContent.month+1}} 月{{jsonContent.day}} 日 {{jsonContent.dayOfWeek}}</text>
+      <text>{{jsonContent.month+1}} 月{{jsonContent.day}} 日 {{jsonContent.dayOfWeek}} （滑动可删除)</text>
     </view>
 
     <view class="touch">

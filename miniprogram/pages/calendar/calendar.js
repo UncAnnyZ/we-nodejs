@@ -57,22 +57,32 @@ Page({
   setDataCalendar: function () { //页面渲染全部倒数日
     var addday = getApp().globalData._adday;
     var xlist = [];
+    var xlist1 = [];
     var nowdate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
     console.log("yesr", nowdate);
     for (let i = 0; i < addday.length; i++) {
       var gapDays2 = this.num_data(addday[i].holidayDate, nowdate);
-      xlist.push({
-        holidayName: addday[i].holidayName,
-        holidayDate: addday[i].holidayDate,
-        gapDays: gapDays2,
-        holidayRestInfo: addday[i].holidayDate,
-        isTouchMove: false
-      })
+      if(gapDays2 > 0){
+        xlist.push({
+          holidayName: addday[i].holidayName,
+          holidayDate: addday[i].holidayDate,
+          gapDays: gapDays2,
+          holidayRestInfo: addday[i].holidayDate,
+          isTouchMove: false
+        })
+      }else{
+        xlist1.push({
+          holidayName: addday[i].holidayName,
+          holidayDate: addday[i].holidayDate,
+          gapDays: gapDays2,
+          holidayRestInfo: addday[i].holidayDate,
+          isTouchMove: false
+        })
+      }
     }
-    
     this.setData({
       show: "",
-      list: xlist.sort(this.compare("gapDays")).reverse()
+      list: xlist.sort(this.compare("gapDays")).concat(xlist1.sort(this.compare("gapDays")).reverse())
     })
   },
 
