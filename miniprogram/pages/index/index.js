@@ -129,6 +129,7 @@ Page({
           aa = []
         }
       }
+      // iconList.push([lll[0],lll[1],lll[2]])
       
       this.setData({
         iconList: iconList,  // indexData.iconList,

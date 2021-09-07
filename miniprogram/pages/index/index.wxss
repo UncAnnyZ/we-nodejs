@@ -39,7 +39,8 @@ page {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 25%;
+  /* width: 25%; */
+  width: 182.5rpx;
   padding: 10rpx 0 20rpx 0;
   height: calc(150rpx - 30rpx);
 }
