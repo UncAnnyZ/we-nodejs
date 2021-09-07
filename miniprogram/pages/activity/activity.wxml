@@ -1,6 +1,6 @@
 <text class="title">欢迎其他社团与我们合作（可提供报名程序）\n</text>
 <!-- 添加机构报名的功能 -->
-<view class="back">
+<!-- <view class="back">
   <text class="txt">机构</text>
   <view class="wx-list grid no-border">
     <view class="wx-item" wx:for="{{info_jg}}" wx:key="1" id="{{item.url}}">
@@ -10,13 +10,24 @@
       </view>
     </view>
   </view>
+</view> -->
+<view class="back">
+  <text class="txt">机构</text>
+  <view class="iconn">
+    <view class="iconn_item" wx:for="{{info_jg}}" wx:key="1" id="{{item.url}}">
+      <view bindtap="act" data-statu="open" data-index="{{index}}" class="iconn_item_url">
+        <image class="iconn_item_url image" mode="scaleToFill" src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
 </view>
 <view class="back">
   <text class="txt">社团</text>
-  <view class="wx-list grid no-border">
-    <view class="wx-item" wx:for="{{info_st}}" wx:key="1" id="{{item.url}}">
-      <view bindtap="activityjr" data-statu="open" data-index="{{index}}">
-        <image class="fun-images" src="{{item.icon}}"></image>
+  <view class="iconn">
+    <view class="iconn_item" wx:for="{{info_st}}" wx:key="1" id="{{item.url}}">
+      <view bindtap="activityjr" data-statu="open" data-index="{{index}}"  class="iconn_item_url">
+        <image class="iconn_item_url image" mode="aspectFill" src="{{item.icon}}"></image>
         <text>{{item.name}}</text>
       </view>
     </view>
