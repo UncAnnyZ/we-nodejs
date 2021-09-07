@@ -80,7 +80,7 @@
 
 @media (prefers-color-scheme: dark) {
   .map_box {
-    filter: invert(80%) !important;
+    filter: invert(90%) !important;
   }
 
 }
