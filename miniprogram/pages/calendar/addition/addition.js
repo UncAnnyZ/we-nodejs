@@ -24,13 +24,13 @@ Page({
     })
     if (this.data.dayName == null || this.data.dayName == "" || this.data.dayName == undefined) {     //判断填写是否为空
       wx.showToast({
-        title: '目标日名称不能为空',
+        title: '名称不能为空',
         icon: 'none',
         duration: 1000
       })
     } else if (this.data.dates == null || this.data.dates == "" || this.data.dates == undefined ) {
       wx.showToast({
-        title: '目标日日期不能为空',
+        title: '日期不能为空',
         icon: 'none',
         duration: 1000
       })

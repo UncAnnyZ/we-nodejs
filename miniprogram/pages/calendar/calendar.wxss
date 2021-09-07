@@ -65,7 +65,12 @@ page {
   color: #444444;
   font-size: 40rpx;
   overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box; /*设置为弹性盒子*/ 
+  -webkit-line-clamp: 1; /*最多显示1行*/ 
+  overflow: hidden; /*超出隐藏*/ 
+  text-overflow: ellipsis; /*超出显示为省略号*/ 
+  -webkit-box-orient: vertical
+
 }
 .weui-item__desc {
   color: #686868;
@@ -331,6 +336,9 @@ button::after {
 @media (prefers-color-scheme: dark) {
   .gapDays {
     filter: invert(100%) !important;
+  }
+  .Days{
+    filter: invert(20%) !important;
   }
 
   .del {

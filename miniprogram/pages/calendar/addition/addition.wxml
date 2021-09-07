@@ -5,14 +5,14 @@
     
 
     <view class="course">  
-      <label>目标日名称:</label> 
+      <label>名称:</label> 
         <input class="input" placeholder="名称" name="DayName" bindinput="DayNameInput"></input>
     </view>
 
     <view class="section" bindtap='bindDateChange' dates='1'>  
       <picker mode="date" value="{{date}}" start="1978-01-01" end="2050-1-23" bindchange="bindDateChange">  
         <view class="picker">  
-          目标日日期:  {{dates}}  
+          日期:  {{dates}}  
         </view>  
       </picker>  
     </view>

@@ -8,7 +8,7 @@ Page({
    */
   data: {
     jsonContent: {
-      day: "2",
+      day: new Date().getDate(),
       month: new Date().getMonth(),
       dayOfWeek: "星期" + util.formatDay(new Date().getDay()),
     },
