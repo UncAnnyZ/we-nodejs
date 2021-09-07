@@ -210,7 +210,7 @@ page {
   font-size: 24rpx;
   color: #fff;
   font-weight:bold;
-  padding: 0 8rpx;
+  padding: 0 10rpx;
   word-break: break-word;
 }
 

@@ -130,6 +130,10 @@ Page({
   },
 
   del: function (e) { //删除倒数日  
+    wx.showLoading({
+      title: '处理中',
+      mask: true
+    })
     this.data.list.splice(e.currentTarget.dataset.index, 1)
     wx.cloud.callFunction({
       name: 'we_adday1',

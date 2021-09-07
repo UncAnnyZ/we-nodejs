@@ -218,13 +218,14 @@ Page({
     var zc = 0;
     for (let i in curriculum) {
       zc = curriculum[i].zc;
+      
       if (curriculum[i].xq == "7" && curriculum[i].dgksdm != undefined) {
         zc = String(Number(curriculum[i].zc) - 1);
       }
       if (zc == zs) {
         var kcmcc = curriculum[i].kcmc;
-        if (kcmcc.length > 13) {
-          kcmcc = kcmcc.substring(0, 13) + "...";
+        if ((curriculum[i].kcmc + curriculum[i].jxcdmc).length > 20) {
+          kcmcc = kcmcc.substring(0, 19-kcmcc.length) + "...";
         }
         data.wlist.push({
           xqj: curriculum[i].xq,
@@ -372,7 +373,6 @@ Page({
         var b = String(Number(this.data.sectionIndex[1] + 1))
       }
       for (i = 0; i < week.length; i++) {
-        console.log(week[i])
         var add = {
           'jcdm': a + b,
           'jxcdmc': this.data.place,
