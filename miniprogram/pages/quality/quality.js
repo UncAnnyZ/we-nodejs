@@ -17,7 +17,9 @@ Page({
     if (quality[0] == undefined) {
       isCourse = '';
     }
+    console.log(quality.ktmc);
     for (let i = 0; i < quality.length; i++) {
+      quality[i].ktmc =  quality[i].ktmc.replace("&ldquo;", "").split("&rdquo;")[0]
       if (quality[i].hdxf >= 0.4) {
         color.push("#11c1f3");
       } else if (quality[i].hdxf >= 0.3) {
