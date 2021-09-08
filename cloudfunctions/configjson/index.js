@@ -48,6 +48,10 @@ exports.main = async (event, context) => {
       url: '/pages/more/skrw/skrw',
       name: '学生上课任务',
       imgUrl: '/images/icon/1.png'
+    }, {
+      url: "/pages/about/about",
+      imgUrl: "/images/icon/collect.png",
+      name: "关于我们"
     }],
     index: {
       news: true, // 通知内容显示
@@ -92,9 +96,19 @@ exports.main = async (event, context) => {
         name: "上课任务"
       }, {
         id: "8",
-        url: "about/about",
-        icon: "../../images/icon/collect.png",
-        name: "关于我们"
+        url: "recommend/recommend",
+        icon: "../../images/icon/examination.png",
+        name: "邻家小市"
+      }, {
+        id: "9",
+        url: "recommend/recommend",
+        icon: "../../images/icon/examination.png",
+        name: "邻家小市"
+      }, {
+        id: "10",
+        url: "recommend/recommend",
+        icon: "../../images/icon/examination.png",
+        name: "邻家小市"
       }],
       inform: [{
           comment: "消息",

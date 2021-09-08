@@ -8,7 +8,7 @@ page {
 .scroll1{
   border-radius: 20rpx;
   width: 730rpx;
-  height: 300rpx;
+  height: 320rpx;
   margin: 10rpx;
   background-color: #fff;
 }
@@ -130,21 +130,23 @@ page {
   animation-iteration-count: infinite;
 }
 .slide{
-  height:30rpx;
   background:#fff;
   width:100%;
-  padding:14rpx 0 5rpx 0
+  /* border-radius: 100rpx; */
 }
 .slide .slide-bar{
-  width:230rpx;
+  width:90rpx;
+  height: 9rpx;
   margin:0 auto;
-  height:1.5px;
+  border-radius: 20rpx;
+  /* height:1.5px; */
+
   background:#eee;
 }
 .slide .slide-bar .slide-show{
   height:100%;
+  border-radius: 20rpx;
   background-color:#ff6969;
-
 }
 @keyframes first
 {

@@ -1,9 +1,9 @@
 <image style="display: {{adImg?adImg:'none'}}" src='{{adImg}}' mode="widthFix"></image>
 <ad class="ad" unit-id="adunit-3b513ed5750984a1" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad>
-<view class='{{show}}'>
+<view class='{{show}}' >
     <view class="scroll1">
         <scroll-view scroll-x="true" class="scroll" scroll-x="true" enable-flex="false" enhanced="true" bounces="true"
-            show-scrollbar="true" fast-deceleration="false">
+            show-scrollbar="true" fast-deceleration="false" bindscroll="getleft">
             <view class="scroll_view">
                 <view class="iconn" wx:for="{{iconList}}" wx:for-item="block"
                     style="width: {{ block.length%2==0 ? (block.length/2)*182.5 : ((block.length+1)/2)*182.5}}rpx;">
@@ -16,14 +16,14 @@
                 </view>
             </view>
         </scroll-view>
-    </view>
-    <!-- 滚动条 -->
-    <!-- <view class="slide">
+        <view wx:if="{{slideShow}}" class="slide">
         <view class='slide-bar'>
             <view class="slide-show"
                 style="width:{{slideWidth}}rpx; margin-left:{{slideLeft<=1 ? 0 : slideLeft+'rpx'}};"></view>
         </view>
-    </view> -->
+    </view>
+    </view>
+    <!-- 滚动条 -->
 
     <view class='wx-list menu margin-top' style='display:{{news? "block":"none"}}'>
         <view class="wx-item">

@@ -19,6 +19,12 @@ Page({
     return whichWeek;
   },
   data: {
+    navigate_type:'',//分类类型，是否包含二级分类
+    slideWidth:'',//滑块宽
+    slideLeft:0 ,//滑块位置
+    totalLength:'',//当前滚动列表总长
+    slideShow:false,
+    slideRatio:'', //滑动
     adImg: '',
     ad: false,
     news: false, // 通知内容显示
@@ -101,6 +107,7 @@ Page({
       class: true,
       isCourse: isCourse
     });
+    this.getRatio();
   },
 
   // 关闭广告位
@@ -112,7 +119,15 @@ Page({
 
   onLoad: function (options) {
     // 渲染场景
+    var self = this ;
+    var systemInfo = wx.getSystemInfoSync() ;
+    self.setData({
+      windowHeight: app.globalData.navigate_type == 1 ? systemInfo.windowHeight : systemInfo.windowHeight - 35,
+      windowWidth: systemInfo.windowWidth,
+      navigate_type: app.globalData.navigate_type
+    })
     this.showAll();
+
   },
 
   // 渲染到页面
@@ -138,6 +153,7 @@ Page({
         ad: indexData.ad,
         adImg: indexData.adImg
       });
+  
     }
 
   },
@@ -239,7 +255,26 @@ Page({
 
   },
 
-
+  //根据分类获取比例
+  getRatio(){
+    var self = this ;
+    if (self.data.iconList[0].length <= 8){
+      console.log(self.data.iconList[0].length)
+      this.setData({
+        slideShow:false
+      })
+    }else{
+      var _totalLength = Math.ceil(self.data.iconList[0].length/2) * 187.5; //分类列表总长度
+      var _ratio = 90 / _totalLength * (750 / this.data.windowWidth); //滚动列表长度与滑条长度比例
+      var _showLength = 750 / _totalLength * 90; //当前显示红色滑条的长度(保留两位小数)
+      this.setData({
+        slideWidth: _showLength,
+        totalLength: _totalLength,
+        slideShow: true,
+        slideRatio:_ratio
+      })
+    }
+  } ,
 
   // 分享we广油
   onShareAppMessage: function (res) {
@@ -247,7 +282,12 @@ Page({
       title: 'We广油',
     }
   },
-
+  getleft(e){
+    console.log(e.detail.scrollLeft * this.data.slideRatio);
+    this.setData({
+      slideLeft: e.detail.scrollLeft * this.data.slideRatio
+    })
+  } ,
   // 上拉刷新
   onPullDownRefresh() {
     wx.showNavigationBarLoading() //在标题栏中显示加载
