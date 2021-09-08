@@ -37,9 +37,9 @@
   </view>
 
   <view class="hd">
-    <image class="logo" src="/images/xiaohui.png"></image>
-    <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
-    <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+    <image class="logo" src="image/xiaohui.png"></image>
+    <image class="wave" src="image/wave.png" mode="aspectFill"></image>
+    <image class="wave wave-bg" src="image/wave.png" mode="aspectFill"></image>
   </view>
 
   <view class="login">

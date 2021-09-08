@@ -7,29 +7,106 @@
   "pages": [
     "pages/index/index",
     "pages/more/more",
-    "pages/achievement/achievement",
-    "pages/quality/quality",
-    "pages/about/about",
-    "pages/schoolNav/schoolNav",
-    "pages/curriculum/curriculum",
-    "pages/curriculum/addcurriculum/addcurriculum",
-    "pages/activity/activity",
-    "pages/calendar/calendar",
-    "pages/calendar/addition/addition",
-    "pages/more/skrw/skrw",
-    "pages/more/tc/tc",
-    "pages/login/login",
-    "pages/setting/setting",
-    "pages/recommend/recommend",
-    "pages/activity/mod/mod"
+    "pages/curriculum/curriculum"
   ],
   "subpackages": [
     {
-      "root": "images/activity",
-      "pages": []
+      "name": "pack-login",
+      "root": "pages/login",
+      "pages": ["login"],
+      "independent": true
+    },
+    {
+      "name": "pack-about",
+      "root": "pages/about",
+      "pages": ["about"]
+    },
+    {
+      "name": "pack-achievement",
+      "root": "pages/achievement",
+      "pages": ["achievement"]
+    },
+    {
+      "name": "pack-activity",
+      "root": "pages/activity",
+      "pages": [
+        "activity",
+        "mod/mod"
+      ]
+    },
+    {
+      "name": "pack-addcurriculum",
+      "root": "pages/curriculum/addcurriculum",
+      "pages": ["addcurriculum"]
+    },
+    {
+      "name": "pack-calendar",
+      "root": "pages/calendar",
+      "pages": [
+        "calendar",
+        "addition/addition"
+      ]
+    },
+    {
+      "name": "pack-quality",
+      "root": "pages/quality",
+      "pages": ["quality"]
+    },
+    {
+      "name": "pack-schoolNav",
+      "root": "pages/schoolNav",
+      "pages": ["schoolNav"]
+    },
+    {
+      "name": "pack-recommend",
+      "root": "pages/recommend",
+      "pages": ["recommend"]
+    },
+    {
+      "name": "pack-setting",
+      "root": "pages/setting",
+      "pages": ["setting"]
+    },
+    {
+      "name": "pack-more-tc",
+      "root": "pages/more/tc",
+      "pages": ["tc"]
+    },
+    {
+      "name": "pack-more-skrw",
+      "root": "pages/more/skrw",
+      "pages": ["skrw"]
     }
-    
+
+
   ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "pack-login",
+        "pack-about",
+        "pack-achievement",
+        "pack-activity",
+        "pack-addcurriculum",
+        "pack-calendar",
+        "pack-quality",
+        "pack-schoolNav",
+        "pack-recommend",
+        "pack-setting"
+      ]
+    },
+    "pages/more/more":{
+      "network": "all",
+      "packages": [
+        "pages/more/tc",
+        "pages/more/skrw"
+      ]
+    },
+    "pages/login/login": {
+      "packages": ["__APP__"]
+    }
+  },
   "tabBar": {
     "color": "@color",
     "selectedColor": "@selectedColor",

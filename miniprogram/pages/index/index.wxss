@@ -132,7 +132,7 @@ page {
 .slide{
   height:30rpx;
   background:#fff;
-  with:100%;
+  width:100%;
   padding:14rpx 0 5rpx 0
 }
 .slide .slide-bar{
