@@ -2,29 +2,14 @@
 //获取应用实例
 const app = getApp()
 Page({
-  getweekString: function () {
-    var Date1 = new Date();
-    var y = Date1.getFullYear();
-    var Date2 = new Date(wx.getStorageSync('configData').timeYear);
-    var dayOfWeek = Date2.getDay();
-    var day1fWeek = Date1.getDay();
-    //如果把周日算在一周的最后一天，请加上下面这句
-    dayOfWeek = dayOfWeek == 0 ? 7 : dayOfWeek
-    //如果把周日算在一周的第一天，请删除上面这句
-    var num = (Date1 - Date2) / 1000 / 3600 / 24;
-    var whichWeek = Math.ceil((num + dayOfWeek) / 7);
-    if (day1fWeek == 0) {
-      whichWeek = whichWeek - 1;
-    }
-    return whichWeek;
-  },
+
   data: {
-    navigate_type:'',//分类类型，是否包含二级分类
-    slideWidth:'',//滑块宽
-    slideLeft:0 ,//滑块位置
-    totalLength:'',//当前滚动列表总长
-    slideShow:false,
-    slideRatio:'', //滑动
+    navigate_type: '', //分类类型，是否包含二级分类
+    slideWidth: '', //滑块宽
+    slideLeft: 0, //滑块位置
+    totalLength: '', //当前滚动列表总长
+    slideShow: false,
+    slideRatio: '', //滑动
     adImg: '',
     ad: false,
     news: false, // 通知内容显示
@@ -41,12 +26,22 @@ Page({
     show: "show",
     isCourse: false
   },
-  // 跳转课程表
-  setClass: function (e) {
-    wx.navigateTo({
-      url: '/pages/curriculum/curriculum'
+
+
+  onLoad: function (options) {
+    // 渲染场景
+    var self = this;
+    var systemInfo = wx.getSystemInfoSync();
+    self.setData({
+      windowHeight: app.globalData.navigate_type == 1 ? systemInfo.windowHeight : systemInfo.windowHeight - 35,
+      windowWidth: systemInfo.windowWidth,
+      navigate_type: app.globalData.navigate_type
     })
+    this.showAll();
+
   },
+
+
   // 页面刷新
   onShow: function () {
     if (getApp().globalData.curriculum) {
@@ -54,7 +49,110 @@ Page({
     }
   },
 
-  // 一个进入课表采集的函数
+  // 请求进行信息获取
+  showAll: function () {
+
+    // 读取本地配置信息
+    var configData = wx.getStorageSync('configData');
+    this.setStorageData(configData.index);
+
+    // 读取云端配置信息
+    this.getCloudConfigData()
+
+    // 获取个人数据
+    var nowTime = new Date().getTime(); // 当前时间
+    var personalData = wx.getStorageSync('personaldata');
+      // 不为空，则先将本地的数据用于展示
+    personalData ? this.we_index(personalData) : null;
+    if (!(personalData.length != 0 && nowTime - wx.getStorageSync('oldTime') < Number(configData.time) * 1000)) {
+      if (!(personalData.length != 0)) {
+        wx.showLoading({
+          title: '更新数据中',
+          mask: true
+        })
+      }
+      // weLoading 更新个人课表信息
+      this.weLoading(personalData)
+    }
+  },
+
+  // 读取云端配置信息
+  getCloudConfigData(){
+    var that = this
+
+    wx.cloud.callFunction({
+      name: 'configjson',
+      success: res => {
+        if (res.result.reset == true) {
+          // 清除所有缓存
+          wx.clearStorageSync();
+        }
+        // 将数据渲染到本页面，用于展示
+        that.setStorageData(res.result.index);
+        
+        wx.setStorageSync('configData', res.result);
+        // 判断信息发主页通知
+        if (res.result.msgData != wx.getStorageSync('msgData')) {
+          wx.showModal({
+            title: res.result.msgTitle,
+            confirmText: '确定',
+            showCancel: false,
+            content: res.result.msgData,
+            success: function () {
+              wx.setStorageSync('msgData', res.result.msgData);
+            }
+          })
+        }
+      }
+    })
+  },
+  // 更新个人课表信息
+  weLoading(personalData){
+    var that = this
+    wx.cloud.callFunction({
+      name: 'weLoading',
+      success: res => {
+        if (res.result == "0") {
+          that.setData({
+            classMsg: '暂无登录',
+          });
+          wx.showToast({
+            title: '加载完成',
+            icon: 'none',
+          });
+        } else {
+          wx.setStorageSync('personaldata', res.result);
+          that.we_index(res.result);
+          wx.showToast({
+            title: '加载完成',
+            icon: 'none',
+          });
+          wx.setStorageSync('oldTime', nowTime);
+        }
+      },
+      fail: err => {
+        // 兜底
+        if (personalData.length != 0) {
+          wx.showToast({
+            title: '本地完成',
+            icon: 'none',
+          });
+        } else {
+          that.setData({
+            classMsg: '学校服务器出错，请等待',
+          });
+          wx.showToast({
+            title: '学校服务器出错，请等待',
+            icon: 'none',
+          });
+        }
+      }
+
+    })
+  },
+
+
+  // 将数据更新至全局
   we_index: function (data) {
     getApp().globalData.achievement = data.a_data;
     getApp().globalData.quality = data.t_data;
@@ -65,12 +163,13 @@ Page({
     getApp().globalData.curriculum1 = JSON.parse(JSON.stringify(data.c_data));
     getApp().globalData.username = data.username;
     var curriculum = app.changeCurriculum(getApp().globalData._add, getApp().globalData._de, getApp().globalData.curriculum);
+    // 将课表格式化显示
     this.setcurriculum(curriculum);
     getApp().globalData.curriculum = curriculum;
 
   },
 
-  // 最后一步渲染
+  // 格式化课表显示
   setcurriculum: function (curriculum) {
     var course = [];
     var that = this;
@@ -107,30 +206,24 @@ Page({
       class: true,
       isCourse: isCourse
     });
-    this.getRatio();
+  },
+  getweekString: function () {
+    var Date1 = new Date();
+    var Date2 = new Date(wx.getStorageSync('configData').timeYear);
+    var dayOfWeek = Date2.getDay();
+    var day1fWeek = Date1.getDay();
+    //如果把周日算在一周的最后一天，请加上下面这句
+    dayOfWeek = dayOfWeek == 0 ? 7 : dayOfWeek
+    //如果把周日算在一周的第一天，请删除上面这句
+    var num = (Date1 - Date2) / 1000 / 3600 / 24;
+    var whichWeek = Math.ceil((num + dayOfWeek) / 7);
+    if (day1fWeek == 0) {
+      whichWeek = whichWeek - 1;
+    }
+    return whichWeek;
   },
 
-  // 关闭广告位
-  hide(e) {
-    this.setData({
-      ad: false
-    })
-  },
-
-  onLoad: function (options) {
-    // 渲染场景
-    var self = this ;
-    var systemInfo = wx.getSystemInfoSync() ;
-    self.setData({
-      windowHeight: app.globalData.navigate_type == 1 ? systemInfo.windowHeight : systemInfo.windowHeight - 35,
-      windowWidth: systemInfo.windowWidth,
-      navigate_type: app.globalData.navigate_type
-    })
-    this.showAll();
-
-  },
-
-  // 渲染到页面
+  // 将数据渲染到本页面，用于展示
   setStorageData: function (indexData) {
     if (indexData) // 判断不为空渲染
     {
@@ -139,142 +232,69 @@ Page({
       var aa = []
       for (let i = 0; i < lll.length; i++) {
         aa.push(lll[i])
-        if ( (i % 8 == 0 && i != 0) || i == lll.length-1) {
+        if ((i % 8 == 0 && i != 0) || i == lll.length - 1) {
           iconList.push(aa)
           aa = []
         }
       }
-      // iconList.push([lll[0],lll[1],lll[2]])
-      
+      // iconList.push([lll[0], lll[1], lll[2], lll[1], lll[2], lll[1], lll[2], lll[1], lll[2]])
+
       this.setData({
-        iconList: iconList,  // indexData.iconList,
+        iconList: iconList, // indexData.iconList,
         inform: indexData.inform,
         news: indexData.news,
         ad: indexData.ad,
         adImg: indexData.adImg
       });
-  
-    }
 
+    }
+    
+    this.getRatio();
   },
 
-  // 请求进行信息获取
-  showAll: function () {
-    var that = this
-    var configData = wx.getStorageSync('configData');
-    this.setStorageData(configData.index);
-    // 基础配置信息
-    wx.cloud.callFunction({
-      name: 'configjson',
-      success: res => {
-        if (res.result.reset == true) {
-          // 清除所有缓存
-          wx.clearStorageSync();
-        }
-        that.setStorageData(res.result.index);
-        wx.setStorage({
-          key: 'configData',
-          data: res.result
-        });
-        // 判断信息发主页通知
-        if (res.result.msgData != wx.getStorageSync('msgData')) {
-          wx.showModal({
-            title: res.result.msgTitle,
-            confirmText: '确定',
-            showCancel: false,
-            content: res.result.msgData,
-            success: function () {
-              wx.setStorage({
-                key: 'msgData',
-                data: res.result.msgData
-              });
-            }
-          })
-        }
-      }
-    })
-    // 获取个人数据
-    var nowTime = new Date().getTime(); // 当前时间
-    var personalData = wx.getStorageSync('personaldata');
-    personalData ? this.we_index(personalData) : null;
-    if (!(personalData.length != 0 && nowTime - wx.getStorageSync('oldTime') < Number(configData.time) * 1000)) {
-      if (!(personalData.length != 0)) {
-        wx.showLoading({
-          title: '更新数据中',
-          mask: true
-        })
-        // 记录当前时间
-      }
-      wx.cloud.callFunction({
-        name: 'weLoading',
-        success: res => {
-          if (res.result == "0") {
-            that.setData({
-              classMsg: '暂无登录',
-            });
-            wx.showToast({
-              title: '加载完成',
-              icon: 'none',
-            });
-          } else {
-            wx.setStorage({
-              key: 'personaldata',
-              data: res.result
-            });
-            that.we_index(res.result);
-            wx.showToast({
-              title: '加载完成',
-              icon: 'none',
-            });
-            wx.setStorage({
-              key: 'oldTime',
-              data: nowTime
-            })
-          }
-        },
-        fail: err => {
-          // 兜底
-          if (personalData.length != 0) {
-            wx.showToast({
-              title: '本地完成',
-              icon: 'none',
-            });
-          } else {
-            that.setData({
-              classMsg: '学校服务器出错，请等待',
-            });
-            wx.showToast({
-              title: '学校服务器出错，请等待',
-              icon: 'none',
-            });
-          }
-        }
-
-      })
-    }
-
-  },
 
   //根据分类获取比例
-  getRatio(){
-    var self = this ;
-    if (self.data.iconList[0].length <= 8){
+  getRatio() {
+    var self = this;
+    if (self.data.iconList[0].length <= 8) {
       console.log(self.data.iconList[0].length)
       this.setData({
-        slideShow:false
+        slideShow: false
       })
-    }else{
-      var _totalLength = Math.ceil(self.data.iconList[0].length/2) * 187.5; //分类列表总长度
+    } else {
+      var _totalLength = Math.ceil(self.data.iconList[0].length / 2) * 187.5; //分类列表总长度
       var _ratio = 90 / _totalLength * (750 / this.data.windowWidth); //滚动列表长度与滑条长度比例
       var _showLength = 750 / _totalLength * 90; //当前显示红色滑条的长度(保留两位小数)
       this.setData({
         slideWidth: _showLength,
         totalLength: _totalLength,
         slideShow: true,
-        slideRatio:_ratio
+        slideRatio: _ratio
       })
     }
-  } ,
+  },
+
+  getleft(e) {
+    console.log(e.detail.scrollLeft * this.data.slideRatio);
+    this.setData({
+      slideLeft: e.detail.scrollLeft * this.data.slideRatio
+    })
+  },
+
+
+  // 跳转课程表
+  setClass: function (e) {
+    wx.navigateTo({
+      url: '/pages/curriculum/curriculum'
+    })
+  },
+  // 关闭广告位
+  hide(e) {
+    this.setData({
+      ad: false
+    })
+  },
+
 
   // 分享we广油
   onShareAppMessage: function (res) {
@@ -282,13 +302,8 @@ Page({
       title: 'We广油',
     }
   },
-  getleft(e){
-    console.log(e.detail.scrollLeft * this.data.slideRatio);
-    this.setData({
-      slideLeft: e.detail.scrollLeft * this.data.slideRatio
-    })
-  } ,
-  // 上拉刷新
+
+  // 下拉刷新
   onPullDownRefresh() {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     this.showAll();
