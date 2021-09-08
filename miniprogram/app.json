@@ -23,6 +23,13 @@
     "pages/recommend/recommend",
     "pages/activity/mod/mod"
   ],
+  "subpackages": [
+    {
+      "root": "images/activity",
+      "pages": []
+    }
+    
+  ],
   "tabBar": {
     "color": "@color",
     "selectedColor": "@selectedColor",
