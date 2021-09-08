@@ -9,13 +9,13 @@
       show-compass>
       <cover-view class="controls {{fullscreen ? 'full' : ''}}">
         <cover-view bindtap="jtt">
-          <cover-image class="img" src="/images/nav/staticMap.png" />
+          <cover-image class="img" src="image/staticMap.png" />
         </cover-view>
         <cover-view bindtap="moveSchool">
-          <cover-image class="img" src="/images/nav/moveSchool.png" />
+          <cover-image class="img" src="image/moveSchool.png" />
         </cover-view>
         <cover-view bindtap="location">
-          <cover-image class="img" src="/images/nav/location.png" />
+          <cover-image class="img" src="image/location.png" />
         </cover-view>
       </cover-view>
     </map>
