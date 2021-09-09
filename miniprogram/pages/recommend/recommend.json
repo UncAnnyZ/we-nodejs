@@ -1,4 +1,7 @@
 {
-  "navigationBarTitleText": "We广油 - 校园平台",
-  "backgroundColor": "#fff"
+  "navigationBarTitleText": "We广油",
+  "backgroundColor": "#fff",
+  "usingComponents": {
+    "mp-weixin": "/components/mp-weixin/index"
+  }
 }

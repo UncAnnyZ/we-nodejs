@@ -1,7 +1,6 @@
 /**index.wxss**/
 page{
   background-color:rgb(255, 255, 255);
-    height: 100%;
 }
 .container{
   height: 100%;
@@ -293,4 +292,17 @@ page{
 
   margin: 0;
 
+}
+
+@media (prefers-color-scheme: dark) {
+  .htmlText {
+    filter: invert(90%) !important;
+  }
+  ._div {
+    /* filter: invert(0%) !important; */
+  }
+  button, switch, scroll-view, image {
+    filter: invert(0%) !important;
+}
+  
 }

@@ -66,7 +66,7 @@ exports.main = async (event, context) => {
         id: "2",
         url: "activity/activity",
         icon: "../../images/icon/news.png",
-        name: "社团活动"
+        name: "社团招新"
       }, {
         id: "3",
         url: "schoolNav/schoolNav",
@@ -96,17 +96,12 @@ exports.main = async (event, context) => {
         name: "上课任务"
       }, {
         id: "8",
-        url: "recommend/recommend",
+        url: "recommend/recommend?appId=wx0dffe79bb2223828",
         icon: "../../images/icon/examination.png",
         name: "邻家小市"
       }, {
         id: "9",
-        url: "recommend/recommend",
-        icon: "../../images/icon/examination.png",
-        name: "邻家小市"
-      }, {
-        id: "10",
-        url: "recommend/recommend",
+        url: "recommend/recommend?urlName=表白墙",
         icon: "../../images/icon/examination.png",
         name: "邻家小市"
       }],
