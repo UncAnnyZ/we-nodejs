@@ -99,12 +99,8 @@ exports.main = async (event, context) => {
         url: "recommend/recommend?appId=wx0dffe79bb2223828",
         icon: "../../images/icon/examination.png",
         name: "邻家小市"
-      }, {
-        id: "9",
-        url: "recommend/recommend?urlName=表白墙",
-        icon: "../../images/icon/examination.png",
-        name: "邻家小市"
-      }],
+      }
+    ],
       inform: [{
           comment: "消息",
           name: "下拉可刷新，课本可左右滑动",

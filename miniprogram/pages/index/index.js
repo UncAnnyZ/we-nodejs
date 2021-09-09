@@ -295,8 +295,9 @@ Page({
   // 刷新滚条位置
   getleft(e) {
     console.log(e.detail.scrollLeft * this.data.slideRatio);
+    var l = Math.ceil(this.data.iconList[1].length / 2) * 91;
     this.setData({
-      slideLeft: e.detail.scrollLeft * this.data.slideRatio
+      slideLeft: l>= e.detail.scrollLeft ? e.detail.scrollLeft * this.data.slideRatio : l * this.data.slideRatio
     })
   },
 
