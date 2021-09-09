@@ -230,7 +230,9 @@ Page({
       var lll = indexData.iconList
       var iconList = []
       var aa = []
-      // for(let i in lll)
+
+      // var length = lll.length - 5
+      // for(var i = 0; i < length; i++)
       //   lll.push(lll[i])
 
       if (lll.length <= 8) {
@@ -256,14 +258,14 @@ Page({
         ad: indexData.ad,
         adImg: indexData.adImg
       });
-
+      // 初始化scroll-view
+      this.getRatio();
     }
 
-    this.getRatio();
   },
 
 
-  //根据分类获取比例
+  // 计算 scroll-view 滚条参数及滑动比例
   getRatio() {
     var self = this;
     if (self.data.iconList.length <= 1) {
@@ -271,9 +273,17 @@ Page({
         slideShow: false
       })
     } else {
-      var _totalLength = Math.ceil(self.data.iconList[0].length / 2) * 187.5; //分类列表总长度
-      var _ratio = 90 / _totalLength * (750 / this.data.windowWidth); //滚动列表长度与滑条长度比例
-      var _showLength = 750 / _totalLength * 90; //当前显示红色滑条的长度(保留两位小数)
+      // 与index.css中 .slide-bar{width}对应
+      const barWidth = 90;      // 固定长度是160rpx
+      const iconWidth = 182.5;  // 一个图标的宽度为182.5rpx
+
+      var _totalLength = Math.ceil(self.data.iconList[1].length / 2) + 4  // 总的横向个数
+      var onelength = barWidth / _totalLength                             // 一个图标 所占滚条的宽度
+      var _showLength = barWidth - onelength * (_totalLength - 4)         // 红色滑条的长度(保留两位小数)
+
+      // 一个图标 实际宽度:滚条所占宽度 （后面转化单位 px → rpx ）
+      var _ratio =  onelength / iconWidth * (750 / this.data.windowWidth) 
+
       this.setData({
         slideWidth: _showLength,
         totalLength: _totalLength,
@@ -282,7 +292,7 @@ Page({
       })
     }
   },
-
+  // 刷新滚条位置
   getleft(e) {
     console.log(e.detail.scrollLeft * this.data.slideRatio);
     this.setData({
