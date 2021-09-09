@@ -6,7 +6,7 @@
             show-scrollbar="true" fast-deceleration="false" bindscroll="getleft">
             <view class="scroll_view">
                 <view class="iconn" wx:for="{{iconList}}" wx:for-item="block"
-                    style="width: {{ block.length%2==0 ? (block.length/2)*182.5 : ((block.length+1)/2)*182.5}}rpx;">
+                    style="flex-direction: {{index > 0 ? 'column':'row'}}; width: {{ block.length%2==0 ? (block.length/2)*182.5 : ((block.length+1)/2)*182.5}}rpx;">
                     <view class="iconn_item" wx:for="{{block}}" wx:key="id" id="{{item.url}}">
                         <navigator url='../{{item.url}}' class="iconn_item_url">
                             <image class="iconn_item_image" src="{{item.icon}}"></image>

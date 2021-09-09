@@ -62,7 +62,7 @@ Page({
     // 获取个人数据
     var nowTime = new Date().getTime(); // 当前时间
     var personalData = wx.getStorageSync('personaldata');
-      // 不为空，则先将本地的数据用于展示
+    // 不为空，则先将本地的数据用于展示
     personalData ? this.we_index(personalData) : null;
     if (!(personalData.length != 0 && nowTime - wx.getStorageSync('oldTime') < Number(configData.time) * 1000)) {
       if (!(personalData.length != 0)) {
@@ -72,12 +72,12 @@ Page({
         })
       }
       // weLoading 更新个人课表信息
-      this.weLoading(personalData)
+      this.weLoading(personalData, nowTime)
     }
   },
 
   // 读取云端配置信息
-  getCloudConfigData(){
+  getCloudConfigData() {
     var that = this
 
     wx.cloud.callFunction({
@@ -89,7 +89,7 @@ Page({
         }
         // 将数据渲染到本页面，用于展示
         that.setStorageData(res.result.index);
-        
+
         wx.setStorageSync('configData', res.result);
         // 判断信息发主页通知
         if (res.result.msgData != wx.getStorageSync('msgData')) {
@@ -107,7 +107,7 @@ Page({
     })
   },
   // 更新个人课表信息
-  weLoading(personalData){
+  weLoading(personalData, nowTime) {
     var that = this
     wx.cloud.callFunction({
       name: 'weLoading',
@@ -230,14 +230,24 @@ Page({
       var lll = indexData.iconList
       var iconList = []
       var aa = []
-      for (let i = 0; i < lll.length; i++) {
-        aa.push(lll[i])
-        if ((i % 8 == 0 && i != 0) || i == lll.length - 1) {
-          iconList.push(aa)
-          aa = []
+      // for(let i in lll)
+      //   lll.push(lll[i])
+
+      if (lll.length <= 8) {
+        for (let i = 0; i < lll.length; i++)
+          aa.push(lll[i])
+
+        iconList.push(aa)
+      } else {
+        for (let i = 0; i < lll.length; i++) {
+          aa.push(lll[i])
+          // 前八个一组，后面所有为一组
+          if (i == 7 || i == lll.length - 1) {
+            iconList.push(aa)
+            aa = []
+          }
         }
       }
-      // iconList.push([lll[0], lll[1], lll[2], lll[1], lll[2], lll[1], lll[2], lll[1], lll[2]])
 
       this.setData({
         iconList: iconList, // indexData.iconList,
@@ -248,7 +258,7 @@ Page({
       });
 
     }
-    
+
     this.getRatio();
   },
 
@@ -256,8 +266,7 @@ Page({
   //根据分类获取比例
   getRatio() {
     var self = this;
-    if (self.data.iconList[0].length <= 8) {
-      console.log(self.data.iconList[0].length)
+    if (self.data.iconList.length <= 1) {
       this.setData({
         slideShow: false
       })
