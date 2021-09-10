@@ -1,9 +1,11 @@
 <!--index.wxml-->
-<view class="container">
+<view style="width: 100%;">
   <!-- <view class="image"> -->
     <!-- <image src="cloud://un1-d62c68.756e-un1-d62c68-1258307938/gg.png"/>
       <button bindtap="gg1">点击预定蛋糕</button>
   </view> -->
+  <!-- <wxParse nodes="{{ htmlText }}" /> -->
+  <view class="htmlText">  <mp-weixin content="{{htmlText}}" /></view>
 
 </view>
 

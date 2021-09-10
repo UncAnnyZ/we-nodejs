@@ -121,7 +121,6 @@ Page({
     var wlist = [];
     var pd1 = /(.*?),/g;
     for (let i = 0; i < addcurriculum.length; i++) {
-      console.log("进来了？？？")
       wlist.push({
         zs: '第' + addcurriculum[i].zc + '周',
         xqj: '星期' + addcurriculum[i].xq,

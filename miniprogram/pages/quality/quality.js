@@ -7,16 +7,13 @@ Page({
   data: {
     achievement: [],
     color: [],
-    show: "show",
-    isCourse: 'none'
+    show: "show"
   },
   onLoad: function () {
     getApp().loginState();
-    let data = [], color = [], isCourse = 'none',n=0;
+    let color = [], n=0;
     var quality = getApp().globalData.quality;
-    if (quality[0] == undefined) {
-      isCourse = '';
-    }
+    
     console.log(quality.ktmc);
     for (let i = 0; i < quality.length; i++) {
       quality[i].ktmc =  quality[i].ktmc.replace("&ldquo;", "").split("&rdquo;")[0]
@@ -38,8 +35,7 @@ Page({
       TotalCredit: n.toFixed(1),
       show: "",
       list: quality,
-      color: color,
-      isCourse: isCourse,
+      color: color
     })
   },
 })

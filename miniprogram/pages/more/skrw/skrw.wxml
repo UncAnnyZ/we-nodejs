@@ -16,9 +16,9 @@
   </view>
 </view>
 <view class="main">
-<view class='wx-isclass' style="display: {{isCourse}}">木有上课任务哟</view>
+<view class='wx-isclass' wx:if="{{list.length == 0}}">木有上课任务哟</view>
   <view class="list">
-    <block wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+    <block wx:key="4" wx:for="{{list}}" wx:key="key" wx:for-item="item" wx:for-index="id">
       <view class="data">
         <view class="data-adj">
           <view class="upWard" style="background-color:{{id==0?'#fff':'#fff'}}"></view>

@@ -163,7 +163,7 @@ page {
   position: relative;
   height: 100%;
   border-radius: 20rpx;
-  background-color: #ff6969;
+  background-color: rgb(236, 94, 47);
 }
 
 /* 隐藏默认滚动条 */
@@ -395,5 +395,8 @@ page {
 
   .background-color_1 {
     background-color: #a0c8e1 !important;
+  }
+  .slide-show {
+    filter: invert(30%) !important;
   }
 }

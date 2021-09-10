@@ -10,7 +10,7 @@
   </view>
 </view>
 <view class="main">
-<view class='wx-isclass' style="display: {{isCourse}}">木有素拓哟</view>
+<view class='wx-isclass' wx:if="{{list.length == 0}}">木有素拓哟</view>
   <view class="list">
     <block wx:key="id" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
       <view class="data">

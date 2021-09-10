@@ -10,8 +10,7 @@ Page({
     color: [],
     skrw: '',
     show: "show",
-    index: 0,
-    isCourse: 'none'
+    index: 0
   },
   bindPickerChange(e){
     this.xiu(this.data.skrw,  this.data.array[e.detail.value]);
@@ -44,10 +43,7 @@ Page({
     that.xiu(skrw,  this.data.array[0]);
   },
   xiu:function(skrw, date){
-    let data = [], color = [], isCourse = 'none', n = 0;
-    if (skrw[0] == undefined) {
-      isCourse = '';
-    }
+    let data = [], color = [], n = 0;
     
     for (let i = 0; i < skrw.length; i++) {
       if(skrw[i]['date'] == date){
@@ -72,7 +68,6 @@ Page({
       list: data,
       array: this.data.array,
       color: color,
-      isCourse: isCourse,
       Totalnumber :data.length
     })
   },

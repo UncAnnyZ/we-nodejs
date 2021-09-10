@@ -16,7 +16,7 @@
 
   <view class="container" wx:if="{{index == 0}}">
 
-    <view class="block" wx:for="{{kcmc}}" id="{{index}}" bindtap="change">
+    <view class="block" wx:for="{{kcmc}}" wx:key="key" id="{{index}}" bindtap="change">
 
       <label class="block_kcmc">{{item}}</label>
       <view class="block_bottom">
@@ -31,7 +31,7 @@
   <view class="container" wx:if="{{index == 1}}">
 
     <view class='self_tip' style="display: {{list.length==0?'':'none'}};">木有自增课程</view>
-    <view class="block" style="flex-direction: row;" wx:key="4" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+    <view class="block" style="flex-direction: row;" wx:key="4" wx:for="{{list}}" wx:key="key" wx:for-item="item" wx:for-index="id">
       <view class="grade-title">
         <!-- 课程名称 -->
         <view class="grade-column">{{list[id].kcmc}}</view>
@@ -83,7 +83,7 @@
       <label>周-星期-节次（点亮即代表显示）</label>
     </view>
     <view class="add_week">
-      <view class="add_weekBtn" wx:for="{{showDetail.week}}">
+      <view class="add_weekBtn" wx:for="{{showDetail.week}}" wx:key="key">
         <label id="{{index}}" bindtap="changeWB" class="{{item[1]?'add_weekBtn_select':'add_weekBtn_noSelect'}}">
           {{item[0]}}
         </label>

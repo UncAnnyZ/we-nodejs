@@ -4,7 +4,6 @@ const app = getApp()
 Page({
 
   data: {
-    navigate_type: '', //分类类型，是否包含二级分类
     slideWidth: '', //滑块宽
     slideLeft: 0, //滑块位置
     totalLength: '', //当前滚动列表总长
@@ -33,9 +32,8 @@ Page({
     var self = this;
     var systemInfo = wx.getSystemInfoSync();
     self.setData({
-      windowHeight: app.globalData.navigate_type == 1 ? systemInfo.windowHeight : systemInfo.windowHeight - 35,
-      windowWidth: systemInfo.windowWidth,
-      navigate_type: app.globalData.navigate_type
+      windowHeight: systemInfo.windowHeight - 35,
+      windowWidth: systemInfo.windowWidth
     })
     this.showAll();
 
@@ -299,7 +297,6 @@ Page({
       slideLeft: (e.detail.scrollLeft * this.data.slideRatio).toFixed(2)
     })
   },
-
 
   // 跳转课程表
   setClass: function (e) {
