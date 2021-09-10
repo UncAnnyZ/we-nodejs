@@ -19,15 +19,12 @@ Page({
       '21:20',
       '22:05',
     ],
-    shows: false,
     whichWeek: '0',
     wlist: [],
-    xz: "",
     zcs: "",
     xq: "",
     skcd: "",
     skjc2: "",
-    isCourse: 'none',
     getname: "",
     multiArray: [], //二维数组，长度是多少是几列
     addcurriculum: [],
@@ -102,17 +99,8 @@ Page({
         showAdd: !showAdd
       })
     }
+  },
 
-    // wx.navigateTo({
-    //   url: 'add/add'
-    // })
-  },
-  // 点击遮罩层，显示的遮罩层与面板又隐藏起来  
-  close: function () {
-    this.setData({
-      shows: false,
-    })
-  },
   touchStart: function (e) {
     startX = e.touches[0].pageX; // 获取触摸时的原点
     moveFlag = true;
@@ -188,8 +176,6 @@ Page({
       zs = 1;
     }
     var that = this;
-    var isCourse = 'none',
-      xz = '';
     var a = 0;
     var data = {
       colorArrays: ['#99CCFF',
@@ -218,14 +204,14 @@ Page({
     var zc = 0;
     for (let i in curriculum) {
       zc = curriculum[i].zc;
-      
+
       if (curriculum[i].xq == "7" && curriculum[i].dgksdm != undefined) {
         zc = String(Number(curriculum[i].zc) - 1);
       }
       if (zc == zs) {
         var kcmcc = curriculum[i].kcmc;
         if ((curriculum[i].kcmc + curriculum[i].jxcdmc).length > 20) {
-          kcmcc = kcmcc.substring(0, 19-curriculum[i].jxcdmc) + "...";
+          kcmcc = kcmcc.substring(0, 19 - curriculum[i].jxcdmc) + "...";
         }
         data.wlist.push({
           xqj: curriculum[i].xq,
@@ -237,10 +223,6 @@ Page({
         })
       }
     }
-    if (data.wlist.length == 0) {
-      isCourse = '';
-      xz = 'none';
-    }
 
     that.setData({
       arr: arr,
@@ -248,8 +230,6 @@ Page({
       whichWeek: zs,
       wlist: data.wlist,
       colorArrays: data.colorArrays,
-      xz: xz,
-      isCourse: isCourse,
       multiIndex: [(Number(zs) - 1), 0, 0, 0],
     })
 

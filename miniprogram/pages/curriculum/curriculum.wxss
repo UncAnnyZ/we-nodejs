@@ -6,12 +6,12 @@ page {
 /* 头部 */
 .nav-head {
   display: flex;
-  position:fixed;
+  /* position:fixed; */
   width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 5%;
+  height: 5vh;
   z-index: 10000;
   border-bottom: 0.5rpx solid #cacbcc;
   background-color: #fff;
@@ -108,11 +108,11 @@ page {
 
 /* 滑块 */
 .scroll {
-  /* height: 1300rpx; */
-  /* z-index: 9999999; */
-  /* height: 100%; */
+  height: 1300rpx;
+  z-index: 9999999;
+  height: 100%;
   position: absolute;
-  top:5%;
+  top:5vh;
 }
 
 /* 星期 */

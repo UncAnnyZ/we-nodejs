@@ -274,7 +274,7 @@ Page({
       })
     } else {
       // 与index.css中 .slide-bar{width}对应
-      const barWidth = 90;      // 固定长度是160rpx
+      const barWidth = 90;      // 固定长度是90rpx
       const iconWidth = 182.5;  // 一个图标的宽度为182.5rpx
 
       var _totalLength = Math.ceil(self.data.iconList[1].length / 2) + 4  // 总的横向个数
@@ -294,9 +294,9 @@ Page({
   },
   // 刷新滚条位置
   getleft(e) {
-    console.log(e.detail.scrollLeft * this.data.slideRatio);
+    console.log(e.detail.scrollLeft * this.data.slideRatio, (e.detail.scrollLeft * this.data.slideRatio).toFixed(2));
     this.setData({
-      slideLeft: e.detail.scrollLeft * this.data.slideRatio
+      slideLeft: (e.detail.scrollLeft * this.data.slideRatio).toFixed(2)
     })
   },
 
