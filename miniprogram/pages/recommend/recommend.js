@@ -51,17 +51,21 @@ Page({
       })
     }
     if(options.urlName){
-      wx.showToast({
-        title: '请等待渲染',
-        icon: 'none',
+      wx.showLoading({
+        title: '更新数据中',
+        mask: true
       })
+
       wx.cloud.callFunction({
         name: 'imgapi',
         data: {
           urlName: options.urlName,
         },
         success: res => {
-          console.log(res.result)
+          wx.showToast({
+            title: '请等待渲染',
+            icon: 'none',
+          })
           that.setData({
             htmlText: res.result
           })

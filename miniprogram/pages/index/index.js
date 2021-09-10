@@ -292,9 +292,9 @@ Page({
   },
   // 刷新滚条位置
   getleft(e) {
-    console.log(e.detail.scrollLeft * this.data.slideRatio, (e.detail.scrollLeft * this.data.slideRatio).toFixed(2));
+    var l = Math.ceil(this.data.iconList[1].length / 2) * 92;
     this.setData({
-      slideLeft: (e.detail.scrollLeft * this.data.slideRatio).toFixed(2)
+      slideLeft: l>= e.detail.scrollLeft ? (e.detail.scrollLeft * this.data.slideRatio).toFixed(2) : l * this.data.slideRatio
     })
   },
 
