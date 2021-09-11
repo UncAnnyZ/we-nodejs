@@ -248,7 +248,6 @@ Page({
           }
         }
       }
-
       this.setData({
         iconList: iconList, // indexData.iconList,
         inform: indexData.inform,
@@ -275,16 +274,17 @@ Page({
       const barWidth = 90;      // 固定长度是90rpx
       const iconWidth = 182.5;  // 一个图标的宽度为182.5rpx
 
-      var _totalLength = Math.ceil(self.data.iconList[1].length / 2) + 4  // 总的横向个数
-      var onelength = barWidth / _totalLength                             // 一个图标 所占滚条的宽度
-      var _showLength = barWidth - onelength * (_totalLength - 4)         // 红色滑条的长度(保留两位小数)
+      var _totalIcon = Math.ceil(self.data.iconList[1].length / 2) + 4  // 总的横向个数
+      var onelength = barWidth / _totalIcon                             // 一个图标 所占滚条的宽度
+      var _showLength = barWidth - onelength * (_totalIcon - 4)         // 红色滑条的长度(保留两位小数)
 
       // 一个图标 实际宽度:滚条所占宽度 （后面转化单位 px → rpx ）
       var _ratio =  onelength / iconWidth * (750 / this.data.windowWidth) 
 
+      console.log(_totalIcon, onelength, _showLength, _ratio)
       this.setData({
         slideWidth: _showLength,
-        totalLength: _totalLength,
+        slidable: barWidth / 2 - onelength,
         slideShow: true,
         slideRatio: _ratio
       })
@@ -292,9 +292,10 @@ Page({
   },
   // 刷新滚条位置
   getleft(e) {
-    // console.log(e.detail.scrollLeft * this.data.slideRatio, (e.detail.scrollLeft * this.data.slideRatio).toFixed(2));
+    var l = Math.ceil(this.data.iconList[1].length / 2) * 92;
+    console.log(l, (e.detail.scrollLeft * this.data.slideRatio).toFixed(2), l * this.data.slideRatio)
     this.setData({
-      slideLeft: (e.detail.scrollLeft * this.data.slideRatio).toFixed(2)
+      slideLeft:  (e.detail.scrollLeft * this.data.slideRatio).toFixed(2) 
     })
   },
 

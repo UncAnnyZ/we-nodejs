@@ -20,7 +20,7 @@
         <view wx:if="{{slideShow}}" class="slide">
             <view class='slide-bar'>
                 <view class="slide-show"
-                    style="width:{{slideWidth}}rpx; left:{{slideLeft<=1 ? 0 : slideLeft+'rpx'}};"></view>
+                    style="width:{{slideWidth}}rpx; left:{{slideLeft<=1 ? 0 : slidable-slideLeft<=1? slidable+1 : slideLeft}}rpx;"></view>
             </view>
         </view>
     </view>
