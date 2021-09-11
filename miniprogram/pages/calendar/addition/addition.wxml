@@ -4,22 +4,21 @@
 
     
 
-    <view class="course">  
-      <label>名称:</label> 
-        <input class="input" placeholder="名称" name="DayName" bindinput="DayNameInput"></input>
-    </view>
-
-    <view class="section" bindtap='bindDateChange' dates='1'>  
-      <picker mode="date" value="{{date}}" start="1978-01-01" end="2050-1-23" bindchange="bindDateChange">  
-        <view class="picker">  
-          日期:  {{dates}}  
-        </view>  
-      </picker>  
-    </view>
-
-     
-      <view class="submit">  
-        <button bindtap="addSubmit">新增倒数日</button>
+    <view class="flex-item"  data-index="{{index}}">  
+      <view class="flex-item_title">
+        <text wx:if="{{gapDays > 0}}">{{Name}} 还有</text>
+        <text wx:if="{{gapDays <= 0}}">{{Name}} 已经</text>
       </view>
+      <view class="flex-item_gapDays">
+        <text wx:if="{{gapDays > 0}}">{{gapDays}}</text>
+        <text wx:if="{{gapDays <= 0}}">{{0-gapDays}}</text>
+      </view>
+      <view class="flex-item_desc">
+        <text>目标日：{{Date}}</text>
+      </view>
+    </view>
+
+    
+     
   </view>
 </view>

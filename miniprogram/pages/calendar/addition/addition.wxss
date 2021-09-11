@@ -6,7 +6,7 @@ button{
   box-sizing: border-box;
 }
 page {
-  background-color:rgb(226, 240, 243);
+  background-color:#bddff848;
   font-size: 16px;
   font-family: unset;
  
@@ -16,87 +16,56 @@ page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20rpx;
+  padding-top: 170rpx;
 }
-.course{
-  display: flex;
-  flex-direction: row;
-  align-content: center;
+.flex-item{
   width:85%;
-  padding:20rpx;
-  margin:20rpx;
+  height:450rpx;
+  background-color:rgb(255, 255, 255);
   border-radius: 20rpx;
-  box-sizing: unset;
-  background-color: rgb(255, 255, 255);
+  overflow: hidden;
 }
-.course label{
+.flex-item_title{
+  background-color:rgba(56, 114, 201, 0.753)!important;
+  height:105rpx;
   display: flex;
+  justify-content:center ;
   align-items: center;
-  padding-right: 30rpx;
-}
-.course input{
-  font-size: 1.1rem;
-  padding: 0.3rem;
-  width: 250rpx;
-}
-.section{
-  margin:20rpx;
-  padding:20rpx;
-  width:85%;
-  border-radius: 20rpx;
-  background-color: rgb(255, 255, 255);
-}
-.submit{
-  width: 100%;
-  padding-top: 50rpx;
-}
-.submit button{
-  width: 100%;
-  border-radius: 30rpx;
-  box-shadow:0px 0px 4px 0px #c7c7c7;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  font-size: 15px;        /* 字体大小 */
-  letter-spacing: 5rpx;   /* 字间距 */
-}
-
-
-
-
-@media (prefers-color-scheme: dark) {
-  .course{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    width:85%;
-    padding:20rpx;
-    margin:20rpx;
-    border-radius: 20rpx;
-    box-sizing: unset;
-    background-color: rgb(233, 233, 233);
-    box-shadow: 0rpx 0rpx 17rpx #e2e2e2
-  }
+  font-size: 40rpx;
   
-  .section{
-    margin:20rpx;
-    padding:20rpx;
-    width:85%;
-    border-radius: 20rpx;
-    background-color: rgb(233, 233, 233);
-    box-shadow: 0rpx 0rpx 17rpx #e2e2e2
-  }
-  .submit{
-    width: 100%;
-    padding-top: 50rpx;
-  }
-  .submit button{
-    width: 100%;
-    border-radius: 30rpx;
-    box-shadow: 0rpx 0rpx 17rpx #e2e2e2;
-    background-color: rgb(233, 233, 233);
-    color: rgb(0, 0, 0);
-    font-size: 15px;        /* 字体大小 */
-    letter-spacing: 5rpx;   /* 字间距 */
-  }
-
+  color:rgb(255, 255, 255);
 }
+.flex-item_gapDays{
+  background-color: white;
+  height:245rpx;
+  font-weight: 550;
+  font-family: '等线';
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  font-size: 130rpx;
+}
+
+.flex-item_desc{
+  height:105rpx;
+  border-top: 1px dashed #00000031;
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  color:rgba(0, 0, 0, 0.61);
+}
+@media (prefers-color-scheme: dark) {
+  .flex-item_title{
+    filter: invert(100%) !important;
+  }
+  .flex-item{
+    background-color:rgba(224, 224, 224, 0.651);
+  }
+  .flex-item_gapDays{
+    background-color:rgba(224, 224, 224, 0.26);
+  }
+}
+
+
+
+
