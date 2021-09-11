@@ -292,7 +292,7 @@ Page({
   },
   // 刷新滚条位置
   getleft(e) {
-    console.log(e.detail.scrollLeft * this.data.slideRatio, (e.detail.scrollLeft * this.data.slideRatio).toFixed(2));
+    // console.log(e.detail.scrollLeft * this.data.slideRatio, (e.detail.scrollLeft * this.data.slideRatio).toFixed(2));
     this.setData({
       slideLeft: (e.detail.scrollLeft * this.data.slideRatio).toFixed(2)
     })
