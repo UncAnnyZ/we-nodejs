@@ -1,9 +1,7 @@
 
-<view class='page'>
+<view class="page">
+  <image class="background" src="../addition/www.png" ></image>
   <view class="all">
-
-    
-
     <view class="flex-item"  data-index="{{index}}">  
       <view class="flex-item_title">
         <text wx:if="{{gapDays > 0}}">{{Name}} 还有</text>
@@ -17,8 +15,5 @@
         <text>目标日：{{Date}}</text>
       </view>
     </view>
-
-    
-     
   </view>
 </view>

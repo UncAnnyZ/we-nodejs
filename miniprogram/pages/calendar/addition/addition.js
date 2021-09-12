@@ -4,7 +4,7 @@ Page({
     isLoading: true,
   },
   
-  onLoad:function(options){                     //进行数据库的读取，先读取再添加
+  onLoad:function(options){                     //接收url传递的数据并渲染
     this.setData({
       Name:options.Name,
       Date:options.Date,

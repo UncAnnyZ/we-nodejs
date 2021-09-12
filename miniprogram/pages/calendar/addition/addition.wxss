@@ -1,7 +1,4 @@
-@import"../weui.wxss";
-view, text, scroll-view, swiper, button, form, input, textarea, label, image {
-  box-sizing: content-box;
-}
+
 button{
   box-sizing: border-box;
 }
@@ -11,43 +8,54 @@ page {
   font-family: unset;
  
 }
+.background{
+  width:100%;
+  height:100%;
+  position: fixed;
+  background-size:100% 100%;
+  z-index: -1;
+}
 
 .all{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 170rpx;
+  padding-top: 230rpx;
 }
 .flex-item{
   width:85%;
-  height:450rpx;
+  height:480rpx;
   background-color:rgb(255, 255, 255);
-  border-radius: 20rpx;
+  border-radius: 13rpx;
+  box-shadow: 7rpx 7rpx 7rpx #969696b4;
   overflow: hidden;
 }
 .flex-item_title{
-  background-color:rgba(56, 114, 201, 0.753)!important;
+  background-color:rgba(76, 126, 202, 0.945)!important;
   height:105rpx;
   display: flex;
   justify-content:center ;
   align-items: center;
-  font-size: 40rpx;
-  
+  font-size: 38rpx;
+  font-weight: 550;
   color:rgb(255, 255, 255);
 }
 .flex-item_gapDays{
   background-color: white;
-  height:245rpx;
+  height:270rpx;
+  padding-top: 8rpx;
   font-weight: 550;
-  font-family: '等线';
+  font-family: '华文新魏';
   display: flex;
   justify-content:center ;
   align-items: center;
-  font-size: 130rpx;
+  font-size: 160rpx;
 }
 
+
 .flex-item_desc{
-  height:105rpx;
+  height:90rpx;
+  font-size: 33rpx;
   border-top: 1px dashed #00000031;
   display: flex;
   justify-content:center ;

@@ -92,11 +92,11 @@ page {
   flex: 1;
 }
 .gapDays_bg1{
-  text-shadow: -1px -1px 1px #865204f3 !important;  
+  text-shadow: 0px -1px 1px #865204f3 !important;  
   background-color: #fd9801e1 !important;
 }
 .gapDays_bg2{
-  text-shadow: -1px -1px 1px #294161 !important;
+  text-shadow: 0px -1px 1px #294161 !important;
   background-color: #5685c2c2 !important;
 }
 
@@ -227,7 +227,6 @@ page {
   align-items: center;
   bottom: 0;
   width: 100%;
-  /* background-color: rgb(230,230,230); */
   background-color: #fff;
   padding: 50rpx 0;
   z-index: 99999;
@@ -277,9 +276,10 @@ page {
   width: 45% !important;
   border-radius: 50rpx;
   color: rgb(54, 54, 54);
-  background-color:rgb(245, 245, 245);
+  background-color:rgba(245, 245, 245);
   size: 16px;
-}
+  }
+  
 
 .add_btn button::after{
   border: none; 

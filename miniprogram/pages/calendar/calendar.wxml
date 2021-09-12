@@ -71,7 +71,7 @@
       </view>
       <view class="add_btn">
         <button bindtap="feedbackHandler">取 消</button>
-        <button bindtap="addSubmit">保 存</button>
+        <button bindtap="addSubmit" >保 存</button>
       </view>
     </view>
 </view>
