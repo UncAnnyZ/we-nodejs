@@ -26,6 +26,7 @@ App({
       username:0,
       timeyear:"",
       task:[],
+      index:0,
       timeyear:"2021/3/1",
     }
   },

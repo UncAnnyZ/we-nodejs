@@ -43,7 +43,7 @@
   width:100rpx;
   height:100rpx;
   display:block;
-  margin:auto;
+  /* margin:auto; */
 
 }
 .wx-list.menu>.wx-item {
@@ -130,7 +130,7 @@
   align-items: center;
   width: 33%;
   padding: 30rpx 0 30rpx 0;
-  height: calc(150rpx - 30rpx);
+  /* height: calc(150rpx - 30rpx); */
 }
 .iconn_item_url{
   color:#808080;

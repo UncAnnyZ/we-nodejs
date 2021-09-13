@@ -47,25 +47,29 @@ page {
   justify-content: space-around;
   height: 110rpx;
   width: 100%;
-
   color: #fff;
   background-color: rgba(248, 248, 248, 0.9);
-  
   box-shadow: 0 9rpx 9rpx #d1cece;
   border-radius: 22rpx;
   overflow: hidden;
-
   transition: all 0.4s;
   transform: translateX(90px);
   margin-left: -90px;
 }
 .weui-item__title {
   width: 300rpx;
-  margin-left: 30rpx;
+  margin-left: 15rpx;
+  padding-top: 28rpx;
+  font-size: 34rpx;
   color: #444444;
-  font-size: 40rpx;
+  font-weight:550;
   overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box; /*设置为弹性盒子*/ 
+  -webkit-line-clamp: 1; /*最多显示1行*/ 
+  overflow: hidden; /*超出隐藏*/ 
+  text-overflow: ellipsis; /*超出显示为省略号*/ 
+  -webkit-box-orient: vertical
+
 }
 .weui-item__desc {
   color: #686868;
@@ -88,11 +92,11 @@ page {
   flex: 1;
 }
 .gapDays_bg1{
-  text-shadow: -1px -1px 1px #865204f3 !important;  
+  text-shadow: 0px -1px 1px #865204f3 !important;  
   background-color: #fd9801e1 !important;
 }
 .gapDays_bg2{
-  text-shadow: -1px -1px 1px #294161 !important;
+  text-shadow: 0px -1px 1px #294161 !important;
   background-color: #5685c2c2 !important;
 }
 
@@ -108,144 +112,10 @@ page {
   color: #ffff;
 }
 
-
-
-/* 没用的 */
-
-.page__bd_spacing {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.page__ft {
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-.panelBK {
-  margin: 25rpx;
-  background-color: #fff;
-  padding: 25rpx 0;
-  border-radius: 25rpx;
-}
-
-.setCenter {
-  text-align: center;
-}
-
-.shareIcon {
-  width: 26px;
-  height: 26px;
-  vertical-align: text-bottom;
-}
-
-.thisWeek {
-  color: #ffffff;
-  background: #b6ffea;
-  height: 450rpx;
-}
-
-.nextWeek {
-  color: #fafafa;
-  background: #4ac3d6;
-  height: 450rpx;
-}
-
-.kaixue {
-  background: #c6e4ff;
-}
-
-.hanshujia {
-  background: #ff6c9d;
-}
-
-.kaoshi {
-  background: #ffb3a2;
-}
-
-.work {
-  color: #ffffff;
-  font-size: 32rpx;
-}
-
-.wraper {
-  /* background: linear-gradient(to right, #77a1d3, #79cbca, #e684ae); */
-  color: #d6eceb;
-  height: 150rpx;
-  border-radius: 15px;
-  text-align: left;
-  margin-top: -50rpx;
-}
-
-.tt {
-  color: #ffffff;
-  margin-bottom: 15rpx;
-  font-size: 42rpx;
-  text-align: center;
-}
-
-.warmtips {
-  text-align: center;
-  color: #e5f6f5;
-  font-size: 42rpx;
-}
-
-.clear {
-  position: inherit;
-  display: inherit;
-  margin-left: inherit;
-  margin-right: inherit;
-  padding-left: 0;
-  padding-right: 0;
-  box-sizing: inherit;
-  font-size: inherit;
-  text-align: inherit;
-  text-decoration: inherit;
-  line-height: inherit;
-  border-radius: inherit;
-  -webkit-tap-highlight-color: inherit;
-  overflow: inherit;
-  color: inherit;
-  background-color: inherit;
-}
-
-button::after {
-  content: inherit;
-  width: inherit;
-  height: inherit;
-  position: inherit;
-  top: inherit;
-  left: inherit;
-  border: inherit;
-  -webkit-transform: inherit;
-  transform: inherit;
-  -webkit-transform-origin: inherit;
-  transform-origin: inherit;
-  box-sizing: inherit;
-  border-radius: inherit;
-}
-
-.button-sp-area {
-  margin: 0 auto;
-  padding-top: 15px;
-  width: 60%;
-}
-
-.mini-btn {
-  margin-right: 5px;
-}
-
-
-
-.background-color_0 {
-  background-color: #fd9801e1 !important;
-}
 .background-color_1 {
   background-color: #e27c07e8 !important;
 }
-.background-color_2 {
-  background-color: #5685c2c2 !important;
-}
+
 .background-color_3 {
   background-color: #3170a7e3 !important;
 }
@@ -328,9 +198,122 @@ button::after {
 
 }
 
+.add_show{
+  animation: add_show .5s;
+}
+.add_hide{
+  animation: add_hide .5s;
+}
+.add,
+.add_background{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  font-family: unset;
+}
+.add_background{
+  background-color: rgba(0, 0, 0, 0.349);
+  opacity: 0.6;
+  height: 100%;
+}
+.add_contain{
+  position: relative;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 50rpx 0;
+  z-index: 99999;
+}
+.add_title{
+  padding-bottom: 50rpx;
+  size: 18px;
+  font-weight: 600;
+}
+.course{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  width:85%;
+  padding:20rpx;
+  margin:20rpx;
+  border-radius: 20rpx;
+  box-sizing: unset;
+  background-color: rgb(245, 245, 245);
+}
+.course label{
+  display: flex;
+  align-items: center;
+  padding-right: 30rpx;
+}
+.course input{
+  font-size: 1.1rem;
+  padding: 0.3rem;
+  
+}
+.section{
+  margin:20rpx;
+  padding:20rpx;
+  width:85%;
+  border-radius: 20rpx;
+  background-color: rgb(245, 245, 245);
+}
+.add_btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 70rpx 0 50rpx;
+  width: 85%;
+}
+.add_btn button{
+  width: 45% !important;
+  border-radius: 50rpx;
+  color: rgb(54, 54, 54);
+  background-color:rgba(245, 245, 245);
+  size: 16px;
+  }
+  
+
+.add_btn button::after{
+  border: none; 
+}
+/*自定义动画*/
+@keyframes add_show {
+  0% {
+      opacity: 0;
+      transform: translateY(100%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+}
+@keyframes add_hide {
+  0% {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(100%);
+  }
+}
 @media (prefers-color-scheme: dark) {
+  .round-click{
+    filter: invert(90%) !important;
+  }
   .gapDays {
     filter: invert(100%) !important;
+  }
+  .Days{
+    filter: invert(20%) !important;
   }
 
   .del {
@@ -340,5 +323,10 @@ button::after {
   .touch-item {
     background-color: rgba(224, 224, 224, 0.589);
   }
-
+  .add_contain{
+    background-color: rgb(224, 224, 224);
+  }
+  .add_btn button{
+    color: rgba(0, 0, 0, 0.808);
+  }
 }

@@ -1,15 +1,23 @@
 /**index.wxss**/
 
-
 @media (prefers-color-scheme: dark) {
-
-  input{
-    color: black;
+  page{
+    min-height: 100vh;
+    filter: invert(90%) !important;
+    background-color: rgb(25, 25, 25) !important;
+    color: rgb(25, 25, 25) ; 
   }
+
+  button,
+  image,
   .title_text,
   .title_bg{
     filter: invert(90%) !important;
-  }  
+  } 
+  
+  input{
+    color: black;
+  }
   .hd{
     overflow: hidden;
   }
@@ -29,6 +37,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   padding: 0;
   height: 100vh;
 }

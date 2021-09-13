@@ -6,17 +6,15 @@ page {
 /* 头部 */
 .nav-head {
   display: flex;
-  position:fixed;
   width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 5%;
+  height: 5vh;
   z-index: 10000;
   border-bottom: 0.5rpx solid #cacbcc;
   background-color: #fff;
 }
-
 .img-button {
   display: inline-block;
 }
@@ -25,6 +23,17 @@ page {
   width: 80%;
   height: 80%;
 }
+.add-course-btn {
+  width: 52rpx;
+  height: 52rpx;
+  margin-left: 20rpx;
+}
+.feedback-btn {
+  width: 50rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}
+
 .week-selector {
   display: flex;
   flex-direction: row;
@@ -32,88 +41,21 @@ page {
   justify-content: space-between;
   width: 300rpx;
 }
-
-.ttt{
-  font-size: 35rpx;
-}
-
-.add-course-btn {
-  width: 52rpx;
-  height: 52rpx;
-  margin-left: 20rpx;
-}
-
-.pre-week-btn {
+.pre-week-btn,
+.next-week-btn {
   width: 30rpx;
   height: 39rpx;
 }
-
 .cur-week {
   text-align: center;
   line-height: 1.5;
-}
-.cur-week .week {
-  font-size: 38rpx;
+  font-size: 35rpx;
   color: #18191A;
-}
-.cur-week .title {
-  font-size: 28rpx;
-  color: #7A7D80;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.next-week-btn {
-  width: 30rpx;
-  height: 39rpx;
-}
-
-.feedback-btn {
-  width: 50rpx;
-  height: 48rpx;
-  margin-right: 20rpx;
-}
-
-
-/*-----------------------------遮罩层样式-------------------------------------  */
-.shade {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 102;
-  background-color: rgba(0, 0, 0, 0.8);
-  opacity: 0.5;
-  overflow: hidden;
-}
-
-
-/*----------------------------面板样式-----------------------------------------  */
-.cont {
-  width: 600rpx;
-  height: 400rpx;
-  z-index: 103;
-  overflow: hidden;
-  position: fixed;
-  top: 20%;
-  left: 60rpx;
-  font-size: 32rpx;
-  border-radius: 10rpx;
-  border: 1rpx solid greenyellow;
-  background-color: white;
-}
-
-
-/* 滑块 */
-.scroll {
-  /* height: 1300rpx; */
-  /* z-index: 9999999; */
-  /* height: 100%; */
-  position: absolute;
-  top:5%;
-}
 
 /* 星期 */
 .top {
@@ -129,8 +71,9 @@ page {
   justify-content: center;
   align-items: center;
   width: 50rpx;
-  font-size: 9pt;
+  font-size: 10pt;
   text-align: center;
+  color: #6D7373;
 }
 .after-left {
   text-align: center;
@@ -210,7 +153,7 @@ page {
   font-size: 24rpx;
   color: #fff;
   font-weight:bold;
-  padding: 0 8rpx;
+  padding: 0 10rpx;
   word-break: break-word;
 }
 

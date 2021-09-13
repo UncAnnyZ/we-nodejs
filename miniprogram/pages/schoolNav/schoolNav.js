@@ -16,7 +16,7 @@ Page({
       id: 0,
       latitude: 21.677456,
       longitude: 110.924444,
-      iconPath: "/images/nav/others.png",
+      iconPath: "image/others.png",
       width: 23,
       height: 24,
       callout: {
@@ -27,7 +27,7 @@ Page({
       id: 1,
       latitude: 21.679041,
       longitude: 110.922631,
-      iconPath: "/images/nav/sports.png",
+      iconPath: "image/sports.png",
       width: 23,
       height: 24,
       callout: {
@@ -38,7 +38,7 @@ Page({
       id: 2,
       latitude: 21.680033,
       longitude: 110.924519,
-      iconPath: "/images/nav/sports.png",
+      iconPath: "image/sports.png",
       width: 23,
       height: 24,
       callout: {
@@ -49,7 +49,7 @@ Page({
       id: 3,
       latitude: 21.681175,
       longitude: 110.922615,
-      iconPath: "/images/nav/sports.png",
+      iconPath: "image/sports.png",
       width: 23,
       height: 24,
       callout: {
@@ -60,7 +60,7 @@ Page({
       id: 4,
       latitude: 21.678962,
       longitude: 110.923371,
-      iconPath: "/images/nav/xingzheng.png",
+      iconPath: "image/xingzheng.png",
       width: 23,
       height: 24,
       callout: {
@@ -71,7 +71,7 @@ Page({
       id: 5,
       latitude: 21.677855,
       longitude: 110.921939,
-      iconPath: "/images/nav/xingzheng.png",
+      iconPath: "image/xingzheng.png",
       width: 23,
       height: 24,
       callout: {
@@ -82,7 +82,7 @@ Page({
       id: 6,
       latitude: 21.680981,
       longitude: 110.921472,
-      iconPath: "/images/nav/sports.png",
+      iconPath: "image/sports.png",
       width: 23,
       height: 24,
       callout: {
@@ -93,7 +93,7 @@ Page({
       id: 7,
       latitude: 21.677591,
       longitude: 110.922867,
-      iconPath: "/images/nav/jiaoxuelou.png",
+      iconPath: "image/jiaoxuelou.png",
       width: 23,
       height: 24,
       callout: {
@@ -104,7 +104,7 @@ Page({
       id: 8,
       latitude: 21.677147,
       longitude: 110.921789,
-      iconPath: "/images/nav/jiaoxuelou.png",
+      iconPath: "image/jiaoxuelou.png",
       width: 23,
       height: 24,
       callout: {
@@ -115,7 +115,7 @@ Page({
       id: 9,
       latitude: 21.677541,
       longitude: 110.921778,
-      iconPath: "/images/nav/jiaoxuelou.png",
+      iconPath: "image/jiaoxuelou.png",
       width: 23,
       height: 24,
       callout: {
@@ -126,7 +126,7 @@ Page({
       id: 10,
       latitude: 21.678897,
       longitude: 110.920882,
-      iconPath: "/images/nav/xiaomen.png",
+      iconPath: "image/xiaomen.png",
       width: 23,
       height: 24,
       callout: {
@@ -137,7 +137,7 @@ Page({
       id: 11,
       latitude: 21.679276,
       longitude: 110.920893,
-      iconPath: "/images/nav/shitang.png",
+      iconPath: "image/shitang.png",
       width: 23,
       height: 24,
       callout: {
@@ -148,7 +148,7 @@ Page({
       id: 12,
       latitude: 21.682197,
       longitude: 110.922476,
-      iconPath: "/images/nav/shitang.png",
+      iconPath: "image/shitang.png",
       width: 23,
       height: 24,
       callout: {
@@ -159,7 +159,7 @@ Page({
       id: 13,
       latitude: 21.679365,
       longitude: 110.920169,
-      iconPath: "/images/nav/shitang.png",
+      iconPath: "image/shitang.png",
       width: 23,
       height: 24,
       callout: {
@@ -170,7 +170,7 @@ Page({
       id: 14,
       latitude: 21.679699,
       longitude: 110.920732,
-      iconPath: "/images/nav/shitang.png",
+      iconPath: "image/shitang.png",
       width: 23,
       height: 24,
       callout: {
@@ -181,7 +181,7 @@ Page({
       id: 15,
       latitude: 21.679704,
       longitude: 110.92158,
-      iconPath: "/images/nav/sushe.png",
+      iconPath: "image/sushe.png",
       width: 23,
       height: 24,
       callout: {
@@ -192,7 +192,7 @@ Page({
       id: 16,
       latitude: 21.678842,
       longitude: 110.920657,
-      iconPath: "/images/nav/sushe.png",
+      iconPath: "image/sushe.png",
       width: 23,
       height: 24,
       callout: {
@@ -203,7 +203,7 @@ Page({
       id: 17,
       latitude: 21.682227,
       longitude: 110.921794,
-      iconPath: "/images/nav/sushe.png",
+      iconPath: "image/sushe.png",
       width: 23,
       height: 24,
       callout: {
@@ -214,7 +214,7 @@ Page({
       id: 18,
       latitude: 21.680123,
       longitude: 110.920544,
-      iconPath: "/images/nav/sushe.png",
+      iconPath: "image/sushe.png",
       width: 23,
       height: 24,
       callout: {
@@ -225,7 +225,7 @@ Page({
       id: 19,
       latitude: 21.676374,
       longitude: 110.92346,
-      iconPath: "/images/nav/jiaoxuelou.png",
+      iconPath: "image/jiaoxuelou.png",
       width: 23,
       height: 24,
       callout: {
@@ -236,7 +236,7 @@ Page({
       id: 20,
       latitude: 21.678588,
       longitude: 110.924026,
-      iconPath: "/images/nav/sushe.png",
+      iconPath: "image/sushe.png",
       width: 23,
       height: 24,
       callout: {
@@ -247,7 +247,7 @@ Page({
       id: 21,
       latitude: 21.658237,
       longitude: 110.820106,
-      iconPath: "/images/nav/sushe.png",
+      iconPath: "image/sushe.png",
       width: 23,
       height: 24,
       callout: {
@@ -258,7 +258,7 @@ Page({
       id: 22,
       latitude: 21.65702,
       longitude: 110.820272,
-      iconPath: "/images/nav/sushe.png",
+      iconPath: "image/sushe.png",
       width: 23,
       height: 24,
       callout: {
@@ -269,7 +269,7 @@ Page({
       id: 23,
       latitude: 21.655834,
       longitude: 110.823206,
-      iconPath: "/images/nav/sports.png",
+      iconPath: "image/sports.png",
       width: 23,
       height: 24,
       callout: {
@@ -280,7 +280,7 @@ Page({
       id: 24,
       latitude: 21.656662,
       longitude: 110.819054,
-      iconPath: "/images/nav/shitang.png",
+      iconPath: "image/shitang.png",
       width: 23,
       height: 24,
       callout: {
@@ -291,7 +291,7 @@ Page({
       id: 25,
       latitude: 21.65375,
       longitude: 110.821023,
-      iconPath: "/images/nav/jiaoxuelou.png",
+      iconPath: "image/jiaoxuelou.png",
       width: 23,
       height: 24,
       callout: {
@@ -302,7 +302,7 @@ Page({
       id: 26,
       latitude: 21.652952,
       longitude: 110.81847,
-      iconPath: "/images/nav/jiaoxuelou.png",
+      iconPath: "image/jiaoxuelou.png",
       width: 23,
       height: 24,
       callout: {
@@ -313,7 +313,7 @@ Page({
       id: 27,
       latitude: 21.653321,
       longitude: 110.815943,
-      iconPath: "/images/nav/sushe.png",
+      iconPath: "image/sushe.png",
       width: 23,
       height: 24,
       callout: {
@@ -324,7 +324,7 @@ Page({
       id: 28,
       latitude: 21.65553,
       longitude: 110.816774,
-      iconPath: "/images/nav/jiaoxuelou.png",
+      iconPath: "image/jiaoxuelou.png",
       width: 23,
       height: 24,
       callout: {
@@ -351,9 +351,7 @@ Page({
       showCancel: true, //是否显示取消按钮
       content: "请选择校区",
       cancelText: "西城校区", //默认是“取消”
-      cancelColor: 'skyblue', //取消文字的颜色
       confirmText: "官渡校区", //默认是“确定”
-      confirmColor: 'skyblue', //确定文字的颜色
       success: function (res) {
         if (res.cancel) {
           _this.setData({
@@ -466,7 +464,7 @@ Page({
           id: 22,
           latitude: points[0].latitude,
           longitude: points[0].longitude,
-          iconPath: '../../images/nav/mapicon_navi_s.png',
+          iconPath: '../..image/mapicon_navi_s.png',
           width: 23,
           height: 33
         };
@@ -474,7 +472,7 @@ Page({
           id: 23,
           latitude: points[points.length - 1].latitude,
           longitude: points[points.length - 1].longitude,
-          iconPath: '../../images/nav/mapicon_navi_e.png',
+          iconPath: '../..image/mapicon_navi_e.png',
           width: 24,
           height: 34
         }

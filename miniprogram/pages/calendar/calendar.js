@@ -8,7 +8,7 @@ Page({
    */
   data: {
     jsonContent: {
-      day: "2",
+      day: new Date().getDate(),
       month: new Date().getMonth(),
       dayOfWeek: "星期" + util.formatDay(new Date().getDay()),
     },
@@ -16,13 +16,36 @@ Page({
     index: "0",
     startX: 0, //开始坐标
     startY: 0,
+    showModel:false,
+    dates:'',
+    dayName: '',
   },
 
   feedbackHandler(e) { //跳转到子页
-    wx.navigateTo({
+    var showModel=this.data.showModel
+    var that = this
+    if (showModel) {
+      this.setData({
+        add_style: "add_hide"
+      })
+      setTimeout(() => {
+        that.setData({
+          showModel: !showModel
+        })
+      }, 200);
+    } else {
+      this.setData({
+        add_style: "add_show",
+        showModel: !showModel
+      })
+    }
+
+    /*wx.navigateTo({
       url: 'addition/addition'
-    })
+    })*/
   },
+
+  
 
 
   num_data: function (start_date1, end_date1) { //计算倒数日
@@ -45,26 +68,55 @@ Page({
     })
   },
 
+  compare: function (property){
+    return function(a,b){
+        var value1 = a[property];
+        var value2 = b[property];
+        return value1 - value2;
+    }
+},
+
+
   setDataCalendar: function () { //页面渲染全部倒数日
     var addday = getApp().globalData._adday;
     var xlist = [];
+    var xlist1 = [];
     var nowdate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
-    console.log("yesr", nowdate);
     for (let i = 0; i < addday.length; i++) {
       var gapDays2 = this.num_data(addday[i].holidayDate, nowdate);
-      xlist.push({
-        holidayName: addday[i].holidayName,
-        holidayDate: addday[i].holidayDate,
-        gapDays: gapDays2,
-        holidayRestInfo: addday[i].holidayDate,
-        isTouchMove: false
-      })
+      if(gapDays2 > 0){
+        xlist.push({
+          holidayName: addday[i].holidayName,
+          holidayDate: addday[i].holidayDate,
+          gapDays: gapDays2,
+          holidayRestInfo: addday[i].holidayDate,
+          isTouchMove: false
+        })
+      }else{
+        xlist1.push({
+          holidayName: addday[i].holidayName,
+          holidayDate: addday[i].holidayDate,
+          gapDays: gapDays2,
+          holidayRestInfo: addday[i].holidayDate,
+          isTouchMove: false
+        })
+      }
     }
-    console.log("before-list", xlist)
-    
     this.setData({
       show: "",
-      list: xlist.reverse(xlist.holidayDate)
+      list: xlist.sort(this.compare("gapDays")).concat(xlist1.sort(this.compare("gapDays")).reverse())
+    })
+  },
+
+  showdates(e){
+    var that=this
+    var index1=e.currentTarget.dataset.index
+    var dates = that.data.list[index1]
+    var holidayName=dates.holidayName
+    var gapDays=dates.gapDays
+    var holidayDate=dates.holidayDate
+    wx.navigateTo({
+      url:"../calendar/addition/addition?Name=" + holidayName +"&gapDays=" + gapDays + "&Date=" + holidayDate,
     })
   },
 
@@ -73,7 +125,6 @@ Page({
       if (v.isTouchMove) //只操作为true的
         v.isTouchMove = false;
     })
-
     this.setData({
       startX: e.changedTouches[0].clientX,
       startY: e.changedTouches[0].clientY,
@@ -107,7 +158,6 @@ Page({
           v.isTouchMove = true
       }
     })
-
     //更新数据
     that.setData({
       list: that.data.list
@@ -122,7 +172,12 @@ Page({
   },
 
   del: function (e) { //删除倒数日  
+    wx.showLoading({
+      title: '处理中',
+      mask: true
+    })
     this.data.list.splice(e.currentTarget.dataset.index, 1)
+    getApp().globalData._adday=this.data.list
     wx.cloud.callFunction({
       name: 'we_adday1',
       data: {
@@ -147,10 +202,76 @@ Page({
     })
   },
 
+  DayNameInput:function(e)    //获取倒数日名称
+  {
+    this.setData({
+      dayName: e.detail.value
+    })
+  },
+    bindDateChange: function (e) {    //获取倒数日日期
+      this.setData({
+        dates: e.detail.value
+      })
+    },
+  addSubmit:function(e) {     
+    var that = this  //提交倒数日
+    wx.showLoading({
+      title: '处理中',
+      mask: true
+    })
+    if (this.data.dayName == null || this.data.dayName == "" || this.data.dayName == undefined) {     //判断填写是否为空
+      wx.showToast({
+        title: '名称不能为空',
+        icon: 'none',
+        duration: 1000
+      })
+    } else if (this.data.dates == null || this.data.dates == "" || this.data.dates == undefined ) {
+      wx.showToast({
+        title: '日期不能为空',
+        icon: 'none',
+        duration: 1000
+      })
+    } else {
+      var tt = []
+      var add = { 
+        'holidayName': this.data.dayName,
+        'holidayDate':this.data.dates,
+      }
+      tt.push(add)
+      getApp().globalData._adday.push(add)
+      wx.cloud.callFunction({             //访问云函数
+        name: 'readday',
+        data: {
+          _adday: JSON.stringify(getApp().globalData._adday),
+          username: getApp().globalData.username,
+          type: 'write'
+        },
+        success: res => {
+          wx.showToast({
+            title: '添加成功',
+            icon: 'none',
+          })
+          that.onShow()
+        },
+        fail: err => {
+          wx.showToast({
+            title: '添加失败',
+            icon: 'none',
+          })
+        },
+        complete() {
+          that.setData({
+            showModel: !that.data.showModel
+          })
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) { //读取数据库
+    getApp().loginState();
     this.terms();
   },
   /**
@@ -164,7 +285,6 @@ Page({
         type: 'read'
       },
       success: res => {
-        console.log(res, 1111)
         getApp().globalData._adday = JSON.parse(res.result)
         this.setDataCalendar();
       },
@@ -173,7 +293,6 @@ Page({
       }
     })
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
-
   },
 
 

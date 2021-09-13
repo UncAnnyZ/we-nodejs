@@ -51,12 +51,12 @@ page{
     box-shadow: 0rpx 0rpx 17rpx #e2e2e2;
 }
 .grade-column{
-    font-size:32rpx;
+    font-size:31rpx;
     font-weight:500;
     line-height:60rpx;
-    width:500rpx;
+    width:470rpx;
     overflow:hidden;
-    text-overflow:elipsis;
+    text-overflow:ellipsis;
     white-space:nowrap;
 }
 .grade-rum{

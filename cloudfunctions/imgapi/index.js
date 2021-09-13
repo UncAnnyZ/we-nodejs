@@ -6,15 +6,11 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const { value } = event;
   try {
-    const checkmsg = await cloud.openapi.security.imgSecCheck({
-      media: {
-        header: {'Content-Type': 'application/octet-stream'},
-        contentType: 'image/png',
-        value: Buffer.from(value)
-      }
-    })
-    return 1
+  const db = cloud.database()
+  const _ = db.command;
+  var zh = await db.collection('gzh').where({type: event.urlName}).get({})
+  return zh.data[0].html
   } catch (err) {
-    return '1.发布内容含有违法违规内容：87014';
+    return `获取错误`
   }
 }

@@ -37,9 +37,9 @@
   </view>
 
   <view class="hd">
-    <image class="logo" src="/images/xiaohui.png"></image>
-    <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
-    <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+    <image class="logo" src="image/xiaohui.png"></image>
+    <image class="wave" src="image/wave.png" mode="aspectFill"></image>
+    <image class="wave wave-bg" src="image/wave.png" mode="aspectFill"></image>
   </view>
 
   <view class="login">
@@ -66,7 +66,6 @@
   <view class="box">
     <view class="box-hd">
       <text class="box-title">帮助</text>
-      <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
     </view>
     <view class="box-bd">
       <view class="help-q">1、账号和密码是什么？</view>

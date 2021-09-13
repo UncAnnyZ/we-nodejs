@@ -19,100 +19,43 @@ Page({
       '21:20',
       '22:05',
     ],
-    shows: false,
     whichWeek: '0',
     wlist: [],
-    xz: "",
-    zcs: "",
-    xq: "",
-    skcd: "",
-    skjc2: "",
-    isCourse: 'none',
-    getname: "",
     multiArray: [], //二维数组，长度是多少是几列
-    addcurriculum: [],
     dayOfWeek: (new Date()).getDay(),
 
     // 添加课表
     showAdd: false,
-    week: [],
+    week: [], // 周数
     section: [
       [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     ],
     sectionIndex: [0, 0],
-
-    Week: ["一", "二", "三", "四", "五", "六", "七"], // [1,2,3,4,5,6,7]
+    
+    Week: ["一", "二", "三", "四", "五", "六", "七"], // 星期 [1,2,3,4,5,6,7]
     WeekIndex: 0,
     addSubmitStyle: false
+  },
+
+  onLoad: function (options) {
+    getApp().loginState();
+    this.kb(getApp().globalData.whichWeek);
+    this.setData({
+      weekNow: getApp().globalData.whichWeek,
+    })
+  },
+  onShow: function (options) {
+    this.kb(getApp().globalData.whichWeek);
+    this.initWeek()
   },
   onShareAppMessage: function (res) {
     return {
       title: 'We广油',
     }
   },
-  bindMultiPickerChange: function (e) {
-    this.setData({
-      multiIndex: e.detail.value,
-      zcs: e.detail.value[0] + 1,
-      xq: e.detail.value[1] + 1,
-      skjc: e.detail.value[2] + 1,
-      skjc2: e.detail.value[3] + 1,
-      skcd: e.detail.value[3] - e.detail.value[2],
-    })
-  },
-  nextWeekHandler: function (e) {
-    this.setData({
-      whichWeek: this.data.whichWeek + 1,
-    })
-    this.kb(this.data.whichWeek);
-  },
-  prevWeekHandler: function (e) {
-    this.setData({
-      whichWeek: this.data.whichWeek - 1,
-    })
-    this.kb(this.data.whichWeek);
-  },
 
-
-  showCardView: function (e) {
-    console.log(this.data.wlist[e.currentTarget.dataset.index])
-
-    wx.showToast({
-      title: '教师:' + this.data.wlist[e.currentTarget.dataset.index].teacher + "\n" +
-        '地点:' + this.data.wlist[e.currentTarget.dataset.index].jxcdmc,
-      icon: 'none',
-    })
-  },
-  feedbackHandler: function (e) {
-    var showAdd = this.data.showAdd
-    var that = this
-    if (showAdd) {
-      this.setData({
-        add_style: "add_hide"
-      })
-      setTimeout(() => {
-        that.setData({
-          showAdd: !showAdd
-        })
-      }, 200);
-    } else {
-      this.setData({
-        add_style: "add_show",
-        showAdd: !showAdd
-      })
-    }
-
-    // wx.navigateTo({
-    //   url: 'add/add'
-    // })
-  },
-  // 点击遮罩层，显示的遮罩层与面板又隐藏起来  
-  close: function () {
-    this.setData({
-      shows: false,
-    })
-  },
+  // 触摸开始事件
   touchStart: function (e) {
     startX = e.touches[0].pageX; // 获取触摸时的原点
     moveFlag = true;
@@ -143,25 +86,23 @@ Page({
   // 触摸结束事件
   touchEnd: function (e) {
     moveFlag = true; // 回复滑动事件
-
   },
-
-  showdate(n) { // 日期切换处理函数  返回时间格式 YYYY-MM-DD
-    var date = new Date(wx.getStorageSync('configData').timeYear);
-    date.setDate(date.getDate() + n);
-    var month = date.getMonth() + 1
-    month = month > 10 ? month : month // 格式化月份
+  // 上一周
+  prevWeekHandler: function (e) {
     this.setData({
-      month
+      whichWeek: this.data.whichWeek - 1,
     })
-    var day = date.getDate()
-    day = day > 9 ? day : "0" + day // 格式化日期
-
-    date = "" + month + "/" + day;
-
-    return date;
+    this.kb(this.data.whichWeek);
+  },
+  // 下一周
+  nextWeekHandler: function (e) {
+    this.setData({
+      whichWeek: this.data.whichWeek + 1,
+    })
+    this.kb(this.data.whichWeek);
   },
 
+  // 显示当前周的课表
   kb: function (zs) {
     if (zs <= 0) {
       zs = 1;
@@ -188,8 +129,6 @@ Page({
       zs = 1;
     }
     var that = this;
-    var isCourse = 'none',
-      xz = '';
     var a = 0;
     var data = {
       colorArrays: ['#99CCFF',
@@ -218,13 +157,14 @@ Page({
     var zc = 0;
     for (let i in curriculum) {
       zc = curriculum[i].zc;
+
       if (curriculum[i].xq == "7" && curriculum[i].dgksdm != undefined) {
         zc = String(Number(curriculum[i].zc) - 1);
       }
       if (zc == zs) {
         var kcmcc = curriculum[i].kcmc;
-        if (kcmcc.length > 13) {
-          kcmcc = kcmcc.substring(0, 13) + "...";
+        if ((curriculum[i].kcmc + curriculum[i].jxcdmc).length > 20) {
+          kcmcc = kcmcc.substring(0, 19 - curriculum[i].jxcdmc) + "...";
         }
         data.wlist.push({
           xqj: curriculum[i].xq,
@@ -236,10 +176,6 @@ Page({
         })
       }
     }
-    if (data.wlist.length == 0) {
-      isCourse = '';
-      xz = 'none';
-    }
 
     that.setData({
       arr: arr,
@@ -247,34 +183,62 @@ Page({
       whichWeek: zs,
       wlist: data.wlist,
       colorArrays: data.colorArrays,
-      xz: xz,
-      isCourse: isCourse,
       multiIndex: [(Number(zs) - 1), 0, 0, 0],
     })
 
   },
-
-  onLoad: function (options) {
-    getApp().loginState();
-    this.kb(getApp().globalData.whichWeek);
+  showdate(n) { // 日期切换处理函数  返回时间格式 YYYY-MM-DD
+    var date = new Date(wx.getStorageSync('configData').timeYear);
+    date.setDate(date.getDate() + n);
+    var month = date.getMonth() + 1
+    month = month > 10 ? month : month // 格式化月份
     this.setData({
-      weekNow: getApp().globalData.whichWeek,
+      month
+    })
+    var day = date.getDate()
+    day = day > 9 ? day : "0" + day // 格式化日期
+
+    date = "" + month + "/" + day;
+
+    return date;
+  },
+
+  // 点击时显示toast
+  showCardView: function (e) {
+    console.log(this.data.wlist[e.currentTarget.dataset.index])
+
+    wx.showToast({
+      title: '教师:' + this.data.wlist[e.currentTarget.dataset.index].teacher + "\n" +
+        '地点:' + this.data.wlist[e.currentTarget.dataset.index].jxcdmc,
+      icon: 'none',
     })
   },
-  onShow: function (options) {
-    this.kb(getApp().globalData.whichWeek);
-    this.initWeek()
-  },
+
+  // 跳转至 - 课表管理
   addCourseHandler: function (e) {
     wx.navigateTo({
       url: 'addcurriculum/addcurriculum'
     })
   },
-  showPic: function () {
-    wx.previewImage({
-      current: 'cloud://un1-d62c68.756e-un1-d62c68-1258307938/kb.png', // 当前显示图片的http链接
-      urls: ['cloud://un1-d62c68.756e-un1-d62c68-1258307938/kb.png'] // 需要预览的图片http链接列表
-    })
+  // 弹出 - 课表添加
+  feedbackHandler: function (e) {
+    var showAdd = this.data.showAdd
+    var that = this
+    if (showAdd) {
+      this.setData({
+        add_style: "add_hide"
+      })
+      setTimeout(() => {
+        that.setData({
+          showAdd: !showAdd
+        })
+      }, 200);
+    } else {
+      this.setData({
+        add_style: "add_show",
+        showAdd: !showAdd
+      })
+    }
   },
 
 
@@ -372,7 +336,6 @@ Page({
         var b = String(Number(this.data.sectionIndex[1] + 1))
       }
       for (i = 0; i < week.length; i++) {
-        console.log(week[i])
         var add = {
           'jcdm': a + b,
           'jxcdmc': this.data.place,
