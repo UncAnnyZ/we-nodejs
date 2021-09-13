@@ -66,11 +66,14 @@ page {
   .flex-item_title{
     filter: invert(100%) !important;
   }
+  .flex-item_title{
+    filter: invert(100%) !important;
+  }
   .flex-item{
     background-color:rgba(224, 224, 224, 0.651);
   }
   .flex-item_gapDays{
-    background-color:rgba(224, 224, 224, 0.26);
+    background-color:rgba(224, 224, 224, 0);
   }
 }
 
