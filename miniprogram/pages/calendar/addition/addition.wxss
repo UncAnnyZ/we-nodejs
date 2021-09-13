@@ -20,18 +20,31 @@ page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 230rpx;
+  padding-top: 110rpx;
 }
+
+.prev-btn {
+  width: 70rpx;
+  height: 60rpx;
+  margin-right: 610rpx;
+}
+
+.img-button image {
+  width: 50%;
+  height: 70%;
+}
+
 .flex-item{
   width:85%;
   height:480rpx;
-  background-color:rgb(255, 255, 255);
+  background-color:rgba(255, 255, 255, 0.644);
   border-radius: 13rpx;
   box-shadow: 7rpx 7rpx 7rpx #969696b4;
+  margin-top: 230rpx;
   overflow: hidden;
 }
 .flex-item_title{
-  background-color:rgba(76, 126, 202, 0.945)!important;
+  background-color:rgba(76, 126, 202, 0.842)!important;
   height:105rpx;
   display: flex;
   justify-content:center ;
@@ -41,7 +54,6 @@ page {
   color:rgb(255, 255, 255);
 }
 .flex-item_gapDays{
-  background-color: white;
   height:270rpx;
   padding-top: 8rpx;
   font-weight: 550;
@@ -71,9 +83,6 @@ page {
   }
   .flex-item{
     background-color:rgba(224, 224, 224, 0.651);
-  }
-  .flex-item_gapDays{
-    background-color:rgba(224, 224, 224, 0);
   }
 }
 

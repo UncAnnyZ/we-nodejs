@@ -2,6 +2,11 @@
 <view class="page">
   <image class="background" src="../addition/www.png" ></image>
   <view class="all">
+    
+      <view class="img-button prev-btn" bindtap="tapPrev">
+        <image src="../addition/btn_prev@2x.png"></image>
+      </view>
+   
     <view class="flex-item"  data-index="{{index}}">  
       <view class="flex-item_title">
         <text wx:if="{{gapDays > 0}}">{{Name}} 还有</text>
