@@ -35,11 +35,11 @@ exports.main = async (event, context) => {
 
   return {
     version: "0.0.1",
-    msgTitle : "预告",
+    msgTitle : "通知",
     timeYear : "2021/8/30",
     time: "43200", // 秒
     reset: false,
-    msgData: "1.修复多项bug\n2.广告即将可以关闭（也可以不关多多支持我们）\n3.新功能倒数日即将上线",
+    msgData: "1.修复添加课表bug\n2.倒数日功能上线啦！第二行第二个",
     more: [{
       url: '/pages/more/tc/tc',
       name: '体测成绩计算',
@@ -62,7 +62,7 @@ exports.main = async (event, context) => {
         id: "2",
         url: "activity/activity",
         icon: "../../images/icon/news.png",
-        name: "社团活动"
+        name: "社团招新"
       }, {
         id: "3",
         url: "schoolNav/schoolNav",
@@ -82,7 +82,7 @@ exports.main = async (event, context) => {
         id: "6",
         url: "calendar/calendar",
         icon: "../../images/icon/calendar.png",
-        name: "校历"
+        name: "倒数日"
       }, {
         id: "7",
         url: "more/skrw/skrw",

@@ -24,6 +24,13 @@ page{
 .name{
   font-size: 30rpx;
 }
+.text{
+  color: rgb(35, 122, 221);
+  display: flex;
+  justify-content: center;
+  font-size: 36rpx;
+  margin-top:30rpx ;
+}
 .biaoji{
   font-size: 20rpx;
   color: red;
@@ -75,10 +82,16 @@ page{
 }
 text{
   padding-top: 30rpx;
+  
 }
 button{
   width: 626rpx; height: 80rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx;
       width: 686rpx; height: 80rpx; display: block; box-sizing: border-box; left: -10rpx; top: 0rpx; position: relative; background-color: rgb(45, 165, 230);
+}
+.des{
+  font-size: 24rpx;
+  color:red;
+  margin-bottom: 10rpx;
 }
 @media (prefers-color-scheme: dark) {
   .ttt{

@@ -15,7 +15,7 @@ Page({
     condition_en: ["name", "num", "major", "xueyuan", "phone"],
     sector_list: "", //加入部门
     title: '', //标题
-    content: ''
+    content: '',
     //内容
   },
   //提交表单
@@ -44,13 +44,13 @@ Page({
             name: this.data.detail.name,
             phone: this.data.detail.phone,
             num: this.data.detail.num,
+            xueyuan:this.data.detail.xueyuan,
             major: this.data.detail.major,
             checkbox: this.data.detail.checkbox,
             club_name: this.data.club_name,
+
           },
           success(res) {
-            // console.log(res,123)
-            // console.log(that.data,"@34")
             wx.showToast({
               title: '成功',
               icon: 'success',
@@ -89,12 +89,32 @@ Page({
       title: app.globalData.club_detail.title,
       content: app.globalData.club_detail.content,
       sector_list: app.globalData.club_detail.sector_list,
-      club_name: app.globalData.club_detail.name
+      club_name: app.globalData.club_detail.name,
+      current:app.globalData.club_detail.pic_current,
+      url:app.globalData.club_detail.pic_url
     })
   },
 
   onShow: function () {
 
+  },
+  read_pic:function(e){
+    console.log(typeof this.data.url)
+
+    if (typeof this.data.url=="undefined"){
+      wx.showToast({
+        title:"暂未该社团招生群信息",
+        icon:"none"
+      })
+     
+      
+    }
+    else{
+      wx.previewImage({
+        current: this.data.current, // 当前显示图片的http链接
+        urls: this.data.url // 需要预览的图片http链接列表
+      })
+    }
   },
 
   /**

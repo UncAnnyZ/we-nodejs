@@ -3,7 +3,11 @@
     {{title}}
   </view>
   <view class="describe">
-    <view class="contentt"> <text space="ensp" >  {{content}}</text></view> 
+    <view class="contentt">
+     <text space="ensp" >  {{content}}</text>
+     \n
+     \n<view class="text" bindtap="read_pic">点击查看招生群</view>
+     </view> 
   </view>
   <form bindsubmit="formSubmit" >
     <view class="content">
@@ -25,6 +29,7 @@
         </view>
       </view>
   </checkbox-group>
+  <view class="des">·该程序用于社团/机构的报名,联系电话用于招新信息的短信通知，请如实填写信息</view>
   <view class="ttt" style="width: 626rpx; height: 80rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
       <button class="ttt1" formType="submit"   type="primary"  style="width: 686rpx; height: 80rpx; display: block; box-sizing: border-box; left: -10rpx; top: 0rpx; position: relative; background-color: rgb(45, 165, 230)">提交</button>
     </view>
