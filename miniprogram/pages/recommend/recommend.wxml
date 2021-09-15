@@ -6,6 +6,6 @@
   </view> -->
   <!-- <wxParse nodes="{{ htmlText }}" /> -->
   <view class="htmlText">  <mp-weixin content="{{htmlText}}" /></view>
-
+  <web-view style="display: {{htmlSrc?htmlSrc:'none'}}" src="{{htmlSrc}}"></web-view>
 </view>
 

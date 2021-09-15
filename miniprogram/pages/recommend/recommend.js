@@ -4,7 +4,8 @@ var app = getApp()
 Page({
   data: {
     htmlText:"",
-    foodList: []
+    foodList: [],
+    htmlSrc: "",
   },
   //事件处理函数
   bindViewTap: function(e) {
@@ -62,13 +63,20 @@ Page({
           urlName: options.urlName,
         },
         success: res => {
-          wx.showToast({
-            title: '请等待渲染',
-            icon: 'none',
-          })
-          that.setData({
-            htmlText: res.result
-          })
+          if(res.result.length< 50){
+            that.setData({
+            htmlSrc: res.result
+            })
+          }else{
+            wx.showToast({
+              title: '请等待渲染',
+              icon: 'none',
+            })
+            that.setData({
+              htmlText: res.result
+            })
+          }
+
         },
         fail: err => {
           wx.showToast({
@@ -78,5 +86,12 @@ Page({
         }
       })
     }
-  }
+
+    
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: 'We广油',
+    }
+  },
 })
