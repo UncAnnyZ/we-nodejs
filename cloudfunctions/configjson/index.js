@@ -39,11 +39,7 @@ exports.main = async (event, context) => {
     timeYear : "2021/8/30",
     time: "43200", // 秒
     reset: false,
-<<<<<<< HEAD
-    msgData: "1.修复添加课表bug\n2.倒数日功能上线啦！第二行第二个",
-=======
-    msgData: "可以滑动啦，可以配置公众号文章，有兴趣的官方组织欢迎投放公众号\n有想法或者新功能或者优化的请联系我们",
->>>>>>> 35b6428557ed8bdd4a5405202d2ae98c181ae233
+    msgData: "社团招新可以关联招生群啦，可以在社团招新报名哦，有兴趣加盟的社团请联系我们\n有想法或者新功能或者优化的也请联系我们",
     more: [{
       url: '/pages/more/tc/tc',
       name: '体测成绩计算',
@@ -103,17 +99,22 @@ exports.main = async (event, context) => {
       }
       , {
         id: "10",
-        url: "recommend/recommend?urlName=表白墙",
-        icon: "/images/icon/examination1.png",
-        name: "表白墙"
+        url: "recommend/recommend?urlName=We生活吧",
+        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/生活.png",
+        name: "We生活吧"
       }
       , {
         id: "11",
         url: "recommend/recommend?urlName=学校新咨询",
         icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/新闻动态.png",
-        name: "学校新资讯"
+        name: "学校新咨询"
       }
-
+      , {
+        id: "12",
+        url: "recommend/recommend?urlName=表白墙",
+        icon: "/images/icon/examination1.png",
+        name: "表白墙"
+      }
     ],
       inform: [{
           comment: "消息",

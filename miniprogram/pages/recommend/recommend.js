@@ -52,10 +52,6 @@ Page({
       })
     }
     if(options.urlName){
-      wx.showLoading({
-        title: '更新数据中',
-        mask: true
-      })
 
       wx.cloud.callFunction({
         name: 'imgapi',
@@ -68,6 +64,10 @@ Page({
             htmlSrc: res.result
             })
           }else{
+            wx.showLoading({
+              title: '更新数据中',
+              mask: true
+            })
             wx.showToast({
               title: '请等待渲染',
               icon: 'none',
