@@ -2,6 +2,9 @@
 page{
   background-color:rgb(255, 255, 255);
 }
+.htmlText{
+  z-index: 200;
+}
 .container{
   height: 100%;
   margin: 0;

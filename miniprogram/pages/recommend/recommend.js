@@ -4,8 +4,7 @@ var app = getApp()
 Page({
   data: {
     htmlText:"",
-    foodList: [],
-    htmlSrc: "",
+    foodList: []
   },
   //事件处理函数
   bindViewTap: function(e) {
@@ -52,6 +51,10 @@ Page({
       })
     }
     if(options.urlName){
+      wx.showLoading({
+        title: '更新数据中',
+        mask: true
+      })
 
       wx.cloud.callFunction({
         name: 'imgapi',
@@ -59,24 +62,13 @@ Page({
           urlName: options.urlName,
         },
         success: res => {
-          if(res.result.length< 50){
-            that.setData({
-            htmlSrc: res.result
-            })
-          }else{
-            wx.showLoading({
-              title: '更新数据中',
-              mask: true
-            })
-            wx.showToast({
-              title: '请等待渲染',
-              icon: 'none',
-            })
-            that.setData({
-              htmlText: res.result
-            })
-          }
-
+          wx.showToast({
+            title: '请等待渲染',
+            icon: 'none',
+          })
+          that.setData({
+            htmlText: res.result
+          })
         },
         fail: err => {
           wx.showToast({

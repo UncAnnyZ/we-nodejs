@@ -99,7 +99,7 @@ exports.main = async (event, context) => {
       }
       , {
         id: "10",
-        url: "recommend/recommend?urlName=We生活吧",
+        url: "setting/setting?urlName=We生活吧",
         icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/生活.png",
         name: "We生活吧"
       }
@@ -112,7 +112,7 @@ exports.main = async (event, context) => {
       , {
         id: "12",
         url: "recommend/recommend?urlName=表白墙",
-        icon: "/images/icon/examination1.png",
+        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/表白.png",
         name: "表白墙"
       }
     ],

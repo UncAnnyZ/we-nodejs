@@ -1,2 +1,2 @@
 <!--pages/setting.wxml-->
-<text>pages/setting.wxml</text>
+<view><web-view src="{{htmlSrc}}"></web-view></view>
