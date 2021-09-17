@@ -164,7 +164,7 @@ Page({
       if (zc == zs) {
         var kcmcc = curriculum[i].kcmc;
         if ((curriculum[i].kcmc + curriculum[i].jxcdmc).length > 20) {
-          kcmcc = kcmcc.substring(0, 19 - curriculum[i].jxcdmc) + "...";
+          kcmcc = kcmcc.substring(0, 17 - curriculum[i].jxcdmc.length) + "...";
         }
         data.wlist.push({
           xqj: curriculum[i].xq,
