@@ -338,7 +338,20 @@ Page({
   // 下拉刷新
   onPullDownRefresh() {
     wx.showNavigationBarLoading() //在标题栏中显示加载
-    this.showAll();
+    wx.showLoading({
+      title: '更新数据中',
+      mask: true
+    })
+    var configData = wx.getStorageSync('configData');
+    this.setStorageData(configData.index);
+
+    // 读取云端配置信息
+    this.getCloudConfigData()
+
+    // 获取个人数据
+    var nowTime = new Date().getTime(); // 当前时间
+    var personalData = wx.getStorageSync('personaldata');
+    this.weLoading(personalData, nowTime)
     wx.hideNavigationBarLoading() //完成停止加载
     wx.stopPullDownRefresh() //停止下拉刷新
   },
