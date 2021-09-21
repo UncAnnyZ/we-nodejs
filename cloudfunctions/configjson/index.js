@@ -41,9 +41,9 @@ exports.main = async (event, context) => {
     reset: false,
     msgData: "社团招新可以关联招生群啦，可以在社团招新报名哦，有兴趣加盟的社团请联系我们\n有想法或者新功能或者优化的也请联系我们",
     more: [{
-      url: '/pages/more/tc/tc',
-      name: '体测成绩计算',
-      imgUrl: '../../../images/home/timg.png'
+      url: '/pages/recommend/recommend?appId=wx669135f6ab750be9',
+      name: '广油学生公寓中心',
+      imgUrl: 'cloud://un1-d62c68.756e-un1-d62c68-1258307938/水电费.png'
     }],
     index: {
       news: true, // 通知内容显示
@@ -105,9 +105,9 @@ exports.main = async (event, context) => {
       }
       , {
         id: "11",
-        url: "recommend/recommend?urlName=学校新咨询",
-        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/新闻动态.png",
-        name: "学校新咨询"
+        url: "more/tc/tc",
+        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/运动.png",
+        name: "体测计算器"
       }
       , {
         id: "12",
