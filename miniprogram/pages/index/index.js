@@ -121,10 +121,11 @@ Page({
       success: res => {
 
         //走本机网络态，为什么add和de不分开走呢，考虑了和学校课表同步问题～本机请求会更快哟
-        if (data.loginStatus) {
+        if (data.loginStatus && !res.result.c_data) {
           this.onLogin(res.result, nowTime);
           return
         } 
+ 
         if (res.result == "0") {
           wx.clearStorageSync();
           that.setData({
@@ -199,7 +200,6 @@ Page({
         zc = String(Number(curriculum[y].zc) - 1)
       }
       if (zc == this.getweekString() && curriculum[y].xq == xq) {
-        console.log(curriculum[y].kcmc, curriculum[y].jxcdmc)
         course.push({
           day: '今天',
           time: '第' + curriculum[y].jcdm[1] + '节',
@@ -460,7 +460,6 @@ Page({
                     "jcdm": ""
                   }]
                 }
-                console.log(inputData)
 
                 wx.setStorageSync('personaldata', inputData);
                 
@@ -471,6 +470,7 @@ Page({
                 });
                 wx.setStorageSync('oldTime', nowTime);
               }).catch(reason => {
+        
                 wx.showToast({
                   title: '本地完成',
                   icon: 'none',
@@ -495,6 +495,7 @@ Page({
 
       },
       fail(res) {
+        
         wx.showToast({
           title: '本地完成',
           icon: 'none',

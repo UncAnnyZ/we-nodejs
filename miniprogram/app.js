@@ -24,6 +24,7 @@ App({
       _adday:[],
       _de:[],
       username:0,
+      pwd:0,
       timeyear:"",
       task:[],
       index:0,
