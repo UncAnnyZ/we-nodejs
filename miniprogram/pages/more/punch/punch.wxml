@@ -1,0 +1,24 @@
+<view class='m2'>
+  <view class='m2_tit'>二维码展示</view>
+  <view class="coupon-line">
+    <view></view>
+    <view></view>
+  </view>
+  <form bindsubmit="cx">
+    <!-- <view class="cxwk">
+      <textarea name="question"/>
+    </view> -->
+
+    <image class="cxwk" src="data:image/png;base64,{{imgData}}"></image>
+
+    <picker class="cxwk2" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        当前选择：{{array[index]}}
+      </view>
+    </picker>
+    <button class="cxwk1" formType="submit">获取二维码</button>
+    
+    <text style="padding-left:30rpx">会自动保存到相册，然后打开微信扫描（记得快准狠）,3-4秒完成，不然需要重新获取二维码</text>
+
+  </form>
+</view>

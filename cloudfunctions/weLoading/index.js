@@ -158,7 +158,7 @@ exports.main = async(event, context) => {
         _add: curriculum.data[0]._add,
         _de: curriculum.data[0]._de,
         username: username,
-        pwd:output
+        pwd:output,
       }
       if(curriculum.data[0].curriculumTime != curriculumTime){
         await db.collection('curriculum').where({ _user: username }).update({
