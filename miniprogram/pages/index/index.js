@@ -264,6 +264,16 @@ Page({
           }
         }
       }
+
+      // indexData.inform.push(
+      //   {
+      //     comment:'倒数日',
+      //     name:'今天是' + ' 倒数日内容 ' + '的日子哦~',
+      //     tiele:'今天是' + ' 倒数日内容 ' + '的日子哦~'
+      //   }
+      // )
+      
+      console.log(indexData.inform)
       this.setData({
         iconList: iconList, // indexData.iconList,
         inform: indexData.inform,
