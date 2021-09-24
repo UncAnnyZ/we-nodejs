@@ -33,8 +33,22 @@ exports.main = async (event, context) => {
     "oisor5N21e4VQQDeTnXcu1oXCAV8"  // xld
   ]  
 
-  var test = [
-    "oisor5BFMK23z59g2Z95_ifBA1TU"
+  // 打卡列表
+  var punch = [
+    "oisor5BFMK23z59g2Z95_ifBA1TU", // zw
+    "oisor5MkCO8itCeQT57U5hE3T7U4", // xld
+    "oisor5N21e4VQQDeTnXcu1oXCAV8", // xld
+    "oisor5AjzXw2SIIVPztc2TueRkOk", // zyr
+    "oisor5NZ2ed3g6JWzj2yVW9aaJPg", // yby
+    "oisor5F9x3faZoz-tP6ojXDd0Mtk", // hcl
+    "oisor5NzX7ZkO84KxB12CxgWqcys", // cwd
+    //张伟实验室的人，感谢服务器存储
+    "oisor5AxfPJZBqWBIFQumBjG2Lfs", // lyx
+    "oisor5PYmkBynx9cCjkm-CuiA3yA", // zhj
+    "oisor5H-FdtHtftkwloEwgESctoc", // cyq
+    "oisor5CveKL1s6X5rF-J8eolSsi0", // zzr
+
+
   ]
 
   data = {
@@ -119,12 +133,12 @@ exports.main = async (event, context) => {
         icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/广油日常助手.png",
         name: "广油日常助手"
       }
-      , {
-        id: "13",
-        url: "more/punch/punch",
-        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/生活.png",
-        name: "打卡测试"
-      }
+      // , {
+      //   id: "13",
+      //   url: "more/punch/punch",
+      //   icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/生活.png",
+      //   name: "打卡测试"
+      // }
     ],
       inform: [{
           comment: "消息",
@@ -146,6 +160,16 @@ exports.main = async (event, context) => {
         }
       ]
     }
+  }
+  if(punch.includes(wxContext.OPENID)){
+    data.index.iconList.push(
+      {
+        id: "13",
+        url: "more/punch/punch",
+        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/新闻动态.png",
+        name: "打卡测试"
+      }
+    )
   }
 
   return data

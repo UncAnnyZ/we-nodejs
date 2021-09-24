@@ -2,10 +2,9 @@
 const cloud = require('wx-server-sdk')
 var got = require('got'); //引用 got
 cloud.init()
-const db = cloud.database()
-const _ = db.command;
 // 云函数入口函数
 exports.main = async (event, context) => {
+
 
   function a() {
     var e = new Date,
@@ -147,29 +146,6 @@ exports.main = async (event, context) => {
 
   var token = aa("qweasd" + a());
 
-
-  if (event.i == 1) {
-    await db.collection('curriculum').where({
-      _user: event.username
-    }).update({
-      data: {
-        _zt: 1
-      }
-    })
-    return 1
-  }
-
-  if (event.i == 2) {
-    await db.collection('curriculum').where({
-      _user: event.username
-    }).update({
-      data: {
-        _zt: 2
-      }
-    })
-    return 1
-  }
-  const wxContext = cloud.getWXContext()
   // var taskid = "132200164628"
   if (Number(event.code) > 400) {
     event.code = Number(event.code)
