@@ -309,7 +309,7 @@ Page({
 
       this.setData({
         slideWidth: _showLength,
-        slidable: barWidth / 2 - onelength,
+        slidable: barWidth - _showLength, // barWidth / 2 - onelength,
         slideShow: true,
         slideRatio: _ratio
       })
