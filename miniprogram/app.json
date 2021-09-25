@@ -73,6 +73,11 @@
       "pages": ["tc"]
     },
     {
+      "name": "pack-more-punch",
+      "root": "pages/more/punch",
+      "pages": ["punch"]
+    },
+    {
       "name": "pack-more-skrw",
       "root": "pages/more/skrw",
       "pages": ["skrw"]
@@ -94,13 +99,15 @@
         "pack-schoolNav",
         "pack-recommend",
         "pack-setting"
+
       ]
     },
     "pages/more/more":{
       "network": "all",
       "packages": [
         "pages/more/tc",
-        "pages/more/skrw"
+        "pages/more/skrw",
+        "pages/more/punch"
       ]
     },
     "pages/login/login": {

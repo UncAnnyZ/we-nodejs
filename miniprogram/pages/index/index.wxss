@@ -105,43 +105,6 @@ page {
 
 }
 
-.wx-list.menu>.wx-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 90rpx;
-  background: #fff;
-  margin-bottom: 10rpx;
-  border-radius: 20rpx;
-  width: 710rpx;
-  padding-left: 20rpx;
-  margin-left: 10rpx;
-}
-
-.wx-list.menu>.wx-item .content {
-
-  display: flex;
-  font-size: 30rpx;
-}
-
-.inform-images {
-  width: 60rpx;
-  height: 60rpx
-}
-
-.inform-text {
-  overflow: hidden;
-  height: 60rpx;
-  line-height: 60rpx;
-}
-
-.inform-text view {
-  width: 580rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  animation: first 10s;
-  animation-iteration-count: infinite;
-}
 
 .slide {
   display: flex;
@@ -173,55 +136,80 @@ page {
   color: transparent;
 }
 
-@keyframes first {
-  0% {
-    transform: translateY(-0rpx);
-  }
 
-  26% {
-    transform: translateY(-0rpx);
-  }
-
-  32% {
-    transform: translateY(-60rpx);
-  }
-
-  57% {
-    transform: translateY(-60rpx);
-  }
-
-  63% {
-    transform: translateY(-120rpx);
-  }
-
-  88% {
-    transform: translateY(-120rpx);
-  }
-
-  95% {
-    transform: translateY(-180rpx);
-  }
-
-  100% {
-    transform: translateY(-180rpx);
-  }
+/* 新改版 */
+.inform{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 90rpx;
+  background: #fff;
+  margin: 0 10rpx 10rpx 10rpx;
+  padding: 0 20rpx;
+  border-radius: 20rpx;
 }
-
+.inform-images {   
+  width: 60rpx;
+  height: 60rpx
+}
+.inform swiper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  max-height: 60rpx;
+}
+.inform swiper-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 60rpx;
+  overflow: hidden;
+}
 .inform-comment {
+  display: flex;
+  align-items: center;
+  padding: 9rpx 15rpx;
+  margin: 0rpx 20rpx;
+  border-radius: 30rpx 0 30rpx 30rpx;
   background-color: #e54d42;
   font-size: 20rpx;
   color: #fff;
-  padding: 9rpx 15rpx;
-  border-top-left-radius: 30rpx;
-  border-bottom-right-radius: 30rpx;
-  border-bottom-left-radius: 30rpx;
-  margin: 0rpx 20rpx;
+}
+.inform-name {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.inform-name text{
+  color: #f37b1d;
+  font-size: 27rpx;
+  width: 100%;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 显示超过两行后 显示省略号... */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
 }
 
-.inform-name {
-  font-size: 27rpx;
-  color: #f37b1d;
+.swiper-disabled{
+  position: relative;
 }
+.swiper-disabled::after{
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  /*长宽根据需要调整*/
+  width: 650rpx;
+  height: 60rpx;
+}
+
 
 .icon-arrow-right-copy-copy-copy {
   font-size: 50rpx;
@@ -365,8 +353,11 @@ page {
     filter: invert(0%) !important;
   }
 
-  .wx-class-title,
-  .inform-text {
+  .inform swiper{
+    filter: invert(90%) !important;
+  }
+
+  .wx-class-title{
     filter: invert(90%) !important;
   }
 

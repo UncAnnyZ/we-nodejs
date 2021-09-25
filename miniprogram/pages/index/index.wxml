@@ -20,25 +20,25 @@
         <view wx:if="{{slideShow}}" class="slide">
             <view class='slide-bar'>
                 <view class="slide-show"
-                    style="width:{{slideWidth}}rpx; left:{{slideLeft<=1 ? 0 : slidable-slideLeft<=1? slidable+1 : slideLeft}}rpx;"></view>
+                    style="width:{{slideWidth}}rpx; left:{{slideLeft<=1 ? 0 : slidable-slideLeft<=1? slidable : slideLeft}}rpx;"></view>
             </view>
         </view>
     </view>
 
     <!-- 滚动条 -->
-    <view class='wx-list menu margin-top' style='display:{{news? "block":"none"}}'>
-        <view class="wx-item">
-            <view class="content">
-                <image class="inform-images" src="../../images/icon/inform.png"></image>
-                <view class="inform-text">
-                    <view wx:for="{{inform}}" wx:key="id" bindtap='setFrom' id="{{item.title}}">
-                        <text class='inform-comment'>{{item.comment}}</text>
-                        <text class='inform-name'>{{item.name}}</text>
-                    </view>
+    <view class="inform" wx:if="news">
+        <image class="inform-images" src="../../images/icon/inform.png"></image>
+        <swiper class="swiper-disabled" autoplay='true' interval='3800' duration='1000' circular='true' vertical='true'>
+            <swiper-item wx:for="{{inform}}" wx:key="id" bindtap='setFrom' id="{{item.title}}">
+                <view class='inform-comment' style="min-width: {{item.comment.length * 20}}rpx;">{{item.comment}}</view>
+                <view class='inform-name'>
+                    <text>{{item.name}}</text>
                 </view>
-            </view>
-        </view>
+            </swiper-item>
+        </swiper>
     </view>
+
+
     <view class='wx-remind margin-top' style='display:{{class? "block":"none"}}'>
         <view class="wx-remind-header">
             <view class="wx-remind-title">
