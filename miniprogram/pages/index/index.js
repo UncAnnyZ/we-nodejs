@@ -23,7 +23,7 @@ Page({
       day: new Date().getDay(),
     },
     show: "show",
-    isCourse: false
+    isCourse: false,
   },
 
 
@@ -37,7 +37,7 @@ Page({
       windowWidth: systemInfo.windowWidth
     })
     this.showAll();
-
+    
   },
 
 

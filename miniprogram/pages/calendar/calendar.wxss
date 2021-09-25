@@ -49,12 +49,12 @@ page {
   width: 100%;
   color: #fff;
   background-color: rgba(248, 248, 248, 0.9);
-  box-shadow: 0 9rpx 9rpx #d1cece;
+  box-shadow: 0 7rpx 7rpx #d1cece;
   border-radius: 22rpx;
   overflow: hidden;
   transition: all 0.4s;
-  transform: translateX(90px);
-  margin-left: -90px;
+  transform: translateX(130px);
+  margin-left: -130px;
 }
 .weui-item__title {
   width: 300rpx;
@@ -176,23 +176,55 @@ page {
 
 
 .del {
-  background-color: orangered !important;
-  width: 80px;
-  height: 110rpx;
+  background-color: rgb(255, 255, 255);
+  width: 95rpx;
+  height: 95rpx;
+  margin-top: 8rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #fff;
-  border-radius: 22rpx;
-  -webkit-transform: translateX(90px);
-  transform: translateX(90px);
+  border-radius: 115rpx;
+  -webkit-transform: translateX(130px);
+  transform: translateX(130px);
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
 
+.del image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.edit {
+  background-color: rgb(255, 255, 255);
+  width: 95rpx;
+  height: 95rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 115rpx;
+  margin-top: 8rpx;
+  -webkit-transform: translateX(130px);
+  transform: translateX(130px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.edit image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
 .touch-move-active .touch-item,
 .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+
+}
+.touch-move-active .edit {
   -webkit-transform: translateX(0);
   transform: translateX(0);
 
@@ -247,16 +279,7 @@ page {
   box-sizing: unset;
   background-color: rgb(245, 245, 245);
 }
-.course label{
-  display: flex;
-  align-items: center;
-  padding-right: 30rpx;
-}
-.course input{
-  font-size: 1.1rem;
-  padding: 0.3rem;
-  
-}
+
 .section{
   margin:20rpx;
   padding:20rpx;
@@ -317,7 +340,11 @@ page {
   }
 
   .del {
-    filter: invert(100%) !important;
+    background-color: rgba(224, 224, 224, 0.589);
+  }
+  
+  .edit {
+    background-color: rgba(224, 224, 224, 0.589);
   }
 
   .touch-item {
@@ -329,4 +356,8 @@ page {
   .add_btn button{
     color: rgba(0, 0, 0, 0.808);
   }
+  .course input{
+    color:white;
+  }
+  
 }

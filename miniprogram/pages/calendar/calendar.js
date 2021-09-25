@@ -16,16 +16,20 @@ Page({
     index: "0",
     startX: 0, //开始坐标
     startY: 0,
-    showModel:false,
-    dates:'',
+    showModel: false,
+    dates: '',
     dayName: '',
+    changeDay: ''
   },
 
-  feedbackHandler(e) { //跳转到子页
+  feedbackHandler() { //跳转到子页
     var showModel=this.data.showModel
     var that = this
     if (showModel) {
       this.setData({
+        changeDay:"",
+        dayName: "",
+        dates: "",
         add_style: "add_hide"
       })
       setTimeout(() => {
@@ -45,7 +49,7 @@ Page({
     })*/
   },
 
-  
+
 
 
   num_data: function (start_date1, end_date1) { //计算倒数日
@@ -59,22 +63,22 @@ Page({
   terms: function () { //学年显示
     var year = '';
     if (new Date().getMonth() > 4) {
-      year = new Date().getFullYear() + '-' + (new Date().getFullYear() + 1) + '-' + 1
+      year = new Date().getFullYear() + '-' + (new Date().getFullYear() + 1) + '学年' + ' ' + '第' + 1 + '学期'
     } else {
-      year = new Date().getFullYear() - 1 + '-' + new Date().getFullYear() + '-' + 2
+      year = new Date().getFullYear() - 1 + '-' + new Date().getFullYear() + '学年' + ' ' + '第' + 2 + '学期'
     }
     this.setData({
       term: year
     })
   },
 
-  compare: function (property){
-    return function(a,b){
-        var value1 = a[property];
-        var value2 = b[property];
-        return value1 - value2;
+  compare: function (property) {
+    return function (a, b) {
+      var value1 = a[property];
+      var value2 = b[property];
+      return value1 - value2;
     }
-},
+  },
 
 
   setDataCalendar: function () { //页面渲染全部倒数日
@@ -84,7 +88,7 @@ Page({
     var nowdate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
     for (let i = 0; i < addday.length; i++) {
       var gapDays2 = this.num_data(addday[i].holidayDate, nowdate);
-      if(gapDays2 > 0){
+      if (gapDays2 > 0) {
         xlist.push({
           holidayName: addday[i].holidayName,
           holidayDate: addday[i].holidayDate,
@@ -92,7 +96,7 @@ Page({
           holidayRestInfo: addday[i].holidayDate,
           isTouchMove: false
         })
-      }else{
+      } else {
         xlist1.push({
           holidayName: addday[i].holidayName,
           holidayDate: addday[i].holidayDate,
@@ -102,21 +106,24 @@ Page({
         })
       }
     }
+
+    var list = xlist.sort(this.compare("gapDays")).concat(xlist1.sort(this.compare("gapDays")).reverse())
+    getApp().globalData._adday = list
     this.setData({
       show: "",
-      list: xlist.sort(this.compare("gapDays")).concat(xlist1.sort(this.compare("gapDays")).reverse())
+      list: list
     })
   },
 
-  showdates(e){
-    var that=this
-    var index1=e.currentTarget.dataset.index
+  showdates(e) {    //跳转到倒数日的详情页面
+    var that = this
+    var index1 = e.currentTarget.dataset.index
     var dates = that.data.list[index1]
-    var holidayName=dates.holidayName
-    var gapDays=dates.gapDays
-    var holidayDate=dates.holidayDate
+    var holidayName = dates.holidayName
+    var gapDays = dates.gapDays
+    var holidayDate = dates.holidayDate
     wx.navigateTo({
-      url:"../calendar/addition/addition?Name=" + holidayName +"&gapDays=" + gapDays + "&Date=" + holidayDate,
+      url: "../calendar/addition/addition?Name=" + holidayName + "&gapDays=" + gapDays + "&Date=" + holidayDate,
     })
   },
 
@@ -172,26 +179,26 @@ Page({
   },
 
   del: function (e) { //删除倒数日  
+    var that=this
     wx.showLoading({
       title: '处理中',
       mask: true
     })
     this.data.list.splice(e.currentTarget.dataset.index, 1)
-    getApp().globalData._adday=this.data.list
+    getApp().globalData._adday = this.data.list
     wx.cloud.callFunction({
-      name: 'we_adday1',
+      name: 'readday',
       data: {
         _adday: JSON.stringify(this.data.list),
         username: getApp().globalData.username,
+        type: 'write'
       },
       success: res => {
         wx.showToast({
           title: '删除成功',
           icon: 'none',
         })
-        this.setData({
-          list: this.data.list
-        })
+        that.onShow()
       },
       fail: err => {
         wx.showToast({
@@ -202,44 +209,47 @@ Page({
     })
   },
 
-  DayNameInput:function(e)    //获取倒数日名称
-  {
+  
+  bindDateChange: function (e) { //获取倒数日日期
     this.setData({
-      dayName: e.detail.value
+      dates: e.detail.value
     })
   },
-    bindDateChange: function (e) {    //获取倒数日日期
-      this.setData({
-        dates: e.detail.value
-      })
-    },
-  addSubmit:function(e) {     
-    var that = this  //提交倒数日
+  addSubmit: function (e) {
+    //判断是否修改状态
+
+    var that = this //提交倒数日
     wx.showLoading({
       title: '处理中',
       mask: true
     })
-    if (this.data.dayName == null || this.data.dayName == "" || this.data.dayName == undefined) {     //判断填写是否为空
+
+    if (this.data.dayName == null || this.data.dayName == "" || this.data.dayName == undefined) { //判断填写是否为空
       wx.showToast({
         title: '名称不能为空',
         icon: 'none',
         duration: 1000
       })
-    } else if (this.data.dates == null || this.data.dates == "" || this.data.dates == undefined ) {
+    } else if (this.data.dates == null || this.data.dates == "" || this.data.dates == undefined) {
       wx.showToast({
         title: '日期不能为空',
         icon: 'none',
         duration: 1000
       })
     } else {
-      var tt = []
-      var add = { 
+      var add = {
         'holidayName': this.data.dayName,
-        'holidayDate':this.data.dates,
+        'holidayDate': this.data.dates,
       }
-      tt.push(add)
-      getApp().globalData._adday.push(add)
-      wx.cloud.callFunction({             //访问云函数
+      if (this.data.changeDay !== "") {
+        getApp().globalData._adday[this.data.changeDay].holidayName = this.data.dayName
+        getApp().globalData._adday[this.data.changeDay].holidayDate = this.data.dates
+      } else {
+
+        getApp().globalData._adday.push(add)
+      }
+
+      wx.cloud.callFunction({ //访问云函数
         name: 'readday',
         data: {
           _adday: JSON.stringify(getApp().globalData._adday),
@@ -261,23 +271,37 @@ Page({
         },
         complete() {
           that.setData({
-            showModel: !that.data.showModel
+            changeDay:"",
+            dayName: "",
+            dates: "",
+            showModel: !that.data.showModel,
           })
         }
       })
     }
   },
+
+  edit: function (e) {
+    //保存到changeDay来调用状态
+    this.data.changeDay = e.currentTarget.dataset.index
+    this.setData({
+      dayName: getApp().globalData._adday[this.data.changeDay].holidayName,
+      dates: getApp().globalData._adday[this.data.changeDay].holidayDate
+    })
+    this.feedbackHandler()
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) { //读取数据库
     getApp().loginState();
     this.terms();
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onShow: function (options) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     wx.cloud.callFunction({
       name: 'readday',
       data: {
@@ -287,11 +311,21 @@ Page({
       success: res => {
         getApp().globalData._adday = JSON.parse(res.result)
         this.setDataCalendar();
+        wx.hideLoading({
+          success: (res) => {},
+        })
       },
       fail: err => {
         console.log(err)
       }
     })
+    
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onShow: function (options) {
+    this.setDataCalendar();
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
   },
 

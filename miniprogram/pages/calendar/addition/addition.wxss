@@ -3,7 +3,7 @@ button{
   box-sizing: border-box;
 }
 page {
-  background-color:#bddff848;
+  
   font-size: 16px;
   font-family: unset;
  
@@ -56,12 +56,11 @@ page {
 .flex-item_gapDays{
   height:270rpx;
   padding-top: 8rpx;
-  font-weight: 550;
-  font-family: '华文新魏';
+  
   display: flex;
   justify-content:center ;
   align-items: center;
-  font-size: 160rpx;
+  font-size: 140rpx;
 }
 
 

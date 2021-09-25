@@ -31,8 +31,12 @@
             </view>
           </view>
         </view>
-
-        <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+        <view class="edit" catchtap="edit" data-index="{{index}}">
+          <image src="../../images/edit.png"></image>
+        </view>
+        <view class="del" catchtap="del" data-index="{{index}}">
+          <image src="../../images/del.png"></image>
+        </view>
       </view>
     </view>
 
@@ -59,13 +63,13 @@
         <text>添加倒数日</text>
       </view>
       <view class="course">  
-        <label>名称:</label> 
-        <input class="input" placeholder="名称" name="DayName" bindinput="DayNameInput"></input>
+        名称:
+        <input style="padding-top:2rpx;padding-left: 10rpx;" placeholder="名称"  model:value="{{dayName}}"></input>
       </view>
       <view class="section" bindtap='bindDateChange' dates='1'>  
         <picker mode="date" value="{{date}}" start="1978-01-01" end="2050-1-23" bindchange="bindDateChange">  
           <view class="picker">  
-            日期:  {{dates}}  
+            日期:   {{dates}}  
           </view>  
         </picker>  
       </view>
