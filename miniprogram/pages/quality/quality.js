@@ -6,8 +6,7 @@ Page({
    */
   data: {
     achievement: [],
-    color: [],
-    show: "show"
+    color: []
   },
   onLoad: function () {
     getApp().loginState();
@@ -33,7 +32,6 @@ Page({
     }
     this.setData({
       TotalCredit: n.toFixed(1),
-      show: "",
       list: quality,
       color: color
     })

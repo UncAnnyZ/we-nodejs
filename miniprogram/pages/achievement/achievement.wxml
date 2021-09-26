@@ -1,4 +1,4 @@
-
+<import src="../../template/template.wxml"></import>
 <view class="head wx-head">
   <view class="head-time">
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
@@ -20,26 +20,11 @@
 <view class="main">
 <view class='wx-isclass' style="display: {{isCourse}}">木有成绩哟</view>
   <view class="list">
-    <block wx:key="id" wx:for="{{list}}" wx:for-index="id">
-      <view class="data">
-        <view class="data-adj">
-          <view class="upWard" style="background-color:{{id==0?'#fffcfc':'#e2e5f2'}}"></view>
-          <view class="dot" style='background-color:{{color[id]}}'></view>
-          <view class="offWard"></view>
-        </view>
-        <view class="grade">
-          <view class="grade-title">
-            <view class="grade-column">{{item.kcmc}}</view>
-            <view class="grade-rum">
-              <text>{{item.xdfsmc}}</text>
-              <text>学分:{{item.xf}}</text>
-              <text>绩点:{{item.cjjd}}</text>
-              <text>状态:{{item.ksxzmc}}</text>
-            </view>
-          </view>
-          <view class="data-score" style='color:{{color[id]}}'>{{item.zcj}}</view>
-        </view>
-      </view>
+    <block wx:key="id" wx:for="{{list}}">
+      
+      <template is="card" data="{{line: true, color: color[index], index: index, title: item.kcmc, score: item.zcj, text: [item.xdfsmc, '学分:'+item.xf, '绩点:'+item.cjjd, '状态:'+item.ksxzmc]}}">
+      </template>
+
     </block>
   </view>
   <text>\n</text>

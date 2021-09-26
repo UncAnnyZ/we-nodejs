@@ -13,18 +13,24 @@
     {
       "name": "pack-login",
       "root": "pages/login",
-      "pages": ["login"],
+      "pages": [
+        "login"
+      ],
       "independent": true
     },
     {
       "name": "pack-about",
       "root": "pages/about",
-      "pages": ["about"]
+      "pages": [
+        "about"
+      ]
     },
     {
       "name": "pack-achievement",
       "root": "pages/achievement",
-      "pages": ["achievement"]
+      "pages": [
+        "achievement"
+      ]
     },
     {
       "name": "pack-activity",
@@ -37,7 +43,9 @@
     {
       "name": "pack-addcurriculum",
       "root": "pages/curriculum/addcurriculum",
-      "pages": ["addcurriculum"]
+      "pages": [
+        "addcurriculum"
+      ]
     },
     {
       "name": "pack-calendar",
@@ -50,40 +58,52 @@
     {
       "name": "pack-quality",
       "root": "pages/quality",
-      "pages": ["quality"]
+      "pages": [
+        "quality"
+      ]
     },
     {
       "name": "pack-schoolNav",
       "root": "pages/schoolNav",
-      "pages": ["schoolNav"]
+      "pages": [
+        "schoolNav"
+      ]
     },
     {
       "name": "pack-recommend",
       "root": "pages/recommend",
-      "pages": ["recommend"]
+      "pages": [
+        "recommend"
+      ]
     },
     {
       "name": "pack-setting",
       "root": "pages/setting",
-      "pages": ["setting"]
+      "pages": [
+        "setting"
+      ]
     },
     {
       "name": "pack-more-tc",
       "root": "pages/more/tc",
-      "pages": ["tc"]
+      "pages": [
+        "tc"
+      ]
     },
     {
       "name": "pack-more-punch",
       "root": "pages/more/punch",
-      "pages": ["punch"]
+      "pages": [
+        "punch"
+      ]
     },
     {
       "name": "pack-more-skrw",
       "root": "pages/more/skrw",
-      "pages": ["skrw"]
+      "pages": [
+        "skrw"
+      ]
     }
-
-
   ],
   "preloadRule": {
     "pages/index/index": {
@@ -99,10 +119,9 @@
         "pack-schoolNav",
         "pack-recommend",
         "pack-setting"
-
       ]
     },
-    "pages/more/more":{
+    "pages/more/more": {
       "network": "all",
       "packages": [
         "pages/more/tc",
@@ -111,7 +130,9 @@
       ]
     },
     "pages/login/login": {
-      "packages": ["__APP__"]
+      "packages": [
+        "__APP__"
+      ]
     }
   },
   "tabBar": {

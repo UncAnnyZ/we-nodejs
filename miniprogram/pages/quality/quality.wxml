@@ -1,35 +1,21 @@
-<view class="head wx-head {{show}}">
+<import src="../../template/template.wxml"></import>
+<view class="head wx-head" wx:if="{{list.length != 0}}">
   <view class="head-time">
-      <view class="weui-input">你的素拓分哟！
-      </view>
+    <view class="weui-input">你的素拓分哟！</view>
   </view>
   <view class="head-title" style='color:coral'>
-    <view>素拓分:
-      <text>{{TotalCredit}}</text>
-    </view>
+    <text>素拓分:{{TotalCredit}}</text>
   </view>
 </view>
 <view class="main">
-<view class='wx-isclass' wx:if="{{list.length == 0}}">木有素拓哟</view>
+  <view class='wx-isclass' wx:if="{{list.length == 0}}">木有素拓哟</view>
   <view class="list">
-    <block wx:key="id" wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
-      <view class="data">
-        <view class="data-adj">
-          <view class="upWard" style="background-color:{{id==0?'#fff':'#fff'}}"></view>
-          <view class="dot" style='background-color:{{color[id]}}'></view>
-          <view class="offWard"></view>
-        </view>
-        <view class="grade">
-          <view class="grade-title">
-            <view class="grade-column">{{list[id].ktmc}}</view>
-            <view class="grade-rum">
-              <text>{{list[id].xmjbmc}}</text>
-              <text>状态:{{list[id].shztmc}}</text>
-            </view>
-          </view>
-          <view class="data-score" style='color:{{color[id]}}'>{{list[id].hdxf}}</view>
-        </view>
-      </view>
+    <block wx:key="id" wx:for="{{list}}">
+
+      <template is="card"
+        data="{{line: false, color: color[index], index: index, title: item.ktmc, score: item.hdxf, text: [item.xmjbmc, '状态:'+item.shztmc]}}">
+      </template>
+
     </block>
   </view>
   <text>\n</text>

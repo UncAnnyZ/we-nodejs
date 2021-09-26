@@ -1,0 +1,20 @@
+<template name="card">
+
+  <view class="data">
+    <view class="data-adj">
+      <view class="upWard" style="background-color:{{(!line | !index)?'#fffcfc':'#e2e5f2'}}"></view>
+      <view class="dot" style='background-color:{{color}}'></view>
+      <view class="offWard" style="background-color: {{line?'':'#fffcfc'}};"></view>
+    </view>
+    <view class="grade">
+      <view class="grade-title">
+        <view class="grade-column">{{title}}</view>
+        <view class="grade-rum" >
+          <text wx:for="{{text}}" wx:for-item="content">{{content}}</text>
+        </view>
+      </view>
+      <view class="data-score" style='color:{{color}}'>{{score}}</view>
+    </view>
+  </view>
+
+</template>

@@ -1,4 +1,4 @@
-
+@import "../../template/template.wxss";
 page{
   background-color:#fffcfc;
 }
@@ -37,93 +37,10 @@ page{
   color:#1cbbb4;
   margin-top:30rpx;
 }
-.data{
-    display: flex;
-}
-.data-adj{
-    width: 70rpx;
-}
-.grade{
-    margin-top: 40rpx;
-    display: flex;
-    flex: 1;
-    padding:20rpx 35rpx;
-    border-radius: 12rpx;
-    background-color:#fff;
-    box-shadow: 0rpx 0rpx 12rpx #e2e2e2;
-}
-.grade-column{
-    font-size:35rpx;
-    font-weight:500;
-    line-height:60rpx;
-    width:500rpx;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-}
-.grade-rum{
-    margin-top: 10rpx;
-    font-size: 25rpx;
-    line-height: 30rpx
-}
-.grade-rum text{
-    margin-right: 28rpx;
-    color: #8a8a8a;
-}
-.data-score{
-    flex: 1;
-    margin:auto;
-    text-align:right;
-    font-size: 52rpx;
-    white-space:nowrap;
-    width:50rpx;
-    text-overflow:ellipsis;
-}
-.dot{
-  margin: auto;
-  width:30rpx;
-  height:30rpx;
-  border-radius:50%;
-}
-.upWard{
-  margin: auto;
-  width:7rpx;
-  height:95rpx;
-  background-color:#e2e5f2;
-}
-.offWard{
-  margin: auto;
-  width:7rpx;
-  height:55rpx;
-  background-color:#e2e5f2;
-}
+
 .list{
   margin-bottom: 30rpx;
 }
 .icon-open{
   margin-left: 20rpx;
 }
-.icon-ziyuanxhdpi{
-  margin-left: 20rpx;
-  font-weight: 900;
-  display: block;
-}
-.icon-ziyuanxhdpi:active {
-    animation: 2s rotatefresh 1;
-}
-
-@keyframes rotatefresh {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-        transition-duration: 0.6s;
-        transition: 0.6s;
-    }
-}
-.show{
-  display: none;
-}
-

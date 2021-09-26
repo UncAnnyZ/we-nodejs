@@ -1,0 +1,68 @@
+.list{
+  margin-bottom: 30rpx;
+}
+.data{
+  display: flex;
+}
+.data-adj{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70rpx;
+}
+.dot{
+  margin: auto;
+  width:20rpx;
+  height:20rpx;
+  border-radius:50%;
+}
+.upWard{
+  margin: auto;
+  width:7rpx;
+  height:95rpx;
+  background-color:#000000;
+}
+.offWard{
+  margin: auto;
+  width:7rpx;
+  height:60rpx;
+  background-color:#e2e5f2;
+}
+
+.data-score{
+  flex: 1;
+  margin:auto;
+  text-align:right;
+  font-size: 52rpx;
+  white-space:nowrap;
+  width:50rpx;
+  text-overflow:ellipsis;
+}
+.grade{
+    display: flex;
+    flex: 1;
+    margin-top: 35rpx;
+    padding:20rpx 35rpx;
+    border-radius: 40rpx;
+    background-color: #fff;
+    box-shadow: 0rpx 0rpx 17rpx #e2e2e2;
+}
+.grade-column{
+    font-size:31rpx;
+    font-weight:500;
+    line-height:60rpx;
+    width:470rpx;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.grade-rum{
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    line-height: 30rpx
+}
+.grade-rum text{
+    margin-right: 28rpx;
+    color: #8a8a8a;
+}
