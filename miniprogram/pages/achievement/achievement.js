@@ -48,6 +48,7 @@ Page({
     })
 
     this.showList(1)
+    this.totalJD()
   },
 
   // 处理展示
@@ -97,6 +98,7 @@ Page({
       } else {
         color.push("#CC0000");
       }
+      data[i].kcmc = data[i].kcmc.replace(/&ldquo;/g, "").replace(/&rdquo;/g, "")
     }
 
 
@@ -123,6 +125,6 @@ Page({
         cjjd += Number(achievement[i].xf) * Number(achievement[i].cjjd);
       }
     }
-    console.log( (cjjd / zxf).toFixed(2) )
+    console.log( "总学分:"+zxf, "总绩点:"+(cjjd / zxf).toFixed(2) )
   }
 })

@@ -10,7 +10,7 @@
       <view class="grade-title">
         <view class="grade-column">{{title}}</view>
         <view class="grade-rum">
-          <text wx:for="{{text}}" wx:for-item="content">{{content}}</text>
+          <text wx:for="{{text}}" wx:for-item="content" wx:key="key">{{content}}</text>
         </view>
       </view>
       <view class="data-score" style='color:{{color}}'>{{score}}</view>
@@ -56,7 +56,7 @@
     </view>
 
     <view class="head-right">
-      <view wx:for="{{text}}">{{item}}</view>
+      <view wx:for="{{text}}" wx:key="key">{{item}}</view>
     </view>
   </view>
   <view class="head-padding"></view>
