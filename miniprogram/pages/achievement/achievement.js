@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    template:{
+      type: 'picker',
+      text: "['学分:'+TotalCredit, '平均绩点:'+AverageScorePoint, '无公选:'+Achi]"
+    },
     array: ['公选课','2019-2020-1'],
     index: "0",
     achievement: [],

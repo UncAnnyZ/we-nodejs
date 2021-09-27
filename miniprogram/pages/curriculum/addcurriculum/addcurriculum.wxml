@@ -1,16 +1,6 @@
-<view class="head">
-  <view class="head-time">
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <label class="weui-input">{{array[index]}}</label>
-      <text class='iconfont icon-open'></text>
-    </picker>
-  </view>
-  <view class="head-title" style='color:coral'>
-    <view>注意！</view>
-    <view>（可以选择自增课程和学校课程）</view>
-  </view>
-</view>
-<view class="head-padding"></view>
+<import src="../../../template/template.wxml"></import>
+<template is="head-block" data="{{ type: template.type, index, array, text: template.text }}">
+</template>
 
 <view class="all">
 

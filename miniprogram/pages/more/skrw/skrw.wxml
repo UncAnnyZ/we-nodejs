@@ -1,42 +1,19 @@
-<view class="head wx-head {{show}}">
-  <view class="head-time">
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="weui-input">{{array[index]}}
-        <text class='iconfont icon-open'></text>
-      </view>
-    </picker>
-  </view>
-  <view class="head-title" style='color:coral'>
-    <view>学分:
-      <text>{{TotalCredit}}</text>
-    </view>
-      <view>课程节数:
-      <text>{{Totalnumber}}</text>
-    </view>
-  </view>
-</view>
+<import src="../../../template/template.wxml"></import>
+
+<template is="head-block" wx:if="{{list.length != 0}}"
+  data="{{ type: 'picker', index, array, text: ['学分:'+TotalCredit, '课程节数:'+Totalnumber] }}">
+</template>
+
 <view class="main">
-<view class='wx-isclass' wx:if="{{list.length == 0}}">木有上课任务哟</view>
+  <view class='wx-isclass' wx:if="{{list.length == 0}}">木有上课任务哟</view>
   <view class="list">
-    <block wx:key="4" wx:for="{{list}}" wx:key="key" wx:for-item="item" wx:for-index="id">
-      <view class="data">
-        <view class="data-adj">
-          <view class="upWard" style="background-color:{{id==0?'#fff':'#fff'}}"></view>
-          <view class="dot" style='background-color:{{color[id]}}'></view>
-          <view class="offWard"></view>
-        </view>
-        <view class="grade">
-          <view class="grade-title">
-            <view class="grade-column">{{list[id].kcmc}}</view>
-            <view class="grade-rum">
-              <text>{{list[id].xdfsmc}}</text>
-              <text>安排:{{list[id].khfsmc}}</text>
-              <text>学时:{{list[id].zxs}}</text>
-            </view>
-          </view>
-          <view class="data-score" style='color:{{color[id]}}'>{{list[id].xf}}学分</view>
-        </view>
-      </view>
+
+    <block wx:key="4" wx:for="{{list}}" wx:key="key">
+
+      <template is="card"
+        data="{{line: false, color: color[index], index: index, title: item.kcmc, score: item.xf+' 学分', text: [item.xdfsmc, '安排:'+item.khfsmc, '学时:'+item.zxs ] }}">
+      </template>
+
     </block>
   </view>
   <text>\n</text>

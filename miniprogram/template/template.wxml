@@ -9,12 +9,56 @@
     <view class="grade">
       <view class="grade-title">
         <view class="grade-column">{{title}}</view>
-        <view class="grade-rum" >
+        <view class="grade-rum">
           <text wx:for="{{text}}" wx:for-item="content">{{content}}</text>
         </view>
       </view>
       <view class="data-score" style='color:{{color}}'>{{score}}</view>
     </view>
   </view>
+
+</template>
+
+
+<!-- 
+  name: head-block
+  desc: 头部栏设定， 固定
+  param: 
+    type: String  [ picker | text ] 
+    index: Number
+    array: Array
+    text: Array
+    title: String
+  fields:
+    type:   左上角采用 选择器 或 仅文字（ 必填 ）
+    index:  picker的下标值        （当 type='picker' 时必填）
+    array:  picker用来range的内容 （当 type='picker' 时必填）
+    text:   右上角显示的内容
+    title:  左上角显示的内容       （当 type='text' 时必填）
+
+  eg:
+    <template is="head-block" data="{{ type: 'picker', index, array, text: [] }}"></template>
+    <template is="head-block" data="{{ type: 'text', index, array, text: [] }}"></template>
+-->
+<template name="head-block">
+
+  <view class="head">
+
+    <view class="head-left" wx:if="{{type == 'picker'}}">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <label class="weui-input">{{array[index]}}</label>
+        <text class='iconfont icon-open'></text>
+      </picker>
+    </view>
+
+    <view class="head-left" wx:if="{{type == 'text'}}">
+      <view class="weui-input">{{title}}</view>
+    </view>
+
+    <view class="head-right">
+      <view wx:for="{{text}}">{{item}}</view>
+    </view>
+  </view>
+  <view class="head-padding"></view>
 
 </template>

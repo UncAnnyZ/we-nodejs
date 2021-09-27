@@ -16,6 +16,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    template:{
+      type: "picker",
+      text: ['注意！', '（可以选择自增课程和学校课程）']
+    },
     array: ['学校课程', '自增课程'],
     index: "0",
 

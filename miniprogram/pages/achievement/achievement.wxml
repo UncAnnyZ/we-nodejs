@@ -1,28 +1,16 @@
 <import src="../../template/template.wxml"></import>
-<view class="head wx-head">
-  <view class="head-time">
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="weui-input">{{array[index]}}
-        <text class='iconfont icon-open'></text>
-      </view>
-    </picker>
-  </view>
-  <view class="head-title">
-    <view>学分:
-      <text>{{TotalCredit}}</text>
-    </view>
-    <view>平均绩点:
-      <text>{{AverageScorePoint}}</text>
-      <text>  无公选:{{Achi}}</text>
-    </view>
-  </view>
-</view>
+
+<template is="head-block"
+  data="{{ type: template.type, index, array, text: ['学分:'+TotalCredit, '平均绩点:'+AverageScorePoint, '无公选:'+Achi] }}">
+</template>
+
 <view class="main">
-<view class='wx-isclass' style="display: {{isCourse}}">木有成绩哟</view>
+  <view class='wx-isclass' style="display: {{isCourse}}">木有成绩哟</view>
   <view class="list">
     <block wx:key="id" wx:for="{{list}}">
-      
-      <template is="card" data="{{line: true, color: color[index], index: index, title: item.kcmc, score: item.zcj, text: [item.xdfsmc, '学分:'+item.xf, '绩点:'+item.cjjd, '状态:'+item.ksxzmc]}}">
+
+      <template is="card"
+        data="{{line: true, color: color[index], index: index, title: item.kcmc, score: item.zcj, text: [item.xdfsmc, '学分:'+item.xf, '绩点:'+item.cjjd, '状态:'+item.ksxzmc]}}">
       </template>
 
     </block>

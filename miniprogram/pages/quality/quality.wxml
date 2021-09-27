@@ -1,12 +1,8 @@
 <import src="../../template/template.wxml"></import>
-<view class="head wx-head" wx:if="{{list.length != 0}}">
-  <view class="head-time">
-    <view class="weui-input">你的素拓分哟！</view>
-  </view>
-  <view class="head-title" style='color:coral'>
-    <text>素拓分:{{TotalCredit}}</text>
-  </view>
-</view>
+
+<template is="head-block" data="{{ type:'text', title:'你的素拓分哟！', text:['素拓分:'+TotalCredit] }}">
+</template>
+
 <view class="main">
   <view class='wx-isclass' wx:if="{{list.length == 0}}">木有素拓哟</view>
   <view class="list">

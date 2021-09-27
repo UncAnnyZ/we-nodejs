@@ -4,36 +4,8 @@ page {
   background-color: #fff;
 }
 
-.head {
-  display: flex;
-  line-height: 60rpx;
-  box-shadow: 0px 0px 10px #e2e2e2;
-  padding-bottom: 8rpx;
-}
-
-.head-time {
-  margin-left: 25rpx;
-}
-
-.head-title {
-  flex: 1;
-  text-align: right;
-  margin-right: 25rpx;
-}
-
-.head-title text {
-  display: inline-block;
-  font-size: 25rpx;
-  margin-right: 30rpx;
-}
-
-.weui-input {
-  font-size: 30rpx;
-  font-weight: 600;
-}
-
 .main {
-  margin: 10rpx 26rpx 30rpx 20rpx;
+  margin: 0 26rpx 30rpx 20rpx;
 }
 
 .wx-isclass {
