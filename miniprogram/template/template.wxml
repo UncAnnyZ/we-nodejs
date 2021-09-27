@@ -38,7 +38,7 @@
 
   eg:
     <template is="head-block" data="{{ type: 'picker', index, array, text: [] }}"></template>
-    <template is="head-block" data="{{ type: 'text', index, array, text: [] }}"></template>
+    <template is="head-block" data="{{ type: 'text', title:'', text:[] }}"></template>
 -->
 <template name="head-block">
 
