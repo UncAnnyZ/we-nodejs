@@ -6,7 +6,11 @@ Page({
    */
   data: {
     achievement: [],
-    color: []
+    color: [],
+    mask: false,
+    // maskDetail: {
+
+    // }
   },
   onLoad: function () {
     getApp().loginState();
@@ -36,4 +40,24 @@ Page({
       color: color
     })
   },
+
+  click (e) {
+    var index = e.currentTarget.id
+    console.log(this.data.list[index])
+
+    this.setData({
+      maskDetail: this.data.list[index],
+      mask: true
+    })
+
+  },
+  hideMask(){
+    this.setData({
+      mask:false
+    })
+  },
+  
+
+  return_true(){return true},
+  return_false(){return false},
 })

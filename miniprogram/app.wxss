@@ -33,7 +33,6 @@ page {
 /* 深夜模式 */
 
 @media (prefers-color-scheme: dark) {
-  Page,
   page{
     min-height: 100vh;
     filter: invert(90%) !important;

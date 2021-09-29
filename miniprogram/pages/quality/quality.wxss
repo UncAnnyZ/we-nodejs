@@ -19,3 +19,59 @@ page {
 .list {
   margin-bottom: 30rpx;
 }
+
+.mask{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+  background-color: gray;
+  z-index: 99;
+}
+.toast{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: -10vh;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+.toast_contain{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  padding: 20rpx 30rpx;
+  line-height: 60rpx;
+  border-radius: 25rpx;
+  background-color: white;
+}
+.toast_contain>label{
+  
+}
+.toast_contain view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.toast_contain view>label{
+  width: 50%;
+}
+
+@media (prefers-color-scheme: dark) {
+  page{
+    filter: unset !important;
+  }
+  .list,
+  .toast_contain{
+    filter: invert(90%) !important;
+  }
+  
+}

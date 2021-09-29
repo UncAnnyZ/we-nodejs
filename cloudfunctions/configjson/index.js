@@ -47,7 +47,8 @@ exports.main = async (event, context) => {
     "oisor5PYmkBynx9cCjkm-CuiA3yA", // zhj
     "oisor5H-FdtHtftkwloEwgESctoc", // cyq
     "oisor5CveKL1s6X5rF-J8eolSsi0", // zzr
-
+    //杂种
+    "oisor5LsA4kVdQdrbvtRH3w5Bnm0"  // zjy
 
   ]
 
