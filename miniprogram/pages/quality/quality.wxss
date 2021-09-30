@@ -50,7 +50,9 @@ page {
   padding: 20rpx 30rpx;
   line-height: 60rpx;
   border-radius: 25rpx;
-  background-color: white;
+  font-size: 13px;
+  background-color: rgba(30, 30, 30, 0.7);
+  color: rgb(230, 230, 230);
 }
 .toast_contain>label{
   
@@ -62,16 +64,18 @@ page {
   align-items: center;
 }
 .toast_contain view>label{
-  width: 50%;
+  /* width: 50%; */
 }
 
 @media (prefers-color-scheme: dark) {
   page{
     filter: unset !important;
   }
-  .list,
-  .toast_contain{
+  .list{
     filter: invert(90%) !important;
+  }
+  .toast_contain{
+    background-color: rgb(45, 45, 45);
   }
   
 }

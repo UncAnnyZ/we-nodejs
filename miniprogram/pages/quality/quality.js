@@ -44,6 +44,12 @@ Page({
   click (e) {
     var index = e.currentTarget.id
     console.log(this.data.list[index])
+    var show = this.data.list[index]
+    // wx.showToast({
+    //   title: '活动名称：' + show.ktmc + '\n' + 
+    //   '时间：' + (show.kzsj || '未知')  + '至' + (show.njtsj || '未知'),
+    //   icon: 'none'
+    // })
 
     this.setData({
       maskDetail: this.data.list[index],
