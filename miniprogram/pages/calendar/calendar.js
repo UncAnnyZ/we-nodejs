@@ -351,8 +351,9 @@ Page({
   },
   showPic: function () {
     wx.previewImage({
-      current: 'cloud://un1-d62c68.756e-un1-d62c68-1258307938/xl.png', // 当前显示图片的http链接
-      urls: ['cloud://un1-d62c68.756e-un1-d62c68-1258307938/xl.png'] // 需要预览的图片http链接列表
+      // cloud://un1-d62c68.756e-un1-d62c68-1258307938/xl.png
+      current: 'cloud://un1-d62c68.756e-un1-d62c68-1258307938/2021-2022xl.png', // 当前显示图片的http链接
+      urls: ['cloud://un1-d62c68.756e-un1-d62c68-1258307938/2021-2022xl.png'] // 需要预览的图片http链接列表
     })
   },
 })
