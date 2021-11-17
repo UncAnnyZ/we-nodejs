@@ -21,6 +21,32 @@
 
 
 <!-- 
+  var maskDetail = [
+    {field: '活动名称：', text: show.ktmc }, 
+    {field: '获得学分：', text: show.hdxf + '(' + show.ckxf + ')' }, 
+    {field: '状态：', text: show.shztmc, color: show.shztmc=='审核通过'?'rgb(0,230,0)':'red' }, 
+    {field: '时间：', text: show.kzsj }
+  ]
+  
+  <template wx:if="{{mask}}" is="mask-toast" data="{{ item: maskDetail }}"></template>
+-->
+<template name="mask-toast">  
+  <view class="toast" catchtouchmove='return_true' catchtap="hideMask">
+    <view class="toast_contain" catchtap="return_false">
+
+      <block wx:key="index" wx:for="{{item}}">
+        <view class="toast_block">
+          <label>{{item.field}}</label>
+          <text style="color: {{item.color}};">{{item.text}}</text> 
+        </view> 
+      </block>
+
+    </view>
+  </view>
+</template>
+
+
+<!-- 
   name: head-block
   desc: 头部栏设定， 固定
   param: 
