@@ -58,7 +58,7 @@ exports.main = async (event, context) => {
     timeYear : "2021/8/30",
     time: "43200", // 秒
     reset: false,
-    msgData: "社团招新可以关联招生群啦，可以在社团招新报名哦，有兴趣加盟的社团请联系我们\n有想法或者新功能或者优化的也请联系我们",
+    msgData: "第一次We系列正式招新，各路师弟师妹可以来用呀，未来We广油，We校园，新的商业模式",
     more: [{
       url: '/pages/recommend/recommend?appId=wx669135f6ab750be9',
       name: '广油学生公寓中心',

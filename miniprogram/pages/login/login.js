@@ -42,6 +42,7 @@ Page({
           key: 'data',
           data: ""
         })
+        console.log(res,10233)
         if (res.result.msg == "/login!welcome.action") {
             wx.reLaunch({
               url: '/pages/index/index'

@@ -4,6 +4,7 @@ const app = getApp()
 Page({
 
   data: {
+    
     slideWidth: '', //滑块宽
     slideLeft: 0, //滑块位置
     totalLength: '', //当前滚动列表总长
@@ -61,6 +62,7 @@ Page({
     // 获取个人数据
     var nowTime = new Date().getTime(); // 当前时间
     var personalData = wx.getStorageSync('personaldata');
+   
     // 不为空，则先将本地的数据用于展示
     personalData ? this.we_index(personalData) : null;
     if (!(personalData.length != 0 && nowTime - wx.getStorageSync('oldTime') < Number(configData.time) * 1000)) {
@@ -526,5 +528,15 @@ Page({
       }
 
     })
+  },
+  xctap:function(){
+    wx.navigateTo({
+      url: '/pages/tuiwen/tuiwen',
+    })
+    // wx.previewImage({
+    //   // cloud://un1-d62c68.756e-un1-d62c68-1258307938/xl.png
+    //   current: 'cloud://un1-d62c68.756e-un1-d62c68-1258307938/宣传海报.jpg', // 当前显示图片的http链接
+    //   urls: ['cloud://un1-d62c68.756e-un1-d62c68-1258307938/宣传海报.jpg'] // 需要预览的图片http链接列表
+    // })
   }
 })
