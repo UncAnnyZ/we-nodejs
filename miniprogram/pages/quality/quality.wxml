@@ -16,38 +16,6 @@
     </block>
   </view>
 
-
-
-  <!-- <view wx:if="{{mask}}" class="mask" catchtouchmove='return_true'></view> -->
-  <view wx:if="{{mask}}" class="toast" catchtouchmove='return_true' catchtap="hideMask">
-    <view class="toast_contain" catchtap="return_false">
-      <label>活动名称：{{maskDetail.ktmc}}</label>
-
-      <!-- <view style="padding-top: 10rpx; margin-bottom: 10rpx; border-bottom: 1px rgb(88, 88, 88) dashed;"></view> -->
-      <!-- <label>活动对象：{{maskDetail.hddxmc}}</label> -->
-      <view>
-        <label>
-          <text>获得学分：{{maskDetail.hdxf}}</text>
-          <text style="padding-left: 20rpx;">({{maskDetail.ckxf}})</text>
-        </label>
-        <!-- <label style="width: 50%;">( {{maskDetail.ckxf}} )</label> -->
-      </view>
-      <view>
-        <!-- <label>项目级别：{{maskDetail.xmjbmc}}</label> -->
-      </view>
-
-      <label>状态：<text style="font-weight: 600; color: {{maskDetail.shztmc=='审核通过'?'rgb(0,230,0)':'red'}};">{{maskDetail.shztmc}}</text></label>
-      <!-- <label>类别：{{maskDetail.xmlbmc}}</label> -->
-
-      <!-- <view style="padding-top: 10rpx; margin-bottom: 10rpx; border-bottom: 1px #585858 dashed;"></view> -->
-
-      <!-- <label>学期：{{maskDetail.ktpcmc}}</label> -->
-      <label>时间：{{maskDetail.kzsj || '未知'}} 至 {{maskDetail.njtsj || '未知'}}</label>
-      <!-- <label>审核日期：{{maskDetail.shrq}}</label> -->
-      <!-- <label>负责单位：{{maskDetail.fzdw}}</label> -->
-
-
-    </view>
-  </view>
-
 </view>
+
+<template wx:if="{{mask}}" is="mask-toast" data="{{ item: maskDetail }}"></template>

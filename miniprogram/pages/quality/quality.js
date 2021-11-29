@@ -8,9 +8,7 @@ Page({
     achievement: [],
     color: [],
     mask: false,
-    // maskDetail: {
-
-    // }
+    maskDetail: []
   },
   onLoad: function () {
     getApp().loginState();
@@ -50,9 +48,16 @@ Page({
     //   '时间：' + (show.kzsj || '未知')  + '至' + (show.njtsj || '未知'),
     //   icon: 'none'
     // })
+    var maskDetail = [
+      {field: '活动名称：', text: show.ktmc}, 
+      {field: '获得学分：', text: show.hdxf + '(' + show.ckxf + ')' }, 
+      {field: '状态：', text: show.shztmc, color: show.shztmc=='审核通过'?'rgb(0,230,0)':'red'}, 
+      {field: '时间：', text: show.kzsj }
+    ]
 
     this.setData({
-      maskDetail: this.data.list[index],
+      // maskDetail: this.data.list[index],
+      maskDetail,
       mask: true
     })
 
