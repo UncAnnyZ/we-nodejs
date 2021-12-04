@@ -19,7 +19,6 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
     "useApiHostProcess": true,
@@ -34,10 +33,7 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "disableUseStrict": false,
-    "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "minifyWXML": true
+    "showES6CompileOption": false
   },
   "appid": "wxd1eacf33b4ed0195",
   "projectname": "We%E5%B9%BF%E6%B2%B91",

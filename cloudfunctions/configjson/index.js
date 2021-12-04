@@ -75,9 +75,13 @@ exports.main = async (event, context) => {
         name: "成绩"
       }, {
         id: "2",
-        url: "activity/activity",
-        icon: "../../images/icon/news.png",
-        name: "社团招新"
+        url: "more/tc/tc",
+        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/运动.png",
+        name: "体测计算器"
+        // id: "2",
+        // url: "activity/activity",
+        // icon: "../../images/icon/news.png",
+        // name: "社团招新"
       }, {
         id: "3",
         url: "schoolNav/schoolNav",
@@ -95,9 +99,10 @@ exports.main = async (event, context) => {
         name: "素拓"
       }, {
         id: "6",
-        url: "calendar/calendar",
-        icon: "../../images/icon/calendar.png",
-        name: "倒数日"
+        url: "setting/setting?urlName=We生活吧",
+        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/生活.png",
+        name: "We生活吧"
+    
       }, {
         id: "7",
         url: "more/skrw/skrw",
@@ -117,16 +122,20 @@ exports.main = async (event, context) => {
         name: "关于我们"
       }
       , {
-        id: "10",
-        url: "setting/setting?urlName=We生活吧",
-        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/生活.png",
-        name: "We生活吧"
+       id: "10",
+        url: "activity/activity",
+        icon: "../../images/icon/news.png",
+        name: "社团招新"
       }
       , {
         id: "11",
-        url: "more/tc/tc",
-        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/运动.png",
-        name: "体测计算器"
+        url: "calendar/calendar",
+        icon: "../../images/icon/calendar.png",
+        name: "倒数日"
+        // id: "11",
+        // url: "more/tc/tc",
+        // icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/运动.png",
+        // name: "体测计算器"
       }
       , {
         id: "12",
