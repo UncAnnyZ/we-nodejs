@@ -1,5 +1,8 @@
+<!-- <image style="margin: 0 auto;width:100%" bindtap="xctap"  src='cloud://un1-d62c68.756e-un1-d62c68-1258307938/宣传海报2.jpg' mode="widthFix"></image> -->
+
 <image style="display: {{adImg?adImg:'none'}}" src='{{adImg}}' mode="widthFix"></image>
 <ad class="ad" unit-id="adunit-3b513ed5750984a1" bindclose="hide" style="display: {{ad?'':'none !important'}}"></ad>
+<!-- <ad class="ad"  style="display: {{ad?'':'none !important'}} "></ad> -->
 <view class='{{show}}'>
     <view class="scroll1">
         <scroll-view class="scroll" scroll-x="true" enable-flex="false" enhanced="true" bounces="true"

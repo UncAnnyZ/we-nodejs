@@ -58,7 +58,7 @@ exports.main = async (event, context) => {
     timeYear : "2021/8/30",
     time: "43200", // 秒
     reset: false,
-    msgData: "社团招新可以关联招生群啦，可以在社团招新报名哦，有兴趣加盟的社团请联系我们\n有想法或者新功能或者优化的也请联系我们",
+    msgData: "第一次We系列正式招新，各路师弟师妹可以来用呀，未来We广油，We校园，新的商业模式",
     more: [{
       url: '/pages/recommend/recommend?appId=wx669135f6ab750be9',
       name: '广油学生公寓中心',
@@ -75,9 +75,13 @@ exports.main = async (event, context) => {
         name: "成绩"
       }, {
         id: "2",
-        url: "activity/activity",
-        icon: "../../images/icon/news.png",
-        name: "社团招新"
+        url: "more/tc/tc",
+        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/运动.png",
+        name: "体测计算器"
+        // id: "2",
+        // url: "activity/activity",
+        // icon: "../../images/icon/news.png",
+        // name: "社团招新"
       }, {
         id: "3",
         url: "schoolNav/schoolNav",
@@ -95,9 +99,10 @@ exports.main = async (event, context) => {
         name: "素拓"
       }, {
         id: "6",
-        url: "calendar/calendar",
-        icon: "../../images/icon/calendar.png",
-        name: "倒数日"
+        url: "setting/setting?urlName=We生活吧",
+        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/生活.png",
+        name: "We生活吧"
+    
       }, {
         id: "7",
         url: "more/skrw/skrw",
@@ -117,16 +122,20 @@ exports.main = async (event, context) => {
         name: "关于我们"
       }
       , {
-        id: "10",
-        url: "setting/setting?urlName=We生活吧",
-        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/生活.png",
-        name: "We生活吧"
+       id: "10",
+        url: "activity/activity",
+        icon: "../../images/icon/news.png",
+        name: "社团招新"
       }
       , {
         id: "11",
-        url: "more/tc/tc",
-        icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/运动.png",
-        name: "体测计算器"
+        url: "calendar/calendar",
+        icon: "../../images/icon/calendar.png",
+        name: "倒数日"
+        // id: "11",
+        // url: "more/tc/tc",
+        // icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/运动.png",
+        // name: "体测计算器"
       }
       , {
         id: "12",

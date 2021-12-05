@@ -7,7 +7,8 @@
   "pages": [
     "pages/index/index",
     "pages/more/more",
-    "pages/curriculum/curriculum"
+    "pages/curriculum/curriculum",
+    "pages/tuiwen/tuiwen"
   ],
   "subpackages": [
     {
