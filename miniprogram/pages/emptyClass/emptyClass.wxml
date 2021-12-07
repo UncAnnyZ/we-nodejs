@@ -1,0 +1,93 @@
+<view class="head wx-head {{show}}">
+  <view class="head-time">
+    <view bindtap="show">
+      <view class="weui-input">切换时间
+        <text class='iconfont icon-open'></text>
+      </view>
+    </view>
+
+  </view>
+  <view class="head-title" style='color:coral'>
+    <view>数量:
+      <text>{{Totalnumber}}</text>
+    </view>
+  </view>
+</view>
+<view class="main">
+  <view class='wx-isclass' wx:if="{{list.length == 0}}">木有哟</view>
+  <view class="list">
+    <block wx:key="4" wx:for="{{list}}" wx:key="key" wx:for-item="item" wx:for-index="id">
+      <view class="data">
+        <view class="data-adj">
+          <view class="upWard" style="background-color:{{id==0?'#fff':'#fff'}}"></view>
+          <view class="dot" style='background-color:{{color[id]}}'></view>
+          <view class="offWard"></view>
+        </view>
+        <view class="grade">
+          <view class="grade-title">
+            <view class="grade-column">{{list[id].jxcdmc}}</view>
+            <view class="grade-rum">
+              <text>{{list[id].xqmc}}｜{{list[id].jzwmc}}</text>
+            </view>
+          </view>
+          <view class="data-score" style='margin-left: -170rpx;color:{{color[id]}}'>该教室有{{list[id].rnskrs}}位置</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <text>\n</text>
+</view>
+
+<view class="add " wx:if="{{block_show}}">
+  <!-- 背景蒙版 -->
+  <view class="add_background" bindtap="block_show"></view>
+
+  <view class="add_contain {{add_style}}">
+    <view class="add_title">
+      <text>课程详情</text>
+    </view>
+
+    <!-- 时间 -->
+    <view class="add_block">
+      <label>时间</label>
+      <picker mode="date" start="1978-01-01" end="2050-1-23" bindchange="bindDateChange">
+        {{date}}
+      </picker>
+    </view>
+    <!-- 校区 -->
+    <view class="add_block">
+      <label>校区</label>
+      <picker value="{{campusArrayIndex}}" range="{{campusArray}}" bindchange="bindCampushange">
+        {{campusArray[campusArrayIndex]}}
+      </picker>
+    </view>
+    <!-- 教学楼 -->
+    <view class="add_block">
+      <label>教学楼</label>
+      <picker value="{{classIndex}}" range-key="{{'mc'}}" range="{{classArray}}" bindchange="bindxqChange">
+        {{classArray[classIndex].mc}}
+      </picker>
+    </view>
+
+    <!-- 上课周数 -->
+    <view class="add_week_title">
+      <label>节次（点亮即代表选择）</label>
+    </view>
+    <view class="add_week">
+      <view class="add_weekBtn" wx:for="{{week}}" wx:key="key">
+        <label id="{{index}}" bindtap="changeWB" class="{{item?'add_weekBtn_select':'add_weekBtn_noSelect'}}">
+          {{index+1}}
+        </label>
+      </view>
+
+    </view>
+
+    <!-- 按钮 -->
+    <view class="add_btn">
+      <button bindtap="block_show">取 消</button>
+      <button bindtap="addSubmit" class="{{addSubmitStyle?'cansubmit':''}}" disabled="{{!addSubmitStyle}}">查 询</button>
+    </view>
+
+  </view>
+
+</view>

@@ -8,7 +8,8 @@
     "pages/index/index",
     "pages/more/more",
     "pages/curriculum/curriculum",
-    "pages/tuiwen/tuiwen"
+    "pages/tuiwen/tuiwen",
+    "pages/emptyClass/emptyClass"
   ],
   "subpackages": [
     {
