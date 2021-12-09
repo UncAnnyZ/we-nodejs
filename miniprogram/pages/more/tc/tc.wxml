@@ -55,16 +55,8 @@
     </view>
   </view>
 
-
   <view class="last">
-    <view class="last_left">
-      <text>\n本页面由"キッド"提供,欢迎大家合作！</text>
-      <text>\n欢迎其他开发者加入我们团队（可提供多个方面帮助）</text>
-    </view>
-    <view class="last_right">
-      <image src="cloud://un1-d62c68.756e-un1-d62c68-1258307938/kido.png"></image>
-      <!-- <text class="name">キッド</text> -->
-    </view>
+    <navigator class="last_navigator" url="./tcdetail?sex={{sex}}">国家学生体质健康标准</navigator>
   </view>
 
 </view>

@@ -1,0 +1,99 @@
+<!--pages/more/tc/tcdetail.wxml-->
+<template name="block">
+
+  <view class="block">
+    <view class="title">{{title}}</view>
+    <!-- 表格 -->
+    <view class="table">
+      <!-- 头部 -->
+      <view class="table_head">
+        <text wx:for="{{table_head}}" wx:key="index">{{item}}</text>
+      </view>
+      <!-- 详情 -->
+      <view class="table_contain">
+        <block wx:for="{{table_contain}}">
+          <view class="table_column">
+            <template is="column" data="{{array: item}}"></template>
+          </view>
+        </block>
+
+      </view>
+
+    </view>
+  </view>
+</template>
+
+<template name="column">
+  <view wx:for="{{array}}" wx:key="index" style="height: {{50 * item[1] + (item[1] - 1)*2}}rpx;">
+    <text>{{item[0]}}</text>
+  </view>
+</template>
+
+<view class="all">
+
+  <!-- 女生 -->
+  <view wx:if="{{sex == false}}">
+
+    <!-- bmi -->
+    <template is="block" data="{{ title: girl.bmi.title, table_head: girl.bmi.table_head, table_contain: girl.bmi.table_contain }}">
+    </template>
+
+    <!-- 肺活量 -->
+    <template is="block" data="{{ title: girl.volume.title, table_head: girl.volume.table_head, table_contain: girl.volume.table_contain }}">
+    </template>
+
+    <!-- 跳远 -->
+    <template is="block" data="{{ title: girl.jump.title, table_head: girl.jump.table_head, table_contain: girl.jump.table_contain }}">
+    </template>
+
+    <!-- 体前屈 -->
+    <template is="block" data="{{ title: girl.handlong.title, table_head: girl.handlong.table_head, table_contain: girl.handlong.table_contain }}">
+    </template>
+
+    <!-- 仰卧起坐 -->
+    <template is="block" data="{{ title: girl.sit_up.title, table_head: girl.sit_up.table_head, table_contain: girl.sit_up.table_contain }}">
+    </template>
+
+    <!-- 短跑50m -->
+    <template is="block" data="{{ title: girl.shortrun.title, table_head: girl.shortrun.table_head, table_contain: girl.shortrun.table_contain }}">
+    </template>
+
+    <!-- 长跑800m -->
+    <template is="block" data="{{ title: girl.longrun.title, table_head: girl.longrun.table_head, table_contain: girl.longrun.table_contain }}">
+    </template>
+
+  </view>
+
+  <!-- 男生 -->
+  <view wx:if="{{sex == true}}">
+    <!-- bmi -->
+    <template is="block" data="{{ title: boy.bmi.title, table_head: boy.bmi.table_head, table_contain: boy.bmi.table_contain }}">
+    </template>
+
+    <!-- 肺活量 -->
+    <template is="block" data="{{ title: boy.volume.title, table_head: boy.volume.table_head, table_contain: boy.volume.table_contain }}">
+    </template>
+
+    <!-- 跳远 -->
+    <template is="block" data="{{ title: boy.jump.title, table_head: boy.jump.table_head, table_contain: boy.jump.table_contain }}">
+    </template>
+
+    <!-- 体前屈 -->
+    <template is="block" data="{{ title: boy.handlong.title, table_head: boy.handlong.table_head, table_contain: boy.handlong.table_contain }}">
+    </template>
+
+    <!-- 引体向上 -->
+    <template is="block" data="{{ title: boy.pull_up.title, table_head: boy.pull_up.table_head, table_contain: boy.pull_up.table_contain }}">
+    </template>
+
+    <!-- 短跑50m -->
+    <template is="block" data="{{ title: boy.shortrun.title, table_head: boy.shortrun.table_head, table_contain: boy.shortrun.table_contain }}">
+    </template>
+
+    <!-- 长跑1000m -->
+    <template is="block" data="{{ title: boy.longrun.title, table_head: boy.longrun.table_head, table_contain: boy.longrun.table_contain }}">
+    </template>
+
+  </view>
+
+</view>

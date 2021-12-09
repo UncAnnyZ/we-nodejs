@@ -22,3 +22,13 @@ page {
 .icon-open {
   margin-left: 20rpx;
 }
+
+@media (prefers-color-scheme: dark) {
+
+  .head,
+  .head-padding,
+  .list{
+    filter: invert(90%) !important;
+  }
+  
+}

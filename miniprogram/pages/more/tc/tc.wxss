@@ -116,11 +116,18 @@ button {
 .last {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;    
+  justify-content: center;
+  align-items: flex-end;    
   border-top: 1rpx solid rgb(200, 200, 200);
+  height: 100rpx;
 }
-.last_left {
+.last_navigator{
+  font-size: 300;
+  border: rgb(216, 216, 216) 1rpx solid;
+  border-radius: 50rpx;
+  padding: 10rpx 50rpx;
+}
+/* .last_left {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -139,4 +146,4 @@ button {
   height: 100rpx;
   margin: 20rpx;
   border-radius: 50%;
-}
+} */

@@ -89,7 +89,8 @@
       "name": "pack-more-tc",
       "root": "pages/more/tc",
       "pages": [
-        "tc"
+        "tc",
+        "tcdetail"
       ]
     },
     {

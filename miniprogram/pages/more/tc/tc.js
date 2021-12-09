@@ -708,10 +708,10 @@ Page({
         else if (this.data.shortrun >= 9) {
           shortrun = 60 - Math.ceil(((this.data.shortrun - 9) / 0.2)) * 10
         }
-        else if (this.data.shortrun >= 7.1) {
+        else if (this.data.shortrun >= 7.0) {
           shortrun = 80 - Math.ceil(((this.data.shortrun - 7) / 0.2)) * 2
         }
-        else if (this.data.shortrun >= 6.7) {
+        else if (this.data.shortrun >= 6.6) {
           shortrun = 100 - Math.ceil(((this.data.shortrun - 6.6) / 0.1)) * 5
         }
         else
@@ -902,4 +902,5 @@ Page({
 
     this.calculate();
   }
+
 })
