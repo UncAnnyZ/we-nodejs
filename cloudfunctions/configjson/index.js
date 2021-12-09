@@ -175,7 +175,7 @@ exports.main = async (event, context) => {
     data.index.iconList.push(
       {
         id: "13",
-        url: "more/punch/punch",
+        url: "emptyClass/emptyClass",
         icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/新闻动态.png",
         name: "打卡测试"
       }

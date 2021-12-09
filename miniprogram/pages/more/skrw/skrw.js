@@ -24,9 +24,11 @@ Page({
     for (let i = 0; i < skrw.length; i++) {
       let [year, month] = String(skrw[i].cjsj).split('-');
       let date = ''
-      if (Number(month) > 4) {
-        date = String(year) + '-' + String(Number(year) + 1) + '-' + 1
-      } else {
+      if ( (Number(month) >= 6 && Number(month) < 11)) {
+        date = String(Number(year)) + '-' + String(Number(year) + 1) + '-' + 1
+      } else if(Number(month) >= 11){
+        date = String(Number(year)) + '-' + String(Number(year)+1) + '-' + 2
+      } else{
         date = String(Number(year) - 1) + '-' + String(Number(year)) + '-' + 2
       }
       let a = true;
@@ -63,7 +65,7 @@ Page({
         }
         n = Number(skrw[i].xf) + n;
         skrw[i].xf = Number(skrw[i].xf).toFixed(1),
-        data.push(skrw[i]);
+          data.push(skrw[i]);
       }
 
     }
