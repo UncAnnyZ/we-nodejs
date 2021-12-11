@@ -117,7 +117,7 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   page{
     filter: unset !important;
   }
@@ -125,7 +125,7 @@
     background-color: rgb(45, 45, 45);
   }
   
-}
+} */
 
 
 /* 头部 */

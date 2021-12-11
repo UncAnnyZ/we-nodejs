@@ -58,7 +58,7 @@ exports.main = async (event, context) => {
     timeYear : "2021/8/30",
     time: "43200", // 秒
     reset: false,
-    msgData: "第一次We系列正式招新，各路师弟师妹可以来用呀，未来We广油，We校园，新的商业模式",
+    msgData: "空闲教室启动啦，需要的同学可以试一下哟",
     more: [{
       url: '/pages/recommend/recommend?appId=wx669135f6ab750be9',
       name: '广油学生公寓中心',
@@ -110,7 +110,13 @@ exports.main = async (event, context) => {
         // tt: "examination",
         icon: "../../images/icon/1.png",
         name: "上课任务"
-      }, {
+      }
+      ,       {
+        id: "13",
+        url: "emptyClass/emptyClass",
+        icon: "../../images/icon/教室.png",
+        name: "空闲教室"
+      },{
         id: "8",
         url: "recommend/recommend?appId=wx0dffe79bb2223828",
         icon: "../../images/icon/examination.png",
@@ -177,7 +183,7 @@ exports.main = async (event, context) => {
         id: "13",
         url: "emptyClass/emptyClass",
         icon: "cloud://un1-d62c68.756e-un1-d62c68-1258307938/新闻动态.png",
-        name: "打卡测试"
+        name: "空教室"
       }
     )
   }

@@ -23,7 +23,7 @@ page {
   margin-left: 20rpx;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 
   .head,
   .head-padding,
@@ -31,4 +31,4 @@ page {
     filter: invert(90%) !important;
   }
   
-}
+} */

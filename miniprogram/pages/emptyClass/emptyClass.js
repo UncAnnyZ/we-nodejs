@@ -269,6 +269,12 @@ Page({
       Totalnumber: kc.length
     })
   },
+  block_show: function (){
+    console.log(233)
+    this.setData({
+      block_show: false,
+    })
+  },
   show: function (){
     console.log(233)
     this.setData({

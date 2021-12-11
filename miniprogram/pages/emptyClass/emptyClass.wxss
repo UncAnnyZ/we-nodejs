@@ -265,3 +265,13 @@ page{
     color: rgb(25, 25, 25) ; 
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .add_weekBtn label{
+    filter: invert(80%) !important;
+  }
+  .add_background {
+    filter: invert(90%) !important;
+  }
+
+}
